@@ -1,0 +1,488 @@
+{
+  "excavator-coal-bench-fleet": {
+    "slug": "excavator-coal-bench-fleet",
+    "title": "Primary loading fleet on an active coal bench",
+    "alt": "Two large tracked excavators positioned on a coal bench at an open-cast mine under heavy cloud",
+    "tags": [
+      "earthmoving",
+      "mining",
+      "plant"
+    ],
+    "src": "/media/excavator-coal-bench-fleet-1600.webp",
+    "widths": [
+      640,
+      1080,
+      1600
+    ],
+    "width": 1600,
+    "height": 1200,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAABwAwCdASoUAA8APu1krU6ppaSiMAgBMB2JZQAAG4cu46dU2wAA/PRTJ6Hu5yqU83FLEwoG6P6vVkk56tVg+tmGeOQOICYIXodOuob5MAA="
+  },
+  "liebherr-excavator-standby": {
+    "slug": "liebherr-excavator-standby",
+    "title": "Liebherr R976 on standby between cuts",
+    "alt": "A Liebherr R976 tracked excavator parked beside a service vehicle on a haul road",
+    "tags": [
+      "earthmoving",
+      "plant",
+      "fleet"
+    ],
+    "src": "/media/liebherr-excavator-standby-1600.webp",
+    "widths": [
+      640,
+      1080,
+      1600
+    ],
+    "width": 1600,
+    "height": 1200,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAwCdASoUAA8APu1kqk2ppaQiMAgBMB2JZQCdABuECee4GeQpN4AA/l26Xm6DAKGjCjVC4pBkR42qTzYPkVj/FaKEYAAA"
+  },
+  "dozer-lowbed-loadout-pit": {
+    "slug": "dozer-lowbed-loadout-pit",
+    "title": "Dozer load-out from an open pit",
+    "alt": "A Caterpillar dozer secured on a lowbed trailer with the terraced walls of an open pit behind it",
+    "tags": [
+      "logistics",
+      "mining",
+      "plant"
+    ],
+    "src": "/media/dozer-lowbed-loadout-pit-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1536,
+    "height": 1024,
+    "aspect": 1.5,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JYgCdMoADQoXNXpS+wADLDmvQk45cu/dMKfQg+k2VrCzi3jufKpqUXJ02Fv7pEfmAAA=="
+  },
+  "excavator-adt-loading-coal": {
+    "slug": "excavator-adt-loading-coal",
+    "title": "Excavator loading articulated dump trucks",
+    "alt": "An excavator loading an articulated dump truck against a black coal highwall",
+    "tags": [
+      "earthmoving",
+      "mining"
+    ],
+    "src": "/media/excavator-adt-loading-coal-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 591,
+    "aspect": 2.1658,
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAwCdASoUAAkAPu1oqk6ppiQiMAgBMB2JYwC7ABLNWeOvMoAAAHmWvCJvYqyKzY4jSjW+FHuOr3hSf34VAAAA"
+  },
+  "adt-lowbed-transport-dusk": {
+    "slug": "adt-lowbed-transport-dusk",
+    "title": "Articulated dump truck in transit",
+    "alt": "A Bell articulated dump truck loaded onto a lowbed trailer at golden hour",
+    "tags": [
+      "logistics",
+      "plant"
+    ],
+    "src": "/media/adt-lowbed-transport-dusk-540.webp",
+    "widths": [
+      540
+    ],
+    "width": 540,
+    "height": 407,
+    "aspect": 1.3268,
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JQBOgBDbjVG71VLr70AD+6++lm1MA+AODHzjvinUFy05H7lvrTTjMcY4Q4anZHOjFy0rj3S9j0y4A"
+  },
+  "adt-lowbed-quarry-delivery": {
+    "slug": "adt-lowbed-quarry-delivery",
+    "title": "Plant delivery into a working quarry",
+    "alt": "A Bell B40D articulated dump truck being delivered by lowbed into a rock quarry",
+    "tags": [
+      "logistics",
+      "plant",
+      "quarry"
+    ],
+    "src": "/media/adt-lowbed-quarry-delivery-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1536,
+    "height": 1024,
+    "aspect": 1.5,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwBACdASoUAA0APu1iqk2ppaQiMAgBMB2JQBOmUGXZigASLNlMNthrUsAA/lLJaMHiYIJSuM3AAOKeAfnwRhQ/vYswnG/CKo0FHinoAAA="
+  },
+  "diesel-engine-workshop-strip": {
+    "slug": "diesel-engine-workshop-strip",
+    "title": "Heavy diesel engine received for overhaul",
+    "alt": "A large Caterpillar diesel engine on a workshop stand awaiting strip-down",
+    "tags": [
+      "mechanical",
+      "workshop",
+      "engines"
+    ],
+    "src": "/media/diesel-engine-workshop-strip-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1536,
+    "height": 1024,
+    "aspect": 1.5,
+    "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABQAwCdASoUAA0APu1iqU2ppaQiMAgBMB2JZQC7AApskoLNmAD+uagSwUUZxPqkxbs0FNDKO9RedBRuPvoRhq2H4w38Od/AAAA="
+  },
+  "dozer-d10t-refurbished": {
+    "slug": "dozer-d10t-refurbished",
+    "title": "Track-type tractor returned to service",
+    "alt": "A freshly refurbished Caterpillar D10T dozer standing on rock at a mine site",
+    "tags": [
+      "plant",
+      "mechanical",
+      "fleet"
+    ],
+    "src": "/media/dozer-d10t-refurbished-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1536,
+    "height": 1024,
+    "aspect": 1.5,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoUAA0APu1kqk4ppaQiMAgBMB2JZgCdMoADTGq2z/QKHoAA/lswXwj6oOEATYCjXEt+S+tte6TaP+TKZSNu6Ti3LgNj91em+VMAAA=="
+  },
+  "dozer-lowbed-haul-road": {
+    "slug": "dozer-lowbed-haul-road",
+    "title": "Dozer mobilisation to site",
+    "alt": "A Caterpillar dozer chained to a red lowbed trailer on a mine haul road under a wide sky",
+    "tags": [
+      "logistics",
+      "plant",
+      "mining"
+    ],
+    "src": "/media/dozer-lowbed-haul-road-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 1024,
+    "height": 1536,
+    "aspect": 0.6667,
+    "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBQCdASoUAB4APu1wsFIppiSiqAgBMB2JYwC7ABC6sKWghmMl9TUtH6wT92kLbRbgAM4h6iwU9VuzD/lHMW3UMiVMRfG9OzWXMUisip/PzRYWCX4RoCr0mjvlLH2iGpJsR2ROHyOi5nHR6u814p21oh/sY+cMh3D7AAAA"
+  },
+  "leikah-response-vehicle": {
+    "slug": "leikah-response-vehicle",
+    "title": "Leikah rapid-response service vehicle",
+    "alt": "A Leikah-liveried Toyota Hilux service bakkie in gold and black branding",
+    "tags": [
+      "brand",
+      "fleet",
+      "field-service"
+    ],
+    "src": "/media/leikah-response-vehicle-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1536,
+    "height": 1024,
+    "aspect": 1.5,
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JZQCdAB2TJ5dcq4qTwAD+6OyQEbTUVDjkK47CoLGmmDvnCUeUgY6Y9eQuZ9gA"
+  },
+  "fabrication-team-bowser": {
+    "slug": "fabrication-team-bowser",
+    "title": "Fabrication team assembling a diesel bowser",
+    "alt": "Five technicians in high-visibility workwear and hard hats welding a steel diesel bowser in a workshop",
+    "tags": [
+      "workshop",
+      "fabrication",
+      "team",
+      "safety"
+    ],
+    "src": "/media/fabrication-team-bowser-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1536,
+    "height": 1024,
+    "aspect": 1.5,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAwCdASoUAA0APu1iqU2ppaQiMAgBMB2JQBAAARXDQ1wBOv/9CwAA/uw/Dv+VrJUR88X7TI97VoJ75dlcTQWl8fSMOqDteJcxgq77lFY6JOQAAAA="
+  },
+  "pit-dewatering-pump-set": {
+    "slug": "pit-dewatering-pump-set",
+    "title": "Pit dewatering pump set in operation",
+    "alt": "A tractor-driven dewatering pump running lay-flat hose beside a flooded pit",
+    "tags": [
+      "site-services",
+      "mining"
+    ],
+    "src": "/media/pit-dewatering-pump-set-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 945,
+    "height": 441,
+    "aspect": 2.1429,
+    "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACQAwCdASoUAAkAPu1mqk2ppaQiMAgBMB2JZQCdACHIJzH8shAAAP7F/C+7s9t6T0n+/HRP9cj2QDmxHqf0RW8QuvlQAA=="
+  },
+  "hydraulic-valve-bank-inspection": {
+    "slug": "hydraulic-valve-bank-inspection",
+    "title": "Valve bank inspection during a hydraulic fault-find",
+    "alt": "Close inspection of hydraulic hoses and a valve bank contaminated with dust and oil",
+    "tags": [
+      "hydraulics",
+      "diagnostics",
+      "mechanical"
+    ],
+    "src": "/media/hydraulic-valve-bank-inspection-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 945,
+    "height": 1242,
+    "aspect": 0.7609,
+    "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQBACdASoUABoAPuVeqE2pJSQiMAwBIByJZQDE2A9VqyLSB31DIz0Ps/Y2H288gAD+fhXoXp1DU9Wd97THPD+6ScF8yr3iNBpWHn1RvfQfqcg8ixhXOW6lgwRIdh4EWjzovZL1kT9zWNqR+Te5sfLSFGoKpogAAAA="
+  },
+  "hydraulic-hose-replacement": {
+    "slug": "hydraulic-hose-replacement",
+    "title": "Replacement hose crimped and fitted on site",
+    "alt": "A newly crimped hydraulic hose fitted to an elbow union on yellow plant machinery",
+    "tags": [
+      "hydraulics",
+      "field-service",
+      "mechanical"
+    ],
+    "src": "/media/hydraulic-hose-replacement-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 945,
+    "height": 1239,
+    "aspect": 0.7627,
+    "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABQBQCdASoUABoAPu1qsFCppiSiqAqpMB2JQBbfW6/qDLijSW2MQCoTdzNp93ahwEQiWAAA/vOsYoGm+lX4+oTcr4Zlr1KwXAWg4huhG/3CWt7yHKF/k83gsxbxTu9SPZE88TT7/CWjF2umDzkoon56lROuwg9v08t7Y3nnEtH+NodLSnA3/k14AAA="
+  },
+  "final-drive-rebuild-complete": {
+    "slug": "final-drive-rebuild-complete",
+    "title": "Final drive assembly rebuilt and repainted",
+    "alt": "A rebuilt final drive assembly painted yellow, lifted on slings outside the workshop",
+    "tags": [
+      "mechanical",
+      "powertrain",
+      "workshop"
+    ],
+    "src": "/media/final-drive-rebuild-complete-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1080,
+    "height": 1433,
+    "aspect": 0.7537,
+    "blurDataURL": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBQCdASoUABsAPu1wr1IppiQiqAgBMB2JbACxJUAAP7IPrO6EYXjmH5eIWPeagoYAAP7EyOtUVf2tCdCAuMfL6PldYUTRL966zxo0PQG/d+oPnZwJyeoPctbrNRkMFQU83gE5DsV23BngnPpSP8G5SOF/URvNdKAhm/hKiMoAAA=="
+  },
+  "transmission-housing-overhaul": {
+    "slug": "transmission-housing-overhaul",
+    "title": "Transmission housing stripped for overhaul",
+    "alt": "A large yellow transmission housing on a pallet with the input hub exposed",
+    "tags": [
+      "mechanical",
+      "powertrain",
+      "workshop"
+    ],
+    "src": "/media/transmission-housing-overhaul-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1080,
+    "height": 1426,
+    "aspect": 0.7574,
+    "blurDataURL": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAwBQCdASoUABoAPulep02pJSOiN/VYASAdCWgAnTMhgXo4zmHChDT7Qunc1lsaTZutwAD9oV7V4zFAKfyxH2+vZJJ/DJevXCZ/HZypudMHRudDNINUWpF4oLuOvkNuzyyXLWqSri99wyUZuwDml9aI2TFBC8MJOUVtDiE8JSf0taZ2powmXSyIqAAAAA=="
+  },
+  "adt-transmission-assembly": {
+    "slug": "adt-transmission-assembly",
+    "title": "Articulated hauler transmission ready for fitment",
+    "alt": "A rebuilt Bell transmission assembly with a new filter fitted, standing on a pallet",
+    "tags": [
+      "mechanical",
+      "powertrain",
+      "workshop"
+    ],
+    "src": "/media/adt-transmission-assembly-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1080,
+    "height": 1441,
+    "aspect": 0.7495,
+    "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAwBQCdASoUABsAPu1orU+ppaQiMBgIATAdiWwAnQAQP+fO3ZYEWaT7h9z/eIFwgv5IAAD+3a+h+OOtopMSMYLelw0QqKB/pB3+W0oRix4Hy1Xk7SUqMQiZk/JnyjVqJDsiX2W3L3YSNP2XP3b2IHTcRLVaQH0yb6SoXR+0JqNaiJ7YOBaymAAA"
+  },
+  "engine-block-machined": {
+    "slug": "engine-block-machined",
+    "title": "Cylinder block cleaned and measured",
+    "alt": "A six-cylinder engine block stripped, cleaned and laid out for measurement",
+    "tags": [
+      "engines",
+      "workshop",
+      "mechanical"
+    ],
+    "src": "/media/engine-block-machined-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1080,
+    "height": 504,
+    "aspect": 2.1429,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAwCdASoUAAkAPu1kqU2ppaQiMAgBMB2JaAC7MoADR5It+BpPiHXgAP7cz3soXLzHedkez1JlNkr/mYAo/HXuxk96zvuK5HsC23Vms3+Eq37AAAA="
+  },
+  "parts-dispatch-pallet": {
+    "slug": "parts-dispatch-pallet",
+    "title": "Consumables palletised for site dispatch",
+    "alt": "A shrink-wrapped pallet of parts lifted by forklift ready for dispatch to site",
+    "tags": [
+      "supply",
+      "logistics"
+    ],
+    "src": "/media/parts-dispatch-pallet-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1080,
+    "height": 818,
+    "aspect": 1.3203,
+    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwBACdASoUAA8APu1iqk2ppaQiMAgBMB2JYwCdACLA4nsUeTgkenyW/AAA/IFUcrUo2/6d3WOvO/0oUlLn1P1yAjo9YrR0RNRZ7iLZg6oWNR0+jmKotoAAAAA="
+  },
+  "timing-gear-train-assembly": {
+    "slug": "timing-gear-train-assembly",
+    "title": "Gear train set and timed",
+    "alt": "The timing gear train of a heavy diesel engine, cleaned and assembled to specification",
+    "tags": [
+      "engines",
+      "workshop",
+      "mechanical"
+    ],
+    "src": "/media/timing-gear-train-assembly-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 770,
+    "height": 1280,
+    "aspect": 0.6016,
+    "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACQBQCdASoUACEAPuFipE2opiOiNVv4ARAcCWUAx2wWSZDloYRKucDCrKg01xOS2+bSu3/9AAD+zYyKASvauEytJ7jmERsq2jgt5NPX0ll9NFBZHjhVNpShvQCkHpClEV4iLLprPWCiqriB+HyEx5tflJQtN6XvND6ntcAA"
+  },
+  "water-bowser-dust-suppression": {
+    "slug": "water-bowser-dust-suppression",
+    "title": "Water bowser on dust suppression duty",
+    "alt": "An articulated water bowser truck parked beside a service vehicle on a haul road",
+    "tags": [
+      "site-services",
+      "plant",
+      "fleet"
+    ],
+    "src": "/media/water-bowser-dust-suppression-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 945,
+    "height": 703,
+    "aspect": 1.3442,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAwCdASoUAA8APu1kqU2ppaQiMAgBMB2JQBOkCYhMNuDX9af9ZeAA/pAy6WZhFK8Z5203sXkorkrY+9CwBwEGKYj9VdnE0Tg1NNEGdU2tT1dK06+zQAAA"
+  },
+  "powertrain-assembly-bench": {
+    "slug": "powertrain-assembly-bench",
+    "title": "Engine and gearbox married on the bench",
+    "alt": "A heavy truck engine and gearbox assembly on a workshop stand with fuel lines fitted",
+    "tags": [
+      "engines",
+      "powertrain",
+      "workshop"
+    ],
+    "src": "/media/powertrain-assembly-bench-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1080,
+    "height": 816,
+    "aspect": 1.3235,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAwCdASoUAA8APu1kqk2ppaQiMAgBMB2JZQC7AB4OwgIoEkvI2OtCAPNnGZ3hg3Nokw5aYUYaGfBNDIW78vlAoBLPAGwAwcxgAA=="
+  },
+  "reconditioned-block-lifted": {
+    "slug": "reconditioned-block-lifted",
+    "title": "Reconditioned block lifted for assembly",
+    "alt": "A reconditioned six-cylinder engine block suspended on lifting slings inside the workshop",
+    "tags": [
+      "engines",
+      "workshop"
+    ],
+    "src": "/media/reconditioned-block-lifted-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1080,
+    "height": 825,
+    "aspect": 1.3091,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQBACdASoUAA8APu1orU6ppiSiMAgBMB2JZQCdAB3gEtSYWXxJnrBhAAD+zFQB93sJhjwhQ1phi+Cgi4vTdnsos/ZGAO949JR8wdHfCjMdSGDQAAA="
+  },
+  "engine-flywheel-housing": {
+    "slug": "engine-flywheel-housing",
+    "title": "Long block built to OEM specification",
+    "alt": "A rebuilt long block engine with flywheel housing fitted, suspended in the workshop bay",
+    "tags": [
+      "engines",
+      "workshop",
+      "mechanical"
+    ],
+    "src": "/media/engine-flywheel-housing-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1080,
+    "height": 1421,
+    "aspect": 0.76,
+    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABQBQCdASoUABoAPu1oq04ppiQiMAgBMB2JQBftbObziRbZN/g9f62pw95Mj2F1qnqQc4AA/r6Hu0Z5RPGuzr8LdO7u7ZbIwzerSHCh9DfhuddClgPIidZ6ZsjEnJKcFD8sjAdmEFRnssFloIoYYbSWmFIzP4kSM9xoAA=="
+  },
+  "dozer-d9t-dusk": {
+    "slug": "dozer-d9t-dusk",
+    "title": "D9T holding the line at last light",
+    "alt": "A Caterpillar D9T dozer silhouetted against a golden dusk sky on a mine site",
+    "tags": [
+      "plant",
+      "earthmoving",
+      "hero"
+    ],
+    "src": "/media/dozer-d9t-dusk-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1080,
+    "height": 828,
+    "aspect": 1.3043,
+    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQBACdASoUAA8APu1iqU2ppaOiMAgBMB2JYwCsACHXHfRSPEMcl44+AAD+kEJt3/rwINVrV4ZXe6utpCKmtpOpl35fFF/kVP7xcz5nU6Fx+uSi0RGxZNAAAAA="
+  },
+  "field-service-excavator-repair": {
+    "slug": "field-service-excavator-repair",
+    "title": "Field service crew on a mining excavator",
+    "alt": "A mobile field service team repairing a large Komatsu mining excavator on a coal stockpile under clear sky",
+    "tags": [
+      "field-service",
+      "mechanical",
+      "mining",
+      "hero"
+    ],
+    "src": "/media/field-service-excavator-repair-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1080,
+    "height": 509,
+    "aspect": 2.1218,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoUAAkAPu1iqU2ppaOiMAgBMB2JaACdABpCKdfEInmIAPevyiOnrpcPnB2HCtQgMmGXmw+9A0fLAyiiWEnii2WQuZXFf0dPvwAAAA=="
+  }
+}

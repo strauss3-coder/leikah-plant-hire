@@ -1,26 +1,384 @@
 @import "tailwindcss";
 
+/* ============================================================================
+   LEIKAH PLANT HIRE — DESIGN SYSTEM
+   Industrial gold on charcoal. Derived from the fleet livery.
+   ========================================================================= */
+
+@theme {
+  /* --- Ink: the structural dark range ------------------------------------ */
+  --color-ink-950: #07090c;
+  --color-ink-900: #0b0e13;
+  --color-ink-850: #101419;
+  --color-ink-800: #151a21;
+  --color-ink-700: #1c222b;
+  --color-ink-600: #262d38;
+  --color-ink-500: #333b48;
+
+  /* --- Steel: text and borders on dark -----------------------------------
+     steel-500 is the smallest text on the site (eyebrows, notes, meta) and is
+     tuned to clear WCAG AA 4.5:1 against every ink ground, down to ink-800.
+     steel-600 is a hairline colour only — never put text on it. */
+  --color-steel-600: #454c56;
+  --color-steel-500: #79828f;
+  --color-steel-400: #7d8794;
+  --color-steel-300: #9aa3b0;
+  --color-steel-200: #c2c8d0;
+  --color-steel-100: #e2e5e9;
+
+  /* --- Paper: the light range for dense editorial ------------------------ */
+  --color-paper-50: #ffffff;
+  --color-paper-100: #f7f8f9;
+  --color-paper-200: #eceef1;
+  --color-paper-300: #dde0e5;
+
+  /* --- Gold: the brand accent -------------------------------------------- */
+  --color-gold-100: #fff2cd;
+  --color-gold-300: #ffd772;
+  --color-gold-400: #f7c440;
+  --color-gold-500: #eda91b;
+  --color-gold-600: #c9860c;
+  --color-gold-700: #9a660a;
+
+  /* --- Signal: safety + status ------------------------------------------- */
+  --color-signal-safety: #ffe03d;
+  --color-signal-blue: #4f8fd0;
+  --color-signal-green: #3fae7a;
+  --color-signal-red: #e2564a;
+
+  /* --- Type ranges -------------------------------------------------------- */
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-tech), ui-monospace, "SF Mono", monospace;
+
+  /* Fluid display scale — clamps against the 380→1440 viewport band. */
+  --text-display-1: clamp(2.5rem, 1.1rem + 5vw, 5.25rem);
+  --text-display-1--line-height: 0.96;
+  --text-display-2: clamp(2rem, 1.1rem + 3.6vw, 3.75rem);
+  --text-display-2--line-height: 1;
+  --text-display-3: clamp(1.7rem, 1.15rem + 2.2vw, 2.75rem);
+  --text-display-3--line-height: 1.06;
+  --text-display-4: clamp(1.45rem, 1.1rem + 1.6vw, 2.2rem);
+  --text-display-4--line-height: 1.14;
+
+  /* --- Motion ------------------------------------------------------------- */
+  --ease-industrial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-mechanical: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* --- Layout ------------------------------------------------------------- */
+  --spacing-gutter: clamp(1.25rem, 4vw, 4rem);
+  --breakpoint-3xl: 100rem;
+}
+
+/* ============================================================================
+   BASE
+   ========================================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --header-h: 5rem;
+  --shell: 84rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 1024px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --header-h: 6rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    min-width: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    overflow-x: clip;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-ink-950);
+    color: var(--color-steel-200);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-gold-400);
+    color: var(--color-ink-950);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+    text-wrap: balance;
+    color: var(--color-paper-50);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Focus that survives both grounds. */
+  :focus-visible {
+    outline: 2px solid var(--color-gold-400);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+/* ============================================================================
+   COMPOSABLE UTILITIES
+   ========================================================================= */
+
+@utility shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+
+@utility shell-wide {
+  width: 100%;
+  max-width: 108rem;
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+
+/* Section rhythm — one control point for vertical cadence sitewide. */
+@utility section {
+  padding-block: clamp(4.5rem, 9vw, 9rem);
+}
+
+@utility section-tight {
+  padding-block: clamp(3rem, 6vw, 6rem);
+}
+
+/* The technical label that runs above headings. */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Hairline that reads as a machined edge rather than a CSS border. */
+@utility hairline {
+  border-color: color-mix(in oklab, var(--color-steel-600) 40%, transparent);
+}
+
+@utility hairline-light {
+  border-color: color-mix(in oklab, var(--color-ink-900) 12%, transparent);
+}
+
+/* Glass, used only over photography where there is something to refract. */
+@utility glass {
+  background: color-mix(in oklab, var(--color-ink-900) 62%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid color-mix(in oklab, var(--color-steel-100) 12%, transparent);
+}
+
+/* Brushed-metal wash for plates and stat panels. */
+@utility brushed {
+  background-image:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-steel-100) 5%, transparent),
+      transparent 55%
+    ),
+    repeating-linear-gradient(
+      92deg,
+      rgba(255, 255, 255, 0.022) 0px,
+      rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+/* Surveyor's grid. Sits behind hero and CTA bands. */
+@utility gridlines {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--color-steel-600) 20%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-steel-600) 20%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 72px 72px;
+}
+
+/* Chamfered plate — the recurring industrial silhouette. */
+@utility chamfer {
+  clip-path: polygon(
+    var(--chamfer, 14px) 0,
+    100% 0,
+    100% calc(100% - var(--chamfer, 14px)),
+    calc(100% - var(--chamfer, 14px)) 100%,
+    0 100%,
+    0 var(--chamfer, 14px)
+  );
+}
+
+@utility chamfer-sm {
+  clip-path: polygon(
+    8px 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0 100%,
+    0 8px
+  );
+}
+
+/* Gold text treatment for figures and stat readouts. */
+@utility text-gold-gradient {
+  background: linear-gradient(
+    150deg,
+    var(--color-gold-300) 0%,
+    var(--color-gold-500) 48%,
+    var(--color-gold-300) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Long-form editorial body copy. */
+@utility prose-industrial {
+  & p {
+    margin-block: 1.15em;
+    line-height: 1.72;
+  }
+  & h2 {
+    font-size: var(--text-display-4);
+    margin-block: 2em 0.7em;
+  }
+  & h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-block: 1.9em 0.5em;
+  }
+  & ul {
+    margin-block: 1.15em;
+    display: grid;
+    gap: 0.6rem;
+  }
+  & li {
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.65;
+  }
+  & li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 0.5rem;
+    height: 2px;
+    background: var(--color-gold-500);
+  }
+  & strong {
+    color: var(--color-paper-50);
+    font-weight: 600;
+  }
+  & a {
+    color: var(--color-gold-400);
+    text-underline-offset: 3px;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+}
+
+/* ============================================================================
+   KEYFRAMES
+   ========================================================================= */
+
+@keyframes leikah-sweep {
+  0% {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(320%) skewX(-18deg);
+  }
+}
+
+@keyframes leikah-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) rotate(1.4deg);
+  }
+}
+
+@keyframes leikah-scan {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes leikah-pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.65;
+  }
+  70%,
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+@keyframes leikah-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
