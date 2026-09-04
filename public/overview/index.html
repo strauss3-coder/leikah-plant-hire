@@ -192,7 +192,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 /* Drawing title block — the real convention from the client's trade. */
 .titleblock {
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(150px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));
   border-top:1px solid rgba(255,255,255,.16);
   border-left:1px solid rgba(255,255,255,.16);
 }
@@ -229,7 +229,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 .index-head h2 { font-size:1.3rem; font-weight:600; }
 .index-rule { flex:1; height:1px; background:var(--rule); min-width:40px; }
 
-.index-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:0 clamp(1.5rem,4vw,3.5rem); }
+.index-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(310px,100%),1fr)); gap:0 clamp(1.5rem,4vw,3.5rem); }
 .index-row {
   display:grid; grid-template-columns:2.9rem 1fr;
   gap:1rem; align-items:baseline;
@@ -303,7 +303,7 @@ h3.block-title {
 }
 
 /* Hairline spec table — borrowed from the site's spec strip. */
-.spec { display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); border-top:1px solid var(--rule); }
+.spec { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(215px,100%),1fr)); border-top:1px solid var(--rule); }
 .spec-cell { padding:1rem 1.15rem 1.1rem 0; border-bottom:1px solid var(--rule-soft); display:flex; flex-direction:column; gap:.35rem; }
 .spec-k { font-family:"JetBrains Mono",monospace; font-size:.625rem; letter-spacing:.19em; text-transform:uppercase; color:var(--text-mute); }
 .spec-v { font-size:.9rem; color:var(--text); line-height:1.5; }
@@ -338,7 +338,7 @@ h3.block-title {
 }
 
 /* Numbered sequences — used only where the content genuinely is a sequence. */
-.steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:0; border-top:1px solid var(--rule); }
+.steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr)); gap:0; border-top:1px solid var(--rule); }
 .step { padding:1.1rem 1.15rem 1.25rem 0; border-bottom:1px solid var(--rule-soft); display:flex; flex-direction:column; gap:.45rem; }
 .step-n { font-family:"JetBrains Mono",monospace; font-size:.68rem; font-weight:700; color:var(--accent); letter-spacing:.12em; }
 .step-t { font-family:Archivo,sans-serif; font-weight:600; font-size:.975rem; color:var(--text); }
@@ -411,7 +411,7 @@ tfoot td { border-bottom:none; border-top:2px solid var(--text); font-weight:600
 .closing p { color:var(--steel-300); max-width:58ch; line-height:1.65; }
 .closing .eyebrow { color:var(--gold); }
 
-.signoff { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); border-top:1px solid rgba(255,255,255,.16); margin-top:1rem; }
+.signoff { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr)); border-top:1px solid rgba(255,255,255,.16); margin-top:1rem; }
 .signoff .tb-cell { border-right:1px solid rgba(255,255,255,.16); border-bottom:none; border-left:0; padding-left:0; }
 .signoff .tb-cell:first-child { padding-left:0; }
 .signoff .tb-cell:last-child { border-right:none; }
@@ -419,6 +419,32 @@ tfoot td { border-bottom:none; border-top:2px solid var(--text); font-weight:600
 /* ===========================================================================
    PRINT — this document exists to become a PDF.
    ======================================================================== */
+
+/* ===========================================================================
+   NARROW SCREENS
+   Flex children default to min-width:auto, so a table's scroll container would
+   otherwise push the whole page wide instead of scrolling inside itself.
+   ======================================================================== */
+
+/* Every link in the flex chain must be allowed to shrink, or the table's
+   min-width propagates outward and widens the whole page instead of
+   scrolling inside its own container. */
+.sheet-content > *, .sheet-body, .sheet-body > *,
+.table-block, .table-block > *, .table-wrap { min-width:0; max-width:100%; }
+.sheet-body { width:100%; }
+.mono { overflow-wrap:anywhere; }
+
+@media (max-width: 760px) {
+  .page-entry { grid-template-columns:1fr; gap:.85rem; padding:1.5rem 0; }
+  .page-id { position:static; gap:.3rem; }
+  .page-body { max-width:none; }
+  .row { grid-template-columns:1fr; gap:.25rem; padding:.95rem 0; }
+  .band-inner { gap:1rem; align-items:flex-start; }
+  .band-num { font-size:2.75rem; padding-top:.15rem; }
+  .lockup { flex-wrap:wrap; gap:1rem; }
+  .index-list { gap:0; }
+  .spec-cell, .step { padding-right:0; }
+}
 
 @page { margin:14mm 12mm; }
 
@@ -464,7 +490,7 @@ img { max-width:100%; }
 [hidden] { display:none !important; }
 
 .printbar {
-  position:fixed; top:1rem; right:1rem; z-index:50;
+  position:fixed; bottom:1.25rem; right:1.25rem; z-index:50;
   display:flex; gap:.5rem;
 }
 .printbtn {
