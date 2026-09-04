@@ -1,4 +1,6 @@
-import type { SVGProps } from "react";
+"use client";
+
+import { useId, type SVGProps } from "react";
 import { cn } from "@/lib/utils";
 
 /* ============================================================================
@@ -14,6 +16,14 @@ import { cn } from "@/lib/utils";
    identical everywhere it appears — browser, favicon, print, vehicle vinyl.
    Every glyph in LEIKAH is straight-sided, which is why the name takes an
    angular treatment so naturally.
+
+   Gradient ids come from `useId()` rather than being hardcoded. Two marks on
+   one page sharing an id means every `url(#id)` resolves to whichever appears
+   first in the document — and if that one happens to be `display:none` (the
+   header carries a mobile-only mark) the browser drops it from the render tree
+   and the fill paints nothing at all. That is a silent, layout-preserving
+   failure, which is why this component is a client component: `useId` is what
+   keeps the server and client markup identical.
    ========================================================================= */
 
 /** Plate outline. Chamfered on the top-left / bottom-right diagonal. */
@@ -55,6 +65,13 @@ function layout(word: string) {
 
 const WORD = layout("LEIKAH");
 
+/**
+ * The positioned glyphs and the total advance width, exported so an animated
+ * treatment can stagger the letters individually. Drawing them from the same
+ * source as the static wordmark is what keeps the two identical.
+ */
+export const WORDMARK = WORD;
+
 type Tone = "gold" | "light" | "dark" | "mono" | "steel";
 
 const TONES: Record<Tone, { plate: string; cut: string; word: string; sub: string }> = {
@@ -62,7 +79,7 @@ const TONES: Record<Tone, { plate: string; cut: string; word: string; sub: strin
   light: { plate: "#ffffff", cut: "#07090c", word: "#ffffff", sub: "#9aa3b0" },
   dark: { plate: "#0b0e13", cut: "#ffffff", word: "#0b0e13", sub: "#5f6875" },
   mono: { plate: "currentColor", cut: "transparent", word: "currentColor", sub: "currentColor" },
-  steel: { plate: "url(#leikah-steel)", cut: "#07090c", word: "url(#leikah-steel)", sub: "#9aa3b0" },
+  steel: { plate: "currentColor", cut: "#07090c", word: "currentColor", sub: "#9aa3b0" },
 };
 
 /* --------------------------------------------------------------------------
@@ -71,11 +88,11 @@ const TONES: Record<Tone, { plate: string; cut: string; word: string; sub: strin
 
 export function LeikahMark({
   tone = "gold",
-  gradientId = "leikah-gold",
   className,
   ...props
-}: SVGProps<SVGSVGElement> & { tone?: Tone; gradientId?: string }) {
+}: SVGProps<SVGSVGElement> & { tone?: Tone }) {
   const t = TONES[tone];
+  const gradientId = `leikah-mark-${useId()}`;
   const plate = tone === "gold" ? `url(#${gradientId})` : t.plate;
 
   return (
@@ -105,6 +122,8 @@ export function LeikahWordmark({
   ...props
 }: SVGProps<SVGSVGElement> & { tone?: Tone }) {
   const t = TONES[tone];
+  const steelId = `leikah-steel-${useId()}`;
+  const word = tone === "steel" ? `url(#${steelId})` : t.word;
   return (
     <svg
       viewBox={`0 0 ${WORD.width} 100`}
@@ -116,7 +135,7 @@ export function LeikahWordmark({
         <defs>
           {/* Rolled-steel plate: bright at the top edge, shadowed through the
               middle, catching light again at the base. */}
-          <linearGradient id="leikah-steel" x1="0" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+          <linearGradient id={steelId} x1="0" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#ffffff" />
             <stop offset="38%" stopColor="#e2e5e9" />
             <stop offset="62%" stopColor="#9aa3b0" />
@@ -124,7 +143,7 @@ export function LeikahWordmark({
           </linearGradient>
         </defs>
       )}
-      <g fill={t.word}>
+      <g fill={word}>
         {WORD.glyphs.map((g, i) => (
           <path
             key={i}
@@ -156,6 +175,7 @@ export function LeikahLogo({
   title?: string;
 }) {
   const t = TONES[tone];
+  const gradientId = `leikah-lockup-${useId()}`;
   const wordScale = 0.5; // cap height 100 → 50 units
   const wordW = WORD.width * wordScale;
 
@@ -172,7 +192,7 @@ export function LeikahLogo({
     >
       <title>{title}</title>
       <defs>
-        <linearGradient id="leikah-lockup-gold" x1="8" y1="0" x2="92" y2="100" gradientUnits="userSpaceOnUse">
+        <linearGradient id={gradientId} x1="8" y1="0" x2="92" y2="100" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor="var(--color-gold-300)" />
           <stop offset="46%" stopColor="var(--color-gold-500)" />
           <stop offset="100%" stopColor="var(--color-gold-600)" />
@@ -181,7 +201,7 @@ export function LeikahLogo({
 
       <path
         d={`${PLATE} ${TERRACE_L}`}
-        fill={tone === "gold" ? "url(#leikah-lockup-gold)" : t.plate}
+        fill={tone === "gold" ? `url(#${gradientId})` : t.plate}
         fillRule="evenodd"
       />
 
@@ -228,6 +248,7 @@ export function LeikahLogoStacked({
   className?: string;
 }) {
   const t = TONES[tone];
+  const gradientId = `leikah-stack-${useId()}`;
   const wordScale = 0.42;
   const wordW = WORD.width * wordScale;
   const w = Math.max(wordW, 100);
@@ -236,7 +257,7 @@ export function LeikahLogoStacked({
     <svg viewBox={`0 0 ${w} 190`} className={cn("block", className)} role="img" aria-label="Leikah Plant Hire">
       <title>Leikah Plant Hire</title>
       <defs>
-        <linearGradient id="leikah-stack-gold" x1="8" y1="0" x2="92" y2="100" gradientUnits="userSpaceOnUse">
+        <linearGradient id={gradientId} x1="8" y1="0" x2="92" y2="100" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor="var(--color-gold-300)" />
           <stop offset="46%" stopColor="var(--color-gold-500)" />
           <stop offset="100%" stopColor="var(--color-gold-600)" />
@@ -246,7 +267,7 @@ export function LeikahLogoStacked({
       <g transform={`translate(${(w - 100) / 2} 0)`}>
         <path
           d={`${PLATE} ${TERRACE_L}`}
-          fill={tone === "gold" ? "url(#leikah-stack-gold)" : t.plate}
+          fill={tone === "gold" ? `url(#${gradientId})` : t.plate}
           fillRule="evenodd"
         />
       </g>

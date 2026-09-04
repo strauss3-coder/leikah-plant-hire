@@ -46,24 +46,26 @@ export const homeStats: Stat[] = [
 
 export const home: HomeContent = {
   hero: {
-    eyebrow: "Middelburg · Mpumalanga · 24-hour dispatch",
-    headline: "Plant, earthmoving and heavy mechanical support",
-    highlight: "heavy mechanical",
-    subhead:
-      "We move bulk material, build and hold haul roads, and rebuild the components that stop your fleet — from a yard inside the Middelburg heavy-engineering corridor, with breakdown response answered around the clock.",
-    primaryCta: { label: "Request a quotation", href: "/quote" },
-    secondaryCta: { label: "24-hour breakdown line", href: "/emergency" },
+    brandName: "Leikah Plant Hire",
+    descriptor: "PLANT HIRE",
+    tagline: "Heavy plant, earthmoving and mechanical support across the Mpumalanga coalfields.",
+    trustIndicators: [
+      "24-Hour Dispatch",
+      "Plant Hire",
+      "Earthmoving",
+      "Heavy Mechanical",
+      "Middelburg, Mpumalanga",
+    ],
+    partner: {
+      label: "In association with",
+      name: "ISM Supply and Maintenance",
+      logo: "/brand/partner-ism.png",
+    },
     media: [
       "excavator-coal-bench-fleet",
       "dozer-d9t-dusk",
+      "dozer-lowbed-haul-road",
       "field-service-excavator-repair",
-      "engine-flywheel-housing",
-    ],
-    assurances: [
-      "Wet and dry plant hire",
-      "Component rebuilds under warranty",
-      "Volumes reconciled to survey",
-      "Answered day or night",
     ],
   },
   trustLine: "Working across the Mpumalanga coalfields, quarries and industrial corridor",
@@ -117,6 +119,8 @@ export const home: HomeContent = {
   ],
   introEyebrow: "What we do",
   introHeadline: "Two divisions, one number to call",
+  introLead:
+    "We move bulk material, build and hold haul roads, and rebuild the components that stop your fleet — from a yard inside the Middelburg heavy-engineering corridor, with breakdown response answered around the clock.",
   introBody:
     "Most operations end up managing an earthmoving contractor and a mechanical contractor separately, and discovering at the worst moment that neither owns the problem. Leikah runs both under one roof.\n\nThe earthmoving side moves material and builds the roads that carry it. The mechanical side keeps the machines that do it — yours as well as ours — in production, with a workshop on July Street and mobile units that go out at any hour. The supply division sits behind both, because the yard is inside the corridor where the parts already are.",
   introImage: "leikah-response-vehicle",

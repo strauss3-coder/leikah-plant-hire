@@ -61,6 +61,48 @@ Seven elements, all derived from the terraced L in the logo:
 | **Brand watermark** — the mark, embossed | Stats band, mastheads, CTA, section grounds |
 | **Oversized wordmark** | The brand band, the fleet section, the footer sign-off |
 
+### The hero
+
+The hero is deliberately the quietest part of the design system, not the
+loudest. Its only job is the first five seconds.
+
+The name **is** the headline — a large mark, the LEIKAH wordmark assembled
+letter by letter, the descriptor under a hairline, one short tagline. There is
+no long heading, no body paragraph and no call to action, because each of those
+was competing with the photography and with the brand.
+
+Everything removed from it went somewhere useful: the descriptive paragraph now
+opens the section below (`introLead`), and quotation prompts appear naturally
+further down the page.
+
+Two supporting decisions:
+
+- The header **softens over the hero**. At the top of the homepage the corner
+  shows the mark alone, not the full lockup, and the quote button is an outline
+  rather than solid gold. Both revert on scroll. Repeating the wordmark in the
+  corner while a full-size one sits in the middle of the same viewport is the
+  same brand twice, and a solid gold button was the loudest thing in frame.
+- The overlay is much lighter than a text-heavy hero can afford — a 38% darken,
+  a soft radial behind the lockup for legibility, and a bottom ramp. The
+  machinery is legible edge to edge.
+
+### The ISM mark
+
+Introduced beneath the hero as an associated mark, quietly, under the label
+**"In association with"**.
+
+The source was a photograph of a brushed-metal badge on a dark speckled surface.
+Dropped in as-is it would have read as a photo of a sign, and its own black
+background would have sat as a visible rectangle over the hero. So
+`npm run brand:partner` lifts the letterforms out using luminance as an alpha
+channel: the metal becomes opaque, the ground becomes fully transparent. The
+result tints and scales like any other logo.
+
+**Confirm the wording before launch.** "In association with" states a
+relationship, and only the client knows the right one — division, sister
+company, former trading name, or partner. The label, name, logo path and link
+are all editable under Homepage → Hero partner.
+
 ### What changed, concretely
 
 **The name is now unmissable.** A full-width `LEIKAH` band sits directly under

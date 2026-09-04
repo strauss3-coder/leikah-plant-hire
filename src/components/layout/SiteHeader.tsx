@@ -111,9 +111,29 @@ export function SiteHeader({
         )}
       >
         <div className="shell-wide flex h-[var(--header-h)] items-center justify-between gap-6">
-          <Link href="/" className="flex items-center" aria-label="Leikah Plant Hire — home">
-            <LeikahLogo className="hidden h-9 w-auto text-paper-50 sm:block lg:h-10" />
-            <LeikahMark className="h-9 w-auto sm:hidden" />
+          {/* Over the homepage hero the corner shows the mark alone. The
+              wordmark is already set at full size in the middle of that
+              viewport, and repeating it in the corner is the same brand twice.
+              Scrolling past the hero expands it to the full lockup.
+              Both are always mounted and cross-faded, so the header never
+              reflows as it changes. */}
+          <Link
+            href="/"
+            aria-label="Leikah Plant Hire — home"
+            className="relative flex h-10 items-center"
+          >
+            <LeikahLogo
+              className={cn(
+                "hidden h-9 w-auto text-paper-50 transition-opacity duration-500 sm:block lg:h-10",
+                isHome && !scrolled && "opacity-0",
+              )}
+            />
+            <LeikahMark
+              className={cn(
+                "h-9 w-9 transition-opacity duration-500 sm:absolute sm:left-0",
+                isHome && !scrolled ? "sm:opacity-100" : "sm:opacity-0",
+              )}
+            />
           </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
@@ -226,7 +246,12 @@ export function SiteHeader({
 
             <Link
               href="/quote"
-              className="chamfer-sm hidden h-11 items-center bg-gold-500 px-5 text-sm font-semibold text-ink-950 transition-colors hover:bg-gold-400 sm:inline-flex"
+              className={cn(
+                "chamfer-sm hidden h-11 items-center px-5 text-sm transition-all duration-500 sm:inline-flex",
+                isHome && !scrolled
+                  ? "border border-steel-100/30 font-medium text-paper-50 hover:border-gold-500/70 hover:text-gold-400"
+                  : "bg-gold-500 font-semibold text-ink-950 hover:bg-gold-400",
+              )}
             >
               Request a quote
             </Link>

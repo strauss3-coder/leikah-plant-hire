@@ -67,7 +67,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <HomeHero hero={home.hero} business={business} />
+      <HomeHero hero={home.hero} />
 
       {/* --- The name, once, enormous ---------------------------------------- */}
       <BrandBand statement={home.brandStatement} footnote={home.brandFootnote} />
@@ -92,8 +92,15 @@ export default async function HomePage() {
               size="xl"
               tone="darker"
             />
-            <Reveal delay={0.14}>
-              <Paragraphs text={home.introBody} paragraphClassName="text-steel-300 sm:text-lg" />
+            {/* The line the hero used to carry, now given room to be read. */}
+            <Reveal delay={0.12}>
+              <p className="text-lg leading-relaxed text-steel-200 sm:text-xl">
+                {home.introLead}
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.18}>
+              <Paragraphs text={home.introBody} paragraphClassName="text-steel-400" />
             </Reveal>
 
             <RevealGroup className="mt-2 flex flex-col divide-y divide-steel-600/25 border-t border-steel-600/25">

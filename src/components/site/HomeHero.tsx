@@ -1,44 +1,40 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowDown, Phone } from "lucide-react";
-import Link from "next/link";
+import { ArrowDown } from "lucide-react";
 import { Media } from "@/components/ui/Media";
-import { LeikahMark } from "@/components/brand/Logo";
-import { Blueprint } from "@/components/graphics/Blueprint";
-import { SurveyGrid, DustField, GoldBloom, SurveyReadout } from "@/components/graphics/Atmosphere";
-import { Highlighted } from "@/components/ui/Section";
-import type { HeroContent, BusinessInfo } from "@/lib/cms/types";
+import { BrandReveal } from "@/components/brand/BrandReveal";
+import { SurveyGrid, DustField, GoldBloom } from "@/components/graphics/Atmosphere";
+import { assetPath } from "@/lib/cms/media";
+import type { HeroContent } from "@/lib/cms/types";
 import { getMedia } from "@/lib/cms/media";
-import { telHref } from "@/lib/utils";
 
 /* ============================================================================
    HOME HERO
 
-   Rebuilt to answer one question in the first three seconds: whose site is
-   this. The previous version was a photograph with a headline on it, which is
-   every contractor site ever made.
+   One job: make the first five seconds feel calm, confident and unmistakably
+   Leikah. Everything that explains the business has moved further down the page.
 
-   Four things carry the brand now:
+   What is deliberately NOT here:
 
-   • The mark, set large beside the eyebrow rather than only in the header.
-   • A blueprint excavator drawing itself across the right of the frame, so the
-     first motion on the page is an engineering drawing being made.
-   • Dust drifting up off the bench.
-   • A survey readout on the frame — coordinates, datum, sheet reference — which
-     is the detail that says "this company works to drawings".
+   • No long headline. The name is the headline.
+   • No call to action. An aggressive button in the first viewport competes with
+     the brand; quotation prompts appear naturally further down.
+   • No descriptive paragraph. It opens the section below instead.
+   • No technical drawing overlay. It was fighting the photograph.
+
+   The overlay is much lighter than a text-heavy hero can afford — a base
+   darken, a bottom ramp for the footer row, and a soft radial behind the
+   lockup purely so white type stays legible over a bright sky. The machinery
+   is the visual hero.
    ========================================================================= */
 
-const FRAME_MS = 7000;
+const FRAME_MS = 8500;
+const EASE = [0.16, 1, 0.3, 1] as const;
 
-export function HomeHero({
-  hero,
-  business,
-}: {
-  hero: HeroContent;
-  business: BusinessInfo;
-}) {
+export function HomeHero({ hero }: { hero: HeroContent }) {
   const reduced = useReducedMotion();
   const frames = hero.media.filter((slug) => getMedia(slug).src);
   const [index, setIndex] = useState(0);
@@ -49,22 +45,20 @@ export function HomeHero({
     return () => clearInterval(id);
   }, [reduced, frames.length]);
 
-  const { address } = business;
-
   return (
-    <section className="relative isolate flex min-h-[94svh] flex-col justify-end overflow-hidden bg-ink-950 pb-12 pt-[calc(var(--header-h)+2.5rem)] lg:min-h-svh lg:pb-16">
+    <section className="relative isolate flex min-h-svh flex-col overflow-hidden bg-ink-950">
       {/* --- Photography ---------------------------------------------------- */}
       <div className="absolute inset-0 -z-20">
         <AnimatePresence initial={false}>
           <motion.div
             key={frames[index]}
             className="absolute inset-0"
-            initial={{ opacity: 0, scale: 1.07 }}
+            initial={{ opacity: 0, scale: 1.06 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{
-              opacity: { duration: 1.8, ease: "easeInOut" },
-              scale: { duration: FRAME_MS / 1000 + 2.5, ease: "linear" },
+              opacity: { duration: 2.2, ease: "easeInOut" },
+              scale: { duration: FRAME_MS / 1000 + 3, ease: "linear" },
             }}
           >
             <Media
@@ -72,7 +66,7 @@ export function HomeHero({
               alt=""
               priority={index === 0}
               sizes="100vw"
-              quality={78}
+              quality={82}
               className="size-full"
               imageClassName="object-cover"
               ratio="auto"
@@ -80,160 +74,128 @@ export function HomeHero({
           </motion.div>
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-ink-950/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/55 to-transparent" />
-      </div>
-
-      {/* --- Brand atmosphere ------------------------------------------------ */}
-      <div className="absolute inset-0 -z-10">
-        <SurveyGrid opacity={0.7} />
-        <GoldBloom className="-right-52 top-1/3" size="56rem" intensity={16} />
-        <DustField density={54} />
-
-        {/* The signature move: a general arrangement drawing across the frame */}
-        <Blueprint
-          machine="excavator"
-          intensity={0.3}
-          stroke="var(--color-gold-400)"
-          className="absolute -right-16 bottom-[14%] hidden h-auto w-[46rem] lg:block xl:w-[54rem]"
+        {/* Light touch: enough to hold type, not enough to hide the machine. */}
+        <div className="absolute inset-0 bg-ink-950/38" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 62% 48% at 50% 44%, color-mix(in oklab, var(--color-ink-950) 55%, transparent) 0%, transparent 70%)",
+          }}
         />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink-950/75 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-ink-950 via-ink-950/62 to-transparent" />
       </div>
 
-      {/* --- Copy ------------------------------------------------------------ */}
-      <div className="shell-wide relative">
-        <div className="max-w-4xl">
-          {/* Mark set beside the eyebrow — the brand is present before the text */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-4"
-          >
-            <LeikahMark className="h-11 w-11 shrink-0 lg:h-14 lg:w-14" />
-            <span className="flex flex-col gap-1">
-              <span className="eyebrow text-gold-400">{hero.eyebrow}</span>
-              <span className="h-px w-16 bg-gold-500/70" aria-hidden="true" />
-            </span>
-          </motion.div>
+      {/* --- Atmosphere, dialled back --------------------------------------- */}
+      <div className="absolute inset-0 -z-10">
+        <SurveyGrid opacity={0.28} size={104} />
+        <GoldBloom className="-right-64 top-1/4" size="52rem" intensity={10} />
+        <DustField density={26} />
+      </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 26 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 text-display-1 text-paper-50"
-          >
-            <Highlighted text={hero.headline} highlight={hero.highlight} />
-          </motion.h1>
+      {/* --- The brand ------------------------------------------------------- */}
+      <div className="relative flex flex-1 items-center justify-center px-6 pt-[calc(var(--header-h)+2rem)] pb-8">
+        <div className="flex w-full max-w-3xl flex-col items-center text-center">
+          <h1>
+            <span className="sr-only">{hero.brandName}</span>
+            <BrandReveal descriptor={hero.descriptor} />
+          </h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.36, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 max-w-2xl text-base leading-relaxed text-steel-200 sm:text-lg"
+            transition={{ duration: reduced ? 0.3 : 1, delay: reduced ? 0 : 0.95, ease: EASE }}
+            className="mt-8 max-w-xl text-balance text-base leading-relaxed text-steel-200 sm:mt-10 sm:text-lg"
           >
-            {hero.subhead}
+            {hero.tagline}
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.48, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
-          >
-            <Link
-              href={hero.primaryCta.href}
-              className="chamfer-sm group/btn relative inline-flex h-14 items-center justify-center overflow-hidden bg-gold-500 px-8 font-semibold text-ink-950 transition-colors hover:bg-gold-400"
-            >
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-white/35 opacity-0 blur-md group-hover/btn:animate-[leikah-sweep_0.9s_ease-out] group-hover/btn:opacity-100"
-              />
-              <span className="relative">{hero.primaryCta.label}</span>
-            </Link>
-
-            <a
-              href={telHref(business.emergencyPhone)}
-              className="chamfer-sm inline-flex h-14 items-center justify-center gap-3 border border-steel-100/25 bg-ink-900/50 px-7 font-medium text-paper-50 backdrop-blur-md transition-colors hover:border-gold-500/60"
-            >
-              <span className="relative flex size-2.5">
-                <span className="absolute inline-flex size-full rounded-full bg-signal-green opacity-70 motion-safe:animate-[leikah-pulse-ring_2.4s_ease-out_infinite]" />
-                <span className="relative inline-flex size-2.5 rounded-full bg-signal-green" />
-              </span>
-              <Phone className="size-4 text-gold-400" />
-              <span className="tabular">{business.emergencyPhone}</span>
-            </a>
-          </motion.div>
         </div>
-
-        {/* --- Assurances ---------------------------------------------------- */}
-        <motion.ul
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.62, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 grid gap-px overflow-hidden border-y border-steel-100/14 bg-steel-100/14 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4"
-        >
-          {hero.assurances.map((item, i) => (
-            <li
-              key={item}
-              className="group flex items-center gap-3 bg-ink-950/60 px-5 py-4 backdrop-blur-md transition-colors hover:bg-ink-900/70"
-            >
-              <span className="eyebrow text-gold-500/80 tabular">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="text-sm font-medium text-steel-100">{item}</span>
-            </li>
-          ))}
-        </motion.ul>
       </div>
 
-      {/* --- Frame furniture -------------------------------------------------- */}
-      <div className="shell-wide relative mt-7 flex items-end justify-between gap-6">
-        <a
-          href="#introduction"
-          className="group inline-flex items-center gap-3 text-xs text-steel-400 transition-colors hover:text-gold-400"
-        >
-          <span className="chamfer-sm inline-flex size-9 items-center justify-center border border-steel-600/40 transition-colors group-hover:border-gold-500/60">
-            <ArrowDown className="size-4 motion-safe:animate-[leikah-drift_2.6s_ease-in-out_infinite]" />
-          </span>
-          <span className="eyebrow">Scroll</span>
-        </a>
+      {/* --- Footing: credentials, partner, scroll ---------------------------- */}
+      <div className="relative pb-8 sm:pb-10">
+        <div className="shell-wide flex flex-col items-center gap-7">
+          {/* One row. Wraps to two on a phone rather than shrinking to nothing. */}
+          <motion.ul
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: reduced ? 0.3 : 1, delay: reduced ? 0 : 1.12, ease: EASE }}
+            className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-x-6"
+          >
+            {hero.trustIndicators.map((item, i) => (
+              <li key={item} className="flex items-center gap-4 sm:gap-6">
+                {i > 0 && (
+                  <span aria-hidden="true" className="size-1 rotate-45 bg-gold-500/70" />
+                )}
+                <span className="font-mono text-[0.625rem] font-medium tracking-[0.2em] text-steel-200 uppercase sm:text-[0.6875rem]">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </motion.ul>
 
-        <div className="flex items-center gap-6">
-          {/* Survey readout — the site's technical voice, stated once up front */}
-          <SurveyReadout
-            className="hidden lg:flex"
-            items={[
-              `${Math.abs(address.lat).toFixed(4)}° S  ${address.lng.toFixed(4)}° E`,
-              `${address.street.toUpperCase()}, ${address.city.toUpperCase()}`,
-              `DATUM · ${address.province.toUpperCase()}`,
-            ]}
-          />
-
-          {frames.length > 1 && (
-            <div className="flex items-center gap-2" role="tablist" aria-label="Hero image">
-              {frames.map((slug, i) => (
-                <button
-                  key={slug}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === index}
-                  aria-label={`Show image ${i + 1} of ${frames.length}`}
-                  onClick={() => setIndex(i)}
-                  className="group py-2"
-                >
-                  <span
-                    className={`block h-0.5 transition-all duration-500 ${
-                      i === index
-                        ? "w-10 bg-gold-500"
-                        : "w-5 bg-steel-100/30 group-hover:bg-steel-100/60"
-                    }`}
-                  />
-                </button>
-              ))}
-            </div>
+          {hero.partner && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: reduced ? 0.3 : 1.2, delay: reduced ? 0 : 1.35 }}
+              className="flex flex-col items-center gap-3 border-t border-steel-100/12 pt-6"
+            >
+              <span className="font-mono text-[0.5625rem] tracking-[0.28em] text-steel-500 uppercase">
+                {hero.partner.label}
+              </span>
+              <Image
+                src={assetPath(hero.partner.logo)}
+                alt={hero.partner.name}
+                width={220}
+                height={110}
+                className="h-auto w-[6.5rem] opacity-45 transition-opacity duration-500 hover:opacity-70 sm:w-[7.5rem]"
+              />
+            </motion.div>
           )}
         </div>
+
+        <motion.a
+          href="#introduction"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: reduced ? 0 : 1.6 }}
+          className="group absolute bottom-9 left-[var(--spacing-gutter)] hidden items-center gap-3 text-xs text-steel-400 transition-colors hover:text-gold-400 lg:flex"
+        >
+          <span className="inline-flex size-9 items-center justify-center border border-steel-600/40 transition-colors group-hover:border-gold-500/60 chamfer-sm">
+            <ArrowDown className="size-4 motion-safe:animate-[leikah-drift_2.8s_ease-in-out_infinite]" />
+          </span>
+          <span className="font-mono text-[0.625rem] tracking-[0.22em] uppercase">Scroll</span>
+        </motion.a>
+
+        {frames.length > 1 && (
+          <div
+            className="absolute bottom-11 right-[var(--spacing-gutter)] hidden items-center gap-2 lg:flex"
+            role="tablist"
+            aria-label="Hero image"
+          >
+            {frames.map((slug, i) => (
+              <button
+                key={slug}
+                type="button"
+                role="tab"
+                aria-selected={i === index}
+                aria-label={`Show image ${i + 1} of ${frames.length}`}
+                onClick={() => setIndex(i)}
+                className="group py-2"
+              >
+                <span
+                  className={`block h-0.5 transition-all duration-500 ${
+                    i === index
+                      ? "w-9 bg-gold-500"
+                      : "w-4 bg-steel-100/30 group-hover:bg-steel-100/60"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

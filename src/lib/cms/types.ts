@@ -394,17 +394,31 @@ export interface SeoFields {
   noIndex?: boolean;
 }
 
+/** A partner or associated mark shown quietly beneath the hero. */
+export interface HeroPartner {
+  /** e.g. "In association with". Wording is the client's to confirm. */
+  label: string;
+  name: string;
+  /** Path under /public, not a media-manifest slug — this is a brand asset. */
+  logo: string;
+  href?: string;
+}
+
+/**
+ * The hero carries the brand and nothing else. Everything that explains the
+ * business lives in the section below it, which is why there is no headline,
+ * body copy or call to action here.
+ */
 export interface HeroContent {
-  eyebrow: string;
-  headline: string;
-  /** The word or phrase inside `headline` that receives the gold treatment. */
-  highlight?: string;
-  subhead: string;
-  primaryCta: Link;
-  secondaryCta: Link;
+  brandName: string;
+  /** Set under the wordmark, tracked out. */
+  descriptor: string;
+  /** One short line. Not a paragraph. */
+  tagline: string;
+  /** A single row of credentials — five items at most before it wraps badly. */
+  trustIndicators: string[];
+  partner?: HeroPartner;
   media: MediaRef[];
-  /** Small proof points that sit under the hero. */
-  assurances: string[];
 }
 
 export interface WalkStageContent {
@@ -431,6 +445,8 @@ export interface HomeContent {
   processStages: WalkStageContent[];
   introEyebrow: string;
   introHeadline: string;
+  /** Opens the section. This is the copy the hero used to carry. */
+  introLead: string;
   introBody: string;
   introImage: MediaRef;
   introPoints: { title: string; description: string }[];

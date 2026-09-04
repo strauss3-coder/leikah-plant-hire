@@ -11,7 +11,8 @@
     "seed:sql": "tsx scripts/generate-seed-sql.ts",
     "qa:shot": "node scripts/qa/shot.mjs",
     "typecheck": "tsc --noEmit",
-    "build:static": "node scripts/build-static.mjs"
+    "build:static": "node scripts/build-static.mjs",
+    "brand:partner": "node scripts/extract-partner-mark.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.5",
