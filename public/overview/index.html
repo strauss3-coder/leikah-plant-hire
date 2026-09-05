@@ -5,26 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="description" content="Website Solution Overview prepared for Leikah Plant Hire.">
-<meta property="og:title" content="Leikah Plant Hire — Website Solution Overview">
+<meta property="og:title" content="Leikah Plant Hire: Website Solution Overview">
 <meta property="og:description" content="What has been built, what visitors experience, and what comes next.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20 2 H98 V78 L78 98 H2 V22 Z M26 20 H41 V44 H55 V58 H69 V72 H83 V80 H26 Z' fill='%23eda91b' fill-rule='evenodd'/%3E%3C/svg%3E">
-<title>Website Solution Overview — Leikah Plant Hire</title>
+<title>Website Solution Overview | Leikah Plant Hire</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
 
 <style>
 /* ===========================================================================
-   LEIKAH PLANT HIRE — WEBSITE SOLUTION OVERVIEW
+   LEIKAH PLANT HIRE , WEBSITE SOLUTION OVERVIEW
    Set in the brand's own system: the ink/gold/steel tokens, Archivo + Inter +
    JetBrains Mono, and the chamfered plate geometry from the mark. Structured
-   as an engineering issue document — title block, sheet index, numbered
-   sheets — because that is the document convention of the client's own trade.
+   as an engineering issue document , title block, sheet index, numbered
+   sheets , because that is the document convention of the client's own trade.
    ======================================================================== */
 
 :root {
-  /* Brand plates — identical in both themes. These are printed ink, not UI. */
+  /* Brand plates , identical in both themes. These are printed ink, not UI. */
   --ink-950:#07090c;  --ink-900:#0b0e13;  --ink-850:#101419;
   --ink-800:#151a21;  --ink-700:#1c222b;  --ink-600:#262d38;
   --gold:#eda91b;     --gold-400:#f7c440; --gold-300:#ffd772; --gold-700:#9a660a;
@@ -189,7 +189,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
   line-height:1.6;
 }
 
-/* Drawing title block — the real convention from the client's trade. */
+/* Drawing title block , the real convention from the client's trade. */
 .titleblock {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));
@@ -302,7 +302,7 @@ h3.block-title {
   margin-bottom:.35rem;
 }
 
-/* Hairline spec table — borrowed from the site's spec strip. */
+/* Hairline spec table , borrowed from the site's spec strip. */
 .spec { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(215px,100%),1fr)); border-top:1px solid var(--rule); }
 .spec-cell { padding:1rem 1.15rem 1.1rem 0; border-bottom:1px solid var(--rule-soft); display:flex; flex-direction:column; gap:.35rem; }
 .spec-k { font-family:"JetBrains Mono",monospace; font-size:.625rem; letter-spacing:.19em; text-transform:uppercase; color:var(--text-mute); }
@@ -337,14 +337,14 @@ h3.block-title {
   background:var(--surface);
 }
 
-/* Numbered sequences — used only where the content genuinely is a sequence. */
+/* Numbered sequences , used only where the content genuinely is a sequence. */
 .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr)); gap:0; border-top:1px solid var(--rule); }
 .step { padding:1.1rem 1.15rem 1.25rem 0; border-bottom:1px solid var(--rule-soft); display:flex; flex-direction:column; gap:.45rem; }
 .step-n { font-family:"JetBrains Mono",monospace; font-size:.68rem; font-weight:700; color:var(--accent); letter-spacing:.12em; }
 .step-t { font-family:Archivo,sans-serif; font-weight:600; font-size:.975rem; color:var(--text); }
 .step-d { font-size:.8438rem; color:var(--text-soft); line-height:1.55; }
 
-/* Plain feature rows — no card treatment; borders spent by role. */
+/* Plain feature rows , no card treatment; borders spent by role. */
 .rows { display:flex; flex-direction:column; }
 .row {
   display:grid; grid-template-columns:minmax(0,13rem) minmax(0,1fr);
@@ -377,7 +377,7 @@ td.rate {
 .blank { display:inline-block; min-width:5.5rem; border-bottom:1px dotted var(--text-mute); }
 tfoot td { border-bottom:none; border-top:2px solid var(--text); font-weight:600; color:var(--text); padding-top:.9rem; }
 
-/* Callout — one treatment, used sparingly for things the client must action. */
+/* Callout , one treatment, used sparingly for things the client must action. */
 .note {
   border-left:3px solid var(--gold);
   background:var(--accent-soft);
@@ -417,7 +417,7 @@ tfoot td { border-bottom:none; border-top:2px solid var(--text); font-weight:600
 .signoff .tb-cell:last-child { border-right:none; }
 
 /* ===========================================================================
-   PRINT — this document exists to become a PDF.
+   PRINT , this document exists to become a PDF.
    ======================================================================== */
 
 /* ===========================================================================
@@ -425,6 +425,18 @@ tfoot td { border-bottom:none; border-top:2px solid var(--text); font-weight:600
    Flex children default to min-width:auto, so a table's scroll container would
    otherwise push the whole page wide instead of scrolling inside itself.
    ======================================================================== */
+
+/* Item counts drive the column count: 6 stats read as 3x2, 4 as 4x1,
+   9 sequence steps as 3x3, 8 as 4x2. An auto-fit track cannot know this. */
+@media (min-width: 560px) and (max-width: 919px) {
+  .spec--4, .steps--4 { grid-template-columns:repeat(2,1fr); }
+}
+@media (min-width: 920px) {
+  .spec--3  { grid-template-columns:repeat(3,1fr); }
+  .spec--4  { grid-template-columns:repeat(4,1fr); }
+  .steps--3 { grid-template-columns:repeat(3,1fr); }
+  .steps--4 { grid-template-columns:repeat(4,1fr); }
+}
 
 /* Every link in the flex chain must be allowed to shrink, or the table's
    min-width propagates outward and widens the whole page instead of
@@ -484,15 +496,11 @@ tfoot td { border-bottom:none; border-top:2px solid var(--text); font-weight:600
   a { color:var(--text); border-bottom:none; }
 }
 
-/* --- standalone document additions ------------------------------------- */
+/* standalone document additions */
 :root { color-scheme: light dark; }
 img { max-width:100%; }
 [hidden] { display:none !important; }
-
-.printbar {
-  position:fixed; bottom:1.25rem; right:1.25rem; z-index:50;
-  display:flex; gap:.5rem;
-}
+.printbar { position:fixed; bottom:1.25rem; right:1.25rem; z-index:50; display:flex; gap:.5rem; }
 .printbtn {
   font-family:"JetBrains Mono", ui-monospace, monospace;
   font-size:.6875rem; letter-spacing:.14em; text-transform:uppercase;
@@ -512,7 +520,6 @@ img { max-width:100%; }
 <div class="printbar">
   <button class="printbtn" type="button" onclick="window.print()">Save as PDF</button>
 </div>
-
 
 <!-- ==========================================================================
      COVER
@@ -549,15 +556,15 @@ img { max-width:100%; }
     <div class="cover-title">
       <span class="eyebrow" style="color:var(--gold)">Website Solution Overview</span>
       <h1>Your digital <em>headquarters</em></h1>
-      <p class="cover-lead">A complete account of the website that has been built for Leikah Plant Hire — what a visitor sees, what they can do, and what each part of it is worth to the business. Followed by a proposal for branded business email and a roadmap for what comes next.</p>
+      <p class="cover-lead">A complete account of the website that has been built for Leikah Plant Hire: what a visitor sees, what they can do, and what each part of it is worth to the business. Followed by a proposal for branded business email and a roadmap for what comes next.</p>
     </div>
 
     <div class="titleblock">
       <div class="tb-cell"><span class="tb-key">Document</span><span class="tb-val">Website Solution Overview</span></div>
       <div class="tb-cell"><span class="tb-key">Issued to</span><span class="tb-val">Leikah Plant Hire</span></div>
-      <div class="tb-cell"><span class="tb-key">Scope</span><span class="tb-val">Public website, content management, business email</span></div>
-      <div class="tb-cell"><span class="tb-key">Status</span><span class="tb-val accent">Built &amp; deployed for review</span></div>
-      <div class="tb-cell"><span class="tb-key">Revision</span><span class="tb-val mono">A</span></div>
+      <div class="tb-cell"><span class="tb-key">Scope</span><span class="tb-val">Public website, business email, expansion roadmap</span></div>
+      <div class="tb-cell"><span class="tb-key">Status</span><span class="tb-val accent">Built and deployed for review</span></div>
+      <div class="tb-cell"><span class="tb-key">Revision</span><span class="tb-val mono">B</span></div>
       <div class="tb-cell"><span class="tb-key">Sheets</span><span class="tb-val mono">11 + closing</span></div>
     </div>
 
@@ -579,10 +586,10 @@ img { max-width:100%; }
       <a class="index-row" href="#s02"><span class="index-num">02</span><span class="index-title">The Homepage Experience<span class="index-note">The first fifteen seconds, sequence by sequence</span></span></a>
       <a class="index-row" href="#s03"><span class="index-num">03</span><span class="index-title">Every Page, Explained<span class="index-note">All twenty-one page types and what each one does</span></span></a>
       <a class="index-row" href="#s04"><span class="index-num">04</span><span class="index-title">The Services Showcase<span class="index-note">Thirteen services presented as a capability library</span></span></a>
-      <a class="index-row" href="#s05"><span class="index-num">05</span><span class="index-title">Gallery &amp; Media<span class="index-note">Photography, lightbox, and before/after evidence</span></span></a>
+      <a class="index-row" href="#s05"><span class="index-num">05</span><span class="index-title">Gallery and Media<span class="index-note">Photography, lightbox, and before and after evidence</span></span></a>
       <a class="index-row" href="#s06"><span class="index-num">06</span><span class="index-title">The Contact Experience<span class="index-note">Five ways in, routed to the right desk</span></span></a>
-      <a class="index-row" href="#s07"><span class="index-num">07</span><span class="index-title">User Experience &amp; Design<span class="index-note">The visual language and how it behaves</span></span></a>
-      <a class="index-row" href="#s08"><span class="index-num">08</span><span class="index-title">Performance &amp; Optimisation<span class="index-note">Measured speed, accessibility, and search readiness</span></span></a>
+      <a class="index-row" href="#s07"><span class="index-num">07</span><span class="index-title">User Experience and Design<span class="index-note">The visual language and how it behaves</span></span></a>
+      <a class="index-row" href="#s08"><span class="index-num">08</span><span class="index-title">Performance and Optimisation<span class="index-note">Measured speed, accessibility, and search readiness</span></span></a>
       <a class="index-row" href="#s09"><span class="index-num">09</span><span class="index-title">Business Benefits<span class="index-note">What the site changes commercially</span></span></a>
       <a class="index-row" href="#s10"><span class="index-num">10</span><span class="index-title">Microsoft 365 Business Email<span class="index-note">Branded mailboxes, managed for you</span></span></a>
       <a class="index-row" href="#s11"><span class="index-num">11</span><span class="index-title">Future Expansion<span class="index-note">The roadmap this foundation was built for</span></span></a>
@@ -591,50 +598,50 @@ img { max-width:100%; }
 </nav>
 
 <!-- ==========================================================================
-     01 — EXECUTIVE OVERVIEW
+     01 EXECUTIVE OVERVIEW
      ======================================================================= -->
 <section class="sheet" id="s01">
   <div class="band"><div class="band-inner">
     <span class="band-num" aria-hidden="true">01</span>
     <div class="band-text">
       <h2>Executive Overview</h2>
-      <p class="band-sub">A commercial website and a private content management portal, built specifically for Leikah Plant Hire — not adapted from a template.</p>
+      <p class="band-sub">A commercial website built specifically for Leikah Plant Hire, not adapted from a template.</p>
     </div>
   </div></div>
 
   <div class="sheet-content"><div class="sheet-body">
 
     <div class="prose">
-      <p class="lead">Leikah Plant Hire now has a complete digital headquarters: twenty-one distinct page types covering every service, machine class, industry and project, all of it presented in a visual identity built from scratch for this business — and all of it editable by your own team without a developer.</p>
-      <p>The brief was not to produce a brochure. Plant hire and heavy mechanical work are bought on evidence: can this contractor move the volume, hold the haul road, and get the machine running again at two in the morning. So the site was built to answer those questions in the language your customers actually use — survey volumes, rolling resistance, torque and clearance, availability — and to make the next step, a quotation or a breakdown call, never more than one click away from wherever the visitor happens to be standing.</p>
-      <p>Everything a client could reasonably want to change is content, not code. Service descriptions, machine specifications, project records, photographs, FAQs, contact details, opening hours, the emergency notice — all of it lives in a database and is edited through a private portal built for this business. <strong>Nothing meaningful is hardcoded.</strong> When the fleet grows or a rate changes, you update it yourself, and it appears on the site immediately.</p>
+      <p class="lead">Leikah Plant Hire now has a complete digital headquarters: twenty-one distinct page types covering every service, machine class, industry and project, all of it presented in a visual identity built from scratch for this business.</p>
+      <p>The brief was not to produce a brochure. Plant hire and heavy mechanical work are bought on evidence. Can this contractor move the volume, hold the haul road, and get the machine running again at two in the morning? So the site was built to answer those questions in the language your customers actually use, covering survey volumes, rolling resistance, torque and clearance, and availability. It makes the next step, a quotation or a breakdown call, never more than one click away from wherever the visitor happens to be standing.</p>
+      <p>Everything on the site is content rather than code. Service descriptions, machine specifications, project records, photographs, questions and answers, contact details, opening hours and the emergency notice all live in a structured content system that sits separately from the site itself. <strong>Nothing meaningful is hardcoded.</strong> When the fleet grows or a rate changes, the update is a content change rather than a development job, so it is quick, inexpensive, and carries no risk of breaking anything else.</p>
     </div>
 
-    <div class="spec" aria-label="Build at a glance">
+    <div class="spec spec--3" aria-label="Build at a glance">
       <div class="spec-cell"><span class="spec-k">Page types built</span><span class="spec-v"><span class="fig">21</span>Expanding to 57 individual pages once every service, industry, project and article is counted</span></div>
       <div class="spec-cell"><span class="spec-k">Services documented</span><span class="spec-v"><span class="fig">13</span>Each with proof points, a working method and its own detail page</span></div>
-      <div class="spec-cell"><span class="spec-k">Custom icons drawn</span><span class="spec-v"><span class="fig">24</span>An equipment icon family drawn for this brand — no stock iconography</span></div>
+      <div class="spec-cell"><span class="spec-k">Custom icons drawn</span><span class="spec-v"><span class="fig">24</span>An equipment icon family drawn for this brand, with no stock iconography</span></div>
       <div class="spec-cell"><span class="spec-k">Photographs prepared</span><span class="spec-v"><span class="fig">26</span>Your own site photography, processed into 47 optimised renditions</span></div>
-      <div class="spec-cell"><span class="spec-k">Editable content areas</span><span class="spec-v"><span class="fig">31</span>Portal screens covering every collection on the site</span></div>
+      <div class="spec-cell"><span class="spec-k">Content collections</span><span class="spec-v"><span class="fig">31</span>Separately updatable areas covering every kind of content on the site</span></div>
       <div class="spec-cell"><span class="spec-k">Accessibility violations</span><span class="spec-v"><span class="fig">0</span>Audited automatically across the site against the WCAG standard</span></div>
     </div>
 
     <div class="prose">
       <h3 class="block-title">What makes this different from a template</h3>
-      <p>Most small-business websites are a purchased theme with the colours changed. This one has a designed identity: a chamfered steel plate mark with a terraced cut through it — the profile of an open-cast bench, which is literally what your earthmoving division builds. That single silhouette then repeats through the whole interface: the corner treatment on buttons and panels, the shape of the section dividers, the favicon, the loading screen.</p>
-      <p>The letterforms in <strong>LEIKAH</strong> are drawn as vector paths rather than set in a font, so the wordmark is pixel-identical everywhere it appears — browser tab, printed quotation, vehicle vinyl, site board. You own a real mark, not a font choice.</p>
+      <p>Most small business websites are a purchased theme with the colours changed. This one has a designed identity: a chamfered steel plate mark with a terraced cut through it, which is the profile of an open-cast bench, and literally what your earthmoving division builds. That single silhouette then repeats through the whole interface, in the corner treatment on buttons and panels, the shape of the section dividers, the favicon and the loading screen.</p>
+      <p>The letterforms in <strong>LEIKAH</strong> are drawn as vector paths rather than set in a font, so the wordmark is pixel-identical everywhere it appears: browser tab, printed quotation, vehicle vinyl and site board. You own a real mark, not a font choice.</p>
     </div>
 
     <div class="note">
       <span class="note-t">Two things worth knowing up front</span>
-      <p>The site is currently deployed as a public preview so you can review every page on any device. In that preview, enquiry forms display and validate but do not send — sending switches on with the full hosting deployment. Separately, a handful of content areas were deliberately left empty rather than filled with invented material: client testimonials, client logos, safety certificates and job vacancies. Those are claims only you can make, and every part of the site that uses them handles the empty state gracefully. Sheet 11 lists what is still needed before launch.</p>
+      <p>The site is currently deployed as a public preview so you can review every page on any device. In that preview, enquiry forms display and validate but do not send. Sending switches on with the full hosting deployment. Separately, a handful of content areas were deliberately left empty rather than filled with invented material: client testimonials, client logos, safety certificates and job vacancies. Those are claims only you can make, and every part of the site that uses them handles the empty state gracefully. Sheet 11 lists what is still needed before launch.</p>
     </div>
 
   </div></div>
 </section>
 
 <!-- ==========================================================================
-     02 — HOMEPAGE
+     02 HOMEPAGE
      ======================================================================= -->
 <section class="sheet" id="s02">
   <div class="band"><div class="band-inner">
@@ -648,31 +655,31 @@ img { max-width:100%; }
   <div class="sheet-content"><div class="sheet-body">
 
     <div class="prose">
-      <p class="lead">The homepage is composed as a single cinematic scroll. Each section hands off to the next, the brand is present throughout without ever shouting, and the two commercial actions — get a quote, call the breakdown line — are reachable from every screen height.</p>
+      <p class="lead">The homepage is composed as a single cinematic scroll. Each section hands off to the next, the brand is present throughout without ever shouting, and the two commercial actions, getting a quote and calling the breakdown line, are reachable from every screen height.</p>
     </div>
 
-    <div class="steps" aria-label="Homepage sequence">
-      <div class="step"><span class="step-n">SEQUENCE 01</span><span class="step-t">The brand arrival</span><span class="step-d">Full-bleed site photography under a soft dark wash. The gold mark scales into view, then the letters of LEIKAH rise one at a time, then the PLANT HIRE descriptor. No headline, no paragraph, no button — the name is the message. Underneath, a single line of positioning and four trust indicators.</span></div>
-      <div class="step"><span class="step-n">SEQUENCE 02</span><span class="step-t">The partner mark</span><span class="step-d">The ISM mark sits low in the hero, small, quiet and clearly labelled as an association rather than a call to action. It signals depth of backing without competing with the Leikah identity.</span></div>
+    <div class="steps steps--3" aria-label="Homepage sequence">
+      <div class="step"><span class="step-n">SEQUENCE 01</span><span class="step-t">The brand arrival</span><span class="step-d">Full-bleed site photography under a soft dark wash. The gold mark scales into view, then the letters of LEIKAH rise one at a time, then the PLANT HIRE descriptor. No headline, no paragraph, no button. The name is the message. Underneath sits a single line of positioning and four trust indicators.</span></div>
+      <div class="step"><span class="step-n">SEQUENCE 02</span><span class="step-t">The partner mark</span><span class="step-d">The ISM mark sits low in the hero: small, quiet and clearly labelled as an association rather than a call to action. It signals depth of backing without competing with the Leikah identity.</span></div>
       <div class="step"><span class="step-n">SEQUENCE 03</span><span class="step-t">The proposition</span><span class="step-d">The descriptive copy that used to crowd the hero now sits here, in a calm reading measure: who Leikah is, where it operates, and what it does. This is where a visitor confirms they are in the right place.</span></div>
-      <div class="step"><span class="step-n">SEQUENCE 04</span><span class="step-t">The three divisions</span><span class="step-d">Earthmoving &amp; Plant Hire, Heavy Mechanical, and Supply — presented as three distinct routes into the business, each with its own imagery and entry point. A mine planner and a workshop manager need different doors.</span></div>
-      <div class="step"><span class="step-n">SEQUENCE 05</span><span class="step-t">The fleet showcase</span><span class="step-d">The signature section. A vertical rail of six machine classes; select one and a full-bleed plate of that machine slides in, stamped like a technical drawing (PLATE 03 / 06) with a four-column specification strip beneath it. It is the closest thing on the site to walking the yard.</span></div>
-      <div class="step"><span class="step-n">SEQUENCE 06</span><span class="step-t">The proof band</span><span class="step-d">Operating figures counting up as they enter view — years in operation, machine classes on hire, response commitment. Numbers set in the technical typeface, aligned on their digits.</span></div>
-      <div class="step"><span class="step-n">SEQUENCE 07</span><span class="step-t">How we work</span><span class="step-d">The five-stage engagement walkthrough: site walk and scope, method and safety file, mobilisation, production and maintenance, survey and handover. Each stage carries its real timing label — "Day one", "Week one", "Close-out". This is the section that removes purchasing risk.</span></div>
+      <div class="step"><span class="step-n">SEQUENCE 04</span><span class="step-t">The three divisions</span><span class="step-d">Earthmoving and Plant Hire, Heavy Mechanical, and Supply, presented as three distinct routes into the business, each with its own imagery and entry point. A mine planner and a workshop manager need different doors.</span></div>
+      <div class="step"><span class="step-n">SEQUENCE 05</span><span class="step-t">The fleet showcase</span><span class="step-d">The signature section. A vertical rail of six machine classes. Select one and a full-bleed plate of that machine slides in, stamped like a technical drawing (PLATE 03 / 06) with a four-column specification strip beneath it. It is the closest thing on the site to walking the yard.</span></div>
+      <div class="step"><span class="step-n">SEQUENCE 06</span><span class="step-t">The proof band</span><span class="step-d">Operating figures counting up as they enter view: years in operation, machine classes on hire, response commitment. Numbers are set in the technical typeface and aligned on their digits.</span></div>
+      <div class="step"><span class="step-n">SEQUENCE 07</span><span class="step-t">How we work</span><span class="step-d">The five-stage engagement walkthrough: site walk and scope, method and safety file, mobilisation, production and maintenance, then survey and handover. Each stage carries its real timing label, such as "Day one", "Week one" and "Close-out". This is the section that removes purchasing risk.</span></div>
       <div class="step"><span class="step-n">SEQUENCE 08</span><span class="step-t">Industries served</span><span class="step-d">Eight sectors as an interactive tile field. A quarry manager and a municipal engineer each find themselves named, which is what makes a generalist contractor feel like a specialist.</span></div>
       <div class="step"><span class="step-n">SEQUENCE 09</span><span class="step-t">The close</span><span class="step-d">An oversized LEIKAH wordmark set as a watermark behind the final call to action, with the quotation route and the 24-hour breakdown number side by side. The last thing on the page is the name and the phone number.</span></div>
     </div>
 
     <div class="prose">
       <h3 class="block-title">What the visitor feels</h3>
-      <p>Motion is used to direct attention, never to entertain. Sections rise gently into place as they are reached; background imagery drifts a fraction slower than the page scrolls, which reads as depth; fine dust particles move across the hero at very low opacity; a surveyor's grid sits faintly behind the darker sections. Every one of these effects is disabled automatically for visitors who have asked their device to reduce motion — a real accessibility requirement, not a checkbox.</p>
+      <p>Motion is used to direct attention, never to entertain. Sections rise gently into place as they are reached, background imagery drifts a fraction slower than the page scrolls to read as depth, fine dust particles move across the hero at very low opacity, and a surveyor's grid sits faintly behind the darker sections. Every one of these effects is disabled automatically for visitors who have asked their device to reduce motion, which is a real accessibility requirement rather than a checkbox.</p>
     </div>
 
   </div></div>
 </section>
 
 <!-- ==========================================================================
-     03 — EVERY PAGE
+     03 EVERY PAGE
      ======================================================================= -->
 <section class="sheet" id="s03">
   <div class="band"><div class="band-inner">
@@ -686,7 +693,7 @@ img { max-width:100%; }
   <div class="sheet-content"><div class="sheet-body">
 
     <div class="prose">
-      <p class="lead">Every page below is a real, built page you can visit today. Where a page type repeats — a service, an industry, a project, an article — one design serves all of them, and adding a new one in the portal creates a new page automatically.</p>
+      <p class="lead">Every page below is a real, built page you can visit today. Where a page type repeats, such as a service, an industry, a project or an article, one design serves all of them, and adding a new record creates a new page automatically.</p>
     </div>
 
     <div class="pages">
@@ -694,7 +701,7 @@ img { max-width:100%; }
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/services</span><span class="page-name">Services Index</span><span class="page-purpose">The capability library</span></div>
         <div class="page-body">
-          <p>All thirteen services in one grid, each with its own custom-drawn equipment icon, a one-line summary and the division it belongs to. A filter bar lets a visitor narrow to Earthmoving &amp; Plant Hire, Heavy Mechanical or Supply — the filter is instant, with no page reload, and the chosen filter is carried in the web address so a visitor can send a colleague a link to exactly the view they were looking at.</p>
+          <p>All thirteen services in one grid, each with its own custom-drawn equipment icon, a one-line summary and the division it belongs to. A filter bar lets a visitor narrow to Earthmoving and Plant Hire, Heavy Mechanical or Supply. The filter is instant, with no page reload, and the chosen filter is carried in the web address so a visitor can send a colleague a link to exactly the view they were looking at.</p>
           <p>For customers, this page answers the single most common question a new enquirer has: <em>do you do this?</em> It answers it in one screen instead of a phone call.</p>
           <div class="detail"><span class="chip">13 service cards</span><span class="chip">Division filter</span><span class="chip">Custom icons</span><span class="chip">Shareable filtered links</span><span class="chip">Staggered entry</span></div>
         </div>
@@ -703,8 +710,8 @@ img { max-width:100%; }
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/services/[service]</span><span class="page-name">Service Detail &times; 13</span><span class="page-purpose">The technical case for one capability</span></div>
         <div class="page-body">
-          <p>Thirteen individually written pages — bulk excavation, haul roads, wet and dry plant hire, materials handling, terracing and rehabilitation, engine overhauls, transmission rebuilds, hydraulics, planned maintenance, structural repair, parts and filtration, 24-hour breakdown, dewatering and dust suppression. Each opens with a photograph of that work being done, then sets out four proof points written in operational terms — "Volumes reconciled to survey", "Quoted after strip, not before", "Parts disclosed line by line".</p>
-          <p>Below that runs the numbered working method for that service, drawn as a sequence, so the customer can see exactly what happens between the enquiry and the handover. Related machine classes and relevant FAQs follow, and every page closes with a quotation route pre-tagged to that service — the enquiry arrives already knowing what it is about.</p>
+          <p>Thirteen individually written pages covering bulk excavation, haul roads, wet and dry plant hire, materials handling, terracing and rehabilitation, engine overhauls, transmission rebuilds, hydraulics, planned maintenance, structural repair, parts and filtration, 24-hour breakdown, and dewatering and dust suppression. Each opens with a photograph of that work being done, then sets out four proof points written in operational terms: "Volumes reconciled to survey", "Quoted after strip, not before", "Parts disclosed line by line".</p>
+          <p>Below that runs the numbered working method for that service, drawn as a sequence, so the customer can see exactly what happens between the enquiry and the handover. Related machine classes and relevant questions follow, and every page closes with a quotation route pre-tagged to that service, so the enquiry arrives already knowing what it is about.</p>
           <div class="detail"><span class="chip">Photographic header</span><span class="chip">4 proof points</span><span class="chip">Numbered method</span><span class="chip">Linked fleet</span><span class="chip">Service-tagged quote</span></div>
         </div>
       </article>
@@ -712,34 +719,34 @@ img { max-width:100%; }
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/fleet</span><span class="page-name">The Fleet</span><span class="page-purpose">The yard, online</span></div>
         <div class="page-body">
-          <p>Six machine classes — track-type tractors, tracked excavators, articulated haulers, motor graders, water bowsers and field service units. The interactive showcase from the homepage runs here at full size: choose a class from the rail and its plate, specification strip and typical applications appear. A technical line drawing renders alongside, drawn stroke by stroke as it enters view, like a blueprint being inked.</p>
+          <p>Six machine classes: track-type tractors, tracked excavators, articulated haulers, motor graders, water bowsers and field service units. The interactive showcase from the homepage runs here at full size. Choose a class from the rail and its plate, specification strip and typical applications appear. A technical line drawing renders alongside, drawn stroke by stroke as it enters view, like a blueprint being inked.</p>
           <p>For a hirer, this replaces the PDF fleet list emailed on request. They can size the machine to the job before they call, which means the call that follows is a rate conversation rather than an availability one.</p>
-          <div class="detail"><span class="chip">6 machine classes</span><span class="chip">Selector rail</span><span class="chip">Spec strip</span><span class="chip">Animated blueprints</span><span class="chip">Wet &amp; dry hire terms</span></div>
+          <div class="detail"><span class="chip">6 machine classes</span><span class="chip">Selector rail</span><span class="chip">Spec strip</span><span class="chip">Animated blueprints</span><span class="chip">Wet and dry hire terms</span></div>
         </div>
       </article>
 
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/supply</span><span class="page-name">Supply Division</span><span class="page-purpose">Parts, filtration and consumables</span></div>
         <div class="page-body">
-          <p>A dedicated home for the supply side of the business, written for procurement rather than site. It covers part identification, sourcing inside the OEM corridor, the policy on equivalents — disclosed, never substituted quietly — standing orders against a customer's fleet, and delivery to site.</p>
+          <p>A dedicated home for the supply side of the business, written for procurement rather than site. It covers part identification, sourcing inside the OEM corridor, the policy on equivalents (disclosed, never substituted quietly), standing orders against a customer's fleet, and delivery to site.</p>
           <p>This page exists because buyers and site managers are different people with different questions. Giving supply its own front door means a procurement officer never has to read through excavation copy to find what they came for.</p>
           <div class="detail"><span class="chip">Procurement-facing copy</span><span class="chip">Standing order terms</span><span class="chip">Vendor onboarding route</span><span class="chip">Direct desk contact</span></div>
         </div>
       </article>
 
       <article class="page-entry">
-        <div class="page-id"><span class="page-route">/maintenance</span><span class="page-name">Maintenance &amp; Workshop</span><span class="page-purpose">The contract maintenance offer</span></div>
+        <div class="page-id"><span class="page-route">/maintenance</span><span class="page-name">Maintenance and Workshop</span><span class="page-purpose">The contract maintenance offer</span></div>
         <div class="page-body">
-          <p>Planned maintenance contracts and component rebuild presented as an ongoing commercial relationship rather than a job. It sets out the fleet audit, the service matrix and intervals, scheduled execution, oil sampling and trending, and the monthly review — the cycle that turns unpredictable breakdown spend into a forecastable line in a customer's budget.</p>
+          <p>Planned maintenance contracts and component rebuild presented as an ongoing commercial relationship rather than a job. It sets out the fleet audit, the service matrix and intervals, scheduled execution, oil sampling and trending, and the monthly review. That cycle is what turns unpredictable breakdown spend into a forecastable line in a customer's budget.</p>
           <p>This is the highest-value page on the site commercially, because it is the one that converts a one-off repair customer into a recurring contract.</p>
-          <div class="detail"><span class="chip">Contract cycle</span><span class="chip">Sampling &amp; trending</span><span class="chip">Workshop capability</span><span class="chip">Component rebuild</span></div>
+          <div class="detail"><span class="chip">Contract cycle</span><span class="chip">Sampling and trending</span><span class="chip">Workshop capability</span><span class="chip">Component rebuild</span></div>
         </div>
       </article>
 
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/emergency</span><span class="page-name">24-Hour Breakdown</span><span class="page-purpose">The page someone opens at 2am</span></div>
         <div class="page-body">
-          <p>Deliberately the least decorated page on the site. High contrast, minimal motion, and the telephone number as the largest element on the screen — tappable to dial directly from a phone. Beneath it: what happens when the call is logged, triage and dispatch, on-site diagnosis, repair or recovery, and a written fault report every time.</p>
+          <p>Deliberately the least decorated page on the site. High contrast, minimal motion, and the telephone number as the largest element on the screen, tappable to dial directly from a phone. Beneath it: what happens when the call is logged, triage and dispatch, on-site diagnosis, repair or recovery, and a written fault report every time.</p>
           <p>Someone reaching this page has a machine down and is losing money by the hour. The page is designed to be usable one-handed, in poor light, on a weak signal. It is also linked from a persistent element on every other page, so it is never more than one tap away.</p>
           <div class="detail"><span class="chip">Tap-to-dial</span><span class="chip">High contrast</span><span class="chip">Minimal motion</span><span class="chip">Response sequence</span><span class="chip">Sitewide access</span></div>
         </div>
@@ -748,7 +755,7 @@ img { max-width:100%; }
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/industries</span><span class="page-name">Industries Index</span><span class="page-purpose">Sector self-identification</span></div>
         <div class="page-body">
-          <p>Eight sectors — mining and open-cast, construction and civils, industrial and heavy engineering, factories and processing, quarrying and aggregates, warehousing and logistics, commercial and property, government and municipal. Presented as a responsive tile field where each tile lifts and reveals its detail on hover, and behaves as a straightforward tap target on touch devices.</p>
+          <p>Eight sectors: mining and open-cast, construction and civils, industrial and heavy engineering, factories and processing, quarrying and aggregates, warehousing and logistics, commercial and property, and government and municipal. They are presented as a responsive tile field where each tile lifts and reveals its detail on hover, and behaves as a straightforward tap target on touch devices.</p>
           <div class="detail"><span class="chip">8 sectors</span><span class="chip">Interactive tiles</span><span class="chip">Touch-equivalent behaviour</span></div>
         </div>
       </article>
@@ -756,7 +763,7 @@ img { max-width:100%; }
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/industries/[sector]</span><span class="page-name">Industry Detail &times; 8</span><span class="page-purpose">Speaking one sector's language</span></div>
         <div class="page-body">
-          <p>Each sector gets its own page describing the specific pressures of that environment and the services that answer them — a coal operation cares about overburden strip rates and haul road rolling resistance; a municipality cares about compliance, procurement process and public safety. Relevant services and projects are cross-linked automatically from the same content records, so nothing has to be maintained twice.</p>
+          <p>Each sector gets its own page describing the specific pressures of that environment and the services that answer them. A coal operation cares about overburden strip rates and haul road rolling resistance. A municipality cares about compliance, procurement process and public safety. Relevant services and projects are cross-linked automatically from the same content records, so nothing has to be maintained twice.</p>
           <p>The commercial effect is that a generalist contractor reads as a specialist to whoever is looking, which is the difference between being shortlisted and being scrolled past.</p>
           <div class="detail"><span class="chip">Sector-specific copy</span><span class="chip">Auto-linked services</span><span class="chip">Related projects</span><span class="chip">Targeted quote route</span></div>
         </div>
@@ -773,9 +780,9 @@ img { max-width:100%; }
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/projects/[project]</span><span class="page-name">Project Detail &times; 6</span><span class="page-purpose">Proof, in full</span></div>
         <div class="page-body">
-          <p>The complete record of one job: the brief, the constraint, the method, the plant deployed, the duration, and the result stated as a figure. Where before-and-after photography exists, a draggable comparison slider lets the visitor wipe between the two states with their finger or mouse — the single most persuasive element available to an earthmoving contractor.</p>
+          <p>The complete record of one job: the brief, the constraint, the method, the plant deployed, the duration, and the result stated as a figure. Where before and after photography exists, a draggable comparison slider lets the visitor wipe between the two states with their finger or mouse. It is the single most persuasive element available to an earthmoving contractor.</p>
           <p>For a buyer running a tender, this is the section that gets forwarded internally. It is written to survive that forwarding.</p>
-          <div class="detail"><span class="chip">Before/after slider</span><span class="chip">Plant deployed</span><span class="chip">Measured outcome</span><span class="chip">Cross-linked service</span></div>
+          <div class="detail"><span class="chip">Before and after slider</span><span class="chip">Plant deployed</span><span class="chip">Measured outcome</span><span class="chip">Cross-linked service</span></div>
         </div>
       </article>
 
@@ -783,33 +790,33 @@ img { max-width:100%; }
         <div class="page-id"><span class="page-route">/gallery</span><span class="page-name">Gallery</span><span class="page-purpose">The yard and the fleet, in full</span></div>
         <div class="page-body">
           <p>Twenty-six photographs in a responsive layout with category filtering, opening into a full-screen lightbox with keyboard and swipe navigation. Covered in full on sheet 05.</p>
-          <div class="detail"><span class="chip">26 images</span><span class="chip">Category filter</span><span class="chip">Lightbox</span><span class="chip">Keyboard &amp; swipe</span></div>
+          <div class="detail"><span class="chip">26 images</span><span class="chip">Category filter</span><span class="chip">Lightbox</span><span class="chip">Keyboard and swipe</span></div>
         </div>
       </article>
 
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/about</span><span class="page-name">About Leikah</span><span class="page-purpose">The credibility page</span></div>
         <div class="page-body">
-          <p>The company story, the three divisions and what each one actually operates, the five contactable departments, the operating footprint across Middelburg and the Mpumalanga coalfields, and the values expressed as commitments rather than adjectives. Company registration, VAT and B-BBEE fields are built and ready — they display the moment you supply the numbers.</p>
+          <p>The company story, the three divisions and what each one actually operates, the five contactable departments, the operating footprint across Middelburg and the Mpumalanga coalfields, and the values expressed as commitments rather than adjectives. Company registration, VAT and B-BBEE fields are built and ready, and display the moment you supply the numbers.</p>
           <p>This is the page a new customer's procurement department opens before approving a vendor. It is structured to be readable by that audience, not just by site staff.</p>
           <div class="detail"><span class="chip">Division breakdown</span><span class="chip">Department directory</span><span class="chip">Operating footprint</span><span class="chip">Registration fields ready</span></div>
         </div>
       </article>
 
       <article class="page-entry">
-        <div class="page-id"><span class="page-route">/health-safety</span><span class="page-name">Health &amp; Safety</span><span class="page-purpose">The gate pass</span></div>
+        <div class="page-id"><span class="page-route">/health-safety</span><span class="page-name">Health and Safety</span><span class="page-purpose">The gate pass</span></div>
         <div class="page-body">
           <p>The safety position stated plainly: operator induction and competency, method statements and risk assessments produced before mobilisation, machine pre-use inspection, incident reporting, and the standards the business works to on client sites. A document library sits ready to hold downloadable certificates and safety files.</p>
-          <p>No mine or major contractor onboards a supplier without seeing this. Having it on the public site shortens vendor approval, and in some tenders it is a pass/fail requirement. The document library is intentionally empty until you supply the actual certificates — a safety claim is not something to invent.</p>
-          <div class="detail"><span class="chip">Method statements</span><span class="chip">Induction &amp; competency</span><span class="chip">Document library ready</span><span class="chip">Awaiting certificates</span></div>
+          <p>No mine or major contractor onboards a supplier without seeing this. Having it on the public site shortens vendor approval, and in some tenders it is a pass or fail requirement. The document library is intentionally empty until you supply the actual certificates, because a safety claim is not something to invent.</p>
+          <div class="detail"><span class="chip">Method statements</span><span class="chip">Induction and competency</span><span class="chip">Document library ready</span><span class="chip">Awaiting certificates</span></div>
         </div>
       </article>
 
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/testimonials</span><span class="page-name">Client Testimonials</span><span class="page-purpose">Built, awaiting content</span></div>
         <div class="page-body">
-          <p>A dedicated page with a rotating testimonial carousel and a client logo band, both fully built and connected to the portal. Both are currently empty by choice: attributed client quotes and third-party logos require written permission, and inventing them would expose the business rather than help it.</p>
-          <p>The moment you add your first testimonial in the portal, this page and the homepage band populate themselves. Nothing further needs building.</p>
+          <p>A dedicated page with a rotating testimonial carousel and a client logo band, both fully built and connected to the content system. Both are currently empty by choice: attributed client quotes and third-party logos require written permission, and inventing them would expose the business rather than help it.</p>
+          <p>The moment your first testimonial is added, this page and the homepage band populate themselves. Nothing further needs building.</p>
           <div class="detail"><span class="chip">Carousel built</span><span class="chip">Logo band built</span><span class="chip">Empty by design</span><span class="chip">Populates on entry</span></div>
         </div>
       </article>
@@ -817,14 +824,14 @@ img { max-width:100%; }
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/faq</span><span class="page-name">Frequently Asked Questions</span><span class="page-purpose">Deflecting the repeat calls</span></div>
         <div class="page-body">
-          <p>Twenty-four real questions grouped by topic — hire terms, rates and invoicing, operators and induction, breakdown response, workshop turnaround, supply and delivery. A live search field filters as the visitor types, and each answer expands in place with a smooth height transition.</p>
+          <p>Twenty-four real questions grouped by topic: hire terms, rates and invoicing, operators and induction, breakdown response, workshop turnaround, and supply and delivery. A live search field filters as the visitor types, and each answer expands in place with a smooth height transition.</p>
           <p>Every question answered here is a phone call your office does not have to take. It is also strong material for search engines, because it matches the exact phrasing people type into Google.</p>
           <div class="detail"><span class="chip">24 questions</span><span class="chip">Live search</span><span class="chip">Grouped by topic</span><span class="chip">Accordion answers</span><span class="chip">Search-optimised</span></div>
         </div>
       </article>
 
       <article class="page-entry">
-        <div class="page-id"><span class="page-route">/news</span><span class="page-name">News &amp; Insight</span><span class="page-purpose">Signals of an active business</span></div>
+        <div class="page-id"><span class="page-route">/news</span><span class="page-name">News and Insight</span><span class="page-purpose">Signals of an active business</span></div>
         <div class="page-body">
           <p>An index of company updates and technical articles, with the most recent lead item given prominence. Three articles are in place as a working foundation.</p>
           <div class="detail"><span class="chip">3 articles</span><span class="chip">Featured lead</span><span class="chip">Chronological index</span></div>
@@ -834,16 +841,16 @@ img { max-width:100%; }
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/news/[article]</span><span class="page-name">Article &times; 3</span><span class="page-purpose">Long-form authority</span></div>
         <div class="page-body">
-          <p>A proper reading layout — generous measure, clear typographic hierarchy, pull quotes, images that sit correctly in the flow, and a related-articles rail at the foot. Publishing a new article in the portal creates its page instantly.</p>
+          <p>A proper reading layout, with a generous measure, clear typographic hierarchy, pull quotes, images that sit correctly in the flow, and a related-articles rail at the foot. Publishing a new article creates its page instantly.</p>
           <p>A quiet news section reads as a quiet business. Regular technical posts are the cheapest and most durable way to improve search visibility.</p>
-          <div class="detail"><span class="chip">Editorial layout</span><span class="chip">Pull quotes</span><span class="chip">Related articles</span><span class="chip">Publish from portal</span></div>
+          <div class="detail"><span class="chip">Editorial layout</span><span class="chip">Pull quotes</span><span class="chip">Related articles</span><span class="chip">Instant publishing</span></div>
         </div>
       </article>
 
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/careers</span><span class="page-name">Careers</span><span class="page-purpose">Recruitment, direct</span></div>
         <div class="page-body">
-          <p>The case for working at Leikah, a vacancy list, and a full application form with CV upload. The form validates as it is completed and confirms clearly on submission. The vacancy list is currently empty — positions appear as you post them in the portal, and the page reads correctly with none listed.</p>
+          <p>The case for working at Leikah, a vacancy list, and a full application form with CV upload. The form validates as it is completed and confirms clearly on submission. The vacancy list is currently empty. Positions appear as they are posted, and the page reads correctly with none listed.</p>
           <p>In a market where competent diesel mechanics and certified operators are the real constraint on growth, an application route that works on a phone is worth more than a recruitment advert.</p>
           <div class="detail"><span class="chip">Application form</span><span class="chip">CV upload</span><span class="chip">Vacancy list ready</span><span class="chip">Mobile-first</span></div>
         </div>
@@ -853,21 +860,21 @@ img { max-width:100%; }
         <div class="page-id"><span class="page-route">/contact</span><span class="page-name">Contact</span><span class="page-purpose">Five ways in</span></div>
         <div class="page-body">
           <p>Departmental routing, live opening hours, the yard location with survey coordinates, and a general enquiry form. Covered in full on sheet 06.</p>
-          <div class="detail"><span class="chip">5 departments</span><span class="chip">Live open/closed</span><span class="chip">Coordinates</span><span class="chip">Enquiry form</span></div>
+          <div class="detail"><span class="chip">5 departments</span><span class="chip">Live open and closed</span><span class="chip">Coordinates</span><span class="chip">Enquiry form</span></div>
         </div>
       </article>
 
       <article class="page-entry">
         <div class="page-id"><span class="page-route">/quote</span><span class="page-name">Request a Quotation</span><span class="page-purpose">The commercial destination</span></div>
         <div class="page-body">
-          <p>The page every route on the site eventually leads to. A structured enquiry form that asks what a plant hire estimator actually needs: the service required, the site and its location, the duration, whether wet or dry hire is wanted, the machine class if known, and the contact who can authorise. Fields validate as they are filled, errors explain how to fix themselves, and file attachments — a site plan, a scope document, a photograph of a failed component — can be added.</p>
+          <p>The page every route on the site eventually leads to. A structured enquiry form that asks what a plant hire estimator actually needs: the service required, the site and its location, the duration, whether wet or dry hire is wanted, the machine class if known, and the contact who can authorise. Fields validate as they are filled, errors explain how to fix themselves, and file attachments can be added, such as a site plan, a scope document, or a photograph of a failed component.</p>
           <p>Arriving from a service page pre-selects that service. The result is that an enquiry lands with enough information to be quoted, instead of triggering three emails of clarification. That is the difference between a two-day turnaround and a two-hour one.</p>
           <div class="detail"><span class="chip">Structured fields</span><span class="chip">Pre-tagged by service</span><span class="chip">File attachments</span><span class="chip">Inline validation</span><span class="chip">Spam-protected</span></div>
         </div>
       </article>
 
       <article class="page-entry">
-        <div class="page-id"><span class="page-route">— sitewide</span><span class="page-name">Navigation &amp; Framing</span><span class="page-purpose">Present on every page</span></div>
+        <div class="page-id"><span class="page-route">sitewide</span><span class="page-name">Navigation and Framing</span><span class="page-purpose">Present on every page</span></div>
         <div class="page-body">
           <p>A header that begins almost transparent over the homepage hero and resolves into a solid bar with the full lockup as soon as the visitor scrolls. On phones it becomes a full-screen menu with generous tap targets. The footer carries the complete site map, the departments, the address, the operating hours and the emergency line. Moving between pages triggers a brief, deliberate transition rather than a white flash, and a first-visit loading sequence introduces the mark before the homepage resolves.</p>
           <div class="detail"><span class="chip">Adaptive header</span><span class="chip">Full-screen mobile menu</span><span class="chip">Complete footer sitemap</span><span class="chip">Page transitions</span><span class="chip">Brand preloader</span></div>
@@ -880,49 +887,49 @@ img { max-width:100%; }
 </section>
 
 <!-- ==========================================================================
-     04 — SERVICES SHOWCASE
+     04 SERVICES SHOWCASE
      ======================================================================= -->
 <section class="sheet" id="s04">
   <div class="band"><div class="band-inner">
     <span class="band-num" aria-hidden="true">04</span>
     <div class="band-text">
       <h2>The Services Showcase</h2>
-      <p class="band-sub">Thirteen capabilities, three divisions, twenty-four hand-drawn icons — and a structure that grows without a developer.</p>
+      <p class="band-sub">Thirteen capabilities, three divisions, twenty-four hand-drawn icons, and a structure that grows as the business does.</p>
     </div>
   </div></div>
 
   <div class="sheet-content"><div class="sheet-body">
 
     <div class="prose">
-      <p class="lead">The service system is the commercial engine of the site. It is built as a library rather than a list, so a visitor can enter at any level — a division, a single service, a machine class, an industry — and always find their way to a quotation.</p>
+      <p class="lead">The service system is the commercial engine of the site. It is built as a library rather than a list, so a visitor can enter at any level, whether a division, a single service, a machine class or an industry, and always find their way to a quotation.</p>
     </div>
 
     <div class="rows">
-      <div class="row"><span class="row-k">Three divisions</span><span class="row-v">Earthmoving &amp; Plant Hire, Heavy Mechanical, and Supply. Every service belongs to one, which is what allows filtering, cross-linking and sector matching to work automatically rather than being maintained by hand.</span></div>
-      <div class="row"><span class="row-k">A custom icon family</span><span class="row-v">Twenty-four icons drawn specifically for this business on a shared grid, with a common ground line and a single stroke weight, so an excavator, a grader, a transmission and a hydraulic hose all look like members of one family. No stock icon set contains a motor grader or a final drive that reads correctly at small size — so they were drawn.</span></div>
+      <div class="row"><span class="row-k">Three divisions</span><span class="row-v">Earthmoving and Plant Hire, Heavy Mechanical, and Supply. Every service belongs to one, which is what allows filtering, cross-linking and sector matching to work automatically rather than being maintained by hand.</span></div>
+      <div class="row"><span class="row-k">A custom icon family</span><span class="row-v">Twenty-four icons drawn specifically for this business on a shared grid, with a common ground line and a single stroke weight, so an excavator, a grader, a transmission and a hydraulic hose all look like members of one family. No stock icon set contains a motor grader or a final drive that reads correctly at small size, so they were drawn.</span></div>
       <div class="row"><span class="row-k">Proof points, not adjectives</span><span class="row-v">Each service carries four short claims written the way a site manager would say them. "Volumes reconciled to survey." "Hoses made on site." "Equivalents disclosed, never substituted quietly." Specific claims are credible; generic ones are noise.</span></div>
-      <div class="row"><span class="row-k">A visible working method</span><span class="row-v">Every service sets out its own numbered sequence — the engine overhaul runs receive and strip, clean and crack-test, strip report and quotation, machining and parts, assembly to build sheet, run and release. Showing the method is how a contractor demonstrates competence before winning the work.</span></div>
-      <div class="row"><span class="row-k">Technical illustration</span><span class="row-v">Line drawings of an excavator, a dozer, a hauler and an engine, drawn onto the page stroke by stroke as they enter view, with heavier weights for primary outlines and finer ones for construction lines — the visual convention of a workshop drawing.</span></div>
-      <div class="row"><span class="row-k">Everything cross-links</span><span class="row-v">A service knows its division, its related machine classes, its relevant FAQs and its associated projects. Adding a project in the portal makes it appear on the right service page automatically, with no second step.</span></div>
+      <div class="row"><span class="row-k">A visible working method</span><span class="row-v">Every service sets out its own numbered sequence. The engine overhaul runs receive and strip, clean and crack-test, strip report and quotation, machining and parts, assembly to build sheet, then run and release. Showing the method is how a contractor demonstrates competence before winning the work.</span></div>
+      <div class="row"><span class="row-k">Technical illustration</span><span class="row-v">Line drawings of an excavator, a dozer, a hauler and an engine, drawn onto the page stroke by stroke as they enter view, with heavier weights for primary outlines and finer ones for construction lines. It is the visual convention of a workshop drawing.</span></div>
+      <div class="row"><span class="row-k">Everything cross-links</span><span class="row-v">A service knows its division, its related machine classes, its relevant questions and its associated projects. Adding a project makes it appear on the right service page automatically, with no second step.</span></div>
       <div class="row"><span class="row-k">Every route ends in a quote</span><span class="row-v">Each service page closes with a quotation route tagged to that service, so enquiries arrive pre-classified and can be routed to the right desk on arrival.</span></div>
     </div>
 
     <div class="note">
       <span class="note-t">Growing the library</span>
-      <p>Adding a fourteenth service is a content task, not a development task. Enter it in the portal with its title, division, summary, proof points, method steps, icon and photography, and the site generates its card, its detail page, its cross-links and its search entry. The same is true of machine classes, industries, projects and articles.</p>
+      <p>Adding a fourteenth service is a content task, not a development task. Supply its title, division, summary, proof points, method steps, icon and photography, and the site generates its card, its detail page, its cross-links and its search entry. The same is true of machine classes, industries, projects and articles.</p>
     </div>
 
   </div></div>
 </section>
 
 <!-- ==========================================================================
-     05 — GALLERY & MEDIA
+     05 GALLERY & MEDIA
      ======================================================================= -->
 <section class="sheet" id="s05">
   <div class="band"><div class="band-inner">
     <span class="band-num" aria-hidden="true">05</span>
     <div class="band-text">
-      <h2>Gallery &amp; Media</h2>
+      <h2>Gallery and Media</h2>
       <p class="band-sub">Your own photography, processed properly, presented as evidence rather than decoration.</p>
     </div>
   </div></div>
@@ -930,17 +937,17 @@ img { max-width:100%; }
   <div class="sheet-content"><div class="sheet-body">
 
     <div class="prose">
-      <p class="lead">Every photograph on the site is Leikah's own. Twenty-six source images were processed into forty-seven optimised renditions so that each one is delivered at the right size for the device requesting it — a phone never downloads a desktop-sized image.</p>
+      <p class="lead">Every photograph on the site is Leikah's own. Twenty-six source images were processed into forty-seven optimised renditions so that each one is delivered at the right size for the device requesting it. A phone never downloads a desktop-sized image.</p>
       <p>Each image also carries a tiny embedded preview that appears instantly and blurs up into the full photograph as it loads. The result is that the page never jumps or reflows while images arrive, which is both a better experience and a direct search ranking factor.</p>
     </div>
 
     <div class="rows">
       <div class="row"><span class="row-k">The gallery</span><span class="row-v">Twenty-six images in a responsive layout that reflows cleanly from three columns to one. Category filtering narrows to fleet, site work, workshop or facility, applied instantly without reloading the page.</span></div>
-      <div class="row"><span class="row-k">Full-screen lightbox</span><span class="row-v">Selecting an image opens it full-screen with its caption. Arrow keys move between images, Escape closes, and on a phone the visitor swipes. Keyboard focus is held inside the lightbox while it is open and returned to the originating image when it closes — the correct behaviour for anyone navigating without a mouse.</span></div>
-      <div class="row"><span class="row-k">Before &amp; after comparison</span><span class="row-v">A draggable slider that wipes between two states of the same view, used on project records. For terracing, rehabilitation and haul road work this is the most persuasive single element available — it shows the change rather than describing it.</span></div>
-      <div class="row"><span class="row-k">Automatic optimisation</span><span class="row-v">Images are converted to modern compressed formats, letterboxing is trimmed, and multiple widths are generated automatically. When you upload a new photograph through the portal it goes through the same pipeline — you never have to think about file sizes.</span></div>
-      <div class="row"><span class="row-k">Captions and alternative text</span><span class="row-v">Every image carries a caption and a description, both editable. The descriptions serve visitors using screen readers and are read by search engines, which is how photography contributes to being found.</span></div>
-      <div class="row"><span class="row-k">Video, ready when you are</span><span class="row-v">The content system already carries video fields for the hero and for project records. No footage has been supplied yet, so none is shown — the moment you have drone or site video, it can be placed without rebuilding anything.</span></div>
+      <div class="row"><span class="row-k">Full-screen lightbox</span><span class="row-v">Selecting an image opens it full-screen with its caption. Arrow keys move between images, Escape closes, and on a phone the visitor swipes. Keyboard focus is held inside the lightbox while it is open and returned to the originating image when it closes, which is the correct behaviour for anyone navigating without a mouse.</span></div>
+      <div class="row"><span class="row-k">Before and after comparison</span><span class="row-v">A draggable slider that wipes between two states of the same view, used on project records. For terracing, rehabilitation and haul road work this is the most persuasive single element available, because it shows the change rather than describing it.</span></div>
+      <div class="row"><span class="row-k">Automatic optimisation</span><span class="row-v">Images are converted to modern compressed formats, letterboxing is trimmed, and multiple widths are generated automatically. Any new photograph added later goes through the same pipeline, so nobody has to think about file sizes.</span></div>
+      <div class="row"><span class="row-k">Captions and alternative text</span><span class="row-v">Every image carries a caption and a description, both of which can be updated. The descriptions serve visitors using screen readers and are read by search engines, which is how photography contributes to being found.</span></div>
+      <div class="row"><span class="row-k">Video, ready when you are</span><span class="row-v">The content system already carries video fields for the hero and for project records. No footage has been supplied yet, so none is shown. The moment you have drone or site video, it can be placed without rebuilding anything.</span></div>
     </div>
 
     <div class="note">
@@ -952,7 +959,7 @@ img { max-width:100%; }
 </section>
 
 <!-- ==========================================================================
-     06 — CONTACT
+     06 CONTACT
      ======================================================================= -->
 <section class="sheet" id="s06">
   <div class="band"><div class="band-inner">
@@ -970,64 +977,64 @@ img { max-width:100%; }
     </div>
 
     <div class="rows">
-      <div class="row"><span class="row-k">Departmental routing</span><span class="row-v">Five contactable desks are listed by name and function — Breakdown Dispatch, the Plant Hire Desk, Workshop &amp; Component Rebuild, Supply &amp; Procurement, and Accounts &amp; Vendor Onboarding. Each carries its own direct line and address, so a visitor reaches the right person first time.</span></div>
-      <div class="row"><span class="row-k">Live opening hours</span><span class="row-v">The page reads the current time and states whether the business is open right now, when it next opens, and — separately — that breakdown dispatch is answered around the clock, every day including public holidays. The visitor never has to work out the schedule themselves.</span></div>
-      <div class="row"><span class="row-k">The yard, located precisely</span><span class="row-v">The full address in Middelburg's New Industrial Area is presented with its survey coordinates on a technical plate, alongside written directions describing the approach from the N4. One tap opens the location in the visitor's own maps application — Google Maps, Apple Maps or Waze — which is faster and more reliable on a phone than an embedded map, and adds nothing to page weight.</span></div>
+      <div class="row"><span class="row-k">Departmental routing</span><span class="row-v">Five contactable desks are listed by name and function: Breakdown Dispatch, the Plant Hire Desk, Workshop and Component Rebuild, Supply and Procurement, and Accounts and Vendor Onboarding. Each carries its own direct line and address, so a visitor reaches the right person first time.</span></div>
+      <div class="row"><span class="row-k">Live opening hours</span><span class="row-v">The page reads the current time and states whether the business is open right now, when it next opens, and, separately, that breakdown dispatch is answered around the clock, every day including public holidays. The visitor never has to work out the schedule themselves.</span></div>
+      <div class="row"><span class="row-k">The yard, located precisely</span><span class="row-v">The full address in Middelburg's New Industrial Area is presented with its survey coordinates on a technical plate, alongside written directions describing the approach from the N4. One tap opens the location in the visitor's own maps application, whether Google Maps, Apple Maps or Waze, which is faster and more reliable on a phone than an embedded map and adds nothing to page weight.</span></div>
       <div class="row"><span class="row-k">Immediate channels</span><span class="row-v">Telephone, WhatsApp and email are all one tap. On a phone the number dials, WhatsApp opens a conversation, and email opens a pre-addressed message. Site staff in Mpumalanga overwhelmingly prefer WhatsApp, so it is given equal standing rather than hidden.</span></div>
-      <div class="row"><span class="row-k">The general enquiry form</span><span class="row-v">For everything that does not fit a category. Fields validate as they are filled; errors say what is wrong and how to fix it; the confirmation states clearly that the message was received and when to expect a reply.</span></div>
+      <div class="row"><span class="row-k">The general enquiry form</span><span class="row-v">For everything that does not fit a category. Fields validate as they are filled, errors say what is wrong and how to fix it, and the confirmation states clearly that the message was received and when to expect a reply.</span></div>
       <div class="row"><span class="row-k">Protected against abuse</span><span class="row-v">Submissions are checked and rate-limited on the server, so the mailbox does not fill with automated spam. Enquiries are also stored, which means nothing is lost if an email is missed.</span></div>
       <div class="row"><span class="row-k">Reachable from anywhere</span><span class="row-v">The quotation route and the 24-hour number appear in the header, in the footer, and at the close of every major page. A visitor never has to navigate back to Contact to make contact.</span></div>
     </div>
 
     <div class="note">
       <span class="note-t">Turning enquiries on</span>
-      <p>On the public preview, forms display and validate but do not deliver — the preview has no mail server behind it. Delivery activates with the full hosting deployment and is the natural pairing with the branded mailboxes proposed on sheet 10: quotation requests to <span class="mono">quotes@</span>, general enquiries to <span class="mono">info@</span>, applications to <span class="mono">admin@</span>.</p>
+      <p>On the public preview, forms display and validate but do not deliver, because the preview has no mail server behind it. Delivery activates with the full hosting deployment and is the natural pairing with the branded mailboxes proposed on sheet 10: quotation requests to <span class="mono">quotes@</span>, general enquiries to <span class="mono">info@</span>, and applications to <span class="mono">admin@</span>.</p>
     </div>
 
   </div></div>
 </section>
 
 <!-- ==========================================================================
-     07 — UX
+     07 UX
      ======================================================================= -->
 <section class="sheet" id="s07">
   <div class="band"><div class="band-inner">
     <span class="band-num" aria-hidden="true">07</span>
     <div class="band-text">
-      <h2>User Experience &amp; Design</h2>
-      <p class="band-sub">A visual language built from the work itself — and engineered to behave on a five-year-old phone at the edge of coverage.</p>
+      <h2>User Experience and Design</h2>
+      <p class="band-sub">A visual language built from the work itself, engineered to behave on a five-year-old phone at the edge of coverage.</p>
     </div>
   </div></div>
 
   <div class="sheet-content"><div class="sheet-body">
 
     <div class="prose">
-      <p class="lead">The design direction is called <strong>Cut &amp; Section</strong>. Its central idea is that everything in the interface takes its shape from the same chamfered plate as the mark, so that the identity is not a logo placed on a layout — it is the layout.</p>
-      <p>The test applied throughout was simple: if the logo were removed from the corner, would you still know whose site this is? Answering yes required a real system — a palette, a typographic hierarchy, an icon family, background treatments and motion behaviour that only belong to this business.</p>
+      <p class="lead">The design direction is called <strong>Cut and Section</strong>. Its central idea is that everything in the interface takes its shape from the same chamfered plate as the mark, so that the identity is not a logo placed on a layout. It is the layout.</p>
+      <p>The test applied throughout was simple. If the logo were removed from the corner, would you still know whose site this is? Answering yes required a real system: a palette, a typographic hierarchy, an icon family, background treatments and motion behaviour that only belong to this business.</p>
     </div>
 
     <div class="rows">
       <div class="row"><span class="row-k">The palette</span><span class="row-v">Deep ink blacks for weight, a graded steel range for structure and hairlines, and a single machined gold used sparingly for emphasis. Gold is the only accent on the site, which is what makes it mean something when it appears.</span></div>
-      <div class="row"><span class="row-k">Three typefaces, three jobs</span><span class="row-v">A wide industrial grotesque for headlines, a highly legible face for reading, and a technical monospaced face for specifications, coordinates, figures and labels. The monospaced face is doing real work — it is what makes a specification strip read as a specification rather than as marketing copy.</span></div>
+      <div class="row"><span class="row-k">Three typefaces, three jobs</span><span class="row-v">A wide industrial grotesque for headlines, a highly legible face for reading, and a technical monospaced face for specifications, coordinates, figures and labels. The monospaced face is doing real work. It is what makes a specification strip read as a specification rather than as marketing copy.</span></div>
       <div class="row"><span class="row-k">Backgrounds that are not flat</span><span class="row-v">Surveyor's grids, terrain contour lines, drifting dust, brushed-metal sheen and oversized brand watermarks sit behind the darker sections at very low opacity. They give depth without competing with content, and they are drawn rather than photographed, so they cost almost nothing to load.</span></div>
-      <div class="row"><span class="row-k">Motion with a purpose</span><span class="row-v">Content rises into place as it is reached; imagery drifts a fraction slower than the page for depth; figures count up; blueprints draw themselves stroke by stroke; the brand letters assemble on arrival. Every effect directs attention to something. Nothing loops for decoration.</span></div>
+      <div class="row"><span class="row-k">Motion with a purpose</span><span class="row-v">Content rises into place as it is reached, imagery drifts a fraction slower than the page for depth, figures count up, blueprints draw themselves stroke by stroke, and the brand letters assemble on arrival. Every effect directs attention to something. Nothing loops for decoration.</span></div>
       <div class="row"><span class="row-k">Reduced motion, fully honoured</span><span class="row-v">A visitor whose device requests reduced motion gets the entire site with the animation removed and nothing else lost. This is a genuine accessibility need, and the site treats it as a first-class mode rather than an afterthought.</span></div>
       <div class="row"><span class="row-k">Designed for a phone first</span><span class="row-v">Every layout was composed at phone width before desktop. Tap targets are sized for gloved hands, text remains legible in sunlight, and no page ever scrolls sideways. Most of your visitors are standing on a site, not sitting at a desk.</span></div>
       <div class="row"><span class="row-k">Usable without a mouse</span><span class="row-v">The whole site can be operated by keyboard, with a visible focus indicator at every step and a skip link to jump straight to content. Colour contrast was tuned so that even the smallest technical labels clear the accessibility standard against every background they appear on.</span></div>
-      <div class="row"><span class="row-k">Considered transitions</span><span class="row-v">Moving between pages fades rather than flashes. A first visit opens with a short brand sequence. Buttons, cards and tiles respond to touch and hover with restraint — enough to confirm the interaction, never enough to distract.</span></div>
+      <div class="row"><span class="row-k">Considered transitions</span><span class="row-v">Moving between pages fades rather than flashes. A first visit opens with a short brand sequence. Buttons, cards and tiles respond to touch and hover with restraint: enough to confirm the interaction, never enough to distract.</span></div>
     </div>
 
   </div></div>
 </section>
 
 <!-- ==========================================================================
-     08 — PERFORMANCE
+     08 PERFORMANCE
      ======================================================================= -->
 <section class="sheet" id="s08">
   <div class="band"><div class="band-inner">
     <span class="band-num" aria-hidden="true">08</span>
     <div class="band-text">
-      <h2>Performance &amp; Optimisation</h2>
+      <h2>Performance and Optimisation</h2>
       <p class="band-sub">Measured, not asserted. Speed, stability, accessibility and search readiness, tested with the same tools Google uses.</p>
     </div>
   </div></div>
@@ -1035,21 +1042,21 @@ img { max-width:100%; }
   <div class="sheet-content"><div class="sheet-body">
 
     <div class="prose">
-      <p class="lead">Google ranks pages partly on how quickly they become usable and how stable they are while loading. Those measurements were run against this site on a deliberately throttled connection — simulating a mid-range phone on a weak mobile signal, which is the realistic condition for a site foreman in the field.</p>
+      <p class="lead">Google ranks pages partly on how quickly they become usable and how stable they are while loading. Those measurements were run against this site on a deliberately throttled connection, simulating a mid-range phone on a weak mobile signal, which is the realistic condition for a site foreman in the field.</p>
     </div>
 
-    <div class="spec" aria-label="Measured results">
+    <div class="spec spec--4" aria-label="Measured results">
       <div class="spec-cell"><span class="spec-k">Slowest page load</span><span class="spec-v"><span class="fig">1.15s</span>Time until the main content of the slowest page is visible, on a throttled mobile connection. Google's "good" threshold is 2.5 seconds.</span></div>
-      <div class="spec-cell"><span class="spec-k">Layout shift</span><span class="spec-v"><span class="fig">0</span>Nothing on the page moves while it loads. No mis-taps caused by a button jumping.</span></div>
+      <div class="spec-cell"><span class="spec-k">Layout shift</span><span class="spec-v"><span class="fig">0</span>Nothing on the page moves while it loads, so there are no mis-taps caused by a button jumping.</span></div>
       <div class="spec-cell"><span class="spec-k">Accessibility violations</span><span class="spec-v"><span class="fig">0</span>Automated WCAG audit across the site returned no violations.</span></div>
       <div class="spec-cell"><span class="spec-k">Interaction checks passed</span><span class="spec-v"><span class="fig">20/20</span>Every filter, form, lightbox, slider and menu verified by automated testing.</span></div>
     </div>
 
     <div class="rows">
       <div class="row"><span class="row-k">Pages served pre-built</span><span class="row-v">Pages are prepared in advance rather than assembled on request, so they arrive almost instantly and stay fast under load. A tender deadline that sends fifty people to the site at once does not slow it down.</span></div>
-      <div class="row"><span class="row-k">Images sized to the device</span><span class="row-v">Modern compressed formats, multiple widths per photograph, instant low-resolution previews, and images below the fold loaded only as they are approached. Photography is the heaviest part of any site of this kind; here it is the most carefully managed.</span></div>
+      <div class="row"><span class="row-k">Images sized to the device</span><span class="row-v">Modern compressed formats, multiple widths per photograph, instant low-resolution previews, and images below the fold loaded only as they are approached. Photography is the heaviest part of any site of this kind, and here it is the most carefully managed.</span></div>
       <div class="row"><span class="row-k">Fonts that never flash</span><span class="row-v">Typefaces are loaded so that text is readable immediately and settles without the jarring reflow common on slower connections.</span></div>
-      <div class="row"><span class="row-k">Built for search</span><span class="row-v">Every page carries its own title and description, structured business data that search engines read directly — address, hours, phone, services, coordinates — a generated sitemap, and correct social preview cards so a shared link renders with the right image and headline.</span></div>
+      <div class="row"><span class="row-k">Built for search</span><span class="row-v">Every page carries its own title and description, structured business data that search engines read directly, covering address, hours, phone, services and coordinates, plus a generated sitemap and correct social preview cards so a shared link renders with the right image and headline.</span></div>
       <div class="row"><span class="row-k">Local search ready</span><span class="row-v">The structured data marks Leikah as a local business at a specific location with defined service areas, which is what makes "plant hire Middelburg" and "24 hour breakdown Mpumalanga" viable targets. Connecting the Google Business Profile completes it.</span></div>
       <div class="row"><span class="row-k">Continuously verifiable</span><span class="row-v">The performance, accessibility and interaction tests are automated and repeatable, so the same measurements can be re-run after any future change to confirm nothing has regressed.</span></div>
     </div>
@@ -1058,7 +1065,7 @@ img { max-width:100%; }
 </section>
 
 <!-- ==========================================================================
-     09 — BUSINESS BENEFITS
+     09 BUSINESS BENEFITS
      ======================================================================= -->
 <section class="sheet" id="s09">
   <div class="band"><div class="band-inner">
@@ -1075,11 +1082,11 @@ img { max-width:100%; }
       <div class="row"><span class="row-k">You look like the larger contractor</span><span class="row-v">In plant hire, perceived scale decides who gets invited to quote. A site with thirteen documented services, six machine classes, a visible working method and a real safety position reads as an established operation. That perception is worth more than any single feature on it.</span></div>
       <div class="row"><span class="row-k">Better enquiries, less admin</span><span class="row-v">The quotation form asks for the service, the site, the duration, the hire type and the machine class before an enquiry is sent. Estimators receive something they can price, rather than "how much for a digger". Fewer clarification emails, faster quotes, more of them won.</span></div>
       <div class="row"><span class="row-k">Fewer repeat phone calls</span><span class="row-v">Twenty-four answered questions, published rates policy, hire terms, turnaround expectations and delivery arrangements all sit on the site permanently. Each one is a call the office no longer fields.</span></div>
-      <div class="row"><span class="row-k">Faster vendor approval</span><span class="row-v">Mines and large contractors run supplier onboarding before they run tenders. Having the company details, division structure, safety position and departmental contacts publicly available shortens that process — and in some procurement systems, having them is the qualifying condition.</span></div>
+      <div class="row"><span class="row-k">Faster vendor approval</span><span class="row-v">Mines and large contractors run supplier onboarding before they run tenders. Having the company details, division structure, safety position and departmental contacts publicly available shortens that process, and in some procurement systems having them is the qualifying condition.</span></div>
       <div class="row"><span class="row-k">The breakdown line always reachable</span><span class="row-v">A dedicated emergency page, linked from every other page, tappable to dial, designed for poor light and weak signal. Breakdown work is high-margin and won by whoever answers first.</span></div>
-      <div class="row"><span class="row-k">You are found locally</span><span class="row-v">Structured local-business data, service-area definitions, and pages that match how people actually search — by machine, by service, by sector, by town. The FAQ content in particular targets long, specific searches that competitors are not answering.</span></div>
+      <div class="row"><span class="row-k">You are found locally</span><span class="row-v">Structured local-business data, service-area definitions, and pages that match how people actually search: by machine, by service, by sector, by town. The question and answer content in particular targets long, specific searches that competitors are not answering.</span></div>
       <div class="row"><span class="row-k">Recruitment that works</span><span class="row-v">A careers page with a mobile application form and CV upload, in a market where skilled diesel mechanics and certified operators are the binding constraint on growth.</span></div>
-      <div class="row"><span class="row-k">Complete independence</span><span class="row-v">Every word, photograph, price note, machine specification, opening hour and phone number on the site is editable by your own team through the portal. You never pay a developer to change a telephone number, and you are never held up waiting for one.</span></div>
+      <div class="row"><span class="row-k">Content that stays current</span><span class="row-v">Every word, photograph, price note, machine specification, opening hour and phone number is content rather than code. Changing any of it is a content update, not a development job, so the site keeps pace with the business instead of drifting out of date.</span></div>
       <div class="row"><span class="row-k">An asset that appreciates</span><span class="row-v">The content system, the design language and the page structures are all built to extend. Sheet 11 sets out a roadmap in which each stage builds on this foundation rather than replacing it.</span></div>
     </div>
 
@@ -1087,7 +1094,7 @@ img { max-width:100%; }
 </section>
 
 <!-- ==========================================================================
-     10 — MICROSOFT 365
+     10 MICROSOFT 365
      ======================================================================= -->
 <section class="sheet" id="s10">
   <div class="band"><div class="band-inner">
@@ -1102,7 +1109,7 @@ img { max-width:100%; }
 
     <div class="prose">
       <p class="lead">A website that says <span class="mono">quotes@leikahplanthire.co.za</span> and a business that replies from a free personal mail account are not the same business in a customer's mind. Branded email is the least expensive credibility a company can buy, and the most immediately visible.</p>
-      <p>We propose Microsoft 365 Business Basic: professional mailboxes on your own domain, hosted on Microsoft's infrastructure, with the collaboration tools a growing operation needs — set up, migrated and managed for you, so nobody at Leikah has to become an email administrator.</p>
+      <p>We propose Microsoft 365 Business Basic: professional mailboxes on your own domain, hosted on Microsoft's infrastructure, with the collaboration tools a growing operation needs. It is set up, migrated and managed for you, so nobody at Leikah has to become an email administrator.</p>
     </div>
 
     <div class="prose">
@@ -1110,11 +1117,13 @@ img { max-width:100%; }
       <p>Each person gets their own mailbox on the Leikah domain. We recommend structuring them by function as well as by name, so that a role survives a staff change and enquiries never land in a departed employee's inbox.</p>
     </div>
 
-    <div class="table-wrap">
+    <div class="table-block">
+      <span class="eyebrow">Proposed mailboxes</span>
+      <div class="table-wrap">
       <table>
         <thead><tr><th scope="col">Address</th><th scope="col">Belongs to</th><th scope="col">Receives</th></tr></thead>
         <tbody>
-          <tr><td class="item mono">info@</td><td>Reception / front desk</td><td>General enquiries, including the website contact form</td></tr>
+          <tr><td class="item mono">info@</td><td>Reception and front desk</td><td>General enquiries, including the website contact form</td></tr>
           <tr><td class="item mono">sales@</td><td>Plant Hire Desk</td><td>Hire enquiries, rate requests, availability</td></tr>
           <tr><td class="item mono">quotes@</td><td>Estimating</td><td>Website quotation requests and formal pricing</td></tr>
           <tr><td class="item mono">accounts@</td><td>Accounts</td><td>Invoicing, statements, remittances, credit applications</td></tr>
@@ -1123,6 +1132,7 @@ img { max-width:100%; }
           <tr><td class="item mono">director@</td><td>Directorship</td><td>Contracts, approvals, confidential correspondence</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
 
     <div class="prose">
@@ -1130,88 +1140,88 @@ img { max-width:100%; }
     </div>
 
     <div class="rows">
-      <div class="row"><span class="row-k">Business-class mailbox</span><span class="row-v">A large mailbox on your own domain, on Microsoft Exchange — the same platform the enterprises you supply are running. Mail is retained, backed up and recoverable.</span></div>
+      <div class="row"><span class="row-k">Business-class mailbox</span><span class="row-v">A large mailbox on your own domain, on Microsoft Exchange, which is the same platform the enterprises you supply are running. Mail is retained, backed up and recoverable.</span></div>
       <div class="row"><span class="row-k">Email everywhere</span><span class="row-v">Outlook on the web, on iPhone and Android, and the Outlook application for Windows and Mac. Mail, calendars and contacts stay in step across every device, so a message read on a phone in the yard is already read on the office computer.</span></div>
-      <div class="row"><span class="row-k">Microsoft Teams</span><span class="row-v">Internal chat, voice and video meetings, and file sharing. Useful for a business split across a yard, a workshop and multiple client sites — a fitter can photograph a failed component and put it in front of the workshop manager in seconds.</span></div>
+      <div class="row"><span class="row-k">Microsoft Teams</span><span class="row-v">Internal chat, voice and video meetings, and file sharing. Useful for a business split across a yard, a workshop and multiple client sites, where a fitter can photograph a failed component and put it in front of the workshop manager in seconds.</span></div>
       <div class="row"><span class="row-k">OneDrive cloud storage</span><span class="row-v">A terabyte of secure storage per person for documents, method statements, safety files, photographs and drawings. Accessible from any device, and not lost when a laptop is stolen or a phone is dropped in the pit.</span></div>
       <div class="row"><span class="row-k">Shared calendars</span><span class="row-v">Plant availability, workshop bookings, service intervals and site visits visible across the team. Double-bookings and missed services are largely a calendar problem.</span></div>
       <div class="row"><span class="row-k">Shared contacts</span><span class="row-v">One company address book. Customer and supplier contacts belong to the business rather than to whoever's phone they were saved on.</span></div>
       <div class="row"><span class="row-k">Spam and threat filtering</span><span class="row-v">Microsoft's filtering removes spam, phishing attempts and malicious attachments before they reach an inbox. In an industry where fraudulent banking-detail emails are a live and expensive risk, this matters commercially, not just technically.</span></div>
       <div class="row"><span class="row-k">Security and access control</span><span class="row-v">Encrypted mail in transit and at rest, multi-factor sign-in, and the ability to revoke access or remotely wipe company data from a lost or stolen device the same day.</span></div>
-      <div class="row"><span class="row-k">Shared mailboxes</span><span class="row-v">Role addresses such as <span class="mono">info@</span> and <span class="mono">quotes@</span> can be configured as shared mailboxes that several people monitor without consuming an additional licence — so coverage does not cost more.</span></div>
+      <div class="row"><span class="row-k">Shared mailboxes</span><span class="row-v">Role addresses such as <span class="mono">info@</span> and <span class="mono">quotes@</span> can be configured as shared mailboxes that several people monitor without consuming an additional licence, so coverage does not cost more.</span></div>
     </div>
 
     <div class="note">
       <span class="note-t">One licensing detail, stated plainly</span>
-      <p>Business Basic covers Outlook on the web, on mobile, and the Outlook desktop application — it does <em>not</em> include the installed desktop versions of Word, Excel and PowerPoint. Those are available in the web browser and on mobile, which is sufficient for most operational use. If Leikah needs the full installed Office applications on office computers, that is Microsoft 365 Business Standard, and we can quote it per user alongside this proposal. We would rather flag it now than have it surface after purchase.</p>
+      <p>Business Basic covers Outlook on the web, on mobile, and the Outlook desktop application. It does <em>not</em> include the installed desktop versions of Word, Excel and PowerPoint. Those are available in the web browser and on mobile, which is sufficient for most operational use. If Leikah needs the full installed Office applications on office computers, that is Microsoft 365 Business Standard, and we can quote it per user alongside this proposal. We would rather flag it now than have it surface after purchase.</p>
     </div>
 
     <div class="prose">
-      <h3 class="block-title">Ownership — and who does the work</h3>
+      <h3 class="block-title">Ownership, and who does the work</h3>
       <p><strong>Leikah Plant Hire owns the tenant, the domain and the data.</strong> The Microsoft subscription is registered to the business, not to us. We hold administrative access in order to manage it on your behalf, and that access can be transferred or revoked by you at any time. You are never locked in, and you never lose control of your own mail.</p>
-      <p>What we take on is the work — the setup that is tedious and easy to get wrong, and the ongoing administration that has no natural owner in a plant hire business.</p>
+      <p>What we take on is the work: the setup that is tedious and easy to get wrong, and the ongoing administration that has no natural owner in a plant hire business.</p>
     </div>
 
-    <div class="steps" aria-label="Implementation sequence">
+    <div class="steps steps--4" aria-label="Implementation sequence">
       <div class="step"><span class="step-n">STAGE 01</span><span class="step-t">Tenant setup</span><span class="step-d">Creating and configuring the Microsoft 365 tenant in Leikah's name, with the correct regional, retention and security settings applied from the start.</span></div>
-      <div class="step"><span class="step-n">STAGE 02</span><span class="step-t">Domain &amp; DNS</span><span class="step-d">Verifying ownership of the domain and configuring the mail records — including the sender authentication records that determine whether your mail reaches an inbox or a junk folder. This is the step most often done badly.</span></div>
+      <div class="step"><span class="step-n">STAGE 02</span><span class="step-t">Domain and DNS</span><span class="step-d">Verifying ownership of the domain and configuring the mail records, including the sender authentication records that determine whether your mail reaches an inbox or a junk folder. This is the step most often done badly.</span></div>
       <div class="step"><span class="step-n">STAGE 03</span><span class="step-t">Mailbox creation</span><span class="step-d">Creating each user and shared mailbox, applying permissions, aliases, distribution groups and forwarding rules, and wiring the website's forms to the correct destinations.</span></div>
       <div class="step"><span class="step-n">STAGE 04</span><span class="step-t">Migration</span><span class="step-d">Moving existing mail, contacts and calendars across from whatever is in use today, so nothing is lost and history remains searchable.</span></div>
       <div class="step"><span class="step-n">STAGE 05</span><span class="step-t">Device setup</span><span class="step-d">Configuring every phone, tablet, laptop and desktop, and confirming with each person that their mail is arriving correctly on each of their devices.</span></div>
-      <div class="step"><span class="step-n">STAGE 06</span><span class="step-t">Onboarding</span><span class="step-d">A short, practical walkthrough for the team — sending from a shared mailbox, using the calendar, finding a file in OneDrive, spotting a phishing attempt.</span></div>
+      <div class="step"><span class="step-n">STAGE 06</span><span class="step-t">Onboarding</span><span class="step-d">A short, practical walkthrough for the team: sending from a shared mailbox, using the calendar, finding a file in OneDrive, and spotting a phishing attempt.</span></div>
       <div class="step"><span class="step-n">STAGE 07</span><span class="step-t">Ongoing administration</span><span class="step-d">Adding and removing users as staff change, adjusting permissions and groups, resetting passwords, and handling the day-to-day requests that would otherwise land on a director's desk.</span></div>
-      <div class="step"><span class="step-n">STAGE 08</span><span class="step-t">Security &amp; support</span><span class="step-d">Monitoring sign-in security, applying policy updates, responding to suspected compromise, and acting as your first line of support for anything email-related.</span></div>
+      <div class="step"><span class="step-n">STAGE 08</span><span class="step-t">Security and support</span><span class="step-d">Monitoring sign-in security, applying policy updates, responding to suspected compromise, and acting as your first line of support for anything email-related.</span></div>
     </div>
 
     <div class="prose">
       <h3 class="block-title">Commercial structure</h3>
-      <p>The cost is split into a one-time establishment fee and a monthly running cost. The monthly figure scales with the number of people who need a mailbox — role addresses configured as shared mailboxes do not add to it.</p>
+      <p>The cost is split into a one-time establishment fee and a monthly running cost. The monthly figure scales with the number of people who need a mailbox. Role addresses configured as shared mailboxes do not add to it.</p>
     </div>
 
     <div class="table-block">
-      <span class="eyebrow">One-time — establishment</span>
+      <span class="eyebrow">One-time establishment</span>
       <div class="table-wrap">
       <table>
         <thead><tr><th scope="col">Item</th><th scope="col">Included</th><th scope="col" style="text-align:right">Fee</th></tr></thead>
         <tbody>
           <tr><td class="item">Tenant setup</td><td>Microsoft 365 tenant created and configured in Leikah's name</td><td class="rate"><span class="blank"></span></td></tr>
-          <tr><td class="item">DNS configuration &amp; domain verification</td><td>Mail routing and sender authentication records configured and verified</td><td class="rate"><span class="blank"></span></td></tr>
-          <tr><td class="item">Mailbox creation</td><td>Per mailbox — user or shared — with permissions, aliases and groups</td><td class="rate"><span class="blank"></span></td></tr>
-          <tr><td class="item">Mail migration</td><td>Per mailbox — existing mail, contacts and calendars moved across</td><td class="rate"><span class="blank"></span></td></tr>
-          <tr><td class="item">Device configuration</td><td>Per device — phone, tablet, laptop or desktop, set up and verified</td><td class="rate"><span class="blank"></span></td></tr>
+          <tr><td class="item">DNS configuration and domain verification</td><td>Mail routing and sender authentication records configured and verified</td><td class="rate"><span class="blank"></span></td></tr>
+          <tr><td class="item">Mailbox creation</td><td>Per mailbox, user or shared, with permissions, aliases and groups</td><td class="rate"><span class="blank"></span></td></tr>
+          <tr><td class="item">Mail migration</td><td>Per mailbox, with existing mail, contacts and calendars moved across</td><td class="rate"><span class="blank"></span></td></tr>
+          <tr><td class="item">Device configuration</td><td>Per device, whether phone, tablet, laptop or desktop, set up and verified</td><td class="rate"><span class="blank"></span></td></tr>
           <tr><td class="item">Team onboarding</td><td>Practical walkthrough session for all staff</td><td class="rate"><span class="blank"></span></td></tr>
         </tbody>
         <tfoot><tr><td class="item">One-time total</td><td>Confirmed against the final mailbox and device count</td><td class="rate"><span class="blank"></span></td></tr></tfoot>
       </table>
-    </div>
+      </div>
     </div>
 
     <div class="table-block">
-      <span class="eyebrow">Monthly — licences and management</span>
+      <span class="eyebrow">Monthly licences and management</span>
       <div class="table-wrap">
       <table>
         <thead><tr><th scope="col">Item</th><th scope="col">Basis</th><th scope="col" style="text-align:right">Fee</th></tr></thead>
         <tbody>
           <tr><td class="item">Microsoft 365 Business Basic licence</td><td>Per user, per month</td><td class="rate"><span class="blank"></span></td></tr>
-          <tr><td class="item">Managed administration</td><td>Per month — users, permissions, groups, password resets</td><td class="rate"><span class="blank"></span></td></tr>
-          <tr><td class="item">Security monitoring</td><td>Per month — sign-in monitoring, policy and threat updates</td><td class="rate"><span class="blank"></span></td></tr>
-          <tr><td class="item">Ongoing support</td><td>Per month — first-line support for all email matters</td><td class="rate"><span class="blank"></span></td></tr>
+          <tr><td class="item">Managed administration</td><td>Per month, covering users, permissions, groups and password resets</td><td class="rate"><span class="blank"></span></td></tr>
+          <tr><td class="item">Security monitoring</td><td>Per month, covering sign-in monitoring, policy and threat updates</td><td class="rate"><span class="blank"></span></td></tr>
+          <tr><td class="item">Ongoing support</td><td>Per month, first-line support for all email matters</td><td class="rate"><span class="blank"></span></td></tr>
         </tbody>
         <tfoot><tr><td class="item">Monthly total</td><td>Based on seven mailboxes as listed above</td><td class="rate"><span class="blank"></span></td></tr></tfoot>
       </table>
-    </div>
+      </div>
     </div>
 
     <div class="note">
       <span class="note-t">Rates to be inserted on issue</span>
-      <p>Fee columns are shown as structure only. Microsoft's licence pricing is set per user and reviewed periodically, and the establishment fee depends on the final mailbox and device count — so both are confirmed in writing before any work begins, with no charge until the scope is agreed. All figures will be quoted in South African Rand, excluding VAT.</p>
+      <p>Fee columns are shown as structure only. Microsoft's licence pricing is set per user and reviewed periodically, and the establishment fee depends on the final mailbox and device count, so both are confirmed in writing before any work begins, with no charge until the scope is agreed. All figures will be quoted in South African Rand, excluding VAT.</p>
     </div>
 
   </div></div>
 </section>
 
 <!-- ==========================================================================
-     11 — FUTURE EXPANSION
+     11 FUTURE EXPANSION
      ======================================================================= -->
 <section class="sheet" id="s11">
   <div class="band"><div class="band-inner">
@@ -1225,50 +1235,50 @@ img { max-width:100%; }
   <div class="sheet-content"><div class="sheet-body">
 
     <div class="prose">
-      <p class="lead">The architecture underneath this website — the database, the permission model, the content system, the file storage — was chosen to support a much larger platform than a public website. Nothing below requires starting again. Everything below is an extension of what already exists.</p>
+      <p class="lead">The architecture underneath this website, meaning the database, the permission model, the content system and the file storage, was chosen to support a much larger platform than a public website. Nothing below requires starting again. Everything below is an extension of what already exists.</p>
     </div>
 
-    <div class="prose"><h3 class="block-title">Near term — running the business online</h3></div>
+    <div class="prose"><h3 class="block-title">Near term: running the business online</h3></div>
     <div class="rows">
-      <div class="row"><span class="row-k">Customer portal</span><span class="row-v">Secure accounts where clients see their active hires, machine locations, service history, submitted enquiries and quotation status without telephoning the office.</span></div>
-      <div class="row"><span class="row-k">Online booking &amp; availability</span><span class="row-v">Live plant availability by class and date, with customers reserving machines directly. The single largest reduction in telephone traffic available to a plant hire business.</span></div>
+      <div class="row"><span class="row-k">Customer accounts</span><span class="row-v">Secure logins where clients see their active hires, machine locations, service history, submitted enquiries and quotation status without telephoning the office.</span></div>
+      <div class="row"><span class="row-k">Online booking and availability</span><span class="row-v">Live plant availability by class and date, with customers reserving machines directly. This is the single largest reduction in telephone traffic available to a plant hire business.</span></div>
       <div class="row"><span class="row-k">Automated quotations</span><span class="row-v">Rate cards held in the system so that a standard hire enquiry returns an indicative price immediately, with complex enquiries still routed to an estimator. Speed of first response is frequently what decides the award.</span></div>
-      <div class="row"><span class="row-k">Document centre</span><span class="row-v">Client-specific access to signed contracts, delivery notes, service reports, safety files, certificates and invoices — replacing the search through old email threads.</span></div>
-      <div class="row"><span class="row-k">Payments &amp; invoicing</span><span class="row-v">Online invoice viewing and card or EFT settlement, with automated statements and reminders. Faster collection with less administrative chasing.</span></div>
+      <div class="row"><span class="row-k">Document centre</span><span class="row-v">Client-specific access to signed contracts, delivery notes, service reports, safety files, certificates and invoices, replacing the search through old email threads.</span></div>
+      <div class="row"><span class="row-k">Payments and invoicing</span><span class="row-v">Online invoice viewing and card or EFT settlement, with automated statements and reminders. Faster collection with less administrative chasing.</span></div>
     </div>
 
-    <div class="prose"><h3 class="block-title">Operational — the internal platform</h3></div>
+    <div class="prose"><h3 class="block-title">Operational: the internal platform</h3></div>
     <div class="rows">
       <div class="row"><span class="row-k">Operations dashboard</span><span class="row-v">Fleet utilisation, machine availability, open breakdowns, workshop load and enquiry pipeline on one screen. Management by measurement rather than by memory.</span></div>
-      <div class="row"><span class="row-k">Inventory management</span><span class="row-v">Live parts, filtration and consumables stock with reorder levels, supplier records and usage against fleet — feeding directly into the supply side of the business.</span></div>
+      <div class="row"><span class="row-k">Inventory management</span><span class="row-v">Live parts, filtration and consumables stock with reorder levels, supplier records and usage against fleet, feeding directly into the supply side of the business.</span></div>
       <div class="row"><span class="row-k">Online parts store</span><span class="row-v">A trade catalogue where existing account customers order parts and consumables directly, on their agreed terms, without a telephone call.</span></div>
-      <div class="row"><span class="row-k">Staff portal</span><span class="row-v">Job cards, timesheets, service checklists, digital inspection forms and photographic reporting completed from a phone on site — replacing paper that gets lost between the pit and the office.</span></div>
+      <div class="row"><span class="row-k">Field and workshop app</span><span class="row-v">Job cards, timesheets, service checklists, digital inspection forms and photographic reporting completed from a phone on site, replacing paper that gets lost between the pit and the office.</span></div>
       <div class="row"><span class="row-k">Maintenance scheduling</span><span class="row-v">Automated service intervals against machine hours, with alerts to the workshop and to contract customers before a service falls due.</span></div>
     </div>
 
-    <div class="prose"><h3 class="block-title">Growth — demand and intelligence</h3></div>
+    <div class="prose"><h3 class="block-title">Growth: demand and intelligence</h3></div>
     <div class="rows">
-      <div class="row"><span class="row-k">Lead management &amp; CRM</span><span class="row-v">Every enquiry tracked from first contact through quotation to award, with follow-up scheduling and win/loss reporting. Most contractors lose more work to unfollowed enquiries than to price.</span></div>
-      <div class="row"><span class="row-k">Analytics &amp; reporting</span><span class="row-v">Which services attract enquiries, which sectors convert, which pages precede a quotation request, and where visitors leave. Marketing spend directed by evidence.</span></div>
-      <div class="row"><span class="row-k">Email marketing</span><span class="row-v">Segmented campaigns to existing and prospective customers — fleet additions, maintenance reminders, seasonal availability, technical updates — sent from the same branded domain.</span></div>
+      <div class="row"><span class="row-k">Lead management and CRM</span><span class="row-v">Every enquiry tracked from first contact through quotation to award, with follow-up scheduling and win or loss reporting. Most contractors lose more work to unfollowed enquiries than to price.</span></div>
+      <div class="row"><span class="row-k">Analytics and reporting</span><span class="row-v">Which services attract enquiries, which sectors convert, which pages precede a quotation request, and where visitors leave. Marketing spend directed by evidence.</span></div>
+      <div class="row"><span class="row-k">Email marketing</span><span class="row-v">Segmented campaigns to existing and prospective customers, covering fleet additions, maintenance reminders, seasonal availability and technical updates, sent from the same branded domain.</span></div>
       <div class="row"><span class="row-k">Social integration</span><span class="row-v">Site and workshop content flowing automatically to the company's social channels, and the resulting activity feeding back onto the website.</span></div>
-      <div class="row"><span class="row-k">AI-assisted enquiry handling</span><span class="row-v">An assistant that answers routine questions on the site around the clock — rates policy, hire terms, machine specifications, availability — captures the enquiry, and hands anything complex to a person with the context already gathered.</span></div>
+      <div class="row"><span class="row-k">AI-assisted enquiry handling</span><span class="row-v">An assistant that answers routine questions on the site around the clock, covering rates policy, hire terms, machine specifications and availability. It captures the enquiry and hands anything complex to a person with the context already gathered.</span></div>
       <div class="row"><span class="row-k">System integrations</span><span class="row-v">Connections to accounting, telematics and fleet-tracking systems so that machine hours, locations and invoices flow between platforms instead of being rekeyed.</span></div>
     </div>
 
     <div class="prose">
-      <h3 class="block-title">Before launch — what is still needed from Leikah</h3>
+      <h3 class="block-title">Before launch: what is still needed from Leikah</h3>
       <p>The site is complete and deployed for review. A short list of items requires information only the business can supply, and each is a content entry rather than development work.</p>
     </div>
 
     <div class="rows">
       <div class="row"><span class="row-k">Company details</span><span class="row-v">Registration number, VAT number and B-BBEE level. The fields are built and display automatically once entered.</span></div>
       <div class="row"><span class="row-k">Branded mailboxes</span><span class="row-v">The addresses shown on the site are the proposed ones. They become live with sheet 10.</span></div>
-      <div class="row"><span class="row-k">Testimonials &amp; client logos</span><span class="row-v">Two or three attributed client quotes, and written permission to display client marks.</span></div>
+      <div class="row"><span class="row-k">Testimonials and client logos</span><span class="row-v">Two or three attributed client quotes, and written permission to display client marks.</span></div>
       <div class="row"><span class="row-k">Safety certificates</span><span class="row-v">Current certification and safety file documents for the health and safety library.</span></div>
       <div class="row"><span class="row-k">Founding year</span><span class="row-v">Shown as 2016 pending your confirmation, as it appears in several places.</span></div>
-      <div class="row"><span class="row-k">The ISM relationship</span><span class="row-v">The partner mark currently reads "In association with". Only you can confirm whether the correct wording is a division, a sister company, a former trading name or a partnership — and it should be right before launch.</span></div>
-      <div class="row"><span class="row-k">Hosting deployment</span><span class="row-v">Moving from the public preview to full hosting, which activates form delivery and the content portal.</span></div>
+      <div class="row"><span class="row-k">The ISM relationship</span><span class="row-v">The partner mark currently reads "In association with". Only you can confirm whether the correct wording is a division, a sister company, a former trading name or a partnership, and it should be right before launch.</span></div>
+      <div class="row"><span class="row-k">Hosting deployment</span><span class="row-v">Moving from the public preview to full hosting, which activates enquiry form delivery.</span></div>
     </div>
 
   </div></div>
@@ -1281,16 +1291,16 @@ img { max-width:100%; }
   <div class="closing-inner">
     <span class="eyebrow">In closing</span>
     <h2>Not a brochure. A <em>digital headquarters</em>.</h2>
-    <p>A brochure describes a business. A headquarters runs one — it is where customers arrive, where they find what they need, where they ask for a price, where they call at two in the morning with a machine down, and where they form their opinion of whether Leikah Plant Hire is the contractor they want on their site.</p>
-    <p>That is what has been built. Twenty-one page types, thirteen documented services, six machine classes, eight industries, a designed identity that belongs to nobody else, and a content system that puts every word of it under your own control. It performs on a weak signal, it works without a mouse, and it was measured rather than assumed.</p>
-    <p>It is also a foundation rather than a finished object. Branded business email is the immediate next step, and behind it sits a roadmap — customer portals, live availability, automated quotations, an operations dashboard — that this platform was deliberately architected to carry. Each stage adds to what exists. None of it starts again.</p>
-    <p><strong style="color:#fff">Leikah Plant Hire now has a permanent, professional, entirely owned position online — one that will still be working, and still be growing, in ten years' time.</strong></p>
+    <p>A brochure describes a business. A headquarters runs one. It is where customers arrive, where they find what they need, where they ask for a price, where they call at two in the morning with a machine down, and where they form their opinion of whether Leikah Plant Hire is the contractor they want on their site.</p>
+    <p>That is what has been built: twenty-one page types, thirteen documented services, six machine classes, eight industries, a designed identity that belongs to nobody else, and a content system that keeps every word of it current. It performs on a weak signal, it works without a mouse, and it was measured rather than assumed.</p>
+    <p>It is also a foundation rather than a finished object. Branded business email is the immediate next step, and behind it sits a roadmap of customer accounts, live availability, automated quotations and an operations dashboard that this platform was deliberately architected to carry. Each stage adds to what exists. None of it starts again.</p>
+    <p><strong style="color:#fff">Leikah Plant Hire now has a permanent, professional, entirely owned position online, one that will still be working, and still be growing, in ten years' time.</strong></p>
 
     <div class="signoff">
       <div class="tb-cell"><span class="tb-key">Website</span><span class="tb-val">Built, deployed, under review</span></div>
-      <div class="tb-cell"><span class="tb-key">Content portal</span><span class="tb-val">Built, activates with hosting</span></div>
-      <div class="tb-cell"><span class="tb-key">Business email</span><span class="tb-val accent">Proposed — sheet 10</span></div>
-      <div class="tb-cell"><span class="tb-key">Expansion</span><span class="tb-val">Roadmapped — sheet 11</span></div>
+      <div class="tb-cell"><span class="tb-key">Content</span><span class="tb-val">Structured and ready to update</span></div>
+      <div class="tb-cell"><span class="tb-key">Business email</span><span class="tb-val accent">Proposed, sheet 10</span></div>
+      <div class="tb-cell"><span class="tb-key">Expansion</span><span class="tb-val">Roadmapped, sheet 11</span></div>
     </div>
   </div>
 </section>
