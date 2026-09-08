@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="Client onboarding guide prepared by Sirius Ascent for Leikah Plant Hire.">
+<meta property="og:title" content="Welcome aboard | Leikah Plant Hire">
+<meta property="og:description" content="Your onboarding guide: what happens next, what we need from you, and when.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2f3fd6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 C52.5 31, 59 42.5, 88 50 C59 57.5, 52.5 69, 50 97 C47.5 69, 41 57.5, 12 50 C41 42.5, 47.5 31, 50 3 Z' fill='%232f3fd6'/%3E%3C/svg%3E">
+<title>Welcome aboard | Leikah Plant Hire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+/* ===========================================================================
+   SIRIUS ASCENT, CLIENT ONBOARDING GUIDE
+   Prepared for Leikah Plant Hire against invoice #006.
+
+   Branded to Sirius Ascent rather than to the client, because this is a
+   supplier document that arrives alongside the invoice and should read as
+   part of the same set. Palette and proportions follow invoice #006: royal
+   blue on white, soft tinted panels, letterspaced uppercase labels.
+   ======================================================================== */
+
+:root {
+  --blue:#2f3fd6;
+  --blue-deep:#1c2699;
+  --blue-soft:#6b78e8;
+  --blue-tint:#f3f5fe;
+  --blue-line:#dde2fb;
+
+  --ground:#fcfcfe;
+  --surface:#ffffff;
+  --ink:#14161f;
+  --text:#31353f;
+  --mute:#6a6f7d;
+  --rule:#e5e7ef;
+  --rule-soft:#eef0f6;
+
+  --ok:#1f7a4d;
+  --ok-tint:#e8f5ee;
+
+  --sp:clamp(1.15rem, 4vw, 3.25rem);
+  --measure:66ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --blue:#8f9cff;
+    --blue-deep:#b3bcff;
+    --blue-soft:#7a86e0;
+    --blue-tint:#161a2c;
+    --blue-line:#2a3050;
+
+    --ground:#0d0f16;
+    --surface:#141722;
+    --ink:#f0f1f5;
+    --text:#c3c7d2;
+    --mute:#8e94a3;
+    --rule:#242838;
+    --rule-soft:#1b1f2c;
+
+    --ok:#6ed49f;
+    --ok-tint:#12271c;
+  }
+}
+:root[data-theme="dark"] {
+  --blue:#8f9cff; --blue-deep:#b3bcff; --blue-soft:#7a86e0;
+  --blue-tint:#161a2c; --blue-line:#2a3050;
+  --ground:#0d0f16; --surface:#141722;
+  --ink:#f0f1f5; --text:#c3c7d2; --mute:#8e94a3;
+  --rule:#242838; --rule-soft:#1b1f2c;
+  --ok:#6ed49f; --ok-tint:#12271c;
+}
+
+*,*::before,*::after { box-sizing:border-box; }
+
+body {
+  margin:0; background:var(--ground); color:var(--text);
+  font-family:Manrope, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size:15.5px; line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3 { margin:0; color:var(--ink); line-height:1.15; text-wrap:balance; }
+h1,h2.serif { font-family:"Instrument Serif", Georgia, "Times New Roman", serif; font-weight:400; letter-spacing:-.01em; }
+h2,h3 { font-family:Manrope, sans-serif; font-weight:700; letter-spacing:-.015em; }
+p { margin:0; }
+strong { color:var(--ink); font-weight:700; }
+
+.mono { font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric:tabular-nums; }
+.label {
+  font-family:"JetBrains Mono", ui-monospace, monospace;
+  font-size:.625rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--mute); font-weight:500;
+}
+.wrap { max-width:960px; margin:0 auto; padding:0 var(--sp); }
+.measure { max-width:var(--measure); }
+
+/* --- masthead ------------------------------------------------------------ */
+
+.head { background:var(--surface); border-bottom:1px solid var(--rule); }
+.head-inner { max-width:960px; margin:0 auto; padding:clamp(1.6rem,3.5vw,2.4rem) var(--sp) 0; }
+.brandrow { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; padding-bottom:clamp(1.75rem,4vw,2.75rem); border-bottom:2px solid var(--blue); }
+.brand { display:flex; align-items:center; gap:.7rem; }
+.brand svg { width:30px; height:30px; flex-shrink:0; }
+.brand .n { font-family:"Instrument Serif", Georgia, serif; font-size:1.2rem; letter-spacing:.22em; color:var(--ink); line-height:1; }
+.brand .s { font-family:"JetBrains Mono",monospace; font-size:.55rem; letter-spacing:.36em; color:var(--mute); margin-top:.3rem; }
+.doctag {
+  font-family:"JetBrains Mono",monospace; font-size:.68rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--blue); font-weight:700;
+}
+
+.hero { max-width:960px; margin:0 auto; padding:clamp(2.25rem,5vw,3.75rem) var(--sp) clamp(1.75rem,4vw,2.75rem); display:flex; flex-direction:column; gap:1.2rem; }
+.hero h1 { font-size:clamp(2.1rem,5.6vw,3.5rem); max-width:20ch; }
+.hero h1 em { font-style:italic; color:var(--blue); }
+.hero p { font-size:clamp(1rem,1.5vw,1.1rem); color:var(--text); max-width:60ch; }
+
+/* --- glance strip -------------------------------------------------------- */
+
+.glance {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr));
+  border:1px solid var(--blue-line); background:var(--blue-tint);
+  border-radius:10px; overflow:hidden;
+}
+.glance div { padding:.95rem 1.1rem; border-right:1px solid var(--blue-line); display:flex; flex-direction:column; gap:.3rem; }
+.glance div:last-child { border-right:none; }
+.glance .v { font-family:"JetBrains Mono",monospace; font-size:1.05rem; font-weight:700; color:var(--blue-deep); line-height:1.2; }
+
+/* --- sections ------------------------------------------------------------ */
+
+section { padding:clamp(2.25rem,5vw,3.5rem) 0; border-top:1px solid var(--rule); }
+section:first-of-type { border-top:none; }
+.sec-head { display:flex; flex-direction:column; gap:.55rem; margin-bottom:1.6rem; }
+.sec-head h2 { font-size:clamp(1.4rem,3.2vw,1.95rem); }
+.sec-head p { color:var(--mute); font-size:.95rem; max-width:62ch; }
+
+.body-copy { display:flex; flex-direction:column; gap:1rem; max-width:var(--measure); }
+
+/* --- stages -------------------------------------------------------------- */
+
+.stage { display:grid; grid-template-columns:auto minmax(0,1fr); gap:.6rem 1.35rem; padding:1.5rem 0; border-top:1px solid var(--rule-soft); }
+.stage:first-of-type { border-top:none; padding-top:0; }
+.stage-n {
+  font-family:"JetBrains Mono",monospace; font-weight:700; font-size:.72rem; letter-spacing:.05em;
+  color:var(--blue); background:var(--blue-tint); border:1px solid var(--blue-line);
+  width:2.6rem; height:2.6rem; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.stage-b { display:flex; flex-direction:column; gap:.65rem; min-width:0; }
+.stage-b h3 { font-size:1.1rem; }
+.stage-b p { font-size:.9375rem; max-width:62ch; }
+
+/* --- lists --------------------------------------------------------------- */
+
+ul.ticks { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr)); gap:.05rem 1.75rem; }
+ul.ticks li { display:grid; grid-template-columns:auto minmax(0,1fr); gap:.7rem; padding:.5rem 0; align-items:start; font-size:.9375rem; }
+ul.ticks li::before {
+  content:""; width:16px; height:16px; margin-top:.3rem; flex-shrink:0;
+  border-radius:50%; background:var(--blue-tint); border:1px solid var(--blue-line);
+  background-image:linear-gradient(var(--blue),var(--blue));
+  background-size:6px 6px; background-position:center; background-repeat:no-repeat;
+}
+ul.ticks.single { grid-template-columns:1fr; max-width:var(--measure); }
+
+/* --- checklist ----------------------------------------------------------- */
+
+.groups { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(238px,100%),1fr)); gap:1.1rem; align-items:start; }
+.group { background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:1.2rem 1.3rem 1.35rem; display:flex; flex-direction:column; gap:.85rem; }
+.group h3 { font-size:1rem; display:flex; align-items:center; gap:.55rem; }
+.group h3 .label { color:var(--blue); }
+.check { display:grid; grid-template-columns:auto minmax(0,1fr); gap:.65rem; align-items:start; padding:.3rem 0; }
+.check input {
+  appearance:none; -webkit-appearance:none;
+  width:17px; height:17px; margin:.28rem 0 0; flex-shrink:0;
+  border:1.5px solid var(--mute); border-radius:4px; background:var(--surface);
+  cursor:pointer; position:relative;
+}
+.check input:checked { background:var(--blue); border-color:var(--blue); }
+.check input:checked::after {
+  content:""; position:absolute; left:5px; top:1.5px;
+  width:4px; height:9px; border:solid var(--surface); border-width:0 2px 2px 0; transform:rotate(45deg);
+}
+.check input:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+.check label { font-size:.9rem; cursor:pointer; line-height:1.5; }
+.check label b { color:var(--ink); font-weight:600; display:block; }
+.check label span { color:var(--mute); font-size:.8125rem; }
+.check.done label b { text-decoration:line-through; color:var(--mute); }
+
+/* --- callout ------------------------------------------------------------- */
+
+.note {
+  background:var(--blue-tint); border:1px solid var(--blue-line);
+  border-radius:10px; padding:1.15rem 1.3rem;
+  display:flex; flex-direction:column; gap:.45rem; max-width:var(--measure);
+}
+.note h3 { font-size:.95rem; color:var(--blue-deep); }
+.note p { font-size:.875rem; color:var(--text); }
+
+/* --- table --------------------------------------------------------------- */
+
+.tablewrap { overflow-x:auto; border:1px solid var(--rule); border-radius:10px; background:var(--surface); }
+table { width:100%; border-collapse:collapse; min-width:440px; }
+th,td { text-align:left; padding:.85rem 1.15rem; border-bottom:1px solid var(--rule-soft); }
+th { font-family:"JetBrains Mono",monospace; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--mute); font-weight:500; }
+td { font-size:.9375rem; }
+td.svc { color:var(--ink); font-weight:600; }
+td.amt { font-family:"JetBrains Mono",monospace; text-align:right; white-space:nowrap; color:var(--ink); font-variant-numeric:tabular-nums; }
+tfoot td { border-bottom:none; border-top:1.5px solid var(--rule); font-weight:700; color:var(--ink); }
+tfoot td.amt { color:var(--blue-deep); font-size:1.05rem; }
+tbody tr:last-child td { border-bottom:none; }
+.sub { display:block; font-size:.8125rem; color:var(--mute); font-weight:400; margin-top:.15rem; }
+
+.freepill {
+  display:inline-flex; align-items:center; gap:.4rem; align-self:flex-start;
+  font-family:"JetBrains Mono",monospace; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ok); background:var(--ok-tint); border:1px solid currentColor;
+  padding:.3rem .55rem; border-radius:99px; font-weight:700;
+}
+
+/* --- closing ------------------------------------------------------------- */
+
+.closing { background:var(--blue); color:#fff; }
+.closing-inner { max-width:960px; margin:0 auto; padding:clamp(2.5rem,5.5vw,4rem) var(--sp); display:flex; flex-direction:column; gap:1.15rem; }
+.closing h2 { font-family:"Instrument Serif", Georgia, serif; font-weight:400; font-size:clamp(1.8rem,4.4vw,2.7rem); color:#fff; max-width:20ch; }
+.closing h2 em { font-style:italic; color:#ffffff; opacity:.72; }
+.closing p { color:rgba(255,255,255,.9); max-width:60ch; }
+.sign { display:flex; flex-wrap:wrap; gap:.6rem 2rem; margin-top:.7rem; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,.28); }
+.sign div { display:flex; flex-direction:column; gap:.2rem; }
+.sign .k { font-family:"JetBrains Mono",monospace; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.6); }
+.sign .v { font-size:.9rem; color:#fff; font-weight:600; }
+
+.bar { position:fixed; bottom:1.1rem; right:1.1rem; z-index:40; }
+.btn {
+  font-family:"JetBrains Mono",monospace; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; font-weight:700;
+  background:var(--blue); color:#fff; border:none; border-radius:8px;
+  padding:.62rem .9rem; cursor:pointer; box-shadow:0 3px 16px rgba(47,63,214,.32);
+}
+.btn:hover { background:var(--blue-deep); }
+.btn:focus-visible { outline:2px solid var(--ink); outline-offset:2px; }
+
+/* --- print --------------------------------------------------------------- */
+
+@page { margin:14mm 12mm; }
+@media print {
+  :root {
+    --ground:#fff; --surface:#fff; --ink:#0c0e14; --text:#2b2f38; --mute:#5f646f;
+    --rule:#d5d8e2; --rule-soft:#e6e8ef; --blue-tint:#f2f4fd; --sp:0;
+  }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { font-size:10pt; background:#fff; }
+  .bar { display:none; }
+  .hero { padding:6mm 0 4mm; }
+  .hero h1 { font-size:28pt; }
+  .head-inner { padding:0 0 0; }
+  section { padding:5mm 0; break-inside:auto; }
+  .sec-head, .stage, .group, .note, .tablewrap, tr { break-inside:avoid; }
+  .sec-head { break-after:avoid; }
+  .closing { break-before:page; }
+  .closing-inner { padding:8mm 0; }
+}
+
+/* standalone document additions */
+:root { color-scheme: light dark; }
+img { max-width:100%; }
+[hidden] { display:none !important; }
+
+</style>
+</head>
+<body>
+
+
+<div class="bar"><button class="btn" type="button" onclick="window.print()">Save as PDF</button></div>
+
+<!-- =======================================================================
+     MASTHEAD
+     ==================================================================== -->
+<header class="head">
+  <div class="head-inner">
+    <div class="brandrow">
+      <div class="brand">
+        <svg viewBox="0 0 100 100" role="img" aria-label="Sirius Ascent">
+          <path d="M50 3 C52.5 31, 59 42.5, 88 50 C59 57.5, 52.5 69, 50 97 C47.5 69, 41 57.5, 12 50 C41 42.5, 47.5 31, 50 3 Z" fill="var(--blue)"></path>
+        </svg>
+        <div>
+          <div class="n">SIRIUS</div>
+          <div class="s">ASCENT</div>
+        </div>
+      </div>
+      <span class="doctag">Client Onboarding Guide</span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <span class="label">Prepared for Leikah Plant Hire</span>
+    <h1>Welcome aboard. Your website is <em>built</em>. Now we make it yours.</h1>
+    <p>Thank you for choosing Sirius Ascent. Your website has already been professionally designed and developed. The next stage is to personalise it with your branding, business information, media and contact details, and to set up your Microsoft 365 business email, before we take everything live.</p>
+    <p>This document explains exactly what happens from here, what we need from you, and when.</p>
+  </div>
+
+  <div class="wrap" style="padding-bottom:clamp(1.75rem,4vw,2.75rem)">
+    <div class="glance">
+      <div><span class="label">Invoice</span><span class="v">#006</span></div>
+      <div><span class="label">Reference quote</span><span class="v">Q-0008</span></div>
+      <div><span class="label">Project timeline</span><span class="v">5 to 8 days</span></div>
+      <div><span class="label">Payment reference</span><span class="v">Leikah #006</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- =======================================================================
+     PROJECT PROCESS
+     ==================================================================== -->
+<section>
+  <div class="sec-head">
+    <span class="label">Section one</span>
+    <h2>The project process</h2>
+    <p>Two stages stand between today and your finished website. Here is what each one involves.</p>
+  </div>
+
+  <div class="stage">
+    <span class="stage-n">01</span>
+    <div class="stage-b">
+      <h3>Project commencement</h3>
+      <p>Everything begins the moment the paperwork is settled. Your project timeline of five to eight business days starts from this point.</p>
+      <ul class="ticks single">
+        <li>Invoice #006 accepted.</li>
+        <li>Initial deposit of R 4,450.00 received, using the reference <strong>Leikah #006</strong>.</li>
+        <li>Your project officially begins and is scheduled into our production calendar.</li>
+        <li>A dedicated project workspace is created for your files, media and correspondence.</li>
+        <li>Final content collection starts, using the checklist in section two.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="stage">
+    <span class="stage-n">02</span>
+    <div class="stage-b">
+      <h3>Website fine-tuning</h3>
+      <p>With the project underway, we tailor the website specifically for Leikah Plant Hire. The design itself is already complete, so this stage is about polishing and personalising rather than building.</p>
+      <ul class="ticks">
+        <li>Applying your company branding consistently across every page</li>
+        <li>Fine-tuning layouts</li>
+        <li>Updating wording where necessary</li>
+        <li>Optimising animations</li>
+        <li>Performance optimisation</li>
+        <li>Mobile optimisation</li>
+        <li>Final responsiveness checks</li>
+        <li>Final quality assurance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =======================================================================
+     CONTENT REQUIRED
+     ==================================================================== -->
+<section>
+  <div class="sec-head">
+    <span class="label">Section two</span>
+    <h2>What we need from you</h2>
+    <p>This is the one part of the process that depends on you. The sooner these arrive, the sooner we can complete your website. Tick items off as you send them.</p>
+  </div>
+
+  <div class="groups">
+
+    <div class="group">
+      <h3><span class="label">A</span> Contact details</h3>
+      <div class="check"><input type="checkbox" id="c1"><label for="c1"><b>Primary contact number</b><span>The main number for enquiries</span></label></div>
+      <div class="check"><input type="checkbox" id="c2"><label for="c2"><b>Secondary contact number</b><span>If available</span></label></div>
+      <div class="check"><input type="checkbox" id="c3"><label for="c3"><b>WhatsApp number</b><span>So customers can message you directly from the site</span></label></div>
+    </div>
+
+    <div class="group">
+      <h3><span class="label">B</span> Media</h3>
+      <div class="check"><input type="checkbox" id="c4"><label for="c4"><b>15 to 20 high-quality photographs</b><span>Machinery, sites, workshop and team</span></label></div>
+      <div class="check"><input type="checkbox" id="c5"><label for="c5"><b>5 to 10 high-quality videos</b><span>Short clips work well</span></label></div>
+      <div class="check"><input type="checkbox" id="c6"><label for="c6"><b>Company logo</b><span>High-resolution, if an updated version is available</span></label></div>
+    </div>
+
+    <div class="group">
+      <h3><span class="label">C</span> Business information</h3>
+      <div class="check"><input type="checkbox" id="c7"><label for="c7"><b>Equipment or machinery information</b><span>If applicable</span></label></div>
+      <div class="check"><input type="checkbox" id="c8"><label for="c8"><b>Safety accreditations or certifications</b><span>Useful for tenders and vendor approval</span></label></div>
+      <div class="check"><input type="checkbox" id="c9"><label for="c9"><b>Client testimonials</b><span>If available</span></label></div>
+    </div>
+
+  </div>
+
+  <div class="note" style="margin-top:1.25rem">
+    <h3>Why the photographs and videos matter most</h3>
+    <p>Of everything on this list, your media makes the biggest visible difference. High-quality images and videos will significantly improve the appearance and professionalism of your website, and they are what visitors notice first. If you are able to take fresh photographs of your machinery on site and in the workshop, it is well worth doing before we go live.</p>
+  </div>
+</section>
+
+<!-- =======================================================================
+     WEBSITE REVIEW
+     ==================================================================== -->
+<section>
+  <div class="sec-head">
+    <span class="label">Section three</span>
+    <h2>Website review</h2>
+    <p>Once all your content has been received, we complete the following before anything is shown to you for approval.</p>
+  </div>
+  <ul class="ticks">
+    <li>Upload all supplied media</li>
+    <li>Optimise images and videos for fast loading</li>
+    <li>Replace placeholder content</li>
+    <li>Connect all contact information</li>
+    <li>Test all buttons and enquiry forms</li>
+    <li>Verify links and navigation</li>
+    <li>Complete final visual review</li>
+  </ul>
+</section>
+
+<!-- =======================================================================
+     MICROSOFT 365
+     ==================================================================== -->
+<section>
+  <div class="sec-head">
+    <span class="label">Section four</span>
+    <h2>Microsoft 365 business email setup</h2>
+    <p>Your invoice includes a full Microsoft 365 Business Email setup. Here is what we will complete on your behalf.</p>
+  </div>
+
+  <div class="body-copy" style="margin-bottom:1.4rem">
+    <p>Once this is done, your team will send and receive from professional addresses on your own company domain rather than from a personal email account. We handle the entire setup, so nobody at Leikah Plant Hire needs to configure anything themselves.</p>
+  </div>
+
+  <ul class="ticks single" style="margin-bottom:1.4rem">
+    <li>Create the Microsoft 365 Business environment</li>
+    <li>Connect your company domain</li>
+    <li>Configure your professional email addresses</li>
+    <li>Configure Outlook</li>
+    <li>Test email sending and receiving</li>
+    <li>Verify that everything is functioning correctly before handover</li>
+  </ul>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th scope="col">Included mailboxes</th><th scope="col">Typically used for</th></tr></thead>
+      <tbody>
+        <tr><td class="svc mono">info@</td><td>General enquiries, including messages from your website</td></tr>
+        <tr><td class="svc mono">sales@</td><td>Hire enquiries, rates and availability</td></tr>
+        <tr><td class="svc mono">accounts@</td><td>Invoicing, statements and payments</td></tr>
+        <tr><td class="svc mono">admin@</td><td>Documentation, vendor onboarding and applications</td></tr>
+        <tr><td class="svc mono">director@</td><td>Contracts, approvals and confidential correspondence</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note" style="margin-top:1.25rem">
+    <h3>Your free domain is included</h3>
+    <p>Domain registration is included at no additional cost as part of your custom business website. Your email addresses and your website will both run on that same company domain, so everything your customers see is consistent.</p>
+  </div>
+</section>
+
+<!-- =======================================================================
+     TESTING
+     ==================================================================== -->
+<section>
+  <div class="sec-head">
+    <span class="label">Section five</span>
+    <h2>Final testing</h2>
+    <p>Before your website goes live, we test it thoroughly so that nothing reaches your customers untested.</p>
+  </div>
+  <ul class="ticks">
+    <li>Desktop</li>
+    <li>Tablet</li>
+    <li>Mobile</li>
+    <li>Contact forms</li>
+    <li>Navigation</li>
+    <li>Loading speed</li>
+    <li>Performance</li>
+    <li>Security</li>
+    <li>Email sending and receiving</li>
+  </ul>
+</section>
+
+<!-- =======================================================================
+     GOING LIVE
+     ==================================================================== -->
+<section>
+  <div class="sec-head">
+    <span class="label">Section six</span>
+    <h2>Going live</h2>
+    <p>Once all testing is complete and you have given final approval, we publish.</p>
+  </div>
+  <ul class="ticks single">
+    <li>Your website is published to the live domain</li>
+    <li>Final checks are completed on the live site</li>
+    <li>You receive written confirmation that your website is live</li>
+  </ul>
+  <div class="note" style="margin-top:1.35rem">
+    <h3>Final balance</h3>
+    <p>The remaining balance of R 4,449.00 becomes due on the finished product, completing the total project value of R 8,899.00 as set out on invoice #006.</p>
+  </div>
+</section>
+
+<!-- =======================================================================
+     ONGOING SERVICES
+     ==================================================================== -->
+<section>
+  <div class="sec-head">
+    <span class="label">Section seven</span>
+    <h2>Your ongoing services</h2>
+    <p>These monthly services begin once your website is live. They are separate from invoice #006 and are not part of the amount due now.</p>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th scope="col">Service</th><th scope="col" style="text-align:right">Monthly</th></tr></thead>
+      <tbody>
+        <tr><td class="svc">Website hosting<span class="sub">Keeps your website online, fast and available</span></td><td class="amt">R 450.00</td></tr>
+        <tr><td class="svc">Microsoft 365 Business Basic subscription<span class="sub">Your email licensing, billed monthly</span></td><td class="amt">R 760.00</td></tr>
+        <tr><td class="svc">Social media management<span class="sub">Growth package</span></td><td class="amt">R 2,999.00</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total monthly retainer</td><td class="amt">R 4,209.00</td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="note" style="margin-top:1.25rem">
+    <span class="freepill">First month free</span>
+    <h3 style="margin-top:.35rem">When billing starts</h3>
+    <p>Billing only starts after your first month of service is complete, counted from your project start date. Your first month is free of charge.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- =======================================================================
+     CLOSING
+     ==================================================================== -->
+<section class="closing">
+  <div class="closing-inner">
+    <span class="label" style="color:rgba(255,255,255,.65)">Thank you</span>
+    <h2>We are glad to be <em>working with you</em>.</h2>
+    <p>Thank you once again for choosing Sirius Ascent. Our goal is straightforward: to deliver a polished, reliable and professional online presence that accurately represents Leikah Plant Hire and the standard of work you do.</p>
+    <p>We will keep you informed at every remaining stage, let you know the moment we need something from you, and make sure the launch runs smoothly from start to finish. If anything in this document is unclear, or you would like to talk any of it through, please just get in touch.</p>
+
+    <div class="sign">
+      <div><span class="k">Email</span><span class="v">sirius.ascent@gmail.com</span></div>
+      <div><span class="k">Telephone</span><span class="v">082 802 9688</span></div>
+      <div><span class="k">Web</span><span class="v">siriusascent.co.za</span></div>
+      <div><span class="k">Reference</span><span class="v">Leikah #006</span></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var KEY = "leikah-onboarding-v1";
+  var boxes = [].slice.call(document.querySelectorAll(".check input"));
+
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY) || "{}") || {}; }
+    catch (e) { return {}; }
+  }
+  function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
+
+  function paint() {
+    boxes.forEach(function (b) {
+      b.closest(".check").classList.toggle("done", b.checked);
+    });
+  }
+
+  var state = load();
+  boxes.forEach(function (b) {
+    if (state[b.id]) b.checked = true;
+    b.addEventListener("change", function () {
+      var s = load();
+      if (b.checked) s[b.id] = 1; else delete s[b.id];
+      save(s);
+      paint();
+    });
+  });
+  paint();
+})();
+</script>
+
+</body>
+</html>
