@@ -7,7 +7,7 @@ import { Accordion } from "@/components/ui/Accordion";
 import { ApplicationForm } from "@/components/site/ApplicationForm";
 import { Media } from "@/components/ui/Media";
 import { CornerMarks } from "@/components/graphics/Atmosphere";
-import { getBusiness, getCareers, getPageMeta } from "@/lib/cms";
+import { getBusiness, getCareers, getPageMeta, getLegal } from "@/lib/cms";
 import { buildMetadata, JsonLd, breadcrumbSchema } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 
@@ -42,10 +42,11 @@ const WHAT_WE_LOOK_FOR = [
 ];
 
 export default async function CareersPage() {
-  const [page, vacancies, business] = await Promise.all([
+  const [page, vacancies, business, legal] = await Promise.all([
     getPageMeta("careers"),
     getCareers(),
     getBusiness(),
+    getLegal(),
   ]);
 
   return (
@@ -212,7 +213,7 @@ export default async function CareersPage() {
             lead={`Every application is read and kept on file. If you would rather email it, send it to ${business.email}.`}
             tone="darker"
           />
-          <ApplicationForm />
+          <ApplicationForm consentStatement={legal.consentStatement} />
         </div>
       </Section>
     </>

@@ -23,13 +23,22 @@ export function ServiceCard({
   variant = "standard",
   className,
   index,
+  headingLevel = 3,
 }: {
   service: Service;
   variant?: "feature" | "standard" | "compact";
   className?: string;
   index?: number;
+  /**
+   * The card titles are the only headings in the services grid, so on the
+   * index page they sit directly under the page h1 and must be h2. Under a
+   * section heading, as on the homepage, h3 is correct. Level only: the
+   * appearance is set by the classes, so this changes nothing visually.
+   */
+  headingLevel?: 2 | 3;
 }) {
   const href = `/services/${service.slug}`;
+  const Heading = (headingLevel === 2 ? "h2" : "h3") as "h2" | "h3";
 
   if (variant === "compact") {
     return (
@@ -86,7 +95,7 @@ export function ServiceCard({
             )}
           </div>
 
-          <h3 className="text-display-4 text-paper-50">{service.title}</h3>
+          <Heading className="text-display-4 text-paper-50">{service.title}</Heading>
           <p className="max-w-md text-sm leading-relaxed text-steel-300">{service.summary}</p>
 
           <span className="mt-1 inline-flex items-center gap-2 text-sm font-medium text-gold-400">
@@ -127,7 +136,7 @@ export function ServiceCard({
       </div>
 
       <div className="relative flex flex-1 flex-col gap-3">
-        <h3 className="text-lg leading-snug font-bold text-paper-50">{service.title}</h3>
+        <Heading className="text-lg leading-snug font-bold text-paper-50">{service.title}</Heading>
         <p className="text-sm leading-relaxed text-steel-400">{service.summary}</p>
       </div>
 

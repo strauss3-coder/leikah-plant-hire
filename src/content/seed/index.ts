@@ -8,6 +8,7 @@ import { testimonials, clients, documents, faqs, news, careers } from "./editori
 import { safety } from "./safety";
 import { gallery } from "./gallery";
 import { home, about, pages } from "./pages";
+import { legal } from "./legal";
 
 /**
  * The complete content graph as shipped. Supabase overrides this table by table
@@ -34,6 +35,7 @@ export const seedContent: SiteContent = {
   home,
   about,
   pages,
+  legal,
 };
 
 export {
@@ -56,4 +58,5 @@ export {
   home,
   about,
   pages,
+  legal,
 };

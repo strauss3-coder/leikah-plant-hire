@@ -8,6 +8,7 @@ import { AlertTriangle, ArrowLeft, ArrowRight, Check, Loader2, Phone } from "luc
 import { TextField, TextArea, SelectField, CheckGroup, RadioGroup, Consent } from "@/components/ui/Field";
 import { FileDrop, type Attachment } from "./FileDrop";
 import { CornerMarks } from "@/components/graphics/Atmosphere";
+import { Honeypot } from "@/components/ui/Honeypot";
 import { submitQuoteRequest, type ActionResult } from "@/lib/enquiries/actions";
 import {
   BUDGET_BANDS,
@@ -54,6 +55,7 @@ interface FormState {
   email: string;
   phone: string;
   consent: boolean;
+  hpField: string;
 }
 
 const EMPTY: FormState = {
@@ -73,16 +75,20 @@ const EMPTY: FormState = {
   email: "",
   phone: "",
   consent: false,
+  hpField: "",
 };
 
 export function QuoteForm({
   services,
   industries,
   phone,
+  consentStatement,
 }: {
   services: Service[];
   industries: Industry[];
   phone: string;
+  /** Exact consent wording, held in the CMS so legal can revise it. */
+  consentStatement: string;
 }) {
   const reduced = useReducedMotion();
   // Read on the client so this route can prerender — see ServiceFilter.
@@ -414,10 +420,15 @@ export function QuoteForm({
                   className="sm:max-w-sm"
                 />
 
+                <Honeypot
+                  id="hp-quote"
+                  value={form.hpField}
+                  onChange={(v) => set("hpField", v)}
+                />
                 <Consent checked={form.consent} onChange={(v) => set("consent", v)} error={errors.consent}>
-                  I confirm that Leikah Plant Hire may contact me about this enquiry and store these
-                  details for that purpose. We do not sell or share enquiry data, and you can ask us
-                  to delete it at any time.
+                  {consentStatement} We do not sell or share enquiry data, and you can ask us to
+                  delete it at any time. See our{" "}
+                  <a href="/privacy" className="text-gold-400 underline underline-offset-4 hover:text-gold-300">Privacy Policy</a>.
                 </Consent>
               </>
             )}

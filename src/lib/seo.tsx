@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import type { BusinessInfo, SeoFields, Project, Service } from "./cms/types";
+import type {
+  BusinessInfo,
+  SeoFields,
+  Project,
+  Service,
+  LegalDocument,
+} from "./cms/types";
 import { getMedia } from "./cms/media";
 
 /**
@@ -134,6 +140,28 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
       name: f.question,
       acceptedAnswer: { "@type": "Answer", text: f.answer },
     })),
+  };
+}
+
+/**
+ * Legal pages are WebPage nodes rather than Articles: they are terms, not
+ * editorial, and `dateModified` is the field that actually matters on them.
+ */
+export function legalDocumentSchema(
+  doc: LegalDocument,
+  path: string,
+  business: BusinessInfo,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: doc.title,
+    description: doc.lead,
+    url: absoluteUrl(path),
+    dateModified: doc.updated,
+    inLanguage: "en-ZA",
+    isPartOf: { "@type": "WebSite", name: business.tradingName, url: SITE_URL },
+    publisher: { "@id": `${SITE_URL}#organisation` },
   };
 }
 

@@ -100,6 +100,14 @@ export const quoteRequestSchema = z.object({
 
   // Set by the form, not the user.
   source: z.string().max(120).optional(),
+
+  /**
+   * Honeypot. Always empty for a real visitor; a value means an automated
+   * submission. Accepted by the schema so the request is not rejected with a
+   * validation error that would teach a bot what to avoid, then dropped
+   * silently in the action. See components/ui/Honeypot.tsx.
+   */
+  hpField: z.string().max(200).optional(),
 });
 
 export type QuoteRequestInput = z.infer<typeof quoteRequestSchema>;
@@ -119,6 +127,14 @@ export const contactMessageSchema = z.object({
   consent: z
     .boolean()
     .refine((v) => v, "Please confirm we may reply to this enquiry"),
+
+  /**
+   * Honeypot. Always empty for a real visitor; a value means an automated
+   * submission. Accepted by the schema so the request is not rejected with a
+   * validation error that would teach a bot what to avoid, then dropped
+   * silently in the action. See components/ui/Honeypot.tsx.
+   */
+  hpField: z.string().max(200).optional(),
 });
 
 export type ContactMessageInput = z.infer<typeof contactMessageSchema>;
@@ -137,6 +153,14 @@ export const applicationSchema = z.object({
   consent: z
     .boolean()
     .refine((v) => v, "Please confirm we may keep your details on file"),
+
+  /**
+   * Honeypot. Always empty for a real visitor; a value means an automated
+   * submission. Accepted by the schema so the request is not rejected with a
+   * validation error that would teach a bot what to avoid, then dropped
+   * silently in the action. See components/ui/Honeypot.tsx.
+   */
+  hpField: z.string().max(200).optional(),
 });
 
 export type ApplicationInput = z.infer<typeof applicationSchema>;

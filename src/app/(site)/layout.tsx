@@ -3,7 +3,8 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Preloader } from "@/components/layout/Preloader";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { QuickActions } from "@/components/layout/QuickActions";
-import { getBusiness, getServices, getIndustries } from "@/lib/cms";
+import { CookieConsent } from "@/components/layout/CookieConsent";
+import { getBusiness, getServices, getIndustries, getLegal } from "@/lib/cms";
 import { JsonLd, organisationSchema } from "@/lib/seo";
 
 /**
@@ -12,10 +13,11 @@ import { JsonLd, organisationSchema } from "@/lib/seo";
  * change — the same rule as everything else on the site.
  */
 export default async function SiteLayout({ children }: LayoutProps<"/">) {
-  const [business, services, industries] = await Promise.all([
+  const [business, services, industries, legal] = await Promise.all([
     getBusiness(),
     getServices(),
     getIndustries(),
+    getLegal(),
   ]);
 
   const serviceLinks = services.map((service) => ({
@@ -44,6 +46,7 @@ export default async function SiteLayout({ children }: LayoutProps<"/">) {
       </main>
       <SiteFooter />
       <QuickActions phone={business.emergencyPhone} whatsapp={business.whatsapp} />
+      <CookieConsent categories={legal.cookieCategories} />
     </>
   );
 }

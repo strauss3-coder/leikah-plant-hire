@@ -45,7 +45,7 @@ export default async function ProjectsPage() {
 
       <Section tone="darker">
         <div className="shell">
-          <ProjectFilter projects={projects} industries={industries} />
+          <ProjectFilter projects={projects} industries={industries} headingLevel={2} />
         </div>
       </Section>
 

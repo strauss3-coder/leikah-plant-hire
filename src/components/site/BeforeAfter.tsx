@@ -30,6 +30,12 @@ export function BeforeAfter({
   const [dragging, setDragging] = useState(false);
   const frameRef = useRef<HTMLDivElement>(null);
   const asset = getMedia(after);
+  const beforeAsset = getMedia(before);
+
+  // Both images are the content here, not decoration. Without these, a screen
+  // reader user gets a slider and a caption and no idea what changed.
+  const beforeAlt = `Before: ${beforeAsset.alt || "the site as found"}`;
+  const afterAlt = `After: ${asset.alt || "the completed work"}`;
 
   const setFromClientX = useCallback((clientX: number) => {
     const rect = frameRef.current?.getBoundingClientRect();
@@ -57,7 +63,7 @@ export function BeforeAfter({
       >
         <Media
           media={after}
-          alt=""
+          alt={afterAlt}
           sizes="(min-width: 1024px) 70vw, 100vw"
           className="absolute inset-0 size-full"
           imageClassName="object-cover"
@@ -70,7 +76,7 @@ export function BeforeAfter({
         >
           <Media
             media={before}
-            alt=""
+            alt={beforeAlt}
             sizes="(min-width: 1024px) 70vw, 100vw"
             className="absolute inset-0 size-full"
             imageClassName="object-cover"
@@ -103,6 +109,7 @@ export function BeforeAfter({
           value={position}
           onChange={(e) => setPosition(Number(e.target.value))}
           aria-label="Reveal the before or after image"
+          aria-valuetext={`${Math.round(position)}% of the after image revealed`}
           className="absolute inset-x-0 bottom-0 h-11 w-full cursor-ew-resize opacity-0"
         />
       </div>

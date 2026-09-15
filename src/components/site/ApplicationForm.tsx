@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { motion } from "motion/react";
 import { AlertTriangle, Check, Loader2, Send } from "lucide-react";
 import { TextField, TextArea, Consent } from "@/components/ui/Field";
+import { Honeypot } from "@/components/ui/Honeypot";
 import { FileDrop, type Attachment } from "./FileDrop";
 import { submitApplication, type ActionResult } from "@/lib/enquiries/actions";
 
@@ -15,7 +16,14 @@ import { submitApplication, type ActionResult } from "@/lib/enquiries/actions";
    rather than to a published headcount plan.
    ========================================================================= */
 
-export function ApplicationForm({ defaultRole = "" }: { defaultRole?: string }) {
+export function ApplicationForm({
+  defaultRole = "",
+  consentStatement,
+}: {
+  defaultRole?: string;
+  /** Exact consent wording, held in the CMS so legal can revise it. */
+  consentStatement: string;
+}) {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -24,6 +32,7 @@ export function ApplicationForm({ defaultRole = "" }: { defaultRole?: string }) 
     experience: "",
     competencies: "",
     consent: false,
+    hpField: "",
   });
   const [cv, setCv] = useState<Attachment[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -71,6 +80,11 @@ export function ApplicationForm({ defaultRole = "" }: { defaultRole?: string }) 
 
   return (
     <form onSubmit={onSubmit} noValidate className="flex flex-col gap-7">
+      <Honeypot
+        id="hp-application"
+        value={form.hpField}
+        onChange={(v) => set("hpField", v)}
+      />
       <div className="grid gap-6 sm:grid-cols-2">
         <TextField
           label="Your name"
@@ -140,8 +154,9 @@ export function ApplicationForm({ defaultRole = "" }: { defaultRole?: string }) 
       />
 
       <Consent checked={form.consent} onChange={(v) => set("consent", v)} error={errors.consent}>
-        I confirm that Leikah Plant Hire may keep these details on file to consider me for current
-        and future roles. You can ask us to delete them at any time.
+        {consentStatement} We will also keep these details on file to consider you for current and
+        future roles, and you can ask us to delete them at any time. See our{" "}
+        <a href="/privacy" className="text-gold-400 underline underline-offset-4 hover:text-gold-300">Privacy Policy</a>.
       </Consent>
 
       {result && !result.ok && !result.errors && (

@@ -33,12 +33,19 @@ const ROUTES = [
   "/faq",
   "/contact",
   "/quote",
+  "/privacy",
+  "/cookies",
+  "/terms",
 ];
 
 const browser = await chromium.launch();
 const context = await browser.newContext({
   viewport: { width: 1280, height: 900 },
   reducedMotion: "reduce",
+  // The site now ships a Content Security Policy that permits no external
+  // script origin, which is the point of it. axe is injected from a CDN, so
+  // the harness bypasses CSP for itself. csp.mjs verifies the real policy.
+  bypassCSP: true,
 });
 const page = await context.newPage();
 

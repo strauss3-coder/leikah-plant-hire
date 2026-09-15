@@ -55,12 +55,12 @@ export default async function ServicesPage() {
             fallback={
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {services.map((service, i) => (
-                  <ServiceCard key={service.id} service={service} index={i} />
+                  <ServiceCard key={service.id} service={service} index={i} headingLevel={2} />
                 ))}
               </div>
             }
           >
-            <ServiceFilter services={services} divisions={divisions} />
+            <ServiceFilter services={services} divisions={divisions} headingLevel={2} />
           </Suspense>
         </div>
       </Section>

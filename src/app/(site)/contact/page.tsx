@@ -6,7 +6,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/site/ContactForm";
 import { OpeningStatus } from "@/components/layout/OpeningStatus";
 import { CornerMarks, SurveyGrid } from "@/components/graphics/Atmosphere";
-import { getBusiness, getDepartments, getPageMeta } from "@/lib/cms";
+import { getBusiness, getDepartments, getPageMeta, getLegal } from "@/lib/cms";
 import { buildMetadata, JsonLd, breadcrumbSchema } from "@/lib/seo";
 import { telHref, whatsappHref } from "@/lib/utils";
 
@@ -27,10 +27,11 @@ function timeLabel(mins: number | null) {
 }
 
 export default async function ContactPage() {
-  const [page, business, departments] = await Promise.all([
+  const [page, business, departments, legal] = await Promise.all([
     getPageMeta("contact"),
     getBusiness(),
     getDepartments(),
+    getLegal(),
   ]);
 
   const { address } = business;
@@ -119,7 +120,7 @@ export default async function ContactPage() {
               lead="For anything that needs a scope, a site and a date, the quotation workflow gathers the right detail and will get you a closer first number."
               tone="darker"
             />
-            <ContactForm departments={departments} />
+            <ContactForm departments={departments} consentStatement={legal.consentStatement} />
           </div>
 
           <aside className="flex flex-col gap-6">

@@ -22,7 +22,19 @@ import { cn } from "@/lib/utils";
    asks for on a first call.
    ========================================================================= */
 
-export function FleetShowcase({ fleet }: { fleet: FleetItem[] }) {
+export function FleetShowcase({
+  fleet,
+  headingLevel = 3,
+}: {
+  fleet: FleetItem[];
+  /**
+   * On /fleet this showcase is the first content under the page h1, so the
+   * machine name is an h2. On the homepage it sits under a section heading and
+   * h3 is correct. Level only, no visual change.
+   */
+  headingLevel?: 2 | 3;
+}) {
+  const Heading = (headingLevel === 2 ? "h2" : "h3") as "h2" | "h3";
   const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
   const current = fleet[active];
@@ -106,7 +118,6 @@ export function FleetShowcase({ fleet }: { fleet: FleetItem[] }) {
             >
               <Media
                 media={current.image}
-                alt=""
                 sizes="(min-width: 1024px) 70vw, 100vw"
                 className="size-full"
                 imageClassName="object-cover"
@@ -139,7 +150,7 @@ export function FleetShowcase({ fleet }: { fleet: FleetItem[] }) {
               transition={{ duration: 0.5, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
               className="relative z-10 flex h-full flex-col justify-end p-7 sm:p-10"
             >
-              <h3 className="text-display-3 text-paper-50">{current.name}</h3>
+              <Heading className="text-display-3 text-paper-50">{current.name}</Heading>
               <p className="mt-3 max-w-lg text-sm font-medium text-gold-400 sm:text-base">
                 {current.strapline}
               </p>

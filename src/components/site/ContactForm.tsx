@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { motion } from "motion/react";
 import { AlertTriangle, Check, Loader2, Send } from "lucide-react";
 import { TextField, TextArea, SelectField, Consent } from "@/components/ui/Field";
+import { Honeypot } from "@/components/ui/Honeypot";
 import { submitContactMessage, type ActionResult } from "@/lib/enquiries/actions";
 import type { Department } from "@/lib/cms/types";
 
@@ -14,7 +15,14 @@ import type { Department } from "@/lib/cms/types";
    the quotation workflow, and the form says so rather than trying to be both.
    ========================================================================= */
 
-export function ContactForm({ departments }: { departments: Department[] }) {
+export function ContactForm({
+  departments,
+  consentStatement,
+}: {
+  departments: Department[];
+  /** Exact consent wording, held in the CMS so legal can revise it. */
+  consentStatement: string;
+}) {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -24,6 +32,7 @@ export function ContactForm({ departments }: { departments: Department[] }) {
     subject: "",
     message: "",
     consent: false,
+    hpField: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [result, setResult] = useState<ActionResult | null>(null);
@@ -70,6 +79,11 @@ export function ContactForm({ departments }: { departments: Department[] }) {
 
   return (
     <form onSubmit={onSubmit} noValidate className="flex flex-col gap-7">
+      <Honeypot
+        id="hp-contact"
+        value={form.hpField}
+        onChange={(v) => set("hpField", v)}
+      />
       <div className="grid gap-6 sm:grid-cols-2">
         <TextField
           label="Your name"
@@ -136,8 +150,8 @@ export function ContactForm({ departments }: { departments: Department[] }) {
       />
 
       <Consent checked={form.consent} onChange={(v) => set("consent", v)} error={errors.consent}>
-        I confirm that Leikah Plant Hire may use these details to reply to this enquiry. We do not
-        sell or share enquiry data, and you can ask us to delete it at any time.
+        {consentStatement} We do not sell or share enquiry data, and you can ask us to delete it at
+        any time. See our <a href="/privacy" className="text-gold-400 underline underline-offset-4 hover:text-gold-300">Privacy Policy</a>.
       </Consent>
 
       {result && !result.ok && !result.errors && (

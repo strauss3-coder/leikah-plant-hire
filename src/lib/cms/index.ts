@@ -49,7 +49,7 @@ const COLLECTION_TABLES = {
   divisions: "content_divisions",
 } as const;
 
-const SINGLETON_KEYS = ["business", "home", "about", "safety", "pages"] as const;
+const SINGLETON_KEYS = ["business", "home", "about", "safety", "pages", "legal"] as const;
 
 type CollectionKey = keyof typeof COLLECTION_TABLES;
 
@@ -107,7 +107,7 @@ async function fetchCollection<K extends CollectionKey>(
 }
 
 async function fetchSingletons(): Promise<Partial<
-  Pick<SiteContent, "business" | "home" | "about" | "safety" | "pages">
+  Pick<SiteContent, "business" | "home" | "about" | "safety" | "pages" | "legal">
 > | null> {
   const supabase = getPublicSupabase();
   if (!supabase) return null;
@@ -177,6 +177,15 @@ export async function getAbout() {
 
 export async function getSafety() {
   return (await getSiteContent()).safety;
+}
+
+export async function getLegal() {
+  return (await getSiteContent()).legal;
+}
+
+/** One legal document by key. Used by /privacy, /cookies and /terms. */
+export async function getLegalDocument(key: "privacy" | "cookies" | "terms") {
+  return (await getSiteContent()).legal[key];
 }
 
 export async function getPageMeta(key: string) {

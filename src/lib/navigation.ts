@@ -97,4 +97,7 @@ export const staticRoutes = [
   "/faq",
   "/contact",
   "/quote",
+  "/privacy",
+  "/cookies",
+  "/terms",
 ];

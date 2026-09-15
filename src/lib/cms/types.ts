@@ -474,6 +474,51 @@ export interface AboutContent {
   seo?: SeoFields;
 }
 
+/* --- Legal ----------------------------------------------------------------
+   Privacy, cookie and terms content. Held as structured sections rather than
+   a blob of HTML so the portal can edit any clause without touching markup,
+   and so the same renderer serves all three documents.
+   -------------------------------------------------------------------------- */
+
+export interface LegalSection {
+  id: string;
+  heading: string;
+  /** Paragraphs, rendered in order. */
+  body: string[];
+  /** Optional bulleted points rendered after the paragraphs. */
+  points?: string[];
+}
+
+export interface LegalDocument {
+  key: string;
+  title: string;
+  eyebrow: string;
+  headline: string;
+  lead: string;
+  /** ISO date. Shown as "Last updated" and used for the dateModified schema. */
+  updated: string;
+  sections: LegalSection[];
+  seo?: SeoFields;
+}
+
+export interface CookieCategory {
+  id: "essential" | "analytics" | "functional";
+  name: string;
+  description: string;
+  /** Essential cookies cannot be switched off, so the toggle is locked on. */
+  required: boolean;
+}
+
+export interface LegalContent {
+  /** Named contact for privacy and access requests, as POPIA requires. */
+  informationOfficer: { name: string; email: string; phone?: string };
+  cookieCategories: CookieCategory[];
+  consentStatement: string;
+  privacy: LegalDocument;
+  cookies: LegalDocument;
+  terms: LegalDocument;
+}
+
 export interface PageMeta {
   key: string;
   title: string;
@@ -547,4 +592,5 @@ export interface SiteContent {
   home: HomeContent;
   about: AboutContent;
   pages: Record<string, PageMeta>;
+  legal: LegalContent;
 }

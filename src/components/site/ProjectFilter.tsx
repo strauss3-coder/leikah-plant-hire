@@ -23,11 +23,17 @@ const STATUS_TABS = [
 ] as const;
 
 export function ProjectFilter({
+  headingLevel = 3,
   projects,
   industries,
 }: {
   projects: Project[];
   industries: Industry[];
+  /**
+   * Level only, not appearance. When these are the first headings under the
+   * page h1 they must be h2; nested under a section heading, h3 is correct.
+   */
+  headingLevel?: 2 | 3;
 }) {
   const [sector, setSector] = useState<string>(ALL);
   const [status, setStatus] = useState<string>(ALL);
@@ -93,7 +99,7 @@ export function ProjectFilter({
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="flex"
             >
-              <ProjectCard project={project} className="w-full" />
+              <ProjectCard headingLevel={headingLevel} project={project} className="w-full" />
             </motion.div>
           ))}
         </AnimatePresence>

@@ -12,7 +12,11 @@
     "qa:shot": "node scripts/qa/shot.mjs",
     "typecheck": "tsc --noEmit",
     "build:static": "node scripts/build-static.mjs",
-    "brand:partner": "node scripts/extract-partner-mark.mjs"
+    "brand:partner": "node scripts/extract-partner-mark.mjs",
+    "qa:audit": "node scripts/qa/audit.mjs",
+    "qa:csp": "node scripts/qa/csp.mjs",
+    "qa:interact": "node scripts/qa/interact.mjs",
+    "qa:vitals": "node scripts/qa/vitals.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.5",

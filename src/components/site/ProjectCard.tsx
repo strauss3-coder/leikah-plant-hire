@@ -22,11 +22,18 @@ export function ProjectCard({
   project,
   className,
   variant = "standard",
+  headingLevel = 3,
 }: {
   project: Project;
   className?: string;
   variant?: "standard" | "wide";
+  /**
+   * Level only, not appearance. When these are the first headings under the
+   * page h1 they must be h2; nested under a section heading, h3 is correct.
+   */
+  headingLevel?: 2 | 3;
 }) {
+  const Heading = (headingLevel === 2 ? "h2" : "h3") as "h2" | "h3";
   const status = STATUS[project.status];
   const dateLabel = project.completionDate
     ? formatMonth(project.completionDate)
@@ -76,14 +83,14 @@ export function ProjectCard({
           <span className="tabular">{dateLabel}</span>
         </div>
 
-        <h3
+        <Heading
           className={cn(
             "leading-snug text-paper-50",
             variant === "wide" ? "text-display-4" : "text-lg font-bold",
           )}
         >
           {project.title}
-        </h3>
+        </Heading>
 
         <p className="text-sm leading-relaxed text-steel-400">{project.summary}</p>
 

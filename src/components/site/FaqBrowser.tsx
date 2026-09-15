@@ -16,7 +16,17 @@ import { cn } from "@/lib/utils";
 
 const ALL = "All questions";
 
-export function FaqBrowser({ faqs }: { faqs: Faq[] }) {
+export function FaqBrowser({
+  faqs,
+  headingLevel = 3,
+}: {
+  faqs: Faq[];
+  /**
+   * Level only, not appearance. When these are the first headings under the
+   * page h1 they must be h2; nested under a section heading, h3 is correct.
+   */
+  headingLevel?: 2 | 3;
+}) {
   const [category, setCategory] = useState(ALL);
   const [query, setQuery] = useState("");
 
@@ -98,6 +108,7 @@ export function FaqBrowser({ faqs }: { faqs: Faq[] }) {
       <div>
         {visible.length > 0 ? (
           <Accordion
+            headingLevel={headingLevel}
             key={`${category}-${query}`}
             items={visible.map((f) => ({
               id: f.id,

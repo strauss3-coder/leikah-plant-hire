@@ -56,7 +56,9 @@ check(
 await page.goto(`${BASE}/faq`, { waitUntil: "load" });
 await page.getByPlaceholder("Search questions").fill("warranty");
 await page.waitForTimeout(400);
-const faqAccordion = page.locator("main h3 > button[aria-expanded]");
+// Heading level is context-dependent (h2 when the accordion sits directly
+// under the page h1, h3 when nested), so match on the control, not the tag.
+const faqAccordion = page.locator("main :is(h2,h3,h4) > button[aria-expanded]");
 const faqMatches = await faqAccordion.count();
 check("FAQ search filters the list", faqMatches > 0 && faqMatches < 24, `${faqMatches} matches`);
 
@@ -124,7 +126,10 @@ await page.getByRole("textbox", { name: "Company" }).fill("Test Mining Co");
 await page.getByRole("textbox", { name: "Your name" }).fill("Sam Nkosi");
 await page.getByRole("textbox", { name: "Email" }).fill("sam@example.com");
 await page.getByRole("textbox", { name: "Contact number" }).fill("060 976 3429");
-await page.getByText("I confirm that Leikah Plant Hire may contact me").click();
+// Target the control, not its copy. The consent wording is CMS-managed and
+// legally reviewable, so asserting on the sentence makes this test fail every
+// time the wording is revised.
+await page.locator('form label:has(input[type="checkbox"]), label:has(input[type="checkbox"])').last().click();
 await page.getByRole("button", { name: "Send the request" }).click();
 await page.waitForTimeout(2500);
 check(

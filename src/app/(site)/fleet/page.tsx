@@ -46,7 +46,7 @@ export default async function FleetPage() {
       <Section tone="darker">
         <div className="shell-wide">
           <Reveal>
-            <FleetShowcase fleet={fleet} />
+            <FleetShowcase fleet={fleet} headingLevel={2} />
           </Reveal>
         </div>
       </Section>
@@ -80,9 +80,12 @@ export default async function FleetPage() {
                     </div>
                   </div>
 
+                  {/* Standalone content image, not wrapped in a link, so it
+                      keeps its descriptive manifest alt. The empty-alt pattern
+                      used elsewhere is only for images inside a link whose own
+                      text already names the subject. */}
                   <Media
                     media={item.image}
-                    alt=""
                     ratio="16 / 9"
                     sizes="(min-width: 1024px) 45vw, 100vw"
                     className="chamfer-sm w-full"

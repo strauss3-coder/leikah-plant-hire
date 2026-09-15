@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { QuoteForm } from "@/components/site/QuoteForm";
-import { getBusiness, getIndustries, getPageMeta, getServices } from "@/lib/cms";
+import { getBusiness, getIndustries, getPageMeta, getServices, getLegal } from "@/lib/cms";
 import { buildMetadata, JsonLd, breadcrumbSchema } from "@/lib/seo";
 import { telHref, whatsappHref } from "@/lib/utils";
 
@@ -39,11 +39,12 @@ const ASSURANCES = [
 ];
 
 export default async function QuotePage() {
-  const [page, services, industries, business] = await Promise.all([
+  const [page, services, industries, business, legal] = await Promise.all([
     getPageMeta("quote"),
     getServices(),
     getIndustries(),
     getBusiness(),
+    getLegal(),
   ]);
 
   return (
@@ -74,6 +75,7 @@ export default async function QuotePage() {
                 services={services}
                 industries={industries}
                 phone={business.emergencyPhone}
+                consentStatement={legal.consentStatement}
               />
             </Suspense>
           </div>

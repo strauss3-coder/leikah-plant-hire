@@ -46,7 +46,7 @@ export default async function FaqPage() {
 
       <Section tone="darker">
         <div className="shell">
-          <FaqBrowser faqs={faqs} />
+          <FaqBrowser faqs={faqs} headingLevel={2} />
         </div>
       </Section>
 

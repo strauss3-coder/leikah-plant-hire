@@ -17,6 +17,65 @@ const isStatic = process.env.STATIC_EXPORT === "1";
 // needs that prefix. Empty for the real deployment, which sits at the root.
 const basePath = isStatic ? process.env.PAGES_BASE_PATH ?? "" : "";
 
+/* ---------------------------------------------------------------------------
+   CONTENT SECURITY POLICY
+
+   Scope note, so the trade-off is deliberate rather than accidental: a strict
+   nonce-based CSP needs a nonce minted per request, which means middleware on
+   every route, which makes every page dynamic. This site is prerendered and
+   that is most of why it is fast, so a nonce policy would cost more than it
+   buys. `'unsafe-inline'` is therefore allowed for scripts, because Next's
+   hydration bootstrap and the JSON-LD blocks are inline.
+
+   Everything else is locked down, and that is where the real value is. No
+   external script origin is permitted at all, so an injected <script src>
+   cannot load. `connect-src` is limited to this origin plus Supabase, so an
+   injected script has nowhere to send what it steals. `object-src`, `frame-src`
+   and `frame-ancestors` are closed outright, and `base-uri` is pinned so a
+   planted <base> tag cannot re-point every relative URL on the page.
+
+   Supabase is added only when it is configured; an unset project must not
+   widen the policy.
+   -------------------------------------------------------------------------- */
+
+const supabaseOrigin = (() => {
+  const raw = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!raw) return null;
+  try {
+    return new URL(raw).origin;
+  } catch {
+    return null;
+  }
+})();
+
+const connectSrc = ["'self'", supabaseOrigin, supabaseOrigin?.replace(/^https:/, "wss:")]
+  .filter(Boolean)
+  .join(" ");
+
+const imgSrc = ["'self'", "data:", "blob:", supabaseOrigin].filter(Boolean).join(" ");
+
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  // See the note above on why inline is permitted for scripts but no external
+  // origin is. Nothing on this site loads a third-party script.
+  "script-src 'self' 'unsafe-inline'",
+  // Motion writes inline style attributes, which style-src governs.
+  "style-src 'self' 'unsafe-inline'",
+  // data: covers the generated LQIP placeholders; blob: covers file previews.
+  `img-src ${imgSrc}`,
+  // Typefaces are self-hosted by next/font, so no external font origin.
+  "font-src 'self'",
+  `connect-src ${connectSrc}`,
+  "media-src 'self'",
+  "object-src 'none'",
+  "frame-src 'none'",
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "manifest-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 const nextConfig: NextConfig = {
   ...(isStatic ? { output: "export" as const, basePath, trailingSlash: true } : {}),
 
@@ -65,12 +124,35 @@ const nextConfig: NextConfig = {
             {
               source: "/:path*",
               headers: [
+                { key: "Content-Security-Policy", value: contentSecurityPolicy },
                 { key: "X-Content-Type-Options", value: "nosniff" },
                 { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-                { key: "X-Frame-Options", value: "SAMEORIGIN" },
+                // Superseded by frame-ancestors above, kept for older browsers.
+                { key: "X-Frame-Options", value: "DENY" },
+                {
+                  key: "Strict-Transport-Security",
+                  value: "max-age=63072000; includeSubDomains; preload",
+                },
+                { key: "X-DNS-Prefetch-Control", value: "on" },
+                { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+                { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
                 {
                   key: "Permissions-Policy",
-                  value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+                  value: [
+                    "accelerometer=()",
+                    "autoplay=()",
+                    "camera=()",
+                    "display-capture=()",
+                    "encrypted-media=()",
+                    "fullscreen=(self)",
+                    "geolocation=()",
+                    "gyroscope=()",
+                    "magnetometer=()",
+                    "microphone=()",
+                    "payment=()",
+                    "usb=()",
+                    "interest-cohort=()",
+                  ].join(", "),
                 },
               ],
             },

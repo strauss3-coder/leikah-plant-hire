@@ -6,6 +6,7 @@ import { footerNav } from "@/lib/navigation";
 import { getBusiness } from "@/lib/cms";
 import { telHref, whatsappHref } from "@/lib/utils";
 import { OpeningStatus } from "./OpeningStatus";
+import { CookiePreferencesLink } from "./CookieConsent";
 
 /* ============================================================================
    SITE FOOTER
@@ -148,10 +149,33 @@ export async function SiteFooter() {
         <BigWordmark className="bottom-[-18%]" opacity={0.09} align="center" />
       </div>
 
+      {/* Legal — kept on its own line so it is never crowded out by socials. */}
+      <div className="relative border-t border-steel-600/12">
+        <nav
+          aria-label="Legal"
+          className="shell flex flex-wrap items-center gap-x-6 gap-y-2 py-5 text-xs text-steel-500"
+        >
+          <Link href="/privacy" className="transition-colors hover:text-gold-400">
+            Privacy Policy
+          </Link>
+          <Link href="/cookies" className="transition-colors hover:text-gold-400">
+            Cookie Policy
+          </Link>
+          <Link href="/terms" className="transition-colors hover:text-gold-400">
+            Terms &amp; Conditions
+          </Link>
+          <CookiePreferencesLink />
+        </nav>
+      </div>
+
       <div className="relative border-t border-steel-600/12">
         <div className="shell flex flex-col items-start justify-between gap-4 py-6 text-xs text-steel-500 sm:flex-row sm:items-center">
           <p>
             © {year} {business.legalName}. All rights reserved.
+            {business.registration && (
+              <span className="ml-2 text-steel-600">Reg. {business.registration}</span>
+            )}
+            {business.vat && <span className="ml-2 text-steel-600">VAT {business.vat}</span>}
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             {business.socials.map((social) => (

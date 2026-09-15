@@ -20,9 +20,11 @@ const ALL = "all";
 export function ServiceFilter({
   services,
   divisions,
+  headingLevel = 3,
 }: {
   services: Service[];
   divisions: Division[];
+  headingLevel?: 2 | 3;
 }) {
   // The ?division= deep link is read on the client rather than from the page's
   // searchParams. Reading it server-side would force this route to be dynamic,
@@ -94,7 +96,7 @@ export function ServiceFilter({
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="flex"
             >
-              <ServiceCard service={service} index={i} className="w-full" />
+              <ServiceCard service={service} index={i} headingLevel={headingLevel} className="w-full" />
             </motion.div>
           ))}
         </AnimatePresence>

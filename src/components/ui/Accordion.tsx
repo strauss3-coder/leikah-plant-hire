@@ -25,13 +25,20 @@ export function Accordion({
   tone = "dark",
   defaultOpen,
   className,
+  headingLevel = 3,
 }: {
   items: AccordionEntry[];
   tone?: "dark" | "light";
   /** Index to open on first render. Leave undefined for all-closed. */
   defaultOpen?: number;
   className?: string;
+  /**
+   * Level only, not appearance. When these are the first headings under the
+   * page h1 they must be h2; nested under a section heading, h3 is correct.
+   */
+  headingLevel?: 2 | 3;
 }) {
+  const Heading = (headingLevel === 2 ? "h2" : "h3") as "h2" | "h3";
   const [open, setOpen] = useState<string | null>(
     defaultOpen !== undefined ? (items[defaultOpen]?.id ?? null) : null,
   );
@@ -55,7 +62,7 @@ export function Accordion({
 
         return (
           <div key={item.id}>
-            <h3>
+            <Heading>
               <button
                 type="button"
                 onClick={() => setOpen(isOpen ? null : item.id)}
@@ -96,7 +103,7 @@ export function Accordion({
                   <Plus className="size-4" />
                 </span>
               </button>
-            </h3>
+            </Heading>
 
             <AnimatePresence initial={false}>
               {isOpen && (

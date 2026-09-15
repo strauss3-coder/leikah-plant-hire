@@ -23,7 +23,17 @@ import { DustField, SurveyGrid } from "@/components/graphics/Atmosphere";
    ========================================================================= */
 
 const SESSION_KEY = "leikah:intro-shown";
-const CEILING_MS = 2200;
+/**
+ * Hard ceiling before the intro dismisses itself.
+ *
+ * This is an LCP budget, not a taste decision. The loader covers the page, so
+ * whatever it is hiding cannot count as painted until it lifts. Measured on a
+ * throttled mid-range phone the old 2200ms ceiling made the homepage LCP swing
+ * between 1.1s and 3.1s depending on whether the page won the race, which is
+ * the difference between "good" and "needs work" in Core Web Vitals. 1400ms
+ * keeps the brand sequence legible and keeps the worst case inside budget.
+ */
+const CEILING_MS = 1400;
 
 /** sessionStorage never changes underneath us within a session. */
 const subscribe = () => () => {};
@@ -62,7 +72,7 @@ export function Preloader() {
     const ceiling = setTimeout(dismiss, CEILING_MS);
     let settle: ReturnType<typeof setTimeout>;
     const onLoad = () => {
-      settle = setTimeout(dismiss, 620);
+      settle = setTimeout(dismiss, 420);
     };
 
     if (document.readyState === "complete") {

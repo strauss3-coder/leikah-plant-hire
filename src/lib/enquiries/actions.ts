@@ -70,6 +70,27 @@ function fieldErrors(error: { issues: { path: PropertyKey[]; message: string }[]
   return out;
 }
 
+/* --- Honeypot ---------------------------------------------------------------
+   A filled honeypot means an automated submission. It is answered with an
+   ordinary success carrying a real-looking reference and nothing is written,
+   so the sender cannot tell a caught submission from an accepted one and
+   cannot probe for the rule. Logged so genuine false positives are visible.
+   -------------------------------------------------------------------------- */
+
+function honeypotTripped(
+  hpField: string | undefined,
+  prefix: "QT" | "CT" | "CV",
+): ActionResult | null {
+  if (!hpField) return null;
+  console.warn(`[enquiry] Honeypot tripped on a ${prefix} submission — dropped.`);
+  return {
+    ok: true,
+    reference: makeReference(prefix),
+    message:
+      "Thank you. Your enquiry has been received and someone will be in touch.",
+  };
+}
+
 const RATE_LIMITED: ActionResult = {
   ok: false,
   message:
@@ -89,6 +110,9 @@ export async function submitQuoteRequest(payload: unknown): Promise<ActionResult
       errors: fieldErrors(parsed.error),
     };
   }
+
+  const trap = honeypotTripped(parsed.data.hpField, "QT");
+  if (trap) return trap;
 
   const data = parsed.data;
   const reference = makeReference("QT");
@@ -163,6 +187,9 @@ export async function submitContactMessage(payload: unknown): Promise<ActionResu
     };
   }
 
+  const trap = honeypotTripped(parsed.data.hpField, "CT");
+  if (trap) return trap;
+
   const data = parsed.data;
   const reference = makeReference("CT");
   const supabase = getServiceSupabase();
@@ -219,6 +246,9 @@ export async function submitApplication(payload: unknown): Promise<ActionResult>
       errors: fieldErrors(parsed.error),
     };
   }
+
+  const trap = honeypotTripped(parsed.data.hpField, "CV");
+  if (trap) return trap;
 
   const data = parsed.data;
   const reference = makeReference("CV");
