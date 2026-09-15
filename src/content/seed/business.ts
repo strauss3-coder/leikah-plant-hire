@@ -53,7 +53,10 @@ export const business: BusinessInfo = {
     {
       platform: "facebook",
       label: "Facebook",
-      href: "https://www.facebook.com/",
+      // Canonical page URL, resolved from the app share link. Share URLs carry
+      // per-session tracking parameters (mibextid, rdid) that rot and that end
+      // up in the sameAs structured data, so only the stable form is stored.
+      href: "https://www.facebook.com/people/ISM-Supply-and-Maintanance/61582820152001/",
     },
   ],
   serviceAreas: [
