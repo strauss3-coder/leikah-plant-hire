@@ -79,6 +79,13 @@ const contentSecurityPolicy = [
 const nextConfig: NextConfig = {
   ...(isStatic ? { output: "export" as const, basePath, trailingSlash: true } : {}),
 
+  // The route transition intercepts link clicks and hands the path to
+  // router.push, which expects it WITHOUT the basePath. Anchor hrefs include
+  // it, so the client needs to know what to strip; without this the static
+  // build double-prefixes the path and every transition falls back to a full
+  // page load. Empty on the server target, where there is no prefix.
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
+
   images: {
     // The export target has no Image Optimization API behind it.
     unoptimized: isStatic,

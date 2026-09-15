@@ -382,3 +382,15 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   INTRO COVER
+
+   The welcome cover is server-rendered so there is never a frame of the page
+   before it appears. This rule is what stops a returning visitor seeing it at
+   all: the inline guard in the site layout stamps data-intro before the cover
+   paints, and `display:none` applies in the same style recalculation, so the
+   element never reaches the screen. Both must stay in step.
+   ------------------------------------------------------------------------- */
+html[data-intro="seen"] #intro-sequence { display: none !important; }
+html[data-intro="run"] { overflow: hidden; }

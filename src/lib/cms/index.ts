@@ -49,7 +49,7 @@ const COLLECTION_TABLES = {
   divisions: "content_divisions",
 } as const;
 
-const SINGLETON_KEYS = ["business", "home", "about", "safety", "pages", "legal"] as const;
+const SINGLETON_KEYS = ["business", "home", "about", "safety", "pages", "legal", "loader"] as const;
 
 type CollectionKey = keyof typeof COLLECTION_TABLES;
 
@@ -107,7 +107,7 @@ async function fetchCollection<K extends CollectionKey>(
 }
 
 async function fetchSingletons(): Promise<Partial<
-  Pick<SiteContent, "business" | "home" | "about" | "safety" | "pages" | "legal">
+  Pick<SiteContent, "business" | "home" | "about" | "safety" | "pages" | "legal" | "loader">
 > | null> {
   const supabase = getPublicSupabase();
   if (!supabase) return null;
@@ -177,6 +177,10 @@ export async function getAbout() {
 
 export async function getSafety() {
   return (await getSiteContent()).safety;
+}
+
+export async function getLoader() {
+  return (await getSiteContent()).loader;
 }
 
 export async function getLegal() {

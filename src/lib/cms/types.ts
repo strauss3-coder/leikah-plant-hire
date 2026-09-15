@@ -519,6 +519,34 @@ export interface LegalContent {
   terms: LegalDocument;
 }
 
+/* --- Loading experience ---------------------------------------------------
+   Copy and timing for the welcome sequence and the page transitions. Timings
+   are ceilings, not durations: both loaders dismiss as soon as the work they
+   are covering is finished, so raising these does not slow a fast visit, and
+   lowering them caps a slow one.
+   -------------------------------------------------------------------------- */
+
+export interface LoaderContent {
+  /** Small line above the wordmark, e.g. "Welcome to". */
+  welcome: string;
+  /** Short lines under the wordmark. Kept as lines so they stagger in. */
+  statement: string[];
+  /** Label on the industrial progress readout. */
+  progressLabel: string;
+  /**
+   * Shortest time the welcome sequence stays up. Without a floor a fast
+   * connection lifts it in ~100ms, which reads as a flicker rather than as a
+   * welcome. Long enough for the sequence to actually play.
+   */
+  introMinMs: number;
+  /** Hard ceiling for the welcome sequence, in milliseconds. */
+  introMaxMs: number;
+  /** Shortest time the transition stays up, so an instant route never flickers. */
+  transitionMinMs: number;
+  /** Hard ceiling for a transition, so a slow route cannot trap the visitor. */
+  transitionMaxMs: number;
+}
+
 export interface PageMeta {
   key: string;
   title: string;
@@ -593,4 +621,5 @@ export interface SiteContent {
   about: AboutContent;
   pages: Record<string, PageMeta>;
   legal: LegalContent;
+  loader: LoaderContent;
 }

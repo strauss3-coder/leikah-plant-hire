@@ -1,10 +1,11 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { Preloader } from "@/components/layout/Preloader";
+import { Preloader, INTRO_GUARD } from "@/components/layout/Preloader";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { RouteTransition } from "@/components/layout/RouteTransition";
 import { QuickActions } from "@/components/layout/QuickActions";
 import { CookieConsent } from "@/components/layout/CookieConsent";
-import { getBusiness, getServices, getIndustries, getLegal } from "@/lib/cms";
+import { getBusiness, getServices, getIndustries, getLegal, getLoader } from "@/lib/cms";
 import { JsonLd, organisationSchema } from "@/lib/seo";
 
 /**
@@ -13,11 +14,12 @@ import { JsonLd, organisationSchema } from "@/lib/seo";
  * change — the same rule as everything else on the site.
  */
 export default async function SiteLayout({ children }: LayoutProps<"/">) {
-  const [business, services, industries, legal] = await Promise.all([
+  const [business, services, industries, legal, loader] = await Promise.all([
     getBusiness(),
     getServices(),
     getIndustries(),
     getLegal(),
+    getLoader(),
   ]);
 
   const serviceLinks = services.map((service) => ({
@@ -35,7 +37,11 @@ export default async function SiteLayout({ children }: LayoutProps<"/">) {
   return (
     <>
       <JsonLd data={organisationSchema(business)} />
-      <Preloader />
+      {/* Runs before the cover paints, so a returning visitor never sees it.
+          Must precede <Preloader> in the document. */}
+      <script dangerouslySetInnerHTML={{ __html: INTRO_GUARD }} />
+      <Preloader loader={loader} />
+      <RouteTransition loader={loader} />
       <SiteHeader
         phone={business.phone}
         serviceLinks={serviceLinks}
