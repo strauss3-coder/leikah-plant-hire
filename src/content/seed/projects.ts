@@ -147,7 +147,7 @@ export const projects: Project[] = [
     province: "Mpumalanga",
     startDate: "2024-08-05",
     completionDate: null,
-    status: "ongoing",
+    status: "complete",
     summary:
       "Transmissions and final drives rebuilt on a rolling schedule set by oil analysis, so units come off before they fail.",
     brief:

@@ -294,7 +294,7 @@ export const COLLECTIONS: Record<CollectionKey, CollectionDef> = {
     table: "content_projects",
     label: "Projects",
     singular: "Project",
-    description: "Completed and ongoing contracts, with method, programme and outcome.",
+    description: "Completed contracts, with method, programme and outcome. Only delivered work is published.",
     icon: FolderKanban,
     group: "Website",
     titleField: "title",

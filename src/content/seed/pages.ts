@@ -104,7 +104,7 @@ export const home: HomeContent = {
     },
     {
       id: "walk-4",
-      label: "Ongoing",
+      label: "Throughout",
       title: "Production and maintenance",
       body: "Benches advance to the agreed sequence while planned servicing and 24-hour response keep the fleet on the face.",
       icon: "excavator",
@@ -278,7 +278,7 @@ export const pages: Record<string, PageMeta> = {
   },
   projects: {
     key: "projects",
-    title: "Projects",
+    title: "Completed Projects",
     eyebrow: "Work delivered",
     headline: "What the work looked like, and what it changed",
     lead: "Selected contracts across earthmoving, workshop and field service. Client names are withheld where contracts require it and the sector is shown instead.",

@@ -14,6 +14,7 @@ import {
   subscribeToConsent,
   type OptionalCategory,
 } from "@/lib/consent";
+import { INTRO_DONE_EVENT } from "./Preloader";
 import { cn } from "@/lib/utils";
 
 /* ============================================================================
@@ -56,8 +57,31 @@ export function CookieConsent({
   const panelRef = useRef<HTMLDivElement>(null);
   const restoreFocusTo = useRef<HTMLElement | null>(null);
 
+  /**
+   * The welcome cover sits above the banner, so without this gate the banner
+   * mounts and plays its whole entrance underneath it: by the time the cover
+   * lifts it is simply already there, with no arrival of its own. Waiting means
+   * it slides in once the sequence has finished, which is also why it can never
+   * flash before the cover or appear stuck behind it.
+   */
+  const [introDone, setIntroDone] = useState(false);
+  useEffect(() => {
+    const clear = () => setIntroDone(true);
+    // Covers the return visit, where the intro never runs at all.
+    if (document.documentElement.getAttribute("data-intro") !== "run") {
+      const raf = requestAnimationFrame(clear);
+      window.addEventListener(INTRO_DONE_EVENT, clear);
+      return () => {
+        cancelAnimationFrame(raf);
+        window.removeEventListener(INTRO_DONE_EVENT, clear);
+      };
+    }
+    window.addEventListener(INTRO_DONE_EVENT, clear);
+    return () => window.removeEventListener(INTRO_DONE_EVENT, clear);
+  }, []);
+
   const undecided = consent === null;
-  const bannerOpen = undecided && !panelOpen;
+  const bannerOpen = undecided && introDone && !panelOpen;
 
   /**
    * The banner is fixed to the bottom of the viewport, so without this it sits

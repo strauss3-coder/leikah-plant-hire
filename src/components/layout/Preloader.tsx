@@ -35,6 +35,8 @@ import type { LoaderContent } from "@/lib/cms/types";
    ========================================================================= */
 
 const SESSION_KEY = "leikah:intro-shown";
+/** Announced when the cover has gone, so the cookie banner can wait for it. */
+export const INTRO_DONE_EVENT = "leikah:intro-done";
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 function markSeen() {
@@ -95,6 +97,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
     // state write is what keeps this out of react-hooks/set-state-in-effect.
     if (reduced || alreadySeen()) {
       document.documentElement.setAttribute("data-intro", "seen");
+      window.dispatchEvent(new Event(INTRO_DONE_EVENT));
       const raf = requestAnimationFrame(() => setDone(true));
       return () => cancelAnimationFrame(raf);
     }
@@ -114,6 +117,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
     const release = () => {
       document.body.style.overflow = "";
       document.documentElement.setAttribute("data-intro", "seen");
+      window.dispatchEvent(new Event(INTRO_DONE_EVENT));
     };
 
     void whenReady(loader.introMaxMs).then(() => {

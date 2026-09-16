@@ -8,6 +8,13 @@ import type { LoaderContent } from "@/lib/cms/types";
    lifts the moment the next route is ready; these values only bound the worst
    case so a slow connection cannot hold someone behind an animation.
 
+   `transitionMinMs` is the floor for a page change. App Router prefetches, so
+   most routes are ready almost immediately; at the old 520ms floor the cover
+   came and went before the machine had crossed the screen, which is why some
+   navigations looked like a full sequence and others like an abrupt wipe. The
+   machine needs roughly 620ms to travel and the plate 520ms each way, so 1400ms
+   is the point at which every navigation shows the same complete animation.
+
    The two intro numbers are a pair, and both have a cost attached.
 
    `introMinMs` exists because a fast connection lifts the cover in about a
@@ -30,6 +37,6 @@ export const loader: LoaderContent = {
   progressLabel: "Systems check",
   introMinMs: 1400,
   introMaxMs: 2200,
-  transitionMinMs: 520,
-  transitionMaxMs: 1500,
+  transitionMinMs: 1400,
+  transitionMaxMs: 2600,
 };

@@ -9,18 +9,14 @@ import { cn } from "@/lib/utils";
 /* ============================================================================
    PROJECT FILTER
 
-   Two independent axes — sector and status — because "show me everything you
+   Filtered by sector. Status is not offered because the site publishes
+   delivered work only — see getProjects(). Originally "show me everything you
    have done in mining" and "show me what you are running right now" are
    different questions and buyers ask both.
    ========================================================================= */
 
 const ALL = "all";
 
-const STATUS_TABS = [
-  { key: ALL, label: "All" },
-  { key: "complete", label: "Complete" },
-  { key: "ongoing", label: "Ongoing" },
-] as const;
 
 export function ProjectFilter({
   headingLevel = 3,
@@ -36,7 +32,6 @@ export function ProjectFilter({
   headingLevel?: 2 | 3;
 }) {
   const [sector, setSector] = useState<string>(ALL);
-  const [status, setStatus] = useState<string>(ALL);
   const reduced = useReducedMotion();
 
   const usedSectors = useMemo(() => {
@@ -45,13 +40,8 @@ export function ProjectFilter({
   }, [projects, industries]);
 
   const visible = useMemo(
-    () =>
-      projects.filter(
-        (p) =>
-          (sector === ALL || p.industrySlug === sector) &&
-          (status === ALL || p.status === status),
-      ),
-    [projects, sector, status],
+    () => projects.filter((p) => sector === ALL || p.industrySlug === sector),
+    [projects, sector],
   );
 
   return (
@@ -69,19 +59,6 @@ export function ProjectFilter({
               onClick={() => setSector(industry.slug)}
             >
               {industry.name}
-            </FilterChip>
-          ))}
-        </div>
-
-        <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by status">
-          <span className="eyebrow mr-1 text-steel-500">Status</span>
-          {STATUS_TABS.map((tab) => (
-            <FilterChip
-              key={tab.key}
-              active={status === tab.key}
-              onClick={() => setStatus(tab.key)}
-            >
-              {tab.label}
             </FilterChip>
           ))}
         </div>

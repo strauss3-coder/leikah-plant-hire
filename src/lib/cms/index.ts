@@ -240,7 +240,13 @@ export async function getIndustryBySlug(slug: string): Promise<Industry | undefi
 }
 
 export async function getProjects(): Promise<Project[]> {
-  return [...(await getSiteContent()).projects].sort(bySort);
+  // The site publishes delivered work only. Anything still in flight is
+  // filtered here rather than at each call site, so a record added in the CMS
+  // with another status cannot appear on a card, in a related rail, or in the
+  // sitemap. Remove this filter, not individual checks, if that ever changes.
+  return [...(await getSiteContent()).projects]
+    .filter((project) => project.status === "complete")
+    .sort(bySort);
 }
 
 export async function getFeaturedProjects(limit = 3): Promise<Project[]> {

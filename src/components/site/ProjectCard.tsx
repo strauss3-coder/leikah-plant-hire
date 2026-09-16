@@ -13,7 +13,7 @@ import { cn, formatMonth } from "@/lib/utils";
    ========================================================================= */
 
 const STATUS: Record<Project["status"], { label: string; className: string }> = {
-  complete: { label: "Complete", className: "text-signal-green border-signal-green/35" },
+  complete: { label: "Delivered", className: "text-signal-green border-signal-green/35" },
   ongoing: { label: "Ongoing", className: "text-gold-400 border-gold-500/40" },
   scheduled: { label: "Scheduled", className: "text-signal-blue border-signal-blue/40" },
 };
@@ -35,9 +35,9 @@ export function ProjectCard({
 }) {
   const Heading = (headingLevel === 2 ? "h2" : "h3") as "h2" | "h3";
   const status = STATUS[project.status];
-  const dateLabel = project.completionDate
-    ? formatMonth(project.completionDate)
-    : `From ${formatMonth(project.startDate)}`;
+  // Delivered work with no completion date on record shows no date at all.
+  // "From <start>" reads as still running, which is the opposite of the truth.
+  const dateLabel = project.completionDate ? formatMonth(project.completionDate) : null;
 
   return (
     <Link
