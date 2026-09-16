@@ -253,7 +253,7 @@ img { max-width:100%; }
       <div><span class="eyebrow">Items outstanding</span><span class="v" id="m-total">0</span></div>
       <div><span class="eyebrow">Blocking launch</span><span class="v stop" id="m-stop">0</span></div>
       <div><span class="eyebrow">Supplied so far</span><span class="v gold" id="m-done">0</span></div>
-      <div><span class="eyebrow">Sections</span><span class="v">10</span></div>
+      <div><span class="eyebrow">Sections</span><span class="v">8</span></div>
     </div>
   </div>
 </header>
@@ -270,100 +270,12 @@ img { max-width:100%; }
 
 <main class="wrap">
 
+
+
 <!-- ==================================================================== -->
 <section>
   <div class="sec-head">
     <span class="eyebrow">Section one</span>
-    <h2>Decisions that block everything else</h2>
-    <p>Three questions with no default answer. Each one changes work that has already been done, so the sooner they are settled the less rework they cause.</p>
-  </div>
-
-  <div class="item" data-p="stop">
-    <input type="checkbox" id="k1">
-    <div class="item-main">
-      <label class="item-t" for="k1">Which domain is the business actually using?</label>
-      <p class="item-d">Invoice #006 registers <code>leikahism.co.za</code>. The website is built throughout on <code>leikahplanthire.co.za</code>, which appears in the contact page, the footer, all seven published email addresses and the structured data Google reads. One of the two has to change, and changing it after the mailboxes exist is considerably more work.</p>
-    </div>
-    <span class="state">Conflict</span>
-  </div>
-
-  <div class="item" data-p="stop">
-    <input type="checkbox" id="k2">
-    <div class="item-main">
-      <label class="item-t" for="k2">Is the business Leikah Plant Hire, or ISM Supply and Maintenance?</label>
-      <p class="item-d">Four signals currently disagree. The website brands entirely as Leikah Plant Hire. The Facebook page is called "ISM Supply and Maintanance". The invoice domain is leikah<strong>ism</strong>.co.za. The contact email on the invoice is ismsupply.maintenance@gmail.com. The hero also carries an ISM mark labelled "In association with", which nobody has confirmed. This is no longer only a wording choice: the Facebook link is published in your structured data as an identity claim, telling Google that page <strong>is</strong> this organisation.</p>
-    </div>
-    <span class="state">Unconfirmed</span>
-  </div>
-
-  <div class="item" data-p="stop">
-    <input type="checkbox" id="k3">
-    <div class="item-main">
-      <label class="item-t" for="k3">Five of the seven email addresses on the site will not exist</label>
-      <p class="item-d">The site publishes <code>info@</code>, <code>quotes@</code>, <code>dispatch@</code>, <code>hire@</code>, <code>workshop@</code>, <code>supply@</code> and <code>accounts@</code>. Invoice #006 creates five mailboxes: info@, accounts@, sales@, admin@ and director@. Only <strong>info@ and accounts@</strong> overlap. The other five would bounce, including the quotation address the quote form points at. Either add the mailboxes or reduce the addresses shown on the site.</p>
-    </div>
-    <span class="state">Mismatch</span>
-  </div>
-
-  <div class="note warn">
-    <h3>These three are connected</h3>
-    <p>The domain, the trading name and the mailbox list are one decision, not three. Settling the name settles the domain, and the domain determines what the mailboxes are called. Answering them together will take one conversation; answering them separately will take three rounds of rework.</p>
-  </div>
-</section>
-
-<!-- ==================================================================== -->
-<section>
-  <div class="sec-head">
-    <span class="eyebrow">Section two</span>
-    <h2>Contact information</h2>
-    <p>The primary number is in place and correct on every surface. These are the gaps around it.</p>
-  </div>
-
-  <div class="item" data-p="need">
-    <input type="checkbox" id="c1">
-    <div class="item-main">
-      <label class="item-t" for="c1">Secondary contact number</label>
-      <p class="item-d">You mentioned this is coming. The field is built and will display as soon as it is supplied.</p>
-    </div><span class="state">Awaiting</span>
-  </div>
-
-  <div class="item" data-p="need">
-    <input type="checkbox" id="c2">
-    <div class="item-main">
-      <label class="item-t" for="c2">Direct numbers for the five departments</label>
-      <p class="item-d">The contact page lists Breakdown Dispatch, the Plant Hire Desk, Workshop &amp; Component Rebuild, Supply &amp; Procurement, and Accounts &amp; Vendor Onboarding as separate desks. All five currently show the same number, <code>+27 60 976 3429</code>. That is honest only if one line genuinely answers all five. If not, supply the real numbers; if so, we should present them as one contact point rather than five.</p>
-    </div><span class="state">All identical</span>
-  </div>
-
-  <div class="item" data-p="need">
-    <input type="checkbox" id="c3">
-    <div class="item-main">
-      <label class="item-t" for="c3">Confirm the emergency line is the same number</label>
-      <p class="item-d">The 24-hour breakdown line currently shows the primary office number. The site states plainly that it is answered around the clock, every day including public holidays. Confirm that is true of this number, or supply a separate one.</p>
-    </div><span class="state">Same as primary</span>
-  </div>
-
-  <div class="item" data-p="need">
-    <input type="checkbox" id="c4">
-    <div class="item-main">
-      <label class="item-t" for="c4">Confirm the published operating hours</label>
-      <p class="item-d">Currently Monday to Friday 07:00 to 17:00, Saturday 07:00 to 13:00, closed Sunday. These drive a live "open now" indicator and are published in your structured data, so search results will state them.</p>
-    </div><span class="state">Needs sign-off</span>
-  </div>
-
-  <div class="item" data-p="nice">
-    <input type="checkbox" id="c5">
-    <div class="item-main">
-      <label class="item-t" for="c5">Confirm the yard address and directions</label>
-      <p class="item-d">7 July Street, New Industrial Area, Middelburg, 1055, with map coordinates. Worth one check, since this is what a driver will follow.</p>
-    </div><span class="state">From research</span>
-  </div>
-</section>
-
-<!-- ==================================================================== -->
-<section>
-  <div class="sec-head">
-    <span class="eyebrow">Section three</span>
     <h2>Company information</h2>
     <p>Three fields are built and empty. Procurement departments look for all three before approving a supplier.</p>
   </div>
@@ -428,7 +340,7 @@ img { max-width:100%; }
 <!-- ==================================================================== -->
 <section>
   <div class="sec-head">
-    <span class="eyebrow">Section four</span>
+    <span class="eyebrow">Section two</span>
     <h2>Media</h2>
     <p>Twenty-six of your photographs are in place and processed. The gaps are people, video and evidence of completed work.</p>
   </div>
@@ -493,7 +405,7 @@ img { max-width:100%; }
 <!-- ==================================================================== -->
 <section>
   <div class="sec-head">
-    <span class="eyebrow">Section five</span>
+    <span class="eyebrow">Section three</span>
     <h2>Proof and credibility</h2>
     <p>Four collections are built, connected and deliberately empty. Nothing was invented to fill them, because an unattributable claim damages a contractor more than a blank space does.</p>
   </div>
@@ -534,7 +446,7 @@ img { max-width:100%; }
 <!-- ==================================================================== -->
 <section>
   <div class="sec-head">
-    <span class="eyebrow">Section six</span>
+    <span class="eyebrow">Section four</span>
     <h2>Certificates and compliance</h2>
     <p>The document library on the Health &amp; Safety page is built and holds nothing. No mine or major contractor onboards a supplier without seeing these, and on some tenders they are pass or fail.</p>
   </div>
@@ -591,7 +503,7 @@ img { max-width:100%; }
 <!-- ==================================================================== -->
 <section>
   <div class="sec-head">
-    <span class="eyebrow">Section seven</span>
+    <span class="eyebrow">Section five</span>
     <h2>Legal</h2>
     <p>Privacy, cookie and terms pages are written, live and POPIA-grounded. Two things still need a person's name against them.</p>
   </div>
@@ -624,7 +536,7 @@ img { max-width:100%; }
 <!-- ==================================================================== -->
 <section>
   <div class="sec-head">
-    <span class="eyebrow">Section eight</span>
+    <span class="eyebrow">Section six</span>
     <h2>Social media</h2>
     <p>One profile is linked. Each additional one strengthens how search engines resolve the business as an entity.</p>
   </div>
@@ -633,7 +545,7 @@ img { max-width:100%; }
     <input type="checkbox" id="s1">
     <div class="item-main">
       <label class="item-t" for="s1">Facebook: resolve the page name</label>
-      <p class="item-d">Linked and working, but the page is called "ISM Supply and Maintanance", which is both a different name from the website and a misspelling of "Maintenance". A visitor clicking Facebook in the footer lands on a differently named business. See section one.</p>
+      <p class="item-d">Linked and working, but the page is called "ISM Supply and Maintanance", which is both a different name from the website and a misspelling of "Maintenance". A visitor clicking Facebook in the footer lands on a differently named business, and the link is published in your structured data as an identity claim, telling Google that page <strong>is</strong> this organisation.</p>
     </div><span class="state">Name mismatch</span>
   </div>
 
@@ -665,7 +577,7 @@ img { max-width:100%; }
 <!-- ==================================================================== -->
 <section>
   <div class="sec-head">
-    <span class="eyebrow">Section nine</span>
+    <span class="eyebrow">Section seven</span>
     <h2>Google, search and measurement</h2>
     <p>The site is built for search: every page has its own title and description, structured business data, a generated sitemap and a robots file. None of it is connected to an account yet.</p>
   </div>
@@ -722,7 +634,7 @@ img { max-width:100%; }
 <!-- ==================================================================== -->
 <section>
   <div class="sec-head">
-    <span class="eyebrow">Section ten</span>
+    <span class="eyebrow">Section eight</span>
     <h2>Not your task, but you should know</h2>
     <p>Two things are outstanding on the development side, and both change what the site can do.</p>
   </div>
@@ -752,7 +664,7 @@ img { max-width:100%; }
     <span class="eyebrow" style="color:var(--gold-500)">In short</span>
     <h2>The blockers are few. <em>The rest can follow.</em></h2>
     <p>The count at the top of this page is live and updates as you tick items off. Most of what remains improves the site rather than gating it.</p>
-    <p>The three decisions in section one are worth one conversation this week, because everything downstream depends on them. Start the Google Business Profile at the same time, since it is the only item on the list with a two-week external wait.</p>
+    <p>Start the Google Business Profile first. Verification is by posted card and can take two weeks, which makes it the only item here with a wait you cannot shorten by getting to it sooner.</p>
     <p>Send items as they come to hand. Nothing needs to arrive as a complete set.</p>
     <div class="sign">
       <div><span class="k">Document</span><span class="v">Pre-launch information required</span></div>
