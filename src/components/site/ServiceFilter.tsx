@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ServiceCard } from "./ServiceCard";
@@ -39,7 +39,29 @@ export function ServiceFilter({
 
   const [override, setOverride] = useState<string | null>(null);
   const active = override ?? fromUrl;
-  const setActive = setOverride;
+
+  /**
+   * Mirror the choice into the address bar so a filtered view can be shared,
+   * which is what the `?division=` deep link above already supports in the
+   * other direction.
+   *
+   * `history.replaceState` rather than a router push, deliberately. A push
+   * would register as a navigation: it would trigger the full page transition
+   * overlay on a filter click, and it would stack a history entry per chip so
+   * the back button had to step through every filter state on the way out.
+   * Replacing rewrites the URL with no navigation and no popstate.
+   */
+  const setActive = useCallback((key: string) => {
+    setOverride(key);
+    try {
+      const url = new URL(window.location.href);
+      if (key === ALL) url.searchParams.delete("division");
+      else url.searchParams.set("division", key);
+      window.history.replaceState(null, "", url.pathname + url.search);
+    } catch {
+      // A rewritten URL is a convenience; the filter itself still works.
+    }
+  }, []);
   const reduced = useReducedMotion();
 
   const counts = useMemo(() => {

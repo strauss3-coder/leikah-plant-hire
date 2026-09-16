@@ -74,6 +74,7 @@ export const legal: LegalContent = {
     seo: {
       title: "Privacy Policy",
       description: `How ${business.tradingName} collects, uses, stores and protects personal information, and your rights under the Protection of Personal Information Act.`,
+      image: "leikah-response-vehicle",
     },
     sections: [
       {
@@ -245,6 +246,7 @@ export const legal: LegalContent = {
     seo: {
       title: "Cookie Policy",
       description: `Which cookies and browser storage ${business.tradingName} uses, what each category does, and how to change or disable them.`,
+      image: "parts-dispatch-pallet",
     },
     sections: [
       {
@@ -328,6 +330,7 @@ export const legal: LegalContent = {
     seo: {
       title: "Terms & Conditions",
       description: `The terms governing use of the ${business.tradingName} website, including intellectual property, quotations, liability and acceptable use.`,
+      image: "dozer-d9t-dusk",
     },
     sections: [
       {

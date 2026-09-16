@@ -45,18 +45,24 @@ export function buildMetadata({
     description: resolvedDescription,
     alternates: { canonical: path },
     robots: seo?.noIndex ? { index: false, follow: false } : undefined,
+    // The image keys are spread in only when there is one. Setting them to
+    // `undefined` explicitly overrides the default from the root layout rather
+    // than inheriting it, which left the legal pages sharing with no preview
+    // image at all.
     openGraph: {
       type,
       title: resolvedTitle,
       description: resolvedDescription,
       url: absoluteUrl(path),
-      images: ogImage ? [{ url: ogImage, width: asset.width, height: asset.height, alt: asset.alt }] : undefined,
+      ...(ogImage
+        ? { images: [{ url: ogImage, width: asset.width, height: asset.height, alt: asset.alt }] }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: resolvedTitle,
       description: resolvedDescription,
-      images: ogImage ? [ogImage] : undefined,
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
   };
 }
