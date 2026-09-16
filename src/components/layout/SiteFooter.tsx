@@ -191,8 +191,16 @@ export async function SiteFooter() {
             ))}
             {/* The portal needs a server, so it is not part of the static
                 preview build and the link would only 404 there. */}
+            {/* The portal is a separate route group with its own layout, so the
+                transition overlay unmounts the moment it arrives and shows for
+                about 70ms. A flash that short reads as a glitch, so this link
+                opts out and crosses the boundary plainly. */}
             {process.env.STATIC_EXPORT !== "1" && (
-              <Link href="/portal" className="transition-colors hover:text-gold-400">
+              <Link
+                href="/portal"
+                data-no-transition
+                className="transition-colors hover:text-gold-400"
+              >
                 Client &amp; staff portal
               </Link>
             )}

@@ -539,6 +539,13 @@ export interface LoaderContent {
    * welcome. Long enough for the sequence to actually play.
    */
   introMinMs: number;
+  /**
+   * Floor for the shortened cover shown on a repeat full page load: a hard
+   * refresh, a typed URL, a bookmark, a link from outside. Without it those
+   * arrivals have no branded loading at all, which is what made the site feel
+   * inconsistent next to clicked navigation.
+   */
+  introBriefMs: number;
   /** Hard ceiling for the welcome sequence, in milliseconds. */
   introMaxMs: number;
   /** Shortest time the transition stays up, so an instant route never flickers. */

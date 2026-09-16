@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { LeikahMark, WORDMARK } from "@/components/brand/Logo";
 import { MachineSilhouette } from "@/components/graphics/MachineSilhouette";
@@ -89,18 +89,37 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
   const reduced = useReducedMotion();
   const [done, setDone] = useState(false);
   const [progress, setProgress] = useState(0);
+  /**
+   * Speed factor for the sequence. 1 is the full welcome; a repeat page load
+   * runs the same animation faster rather than showing a different one, which
+   * keeps the markup identical.
+   *
+   * Read through `useSyncExternalStore` rather than set from an effect. It is
+   * safe for the server and client to disagree here because `speed` only feeds
+   * `transition`, which Motion never writes into the HTML; `initial` is what
+   * gets serialised and that stays constant. Setting it from an effect would
+   * also animate one frame at full speed before correcting.
+   */
+  const speed = useSyncExternalStore(
+    () => () => {},
+    () => (alreadySeen() ? 0.42 : 1),
+    () => 1,
+  );
 
   useEffect(() => {
-    // Return visit, reduced motion, or blocked storage: clear it immediately.
-    // The attribute is what actually hides the cover, and it applies in the
-    // same style recalculation, so unmounting can wait a frame. Deferring the
-    // state write is what keeps this out of react-hooks/set-state-in-effect.
-    if (reduced || alreadySeen()) {
+    // Reduced motion is the only case that skips the cover entirely. The
+    // attribute is what actually hides it, and it applies in the same style
+    // recalculation, so unmounting can wait a frame; deferring the state write
+    // is what keeps this out of react-hooks/set-state-in-effect.
+    if (reduced) {
       document.documentElement.setAttribute("data-intro", "seen");
       window.dispatchEvent(new Event(INTRO_DONE_EVENT));
       const raf = requestAnimationFrame(() => setDone(true));
       return () => cancelAnimationFrame(raf);
     }
+
+    // A repeat full page load gets the same sequence, held for less time.
+    const floor = alreadySeen() ? loader.introBriefMs : loader.introMinMs;
 
     document.body.style.overflow = "hidden";
     let cancelled = false;
@@ -110,7 +129,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
     // never claim to be finished before the page actually is.
     const started = Date.now();
     const tick = setInterval(() => {
-      const t = (Date.now() - started) / loader.introMaxMs;
+      const t = (Date.now() - started) / floor;
       setProgress(Math.min(94, Math.round((1 - Math.exp(-3.2 * t)) * 100)));
     }, 90);
 
@@ -124,7 +143,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
       if (cancelled) return;
       // Ready early is the common case on a warm connection. Hold to the floor
       // so the sequence plays rather than flickering, then complete.
-      const remaining = Math.max(0, loader.introMinMs - (Date.now() - started));
+      const remaining = Math.max(0, floor - (Date.now() - started));
       setTimeout(() => {
         if (cancelled) return;
         clearInterval(tick);
@@ -144,7 +163,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
       clearInterval(tick);
       release();
     };
-  }, [reduced, loader.introMinMs, loader.introMaxMs]);
+  }, [reduced, loader.introMinMs, loader.introBriefMs, loader.introMaxMs]);
 
   return (
     <AnimatePresence>
@@ -185,7 +204,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
             <motion.div
               initial={{ opacity: 0, scale: 0.86 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, ease: EASE }}
+              transition={{ duration: 0.7 * speed, ease: EASE }}
             >
               <LeikahMark className="h-14 w-14 sm:h-16 sm:w-16" />
             </motion.div>
@@ -194,7 +213,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
               className="font-mono text-[0.5625rem] tracking-[0.34em] text-steel-500 uppercase sm:text-[0.625rem]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.22 }}
+              transition={{ duration: 0.5 * speed, delay: 0.22 * speed }}
             >
               {loader.welcome}
             </motion.span>
@@ -215,7 +234,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
                       fillRule={glyph.evenodd ? "evenodd" : "nonzero"}
                       initial={{ opacity: 0, y: 26 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.62, delay: 0.3 + i * 0.055, ease: EASE }}
+                      transition={{ duration: 0.62 * speed, delay: (0.3 + i * 0.055) * speed, ease: EASE }}
                     />
                   </g>
                 ))}
@@ -228,7 +247,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
               className="font-mono text-[0.5rem] tracking-[0.44em] text-gold-500 uppercase sm:text-[0.5625rem]"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.72, ease: EASE }}
+              transition={{ duration: 0.55 * speed, delay: 0.72 * speed, ease: EASE }}
             >
               Plant Hire
             </motion.span>
@@ -237,7 +256,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
               className="flex flex-col items-center gap-1 text-center"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.86, ease: EASE }}
+              transition={{ duration: 0.6 * speed, delay: 0.86 * speed, ease: EASE }}
             >
               {loader.statement.map((line) => (
                 <p key={line} className="text-xs text-steel-400 sm:text-sm">
@@ -258,7 +277,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
               opacity: 0,
               transition: { duration: 0.55, ease: [0.55, 0, 1, 0.45] },
             }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.5 * speed, ease: [0.22, 1, 0.36, 1] }}
           >
             <MachineSilhouette
               machine="excavator"
@@ -279,7 +298,7 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
             className="absolute inset-x-0 bottom-0 flex items-center gap-4 px-6 pb-7 sm:px-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5 * speed, delay: 0.4 * speed }}
           >
             <span className="font-mono text-[0.5625rem] tracking-[0.28em] text-steel-500 uppercase">
               {loader.progressLabel}
@@ -314,4 +333,4 @@ export function Preloader({ loader }: { loader: LoaderContent }) {
  * already had the intro this session, which CSS then hides on. Inline and
  * synchronous by necessity: anything deferred paints the cover first.
  */
-export const INTRO_GUARD = `try{document.documentElement.setAttribute('data-intro',sessionStorage.getItem('${SESSION_KEY}')==='1'?'seen':'run')}catch(e){document.documentElement.setAttribute('data-intro','seen')}`;
+export const INTRO_GUARD = `try{document.documentElement.setAttribute('data-intro',sessionStorage.getItem('${SESSION_KEY}')==='1'?'brief':'run')}catch(e){document.documentElement.setAttribute('data-intro','brief')}`;

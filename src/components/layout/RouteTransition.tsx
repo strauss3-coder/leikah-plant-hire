@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   MachineSilhouette,
@@ -85,23 +85,37 @@ function isPlainLeftClick(event: MouseEvent) {
 
 export function RouteTransition({ loader }: { loader: LoaderContent }) {
   const router = useRouter();
+  const pathname = usePathname();
   const reduced = useReducedMotion();
   const [isPending, startTransition] = useTransition();
 
   const [active, setActive] = useState(false);
   const [variant, setVariant] = useState(0);
+  /**
+   * "push" is a link click: the plate sweeps in, holds, sweeps out.
+   * "pop" is browser back or forward. The router has already swapped the
+   * content by the time we hear about it, so the plate starts fully covering
+   * instead of sliding in; sliding it in would show a frame of the new page
+   * first. Both run to the same floor, so the two feel the same length.
+   */
+  const [mode, setMode] = useState<"push" | "pop">("push");
   const startedAt = useRef(0);
   const nextVariant = useRef(0);
 
+  const advance = useCallback(() => {
+    nextVariant.current = (nextVariant.current + 1) % VARIANTS.length;
+    setVariant(nextVariant.current);
+    startedAt.current = Date.now();
+  }, []);
+
   const begin = useCallback(
     (href: string) => {
-      nextVariant.current = (nextVariant.current + 1) % VARIANTS.length;
-      setVariant(nextVariant.current);
-      startedAt.current = Date.now();
+      advance();
+      setMode("push");
       setActive(true);
       startTransition(() => router.push(href));
     },
-    [router],
+    [router, advance],
   );
 
   /* --- Link interception -------------------------------------------------- */
@@ -146,6 +160,37 @@ export function RouteTransition({ loader }: { loader: LoaderContent }) {
     return () => document.removeEventListener("click", onClick, { capture: true });
   }, [begin, reduced]);
 
+  /* --- Back and forward ---------------------------------------------------
+     These are the navigations that had no transition at all: the browser
+     drives them, so there is no click to intercept. `popstate` fires before
+     the router has repainted, which is early enough to cover the screen.
+     ---------------------------------------------------------------------- */
+  /* Where the router last settled. Tracked from the rendered pathname rather
+     than updated inside the popstate handler: a handler-local copy goes stale
+     the moment a link click pushes a route, after which back looks like a
+     hash change and is skipped. `popstate` fires before React re-renders, so
+     at that point this still holds the page being left. */
+  const lastLoc = useRef("");
+  useEffect(() => {
+    lastLoc.current = window.location.pathname + window.location.search;
+  }, [pathname]);
+
+  useEffect(() => {
+    if (reduced) return;
+
+    const onPop = () => {
+      const now = window.location.pathname + window.location.search;
+      // A hash-only change is not a page change; let it scroll.
+      if (now === lastLoc.current) return;
+      advance();
+      setMode("pop");
+      setActive(true);
+    };
+
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, [reduced, advance]);
+
   /* --- Lift when the route is ready, subject to floor and ceiling --------- */
   useEffect(() => {
     if (!active || isPending) return;
@@ -183,7 +228,7 @@ export function RouteTransition({ loader }: { loader: LoaderContent }) {
           <motion.div
             className="absolute inset-0 bg-ink-950"
             style={{ willChange: "transform" }}
-            initial={{ x: enterFrom, skewX: v.tilt }}
+            initial={mode === "pop" ? { x: "0%", skewX: 0 } : { x: enterFrom, skewX: v.tilt }}
             animate={{ x: "0%", skewX: 0 }}
             exit={{ x: exitTo, skewX: v.tilt }}
             transition={{ duration: 0.52, ease: EASE }}
