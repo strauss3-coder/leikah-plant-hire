@@ -63,7 +63,7 @@ export default async function SettingsPage() {
       <Panel title="Environment" description="Read-only. Set at deploy time, not from the portal.">
         <dl className="flex flex-col divide-y divide-steel-500/12 text-sm">
           {[
-            ["Site URL", process.env.NEXT_PUBLIC_SITE_URL ?? "not set — defaults to leikahplanthire.co.za"],
+            ["Site URL", process.env.NEXT_PUBLIC_SITE_URL ?? "not set — defaults to leikahgroup.co.za"],
             ["Supabase", process.env.NEXT_PUBLIC_SUPABASE_URL ? "connected" : "not connected"],
             ["Service role key", process.env.SUPABASE_SERVICE_ROLE_KEY ? "present" : "missing — enquiries cannot be stored"],
           ].map(([label, value]) => (

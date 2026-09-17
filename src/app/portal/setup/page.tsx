@@ -32,7 +32,7 @@ const STEPS = [
     code: `NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
 SUPABASE_SERVICE_ROLE_KEY=eyJ...
-NEXT_PUBLIC_SITE_URL=https://leikahplanthire.co.za`,
+NEXT_PUBLIC_SITE_URL=https://leikahgroup.co.za`,
   },
   {
     icon: UserPlus,

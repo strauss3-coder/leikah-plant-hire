@@ -73,6 +73,9 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       locale: "en_ZA",
       siteName: business.tradingName,
+      // Every other page sets its own through buildMetadata. The homepage
+      // defines no metadata of its own, so without this it shipped no og:url.
+      url: SITE_URL,
       title: `${business.tradingName} — Plant Hire, Earthmoving & Heavy Mechanical`,
       description: business.summary,
       images: ogImage,

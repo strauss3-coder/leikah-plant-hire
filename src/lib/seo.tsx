@@ -11,12 +11,32 @@ import { getMedia } from "./cms/media";
 /**
  * Canonical origin. Set NEXT_PUBLIC_SITE_URL at deploy time; the fallback keeps
  * local development and preview builds from emitting broken absolute URLs.
+ *
+ * This is the one value every absolute URL on the site derives from: canonical
+ * tags, Open Graph and Twitter URLs, the sitemap, robots.txt and every @id and
+ * url in the JSON-LD graph. Changing the production domain means changing it
+ * here and in the deploy workflow, and nowhere else.
  */
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://leikahplanthire.co.za";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://leikahgroup.co.za";
 
 export function absoluteUrl(path = "/") {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+/**
+ * The canonical form of a URL for the current build target.
+ *
+ * The static export sets `trailingSlash: true`, so Next emits canonical tags
+ * ending in a slash. The sitemap is built by hand from `absoluteUrl`, which
+ * does not, and a sitemap that lists `/about` while the page declares
+ * `/about/` as canonical hands Google two spellings of one page. This keeps
+ * the two in step on both targets.
+ */
+export function canonicalUrl(path = "/") {
+  const url = absoluteUrl(path);
+  if (process.env.STATIC_EXPORT !== "1") return url;
+  return url.endsWith("/") ? url : `${url}/`;
 }
 
 /** Builds page metadata from CMS SEO fields, falling back to the page's own copy. */

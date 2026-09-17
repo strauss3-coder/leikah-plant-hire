@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl } from "@/lib/seo";
+import { SITE_URL, absoluteUrl } from "@/lib/seo";
 
 // Both metadata routes are pure functions of the CMS content, so they can be
 // generated at build time. Declaring that explicitly is also what lets them be
@@ -19,6 +19,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: absoluteUrl("/sitemap.xml"),
-    host: absoluteUrl("/"),
+    host: SITE_URL,
   };
 }

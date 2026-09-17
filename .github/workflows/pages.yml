@@ -38,11 +38,12 @@ jobs:
 
       - name: Build static site
         env:
-          # A project site is served from /<repo>, so assets and links need
-          # that prefix. Derived from the repository name rather than hardcoded.
-          PAGES_BASE_PATH: /${{ github.event.repository.name }}
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
-          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          # Served from the root of the custom domain, not from /<repo>, so
+          # there is no base path. public/CNAME is what tells GitHub Pages
+          # which domain this artifact belongs to; both must agree.
+          PAGES_BASE_PATH: ""
+          NEXT_PUBLIC_BASE_PATH: ""
+          NEXT_PUBLIC_SITE_URL: https://leikahgroup.co.za
         run: npm run build:static
 
       - uses: actions/configure-pages@v5
