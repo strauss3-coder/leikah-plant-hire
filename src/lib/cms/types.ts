@@ -546,6 +546,16 @@ export interface LoaderContent {
   /** Label on the industrial progress readout. */
   progressLabel: string;
   /**
+   * Machines the page transition may draw, in rotation. Everything else about
+   * the sequence is fixed: one entry direction, one skew, one resting
+   * position, one duration. This list is the single permitted variation, and
+   * a single entry means every transition on the site is identical.
+   *
+   * Valid names: excavator, dozer, hauler, loader, crane. Anything else is
+   * ignored rather than drawn, so a typo degrades to the default.
+   */
+  transitionMachines: string[];
+  /**
    * Shortest time the welcome sequence stays up. Without a floor a fast
    * connection lifts it in ~100ms, which reads as a flicker rather than as a
    * welcome. Long enough for the sequence to actually play.

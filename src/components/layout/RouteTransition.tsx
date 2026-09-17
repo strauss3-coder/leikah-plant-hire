@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, useTransition } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   MachineSilhouette,
+  MACHINE_NAMES,
   type MachineName,
 } from "@/components/graphics/MachineSilhouette";
 import type { LoaderContent } from "@/lib/cms/types";
@@ -36,23 +37,43 @@ import type { LoaderContent } from "@/lib/cms/types";
    who has asked for less movement does not want a faster wipe, they want none.
    ========================================================================= */
 
-interface Variant {
-  machine: MachineName;
-  /** Travel direction of the wipe. */
-  from: "left" | "right";
-  /** Slight vertical bias, so repeats do not feel mechanical. */
-  tilt: number;
-}
+/* ---------------------------------------------------------------------------
+   THE MASTER SEQUENCE
 
-/* Five variants, rotated rather than randomised so a visitor moving through
-   the site sees the whole fleet instead of the same machine twice running. */
-const VARIANTS: Variant[] = [
-  { machine: "excavator", from: "left", tilt: 0 },
-  { machine: "dozer", from: "left", tilt: -1.5 },
-  { machine: "hauler", from: "right", tilt: 0 },
-  { machine: "loader", from: "left", tilt: 1.5 },
-  { machine: "crane", from: "right", tilt: -1 },
-];
+   One choreography, used by every navigation on the site. It is the sequence
+   the client signed off from the Services menu: the plate sweeps in from the
+   left with a slight skew, the machine leads it in and comes to rest centre
+   screen, both hold, both leave to the right.
+
+   Nothing here varies per navigation any more. An earlier build rotated five
+   configurations that each differed in entry direction, skew, stripe edge and
+   mirroring, and two of them animated the machine to `-38vw` — measured from
+   the viewport's left edge, which put it off screen entirely at every size.
+   Those two drew a bare plate and were what "some pages only do a simple
+   wipe" actually meant. The geometry is now written once.
+
+   The only permitted variation is which machine is drawn, and that comes from
+   the CMS. A single entry there means every transition is identical.
+   -------------------------------------------------------------------------- */
+
+const MASTER = {
+  /** Where the plate starts and where it leaves to. */
+  enterFrom: "-101%",
+  exitTo: "101%",
+  /** Skew carried on entry and exit; the plate sits square while it holds. */
+  skew: -1.5,
+  /** Plate travel. */
+  plateMs: 0.52,
+  /** The machine leads the plate in, then trails it out. */
+  machineFrom: "-130%",
+  machineRest: "38vw",
+  machineTo: "150%",
+  machineInMs: 0.62,
+  machineOutMs: 0.5,
+} as const;
+
+const MACHINE_EASE = [0.22, 1, 0.36, 1] as const;
+const MACHINE_OUT_EASE = [0.55, 0, 1, 0.45] as const;
 
 const EASE = [0.76, 0, 0.24, 1] as const;
 
@@ -99,14 +120,23 @@ export function RouteTransition({ loader }: { loader: LoaderContent }) {
    * first. Both run to the same floor, so the two feel the same length.
    */
   const [mode, setMode] = useState<"push" | "pop">("push");
+
+  /* Only the silhouette rotates. Unknown names are dropped rather than drawn,
+     so a typo in the CMS degrades to the master's machine instead of nothing. */
+  const machines = useMemo(() => {
+    const valid = loader.transitionMachines.filter((m): m is MachineName =>
+      MACHINE_NAMES.includes(m as MachineName),
+    );
+    return valid.length ? valid : (["dozer"] as MachineName[]);
+  }, [loader.transitionMachines]);
   const startedAt = useRef(0);
   const nextVariant = useRef(0);
 
   const advance = useCallback(() => {
-    nextVariant.current = (nextVariant.current + 1) % VARIANTS.length;
+    nextVariant.current = (nextVariant.current + 1) % machines.length;
     setVariant(nextVariant.current);
     startedAt.current = Date.now();
-  }, []);
+  }, [machines.length]);
 
   const begin = useCallback(
     (href: string) => {
@@ -208,9 +238,7 @@ export function RouteTransition({ loader }: { loader: LoaderContent }) {
 
   if (reduced) return null;
 
-  const v = VARIANTS[variant];
-  const enterFrom = v.from === "left" ? "-101%" : "101%";
-  const exitTo = v.from === "left" ? "101%" : "-101%";
+  const machine = machines[variant % machines.length];
 
   return (
     <AnimatePresence>
@@ -228,14 +256,14 @@ export function RouteTransition({ loader }: { loader: LoaderContent }) {
           <motion.div
             className="absolute inset-0 bg-ink-950"
             style={{ willChange: "transform" }}
-            initial={mode === "pop" ? { x: "0%", skewX: 0 } : { x: enterFrom, skewX: v.tilt }}
+            initial={mode === "pop" ? { x: "0%", skewX: 0 } : { x: MASTER.enterFrom, skewX: MASTER.skew }}
             animate={{ x: "0%", skewX: 0 }}
-            exit={{ x: exitTo, skewX: v.tilt }}
-            transition={{ duration: 0.52, ease: EASE }}
+            exit={{ x: MASTER.exitTo, skewX: MASTER.skew }}
+            transition={{ duration: MASTER.plateMs, ease: EASE }}
           >
             {/* Caution stripe on the leading edge */}
             <div
-              className={`absolute inset-y-0 w-3 ${v.from === "left" ? "right-0" : "left-0"}`}
+              className="absolute inset-y-0 right-0 w-3"
               style={{
                 backgroundImage:
                   "repeating-linear-gradient(45deg, var(--color-gold-500) 0 10px, var(--color-ink-950) 10px 20px)",
@@ -258,29 +286,27 @@ export function RouteTransition({ loader }: { loader: LoaderContent }) {
           <motion.div
             className="absolute bottom-[14vh] w-[min(38vw,22rem)]"
             style={{ willChange: "transform" }}
-            initial={{ x: v.from === "left" ? "-130%" : "130%", opacity: 0 }}
+            initial={{ x: MASTER.machineFrom, opacity: 0 }}
             animate={{
-              x: v.from === "left" ? "38vw" : "-38vw",
+              x: MASTER.machineRest,
               opacity: 1,
-              transition: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },
+              transition: { duration: MASTER.machineInMs, ease: MACHINE_EASE },
             }}
             exit={{
-              x: v.from === "left" ? "150%" : "-150%",
+              x: MASTER.machineTo,
               opacity: 0,
-              transition: { duration: 0.5, ease: [0.55, 0, 1, 0.45] },
+              transition: { duration: MASTER.machineOutMs, ease: MACHINE_OUT_EASE },
             }}
           >
             <MachineSilhouette
-              machine={v.machine}
+              machine={machine}
               cutColor="var(--color-ink-950)"
-              className={`w-full text-gold-500 ${v.from === "right" ? "-scale-x-100" : ""}`}
+              className="w-full text-gold-500"
             />
             {/* Dust kicked up behind the travel direction. A blurred gradient
                 rather than particles: one element, no per-frame work. */}
             <div
-              className={`absolute bottom-0 h-16 w-2/3 blur-xl ${
-                v.from === "left" ? "right-full" : "left-full"
-              }`}
+              className="absolute bottom-0 right-full h-16 w-2/3 blur-xl"
               style={{
                 background:
                   "radial-gradient(60% 100% at 50% 100%, color-mix(in oklab, var(--color-steel-300) 38%, transparent), transparent 70%)",
@@ -299,7 +325,9 @@ export function RouteTransition({ loader }: { loader: LoaderContent }) {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 style={{ transformOrigin: "left" }}
-                transition={{ duration: loader.transitionMaxMs / 1000, ease: "linear" }}
+                // Runs to the floor, not the ceiling. Against transitionMaxMs the bar
+                // only reached 73% before the cover left, so it never arrived.
+                transition={{ duration: loader.transitionMinMs / 1000, ease: "linear" }}
               />
             </div>
           </div>

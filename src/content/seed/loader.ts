@@ -42,6 +42,17 @@ export const loader: LoaderContent = {
     "Built for demanding operations.",
   ],
   progressLabel: "Systems check",
+
+  /**
+   * One machine, so every transition on the site is the same sequence. The
+   * choreography around it is fixed in code and no longer varies at all.
+   *
+   * To bring the rest of the fleet back into rotation, extend this list:
+   *   ["dozer", "excavator", "hauler", "loader", "crane"]
+   * They will all now enter from the same side, rest in the same place and
+   * run for the same time; only the silhouette changes.
+   */
+  transitionMachines: ["dozer"],
   introMinMs: 1400,
   introBriefMs: 1150,
   introMaxMs: 2200,
