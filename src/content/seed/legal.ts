@@ -25,7 +25,10 @@ import { business } from "./business";
 
 const UPDATED = "2026-09-15";
 
-const contactLine = `${business.email} or ${business.phone}`;
+// Until the mailboxes exist there is no address to give, so every "contact
+// us at" in these documents resolves to the telephone instead of printing a
+// dead one. It picks the address up automatically once it is set.
+const contactLine = business.email ? `${business.email} or ${business.phone}` : business.phone;
 const postal = `${business.address.street}, ${business.address.suburb}, ${business.address.city}, ${business.address.province}, ${business.address.postalCode}`;
 
 export const legal: LegalContent = {
@@ -34,6 +37,7 @@ export const legal: LegalContent = {
     email: business.email,
     phone: business.phone,
   },
+
 
   consentStatement: `I consent to ${business.tradingName} securely storing my information in order to respond to my enquiry.`,
 
@@ -422,7 +426,9 @@ export const legal: LegalContent = {
         heading: "Contact information",
         body: [
           `${business.legalName}, ${postal}.`,
-          `Telephone ${business.phone}. Email ${business.email}. Questions about these terms can be sent to either.`,
+          business.email
+            ? `Telephone ${business.phone}. Email ${business.email}. Questions about these terms can be sent to either.`
+            : `Telephone ${business.phone}. Questions about these terms can be raised on that number.`,
         ],
       },
     ],

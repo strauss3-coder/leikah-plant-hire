@@ -105,8 +105,12 @@ export function organisationSchema(business: BusinessInfo) {
     legalName: business.legalName,
     description: business.summary,
     url: SITE_URL,
-    telephone: business.phone,
-    email: business.email,
+    // Both voice lines. The second is calls only, so it is not offered
+    // anywhere as a messaging target.
+    telephone: business.secondaryPhone
+      ? [business.phone, business.secondaryPhone]
+      : business.phone,
+    ...(business.email ? { email: business.email } : {}),
     ...(business.foundedYear ? { foundingDate: String(business.foundedYear) } : {}),
     address: {
       "@type": "PostalAddress",

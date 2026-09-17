@@ -93,19 +93,37 @@ export default async function ContactPage() {
             </a>
           </RevealItem>
 
+          {/* Email takes this slot once the mailboxes exist. Until then the
+              second call line does, rather than leaving a tile advertising an
+              address that would bounce. */}
           <RevealItem>
-            <a
-              href={`mailto:${business.email}`}
-              className="group flex h-full flex-col gap-3 bg-ink-900 p-7 transition-colors hover:bg-ink-850"
-            >
-              <span className="chamfer-sm inline-flex size-11 items-center justify-center border border-steel-600/25 text-gold-400">
-                <Mail className="size-4" />
-              </span>
-              <span className="eyebrow text-steel-500">General enquiries</span>
-              <span className="break-all text-lg font-bold text-paper-50 transition-colors group-hover:text-gold-400">
-                {business.email}
-              </span>
-            </a>
+            {business.email ? (
+              <a
+                href={`mailto:${business.email}`}
+                className="group flex h-full flex-col gap-3 bg-ink-900 p-7 transition-colors hover:bg-ink-850"
+              >
+                <span className="chamfer-sm inline-flex size-11 items-center justify-center border border-steel-600/25 text-gold-400">
+                  <Mail className="size-4" />
+                </span>
+                <span className="eyebrow text-steel-500">General enquiries</span>
+                <span className="break-all text-lg font-bold text-paper-50 transition-colors group-hover:text-gold-400">
+                  {business.email}
+                </span>
+              </a>
+            ) : business.secondaryPhone ? (
+              <a
+                href={telHref(business.secondaryPhone)}
+                className="group flex h-full flex-col gap-3 bg-ink-900 p-7 transition-colors hover:bg-ink-850"
+              >
+                <span className="chamfer-sm inline-flex size-11 items-center justify-center border border-steel-600/25 text-gold-400">
+                  <Phone className="size-4" />
+                </span>
+                <span className="eyebrow text-steel-500">Second line</span>
+                <span className="text-lg font-bold text-paper-50 tabular transition-colors group-hover:text-gold-400">
+                  {business.secondaryPhone}
+                </span>
+              </a>
+            ) : null}
           </RevealItem>
         </RevealGroup>
       </div>
@@ -227,12 +245,14 @@ export default async function ContactPage() {
                     <dt className="sr-only">Email</dt>
                     <Mail className="size-3.5 shrink-0 text-gold-500" />
                     <dd>
+                      {department.email && (
                       <a
                         href={`mailto:${department.email}`}
                         className="break-all text-steel-300 transition-colors hover:text-gold-400"
                       >
                         {department.email}
                       </a>
+                    )}
                     </dd>
                   </div>
                   <div className="flex items-center gap-2.5">

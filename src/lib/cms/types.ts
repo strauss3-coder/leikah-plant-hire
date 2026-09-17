@@ -47,6 +47,7 @@ export interface Department {
   id: string;
   name: string;
   role: string;
+  /** Blank until the mailboxes exist. See BusinessInfo.email. */
   email: string;
   phone: string;
   hours: string;
@@ -94,8 +95,19 @@ export interface BusinessInfo {
     directions: string;
   };
   phone: string;
+  /**
+   * Second line for calls. Deliberately not wired to WhatsApp: it is a voice
+   * number only, and offering it as a chat target would send messages nobody
+   * is watching.
+   */
+  secondaryPhone?: string;
   emergencyPhone: string;
   whatsapp: string;
+  /**
+   * Blank until the mailboxes exist. Every surface that shows an address
+   * checks first and falls back to the telephone, because publishing an
+   * address that bounces is worse than publishing none.
+   */
   email: string;
   quotesEmail: string;
   hours: OperatingHours[];

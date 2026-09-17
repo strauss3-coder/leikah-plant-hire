@@ -8,6 +8,7 @@ import { ProjectCard } from "@/components/site/ProjectCard";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { CornerMarks } from "@/components/graphics/Atmosphere";
 import { getBusiness, getFeaturedProjects, getPageMeta, getTestimonials } from "@/lib/cms";
+import { telHref } from "@/lib/utils";
 import { buildMetadata, JsonLd, breadcrumbSchema } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -88,10 +89,10 @@ export default async function TestimonialsPage() {
                 <p className="mt-6 text-sm text-steel-300">
                   Ask for references at{" "}
                   <a
-                    href={`mailto:${business.email}`}
+                    href={business.email ? `mailto:${business.email}` : telHref(business.phone)}
                     className="text-gold-400 underline underline-offset-4 hover:text-gold-300"
                   >
-                    {business.email}
+                    {business.email || business.phone}
                   </a>
                   .
                 </p>

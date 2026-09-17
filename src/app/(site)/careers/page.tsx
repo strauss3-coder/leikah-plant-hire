@@ -210,7 +210,11 @@ export default async function CareersPage() {
           <SectionHeading
             eyebrow="Apply"
             title="Send it through"
-            lead={`Every application is read and kept on file. If you would rather email it, send it to ${business.email}.`}
+            lead={
+              business.email
+                ? `Every application is read and kept on file. If you would rather email it, send it to ${business.email}.`
+                : `Every application is read and kept on file. If you would rather speak to someone first, call ${business.phone}.`
+            }
             tone="darker"
           />
           <ApplicationForm consentStatement={legal.consentStatement} />

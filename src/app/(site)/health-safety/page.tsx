@@ -17,6 +17,7 @@ import { StatsBand } from "@/components/site/StatsBand";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { CornerMarks } from "@/components/graphics/Atmosphere";
 import { getBusiness, getPageMeta, getSafety } from "@/lib/cms";
+import { telHref } from "@/lib/utils";
 import { buildMetadata, JsonLd, breadcrumbSchema } from "@/lib/seo";
 import type { SafetyStandard } from "@/lib/cms/types";
 
@@ -242,10 +243,10 @@ export default async function HealthSafetyPage() {
                     <p className="mt-4 text-sm text-steel-300">
                       Request the pack from{" "}
                       <a
-                        href={`mailto:${business.email}`}
+                        href={business.email ? `mailto:${business.email}` : telHref(business.phone)}
                         className="text-gold-400 underline underline-offset-4 hover:text-gold-300"
                       >
-                        {business.email}
+                        {business.email || business.phone}
                       </a>
                       .
                     </p>

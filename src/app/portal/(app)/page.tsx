@@ -97,7 +97,7 @@ export default async function PortalDashboard() {
       why: "Mines and municipalities score contractors on this at tender stage.",
     },
     {
-      done: !content.business.email.includes("leikahplanthire.co.za") || Boolean(process.env.NEXT_PUBLIC_MAIL_VERIFIED),
+      done: Boolean(content.business.email) || Boolean(process.env.NEXT_PUBLIC_MAIL_VERIFIED),
       label: "Branded mailboxes live",
       href: "/portal/pages/business",
       why: "The site lists info@ and quotes@ addresses. Create them, or change them here to addresses that work.",

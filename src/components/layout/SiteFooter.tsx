@@ -85,6 +85,15 @@ export async function SiteFooter() {
               <Phone className="size-4 shrink-0 text-gold-500" />
               <span className="tabular">{business.phone}</span>
             </a>
+            {business.secondaryPhone && (
+              <a
+                href={telHref(business.secondaryPhone)}
+                className="flex items-center gap-3 text-sm text-steel-300 transition-colors hover:text-paper-50"
+              >
+                <Phone className="size-4 shrink-0 text-gold-500" />
+                <span className="tabular">{business.secondaryPhone}</span>
+              </a>
+            )}
             <a
               href={whatsappHref(business.whatsapp, "Good day, I would like to enquire about plant hire.")}
               target="_blank"
@@ -94,13 +103,15 @@ export async function SiteFooter() {
               <MessageCircle className="size-4 shrink-0 text-gold-500" />
               WhatsApp enquiry
             </a>
-            <a
-              href={`mailto:${business.email}`}
-              className="flex items-center gap-3 text-sm text-steel-300 transition-colors hover:text-paper-50"
-            >
-              <Mail className="size-4 shrink-0 text-gold-500" />
-              {business.email}
-            </a>
+            {business.email && (
+              <a
+                href={`mailto:${business.email}`}
+                className="flex items-center gap-3 text-sm text-steel-300 transition-colors hover:text-paper-50"
+              >
+                <Mail className="size-4 shrink-0 text-gold-500" />
+                {business.email}
+              </a>
+            )}
           </address>
 
           <OpeningStatus hours={business.hours} />

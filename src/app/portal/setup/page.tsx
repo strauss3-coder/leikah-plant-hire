@@ -39,7 +39,7 @@ NEXT_PUBLIC_SITE_URL=https://leikahgroup.co.za`,
     title: "Create the first portal user",
     body: "Invite yourself from Supabase Authentication → Users, then add the matching row to portal_users with the owner role. Access is granted by that row, not by the auth account alone.",
     code: `insert into portal_users (id, email, full_name, role)
-values ('<auth-user-uuid>', 'you@leikahplanthire.co.za', 'Your Name', 'owner');`,
+values ('<auth-user-uuid>', 'you@leikahgroup.co.za', 'Your Name', 'owner');`,
   },
 ];
 

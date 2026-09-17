@@ -135,12 +135,14 @@ export function LegalDocument({
                   have you guess at it.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
-                  <a
-                    href={`mailto:${business.email}`}
-                    className="text-gold-400 underline underline-offset-4 transition-colors hover:text-gold-300"
-                  >
-                    {business.email}
-                  </a>
+                  {business.email && (
+                    <a
+                      href={`mailto:${business.email}`}
+                      className="text-gold-400 underline underline-offset-4 transition-colors hover:text-gold-300"
+                    >
+                      {business.email}
+                    </a>
+                  )}
                   <a
                     href={`tel:${business.phone.replace(/[^\d+]/g, "")}`}
                     className="text-gold-400 underline underline-offset-4 transition-colors hover:text-gold-300 tabular"
