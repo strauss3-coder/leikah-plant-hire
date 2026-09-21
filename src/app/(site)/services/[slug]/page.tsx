@@ -8,6 +8,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Media } from "@/components/ui/Media";
 import { Accordion } from "@/components/ui/Accordion";
 import { ProcessTimeline } from "@/components/site/ProcessTimeline";
+import { ProcessFilm } from "@/components/site/ProcessFilm";
 import { ServiceCard } from "@/components/site/ServiceCard";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { EquipmentIcon, resolveIcon } from "@/components/graphics/EquipmentIcon";
@@ -232,6 +233,23 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           <ProcessTimeline steps={service.process} />
         </div>
       </Section>
+
+      {/* --- Process footage ------------------------------------------------------
+          Only a few services have clips. The section disappears entirely rather
+          than rendering an empty heading where there is nothing to show. */}
+      {service.videos && service.videos.length > 0 && (
+        <Section tone="dark">
+          <div className="shell flex flex-col gap-10">
+            <SectionHeading
+              eyebrow="On the tools"
+              title="The repair, as it happens"
+              lead="Short clips with no sound. Photographs show what came out the other end; these show the work itself."
+              size="md"
+            />
+            <ProcessFilm videos={service.videos} />
+          </div>
+        </Section>
+      )}
 
       {/* --- Plant + safety ------------------------------------------------------- */}
       <Section tone="dark">

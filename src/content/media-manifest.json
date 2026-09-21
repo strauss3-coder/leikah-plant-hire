@@ -484,5 +484,888 @@
     "height": 509,
     "aspect": 2.1218,
     "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoUAAkAPu1iqU2ppaOiMAgBMB2JaACdABpCKdfEInmIAPevyiOnrpcPnB2HCtQgMmGXmw+9A0fLAyiiWEnii2WQuZXFf0dPvwAAAA=="
+  },
+  "workshop-bay-plant-stripped": {
+    "slug": "workshop-bay-plant-stripped",
+    "title": "Workshop bay with plant stripped for repair",
+    "alt": "A wheel loader stripped down in a brick workshop bay, with an articulated dump truck on stands behind it",
+    "tags": [
+      "workshop",
+      "facility",
+      "mechanical"
+    ],
+    "src": "/media/workshop-bay-plant-stripped-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoUAA8APu1krU6ppaSiMAgBMB2JZQDE2BZYGXIJ/h09HgAA9g8RApuQu2YWtBc/Segel2B1w6Ln5fG7qUiYr3VmAbVcGgAA"
+  },
+  "workshop-adt-on-stands": {
+    "slug": "workshop-adt-on-stands",
+    "title": "Articulated hauler lifted for a driveline repair",
+    "alt": "An articulated dump truck raised on blue column lifts inside the workshop, with the roof trusses overhead",
+    "tags": [
+      "workshop",
+      "facility",
+      "powertrain"
+    ],
+    "src": "/media/workshop-adt-on-stands-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JYwC7ABbPV7Boxp/OZAAAyUIXsTYGmP5BrDQbygbwj0i8DSJwdGmX/1kpFGyKeP2CGgAA"
+  },
+  "workshop-component-racking": {
+    "slug": "workshop-component-racking",
+    "title": "Component racking alongside the repair bays",
+    "alt": "The workshop interior with a hauler body raised and rebuilt components stored on racking along the far wall",
+    "tags": [
+      "workshop",
+      "facility",
+      "supply"
+    ],
+    "src": "/media/workshop-component-racking-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoUAA8APu1kqU2ppaQiMAgBMB2JZQC2yAmltlQU5f8iAP4RcSQU2GTqVaOZUkkdxH++LKctY0b/pb4k3HZDlM/W2EnUAAAA"
+  },
+  "workshop-bays-in-use": {
+    "slug": "workshop-bays-in-use",
+    "title": "Both repair bays under load",
+    "alt": "Two machines under repair in adjacent workshop bays, one on column lifts and one part dismantled",
+    "tags": [
+      "workshop",
+      "facility"
+    ],
+    "src": "/media/workshop-bays-in-use-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAwCdASoUAA8APu1iqk2ppaQiMAgBMB2JQBdgAsA4pcxqqyM/lbAA/Zc7gZqGegQlKeTAZ4yT8bLbOVWZPn0OqMKwnwZaJLXCAA=="
+  },
+  "line-borer-rigged-on-boom": {
+    "slug": "line-borer-rigged-on-boom",
+    "title": "Line boring rig set up on an excavator boom",
+    "alt": "A portable line boring and bore welding machine clamped to an orange excavator boom inside the workshop",
+    "tags": [
+      "machining",
+      "line-boring",
+      "workshop",
+      "hero"
+    ],
+    "src": "/media/line-borer-rigged-on-boom-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAwCdASoUAA8APu1iqk2ppaQiMAgBMB2JbACdMoKBKAjBGyR2CooAAP572gPZuOxZ8Cig/qI9wbHG2Ubv05mHAybKx0x4Qh4unNBG2OIV2OayovZTJmxfFElvgm0pZAA="
+  },
+  "bore-weld-build-up": {
+    "slug": "bore-weld-build-up",
+    "title": "Worn bore built back up with weld",
+    "alt": "A boom eye with fresh weld metal deposited around the worn bore, photographed outdoors against a blue sky",
+    "tags": [
+      "machining",
+      "line-boring",
+      "welding"
+    ],
+    "src": "/media/bore-weld-build-up-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABwBQCdASoUABsAPu1aqE2ppKOiN/VYATAdiWIAnTMmANgNoOF9OLmOuGAoeKawQSu6mKiAAGpPo9UVkRJGuyHN29Vpz4oEzRLj+u9JmxxfsY2js2G0cLq66KuNZiDaK5wglXWNWgrTBxj3vqmvoaXFQA+csYuBlMAAAA=="
+  },
+  "bore-weld-ready-to-machine": {
+    "slug": "bore-weld-ready-to-machine",
+    "title": "Weld deposit ready for machining",
+    "alt": "Ring of weld build-up inside a bore on an orange machine casting, waiting to be cut back to size",
+    "tags": [
+      "machining",
+      "line-boring",
+      "welding"
+    ],
+    "src": "/media/bore-weld-ready-to-machine-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwBQCdASoUABsAPu1irFAppSQisBgIATAdiWYAnTKEhEf2hT56JayGs/Fv4y0Buj/rci8UZXTLAAD+xmrCGEOhP+pvV7YS90PcVdvmS9w+Wo6PbrG1OMwpy0f8hjwq96LfAgbUpxiuFaccwiczJV0rxEEpagtfgHEHMe9XZrdBzsrbBSXL60AA"
+  },
+  "boring-bar-through-bore": {
+    "slug": "boring-bar-through-bore",
+    "title": "Boring bar set through the repaired bore",
+    "alt": "A boring bar passed through the bore of an orange machine casting with the cutting head mounted mid span",
+    "tags": [
+      "machining",
+      "line-boring",
+      "workshop"
+    ],
+    "src": "/media/boring-bar-through-bore-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAACQBQCdASoUABsAPu1sqlEppaOiqAqpMB2JbACdMw5FABY74arSzRgWk0hd2/q/3lyCO+SiwAD0TX8T/l6EjbLmnI9eTKF58+AuHILu/FJ02cunFPWt/LQGs4XPK7aSQbxlWzwxGHlh0UH+mTCbrpLLe1XifFQVhptT8sgz65BUf6UOgbJgQwoVyaxoIQzqZHwJDGfW/hywoAAA"
+  },
+  "boom-eye-bored-to-size": {
+    "slug": "boom-eye-bored-to-size",
+    "title": "Boom eye cut back to size",
+    "alt": "A machined bore in a black excavator boom eye showing clean bright metal and a consistent tool finish",
+    "tags": [
+      "machining",
+      "line-boring"
+    ],
+    "src": "/media/boom-eye-bored-to-size-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBQCdASoUABsAPu1iqE4ppSOiMBgMATAdiUAVgAZ2MNpCCt93MjEBFnBouyWK4ntYJgAA/uXNiX6D+oO1nmzDE8nl44Pw7bRUXVtKEz2QHi+hNHOuLkF9YpRwx02x3vkCkWm5x+tHi8Cnv3xtTvMQ16J/Z/S7yrgWgGQAAAA="
+  },
+  "link-bore-finished": {
+    "slug": "link-bore-finished",
+    "title": "Link bore finished and measured",
+    "alt": "A finished bore in a machine link, the bright machined surface running the full depth of the boss",
+    "tags": [
+      "machining",
+      "line-boring"
+    ],
+    "src": "/media/link-bore-finished-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACQBACdASoUABsAPu1kq06ppaQiKA1RMB2JZwCw7A+Dmcxoq8/yHfZp9P7HHIAA/ra/+zOjc4dXcMY5kEHCAAatSn7EwZel/acMAwR98uXhAfosT5wjALWuO9itzN4SmwddBgHFdCQYjucBk7gUHIs1OgAAAA=="
+  },
+  "twin-lug-bores-restored": {
+    "slug": "twin-lug-bores-restored",
+    "title": "Paired lugs brought back to alignment",
+    "alt": "The underside of a boom showing two mounting lugs, the nearer bore freshly machined to bright metal",
+    "tags": [
+      "machining",
+      "line-boring"
+    ],
+    "src": "/media/twin-lug-bores-restored-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAwBQCdASoUABsAPu1qrVCppaQiqAqpMB2JYwC/7DRzPmC3WgvhC7PYg3wDZiL/wny0AAD+pI8VnMjBfWiv5DozBUvD0RL5zUTOF6EUxMVdivKWAoPOZ3kkj4Ygv+w75+s0WyLyd8sZA9ZHp5tsqMQ1BRxAFAAA"
+  },
+  "bush-pressed-into-bore": {
+    "slug": "bush-pressed-into-bore",
+    "title": "New bush pressed into the restored bore",
+    "alt": "A replacement bush seated in the freshly machined bore of a yellow machine component standing on site",
+    "tags": [
+      "machining",
+      "line-boring",
+      "field-service"
+    ],
+    "src": "/media/bush-pressed-into-bore-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAwCdASoUAA8APu1kqU4ppaOiMAgBMB2JagCdMoAC6iv/cV2G5cAA/F1gXzhRUjeUC9QKC2kJVoN24R9Z9a2WtyWFCTuOqhrQKIkXXDWF1d/vKalQHYhywuI6CX9xK8MAAA=="
+  },
+  "bore-repair-job-carded": {
+    "slug": "bore-repair-job-carded",
+    "title": "Bore repair carried out under the machine",
+    "alt": "A technician working beneath a machine at a bore repair, with the job card taped to the boom above him",
+    "tags": [
+      "machining",
+      "line-boring",
+      "field-service",
+      "team"
+    ],
+    "src": "/media/bore-repair-job-carded-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBQCdASoUABsAPuVgpU2pJaOiMAwBIByJZACxFIABzKkemHyxyLsoOndU3iWmfOlAAAD+8MuihlIKT8L3DpXxy4wFE9zm9Gr2oMMQ8f8Ag+tc41tVEsMgq3/RBpGkaxtZfYO9hlWLxRwjGwTQ/sZOjNOB2qKKtOIryUyE880MNamAAAA="
+  },
+  "cylinder-block-bores-finished": {
+    "slug": "cylinder-block-bores-finished",
+    "title": "Cylinder block finished and laid out",
+    "alt": "A six cylinder block painted yellow with the finished bores visible along its length",
+    "tags": [
+      "engines",
+      "workshop",
+      "mechanical"
+    ],
+    "src": "/media/cylinder-block-bores-finished-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 576,
+    "aspect": 2.2222,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwBACdASoUAAkAPu1kqk4ppaQiMAgBMB2JZgCdMoADg38BynbNRqZMEAAA/r5yN93RRC90pwnZOdzC5tTJvGCvy8xIWd9ZprIiaxXbAAA="
+  },
+  "final-drive-wrapped-dispatch": {
+    "slug": "final-drive-wrapped-dispatch",
+    "title": "Rebuilt final drive sealed for dispatch",
+    "alt": "A rebuilt final drive wrapped in protective plastic and stood on a drum ready to leave the workshop",
+    "tags": [
+      "powertrain",
+      "workshop",
+      "supply"
+    ],
+    "src": "/media/final-drive-wrapped-dispatch-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 958,
+    "height": 1280,
+    "aspect": 0.7484,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACQBACdASoUABsAPu1qrlCppaQiqAqpMB2JYgCxH3JBfdWqKDFsL/HtZuiq6AAA/Ko9UYLOO5zP5fmI1CRNFFNYercowD1SJHGkgg6gtz3odWnVO/U6ISL/mmaYWqhuAupOJ9GTe2icfe5T87MAAAAA"
+  },
+  "differential-housing-rebuilt": {
+    "slug": "differential-housing-rebuilt",
+    "title": "Differential housing rebuilt and repainted",
+    "alt": "A differential housing finished in yellow standing on the workshop floor after rebuild",
+    "tags": [
+      "powertrain",
+      "workshop",
+      "mechanical"
+    ],
+    "src": "/media/differential-housing-rebuilt-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABQBQCdASoUABsAPulmqE2pJiQiMBgMASAdCWYAtsgQ8LZtGq6oiKYqDxNM8ar/FcAMAUAA/svLvdd+cvTwqs6sGH36FZTLNRY7Xrtu52Z4OKQ7bB8wALB3X7omZwGKsBhTLdrv1qVQAA=="
+  },
+  "transmission-on-rebuild-stand": {
+    "slug": "transmission-on-rebuild-stand",
+    "title": "Transmission mounted on the rebuild stand",
+    "alt": "A hauler transmission on a workshop rebuild stand, finished in yellow with the drop box fitted",
+    "tags": [
+      "powertrain",
+      "workshop",
+      "mechanical"
+    ],
+    "src": "/media/transmission-on-rebuild-stand-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADwBACdASoUABsAPu1qqU8ppiOiMBgIATAdiWwAtRqAAMODxvk/SwZG6Jp5oGGYlAAA+Dy+170QxQDn2yIt6QcE1LoSxNps3vJ7+z2ZSIEG0pxkVjmFLk/rAr1k0/nXeTm7lBhMkFZm5KKBtMmtmujD5lhw7sHg9bqVJCZumuGVPpTYQAA="
+  },
+  "final-drive-slung-for-fitment": {
+    "slug": "final-drive-slung-for-fitment",
+    "title": "Final drive slung ready for fitment",
+    "alt": "A rebuilt final drive assembly hanging in lifting slings outside the workshop door",
+    "tags": [
+      "powertrain",
+      "workshop"
+    ],
+    "src": "/media/final-drive-slung-for-fitment-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQBACdASoUABsAPuFip02opiOiMAwBEBwJZACBoAYpn54xHmyGDXm2uQftcDUIgAD+1ylBgSK4bl4sizGPVNHz6qYdrW4SUmMQsCfjlXZGxFjo63B0RvMJO5m5kDnfJtgv34wlttqaXlAvW8j9FL1rMmjBrWSVK6QAAA=="
+  },
+  "drive-axle-assembly-complete": {
+    "slug": "drive-axle-assembly-complete",
+    "title": "Drive axle assembled and laid out",
+    "alt": "A complete drive axle and shaft assembly finished in yellow and laid out on paving outside the workshop",
+    "tags": [
+      "powertrain",
+      "workshop",
+      "mechanical"
+    ],
+    "src": "/media/drive-axle-assembly-complete-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAABwAwCdASoUAA8APu1kqU2ppaQiMAgBMB2JQBOgA1X2QRTksAAA/M+PypnCW0zO+h6+MajCOrV5v3UKgdSIu5+qh2s01NLjQFW+YX+AAAA="
+  },
+  "axle-universal-joint-detail": {
+    "slug": "axle-universal-joint-detail",
+    "title": "Universal joint and flange refitted",
+    "alt": "Close view of a universal joint and drive flange on a rebuilt axle, freshly painted",
+    "tags": [
+      "powertrain",
+      "mechanical"
+    ],
+    "src": "/media/axle-universal-joint-detail-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAwCdASoUAA8APu1iqk2ppaQiMAgBMB2JYgCdMoAC4oeaJQRzO76gAP6OydeDBYjY34Bi5ZZCW6cKbbpwMOuznQxNpUyBnTVblADWAAmPdNiGoAA="
+  },
+  "driveline-yoke-detail": {
+    "slug": "driveline-yoke-detail",
+    "title": "Driveline yoke set and secured",
+    "alt": "A driveline yoke and flange on a rebuilt axle assembly, photographed close up outdoors",
+    "tags": [
+      "powertrain",
+      "mechanical"
+    ],
+    "src": "/media/driveline-yoke-detail-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAACQBACdASoUAA8APu1iqk4ppaQiMAgBMB2JQBOmUGbez/gPK/t3fKU/6k7nccAA/sQ+A1XUufBFqNqV2+Dbu9XQDpSWkifE/mo3Nr8C+tQdfXSUCTo6kI5IfqwAAA=="
+  },
+  "long-block-built-up": {
+    "slug": "long-block-built-up",
+    "title": "Long block built up on the bench",
+    "alt": "A diesel long block finished in yellow with the head fitted, standing in the workshop",
+    "tags": [
+      "engines",
+      "workshop",
+      "mechanical"
+    ],
+    "src": "/media/long-block-built-up-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 576,
+    "aspect": 2.2222,
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAwCdASoUAAkAPu1iqU2ppaOiMAgBMB2JZgCdMoAC7xwrDhQmUZKAAP7QxFKnC5xFz5hNwQeiHDhJS0SdGyxDBw1X6amGgVNWC/J5f9Z+gAAA"
+  },
+  "long-block-front-elevation": {
+    "slug": "long-block-front-elevation",
+    "title": "Rebuilt engine ready to be crated",
+    "alt": "The front of a rebuilt diesel engine finished in yellow, standing on the workshop floor",
+    "tags": [
+      "engines",
+      "workshop"
+    ],
+    "src": "/media/long-block-front-elevation-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 576,
+    "aspect": 2.2222,
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAwCdASoUAAkAPu1kqk2ppaQiMAgBMB2JYwCdINiDM+uoEPLWLgAA/nL6We+HJrTfTmexdk/0fk4ZE70WcOvI2D/tDMAA"
+  },
+  "hub-wrapped-for-transport": {
+    "slug": "hub-wrapped-for-transport",
+    "title": "Wheel end wrapped for transport",
+    "alt": "A rebuilt wheel end sealed in protective wrap and stood on a drum ready for collection",
+    "tags": [
+      "powertrain",
+      "supply",
+      "logistics"
+    ],
+    "src": "/media/hub-wrapped-for-transport-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 958,
+    "height": 1280,
+    "aspect": 0.7484,
+    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwBACdASoUABsAPu1oq04ppiQiMAgBMB2JQBOgBDjvhESZQMqkQ+REuNyfVnBr2AAA96SVw15qu91gA0BylAxL7cX/tcmQQDSLEGzc1detl5f/YzUI1WhLEWjQxjWwC5nb36GQW3UOQMAA"
+  },
+  "component-returned-to-machine": {
+    "slug": "component-returned-to-machine",
+    "title": "Rebuilt component delivered back to the machine",
+    "alt": "A wrapped rebuilt component standing on site in front of the wheel loader it belongs to",
+    "tags": [
+      "powertrain",
+      "field-service",
+      "logistics"
+    ],
+    "src": "/media/component-returned-to-machine-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQBQCdASoUABsAPu1gq02ppaQiMBgMATAdiWMAsR9yQakSyyr3WZjeDIC3GXL2S/3qPAAA/da7WQb5NhVFcwkOQCza3Kac4Fu0adTAzO8HHBmzDrpv9eWHCa32RV/VdsFFfdxEaIby6DOdWFV30MAA"
+  },
+  "field-crew-under-machine": {
+    "slug": "field-crew-under-machine",
+    "title": "Field crew working a repair on the ground",
+    "alt": "Two technicians in high visibility clothing and hard hats working underneath a machine on a mine floor",
+    "tags": [
+      "field-service",
+      "team",
+      "safety",
+      "mining",
+      "hero"
+    ],
+    "src": "/media/field-crew-under-machine-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAACQBACdASoUABsAPu1or1CppaQiqAqpMB2JQBOmaYgxM/88MGbeUa5lc4k2YgIA3y5xVq8ldGskxjM/ylZ6dFUMQsaGYq4bzuy5DtxxYuoN14dTRI6xo4YPEU61Oj6MyK1WRLHeu8fEffOnPinzw9GcO9TpixR5NSIi/AxUPAAAAA=="
+  },
+  "powertrain-lifted-by-crane": {
+    "slug": "powertrain-lifted-by-crane",
+    "title": "Engine and transmission lifted out on site",
+    "alt": "A truck mounted crane lifting an engine and transmission assembly clear of a machine on a mine site",
+    "tags": [
+      "field-service",
+      "powertrain",
+      "mining"
+    ],
+    "src": "/media/powertrain-lifted-by-crane-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABQBQCdASoUABsAPu1qqE8ppiOiMBgIATAdiWYAqPQLIMFSVNO7lvnqoLJpTJJztP+MjAAA+eSNc5L6IJ2NRiMFeyEeZwHf++8LooKdJGwyIAfZEJELixJ07ArDdoIM26gBOMVAQTbGiYZlTE8SQ333IyyGknLtORLpCfeSDom4/AJ3Dw/5XxEQAAA="
+  },
+  "powertrain-removal-in-field": {
+    "slug": "powertrain-removal-in-field",
+    "title": "Powertrain removal under way in the field",
+    "alt": "A crew guiding a slung engine and transmission assembly down onto stands beside a machine on a mine site",
+    "tags": [
+      "field-service",
+      "powertrain",
+      "team",
+      "mining"
+    ],
+    "src": "/media/powertrain-removal-in-field-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwBACdASoUAA8APu1iqU2ppaQiMAgBMB2JZgCdMoRwACWKMyPueye6hgQA+nE1NfDVE77GIPNNdf+tCzireiAXB9eVOVycfeqwQf5r9Fuq7X0ApD2PVAAA"
+  },
+  "engine-stripped-on-site": {
+    "slug": "engine-stripped-on-site",
+    "title": "Engine stripped where it stands",
+    "alt": "A diesel engine partly dismantled on the ground at a mine site with guarding and pipework laid out beside it",
+    "tags": [
+      "field-service",
+      "engines",
+      "mining"
+    ],
+    "src": "/media/engine-stripped-on-site-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABQBQCdASoUABsAPuFgqk2opaQiMAwBEBwJaACdM1XB78RnuNH68XOGc7mDvrc5K2RS8CAAx0mkuIDBVto9JQgGmqHZR7ZUqPVzAWM1KnjeQeKDuWOZ44R14kBoVH/aHnyI7sCumPxZecRTTpayHq9RmQehAppal5Cx8gYI+i5oAA=="
+  },
+  "cooling-pack-turbo-exposed": {
+    "slug": "cooling-pack-turbo-exposed",
+    "title": "Cooling pack and turbocharger opened up",
+    "alt": "The cooling pack and turbocharger of a yellow machine exposed for inspection during a site repair",
+    "tags": [
+      "field-service",
+      "engines",
+      "diagnostics"
+    ],
+    "src": "/media/cooling-pack-turbo-exposed-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 958,
+    "height": 1280,
+    "aspect": 0.7484,
+    "blurDataURL": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADwBACdASoUABsAPu1qrlCppiQiqAqpMB2JQBYj4wCfuDTUEJP9iHjUfRAEMXkLMwAA/kyq12MvlghKPYA8I8cmyjbPYA3jQH3KwS+BykuctYowAyOGLXBcbPoDo9dRLkO++WRAE3CjFpLIQDkHTx6/Ov57Qjp6sepy9NIAAAA="
+  },
+  "on-site-cutting-and-welding": {
+    "slug": "on-site-cutting-and-welding",
+    "title": "Cutting and welding brought to the machine",
+    "alt": "Gas cylinders and a welding set rigged beside an excavator bucket for a repair carried out on site",
+    "tags": [
+      "field-service",
+      "fabrication",
+      "welding"
+    ],
+    "src": "/media/on-site-cutting-and-welding-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBQCdASoUABsAPu1gp04ppSMiMBgMATAdiWQApxQRdlXFQ/EpoS8wAJjImTg7eWawV6gA/qkWEoSMfKowCfB8puEHmR4XS6XAKt88APeJD2axsp4F4tb4RyhTP7Xc5jXC9xFrwPvrIe6YDHY0+dY+seCqW0ISdB4KT6hMAAA="
+  },
+  "service-vehicle-rigged-on-site": {
+    "slug": "service-vehicle-rigged-on-site",
+    "title": "Service vehicle rigged alongside the machine",
+    "alt": "A service bakkie carrying a welding unit in the load bin, parked beside a wheel loader under repair",
+    "tags": [
+      "field-service",
+      "fleet",
+      "mining"
+    ],
+    "src": "/media/service-vehicle-rigged-on-site-640.webp",
+    "widths": [
+      640
+    ],
+    "width": 960,
+    "height": 1280,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQBACdASoUABsAPu1urFEppiQiqAqpMB2JZACdAA23/4WZkHVwwiBNQn52zQiEwADuiNdjpgh6rAfXz7Z4ge0CNh/xQ93lI6sI9etK+hIDyhzQfdnSULevGyXlf9mflYFCFSvbMwN8yds20+V/g/WnjqB9qJcsAAA="
+  },
+  "crane-truck-component-recovery": {
+    "slug": "crane-truck-component-recovery",
+    "title": "Crane truck recovering components",
+    "alt": "A truck mounted crane loading dismantled machine components in the yard for return to the workshop",
+    "tags": [
+      "logistics",
+      "field-service",
+      "workshop"
+    ],
+    "src": "/media/crane-truck-component-recovery-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQBACdASoUAA8APu1mqk2ppaQiMAgBMB2JZgCdMoADP1kMfu40FOnkCADKdpj3dlI+pcKCvy1NPVzDKJRZTuXs+GpoCoQ6yDK2i//HvIMc97OJfjAAAA=="
+  },
+  "live-mine-service-call": {
+    "slug": "live-mine-service-call",
+    "title": "Service call on a live mining operation",
+    "alt": "Service vehicles and cones set up between a tracked excavator and a wheel loader on an active mine haul road",
+    "tags": [
+      "field-service",
+      "mining",
+      "safety"
+    ],
+    "src": "/media/live-mine-service-call-1080.webp",
+    "widths": [
+      640,
+      1080
+    ],
+    "width": 1280,
+    "height": 960,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoUAA8APu1kq04ppaQiMAgBMB2JaACdACHDrdpRuloAAP53CSFqsgx196IHsH2PQ877LDWo64/tLb+FXdWYyfKFpcUYvW+NBi+AAA=="
+  },
+  "coal-bench-excavator-working": {
+    "slug": "coal-bench-excavator-working",
+    "title": "Excavator working a coal bench",
+    "alt": "A tracked excavator standing on exposed coal at the foot of a red overburden face in an opencast pit",
+    "tags": [
+      "mining",
+      "earthmoving",
+      "coal",
+      "hero"
+    ],
+    "src": "/media/coal-bench-excavator-working-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQBQCdASoUABsAPu1gq1AppSOisBgIATAdiWIAtQkEgYFNJ5ReVp317M6/6GlGSZIAAP7v+3VEGKY79tKOqfeTfGwM4e2ZPm4t8fwa6NdfI0FyLMZNcE9ESKHV+xflDfRRmjpQJEsl2UigMeE7sAAA"
+  },
+  "opencast-pit-overview": {
+    "slug": "opencast-pit-overview",
+    "title": "The cut, seen from the highwall",
+    "alt": "An opencast pit seen from above the highwall, with standing water in the floor and a machine working the far bench",
+    "tags": [
+      "mining",
+      "earthmoving",
+      "coal"
+    ],
+    "src": "/media/opencast-pit-overview-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQBACdASoUABsAPu1wslIppiSiqAgBMB2JYgCxDTNBhBic2I6/DooLuqBc6ptrAAD+78IAcVOyaf8tOQlXQjDsg9DHRDnrrBkP14Gti1w+1iy4PzraDQl77uUpITjLz6DOb/Z6m+KDA7DmHd+I39wAAAA="
+  },
+  "coal-seam-exposed": {
+    "slug": "coal-seam-exposed",
+    "title": "Coal seam exposed under the overburden",
+    "alt": "A Caterpillar excavator digging at an exposed black coal seam, with a worker in red standing at the toe of the face",
+    "tags": [
+      "mining",
+      "coal",
+      "earthmoving",
+      "team"
+    ],
+    "src": "/media/coal-seam-exposed-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwBACdASoUABsAPu1mqk8ppaOiKA1RMB2JYgCdMyGBgBdTKFIE2uW+DR1gAAD+jOhL1EfD3HgTqJ4gevP9e+ruyIL7MbrKQVfMGFU91bjqSj15t/xKG779Z2jrIPkp9rTmHf5kANOP4AAA"
+  },
+  "pit-panorama-waterline": {
+    "slug": "pit-panorama-waterline",
+    "title": "Working down to the waterline",
+    "alt": "A wide opencast pit with a red highwall, standing water across the floor and an orange tracked excavator working at the water's edge",
+    "tags": [
+      "mining",
+      "earthmoving",
+      "site-services"
+    ],
+    "src": "/media/pit-panorama-waterline-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQBACdASoUABsAPtlapk2oJSOiN+gBABsJQBOgBkoKz5mA5IbBmy+xOL8QMUDhAAD+77N+Vm4a7PJYpZDW9fAuvhOPafPjTCkO027F94xiEtGxkWqjZ01+0pR7boFlGiljcoTxVzwAAA=="
+  },
+  "coal-slab-in-hand": {
+    "slug": "coal-slab-in-hand",
+    "title": "Coal taken straight off the face",
+    "alt": "Two hands holding a large layered slab of black coal, with the opencast pit and working machines behind",
+    "tags": [
+      "coal",
+      "materials",
+      "mining",
+      "hero"
+    ],
+    "src": "/media/coal-slab-in-hand-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADQBQCdASoUABsAPu1gq1AppKOisBgIATAdiWgAnTKDGDkAbQACo6LogVuPVGMfGAv4eQRJCmQAAP701BkKVblnXmz3Sg9qiBpBLv8hkJ4H3tww767qrq3D8URn4+vMgJ3q4YGX7ROFaMWU4H8fUoaS0d2F4K9P+o1K0t9tiOuwqO0UqM0nctjTo0AhTfAA"
+  },
+  "coal-sample-at-the-face": {
+    "slug": "coal-sample-at-the-face",
+    "title": "Sample checked at the face",
+    "alt": "A hand holding a slab of coal up against the pit behind it, with an excavator working in the background",
+    "tags": [
+      "coal",
+      "materials",
+      "mining"
+    ],
+    "src": "/media/coal-sample-at-the-face-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAQBQCdASoUABsAPu1cqE2ppKQiN/VYATAdiWYAgAh4AaSqnk4v/+spTn9tPhqfnOgAAP7zeF8hbKmiFU61uqGnLp9/8Puxxlv96tGqwwnXuh09S8CYatlVvvP6nCb9jzeHVN6G4Mw+8URl5D+3reLXTdsFjVjmQF9X1b21nO4AAAAA"
+  },
+  "coal-sample-on-bucket-tooth": {
+    "slug": "coal-sample-on-bucket-tooth",
+    "title": "A lump of coal on the bucket lip",
+    "alt": "A piece of coal resting on the worn tooth of an excavator bucket, with a site vehicle out of focus behind it",
+    "tags": [
+      "coal",
+      "materials",
+      "mining",
+      "hero"
+    ],
+    "src": "/media/coal-sample-on-bucket-tooth-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABwBQCdASoUABsAPu1qrU+ppiQiMBgIATAdiUAWo10RSJm7SLwGd2WON483fxUDo5R7vYAAAP77qHYgD2lscK/7knjA+yLEwb3sM9/kfyelkVhGsiT+U5N7y9mgxQdiGfCl9uBJIa3OICehhvG01QsMzYqW1EeT6oFisWbU1RlbGxBKg7Nrc7T1QAA="
+  },
+  "liebherr-excavator-low-angle": {
+    "slug": "liebherr-excavator-low-angle",
+    "title": "Liebherr excavator between passes",
+    "alt": "A Liebherr tracked excavator photographed from ground level, boom raised against a heavy sky",
+    "tags": [
+      "plant",
+      "fleet",
+      "mining",
+      "hero"
+    ],
+    "src": "/media/liebherr-excavator-low-angle-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAACwBQCdASoUABsAPu1mq0+ppSOiMBgIATAdiWMAtsgQ+GeVb+O/zwNpgCK4rEyYnHuoDC4xUAAA/ucrHWSvzV+A4MEQg1PTjtjL3sq0endsB+ErPqFZS7+kn8Vbcdp46rbhtdhQMsAG/ABcch+GkyIN19BA2c1MvF85NFnu78cOxc1MrZBOv2AA"
+  },
+  "excavator-with-lighting-tower": {
+    "slug": "excavator-with-lighting-tower",
+    "title": "Lighting plant set for the night shift",
+    "alt": "A Liebherr 976 excavator beside a mobile lighting tower on the pit floor as the light goes",
+    "tags": [
+      "plant",
+      "mining",
+      "site-services",
+      "fleet"
+    ],
+    "src": "/media/excavator-with-lighting-tower-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwBACdASoUABsAPulkpE2pJiMiMAwBIB0JYwCxHtDDTrMz1pccwCQkR42U+QoS44AA/uqCPwy3vuxYjcTcIm8EZqDsh2jYfoPi92misFZchCJGg/FgbwUPni/rC63z3csamoNoiBu4XHO1lRsK9chiWAA="
+  },
+  "excavator-and-site-vehicles": {
+    "slug": "excavator-and-site-vehicles",
+    "title": "Machine and vehicles on the pit road",
+    "alt": "A Liebherr excavator working beside site bakkies parked along the pit haul road",
+    "tags": [
+      "mining",
+      "fleet",
+      "logistics"
+    ],
+    "src": "/media/excavator-and-site-vehicles-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAwBQCdASoUABsAPu1srFEppaQiqAqpMB2JZQC7IQSBfnj1w56Xn5BStSt54bk/Y+mw0AD+7VjNIm06AjhsLK85kXeOnRjeFKFuZa+Eapj9c0fBA8EGof4A3kbHooyanZ0oZFvmwaSpIZd6VLQj94lxBJWOsPecNkHcuSVveBgAAA=="
+  },
+  "excavator-undercarriage-detail": {
+    "slug": "excavator-undercarriage-detail",
+    "title": "Undercarriage on the pit floor",
+    "alt": "The tracks and counterweight of a large excavator in close view, with site vehicles parked beyond it",
+    "tags": [
+      "plant",
+      "mining",
+      "mechanical"
+    ],
+    "src": "/media/excavator-undercarriage-detail-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspect": 0.75,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQBACdASoUABsAPuFUpU2opCOiN/qoARAcCUAXYAQvMTUAJ12l5uUfr/IAAPsACn9zZ4Pxry4RrdTOYx4JvfGDhx4o3xsxq5kq+IfTfM1h0UPCLIrM0iTmjX7HZ46lYoIpkeq9ywqqL4u408SWoAAA"
+  },
+  "site-inspection-pit-floor": {
+    "slug": "site-inspection-pit-floor",
+    "title": "Walking the pit floor",
+    "alt": "Site vehicles drawn up beside a Liebherr excavator with people walking the pit floor on an inspection",
+    "tags": [
+      "mining",
+      "team",
+      "safety",
+      "fleet"
+    ],
+    "src": "/media/site-inspection-pit-floor-2200.webp",
+    "widths": [
+      640,
+      1080,
+      1600,
+      2200
+    ],
+    "width": 4032,
+    "height": 3024,
+    "aspect": 1.3333,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAABwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JQBdgBD4GqL0ol3AA/up8Gq9VE9PAG0yyeb+oYvHjT5+VtEDf+Ze8PEQjznjNjvAAAA=="
   }
 }

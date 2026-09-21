@@ -114,7 +114,7 @@ export default async function MaintenancePage() {
             <div className="chamfer relative overflow-hidden border border-ink-900/10">
               <Parallax distance={24}>
                 <Media
-                  media="engine-block-machined"
+                  media="workshop-bays-in-use"
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   ratio="4 / 3"
                   className="w-full scale-110"

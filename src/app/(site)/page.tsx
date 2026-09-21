@@ -226,7 +226,7 @@ export default async function HomePage() {
               className="max-w-3xl"
             />
             <Reveal delay={0.1}>
-              <TextLink href="/services">See all thirteen services</TextLink>
+              <TextLink href="/services">See all fourteen services</TextLink>
             </Reveal>
           </div>
 

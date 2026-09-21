@@ -61,11 +61,44 @@ export const home: HomeContent = {
       name: "ISM Supply and Maintenance",
       logo: "/brand/partner-ism.png",
     },
+    /* Fallback list, used only if `frames` is ever emptied. */
     media: [
-      "excavator-coal-bench-fleet",
-      "dozer-d9t-dusk",
-      "dozer-lowbed-haul-road",
-      "field-service-excavator-repair",
+      "opencast-pit-overview",
+      "coal-seam-exposed",
+      "excavator-with-lighting-tower",
+      "pit-panorama-waterline",
+    ],
+    /* The hero runs on the opencast coal photography and footage, alternating
+       a still with a clip. The first frame is deliberately a photograph: it is
+       the largest contentful paint, and a video cannot be one.
+
+       Two mining stills are left out on purpose. `excavator-and-site-vehicles`
+       and `liebherr-excavator-low-angle` are strong pictures but their subject
+       sits off centre, so a full-bleed crop lands on a vehicle tailgate and a
+       bucket respectively. Both are used elsewhere at their own aspect. */
+    frames: [
+      { kind: "image", media: "opencast-pit-overview" },
+      {
+        kind: "video",
+        src: "/media/video/hero-excavator-coal.mp4",
+        poster: "/media/video/hero-excavator-coal-poster.webp",
+        alt: "An excavator digging coal at the foot of a red highwall",
+      },
+      { kind: "image", media: "coal-seam-exposed" },
+      {
+        kind: "video",
+        src: "/media/video/hero-loading-hauler.mp4",
+        poster: "/media/video/hero-loading-hauler-poster.webp",
+        alt: "An excavator loading an articulated hauler on the pit floor",
+      },
+      { kind: "image", media: "excavator-with-lighting-tower" },
+      {
+        kind: "video",
+        src: "/media/video/hero-hauler-tipping.mp4",
+        poster: "/media/video/hero-hauler-tipping-poster.webp",
+        alt: "An articulated hauler tipping overburden on the waste dump",
+      },
+      { kind: "image", media: "pit-panorama-waterline" },
     ],
   },
   trustLine: "Working across the Mpumalanga coalfields, quarries and industrial corridor",
@@ -123,7 +156,7 @@ export const home: HomeContent = {
     "We move bulk material, build and hold haul roads, and rebuild the components that stop your fleet — from a yard inside the Middelburg heavy-engineering corridor, with breakdown response answered around the clock.",
   introBody:
     "Most operations end up managing an earthmoving contractor and a mechanical contractor separately, and discovering at the worst moment that neither owns the problem. Leikah runs both under one roof.\n\nThe earthmoving side moves material and builds the roads that carry it. The mechanical side keeps the machines that do it — yours as well as ours — in production, with a workshop on July Street and mobile units that go out at any hour. The supply division sits behind both, because the yard is inside the corridor where the parts already are.",
-  introImage: "leikah-response-vehicle",
+  introImage: "site-inspection-pit-floor",
   introPoints: [
     {
       title: "One accountable contractor",
@@ -178,7 +211,7 @@ export const home: HomeContent = {
     "Operator competencies, medicals and legal appointments tracked to expiry and renewed before they lapse",
     "Spill containment deployed before a line is opened, with licensed disposal and certificates retained",
   ],
-  safetyImage: "fabrication-team-bowser",
+  safetyImage: "coal-seam-exposed",
   ctaHeadline: "Tell us what has stopped, or what needs to move",
   ctaBody:
     "Send the machine and the fault, or the volume and the deadline. You will get a straight answer on whether we can do it, when, and what it costs.",
@@ -190,7 +223,7 @@ export const about: AboutContent = {
   lead: "A Middelburg plant hire, earthmoving and heavy mechanical contractor working the Mpumalanga coalfields and the industrial corridor that supplies them.",
   story:
     "Leikah Plant Hire operates from a yard at 7 July Street in Middelburg's New Industrial Area — deliberately, not incidentally. The street and the ones around it hold OEM dealers, spares retailers, electrical wholesalers and machining houses. A component that would take days to source somewhere else is collected the same morning here, and that single fact shapes what the business is able to promise on turnaround.\n\nThe work splits into two divisions that most operations buy separately. The earthmoving side advances the cut, builds and holds haul roads, handles product and prepares platforms. The mechanical side rebuilds the engines, transmissions, final drives and hydraulic assemblies that keep heavy fleets in production — ours and the client's alike.\n\nRunning both matters more than it sounds. A contractor who only moves material has no answer when a machine fails, and a workshop with no production experience does not understand what a day of downtime actually costs. Holding both means one contract, one accountable party, and no gap in the middle for a problem to fall into.\n\nBehind them sits the supply division and a breakdown line that is answered at any hour. Continuous operations do not fail conveniently, and a hauler down at two in the morning is production the month never gets back.",
-  image: "excavator-coal-bench-fleet",
+  image: "coal-bench-excavator-working",
   values: [
     {
       title: "Say the real number",
@@ -265,8 +298,8 @@ export const pages: Record<string, PageMeta> = {
     title: "Our Services",
     eyebrow: "Capability",
     headline: "Everything from the first cut to the last torque setting",
-    lead: "Thirteen services across four divisions. Each one is quoted on what the work actually requires, and delivered with the documentation to prove what was done.",
-    image: "excavator-coal-bench-fleet",
+    lead: "Fourteen services across four divisions. Each one is quoted on what the work actually requires, and delivered with the documentation to prove what was done.",
+    image: "opencast-pit-overview",
   },
   industries: {
     key: "industries",

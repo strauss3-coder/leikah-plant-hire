@@ -3,7 +3,7 @@ import type { Service } from "@/lib/cms/types";
 /* ============================================================================
    SERVICE CATALOGUE
 
-   Thirteen services across four divisions. Each carries the full detail set the
+   Fourteen services across four divisions. Each carries the full detail set the
    service template renders: overview, benefits, sectors, method, plant, safety
    controls and related work. Everything here is editable in the portal.
    ========================================================================= */
@@ -20,8 +20,53 @@ export const services: Service[] = [
     overview:
       "Bulk earthworks is where a mining plan becomes a working face. We strip topsoil to the depth the rehabilitation plan calls for and stockpile it separately, then take the softs and weathered material down to the coal or ore horizon in benches that the geotechnical parameters allow.\n\nProduction is measured, not estimated. Every fleet runs against a survey-set target, cycle times are logged per shift, and volumes are reconciled against the surveyor's month-end. When the plan changes — and on a live pit it always does — we re-sequence with the mine planner rather than pushing on to a stale target.\n\nWe work to the client's slope design and no further. Where the face is close to a highwall, a road or a servitude, the sequence goes through a documented change-control before a machine moves.",
     icon: "excavation",
-    image: "excavator-coal-bench-fleet",
-    gallery: ["excavator-adt-loading-coal", "liebherr-excavator-standby", "dozer-lowbed-loadout-pit"],
+    image: "coal-bench-excavator-working",
+    gallery: [
+      "opencast-pit-overview",
+      "coal-seam-exposed",
+      "pit-panorama-waterline",
+      "excavator-coal-bench-fleet",
+      "excavator-adt-loading-coal",
+      "dozer-lowbed-loadout-pit",
+    ],
+    videos: [
+      {
+        src: "/media/video/overburden-stripped-to-seam.mp4",
+        poster: "/media/video/overburden-stripped-to-seam-poster.webp",
+        title: "Stripping down to the seam",
+        caption: "Overburden taken off in lifts until the coal is exposed clean. Digging into the product is how you lose the grade.",
+      },
+      {
+        src: "/media/video/pit-excavator-loading-hauler.mp4",
+        poster: "/media/video/pit-excavator-loading-hauler-poster.webp",
+        title: "Loading the haulers",
+        caption: "The loading tool sets the pace of the whole pit, so class is matched to bench height and hauler size.",
+      },
+      {
+        src: "/media/video/excavator-digging-coal.mp4",
+        poster: "/media/video/excavator-digging-coal-poster.webp",
+        title: "Working the coal",
+        caption: "Selective digging along the seam against the highwall, keeping the product separate from the waste.",
+      },
+      {
+        src: "/media/video/pit-hauler-climbing-ramp.mp4",
+        poster: "/media/video/pit-hauler-climbing-ramp-poster.webp",
+        title: "Hauling out of the pit",
+        caption: "A loaded hauler on the ramp. Ramp gradient and surface are what the cycle time is actually made of.",
+      },
+      {
+        src: "/media/video/hauler-tipping-overburden.mp4",
+        poster: "/media/video/hauler-tipping-overburden-poster.webp",
+        title: "Tipping on the dump",
+        caption: "Overburden placed on the waste dump, built in controlled lifts rather than end-tipped anywhere convenient.",
+      },
+      {
+        src: "/media/video/coal-seam-with-crew.mp4",
+        poster: "/media/video/coal-seam-with-crew-poster.webp",
+        title: "Crew at the face",
+        caption: "Two people on the bench give the only honest sense of scale in the whole sequence.",
+      },
+    ],
     benefits: [
       {
         title: "Volumes reconciled to survey",
@@ -117,7 +162,7 @@ export const services: Service[] = [
       "A haul road is the cheapest productivity gain on most sites and the most expensive thing to neglect. Rolling resistance costs fuel on every cycle, and a poor surface destroys tyres and struts long before their hours are up.\n\nWe build to a layer design — subgrade preparation, selected layer, wearing course — with cross-fall and drainage that actually sheds water rather than collecting it in the wheel path. Once built, roads are held: graded on a set frequency, watered to the dust limit, potholes and corrugation cut out before they spread.\n\nThe same crews build ramps, tip heads and workshop platforms, so the standard does not change when the work moves off the main haul route.",
     icon: "haul-road",
     image: "dozer-d9t-dusk",
-    gallery: ["water-bowser-dust-suppression", "dozer-d10t-refurbished", "excavator-coal-bench-fleet"],
+    gallery: ["excavator-and-site-vehicles", "site-inspection-pit-floor", "water-bowser-dust-suppression", "dozer-d10t-refurbished"],
     benefits: [
       {
         title: "Rolling resistance controlled",
@@ -204,7 +249,15 @@ export const services: Service[] = [
       "Plant hire is the division the business is named for. Machines go out wet — with a competent, inducted operator and full maintenance carried by us — or dry, where your operators run the machine and we carry the major component risk.\n\nEvery unit leaves the yard on a signed condition report with hour meter, fluid levels, fire suppression and safety equipment recorded. It comes back the same way, so hire disputes are settled by a document rather than an argument.\n\nBecause the workshop is ours, a machine on hire is not waiting on a third party when something fails. The mobile units carry the parts that most often stop a machine, and the yard is inside the OEM corridor for everything else.",
     icon: "plant-hire",
     image: "dozer-d10t-refurbished",
-    gallery: ["dozer-lowbed-haul-road", "adt-lowbed-quarry-delivery", "liebherr-excavator-standby", "adt-lowbed-transport-dusk"],
+    gallery: [
+      "liebherr-excavator-low-angle",
+      "excavator-with-lighting-tower",
+      "excavator-and-site-vehicles",
+      "dozer-lowbed-haul-road",
+      "adt-lowbed-quarry-delivery",
+      "liebherr-excavator-standby",
+      "adt-lowbed-transport-dusk",
+    ],
     benefits: [
       {
         title: "Wet hire with inducted operators",
@@ -301,7 +354,21 @@ export const services: Service[] = [
       "Material that is stockpiled badly costs twice — once to build the pile and again to rehandle it. We build stockpiles to a shape that drains, stays stable and can be reclaimed without a machine working under an unsupported face.\n\nLoad-out crews work to your despatch schedule, with weighbridge tickets reconciled daily. Tip heads are kept trimmed and bermed so haulers can turn and tip without a spotter having to improvise.\n\nWhere material is contaminated or segregated by grade, the sequence is planned so grades do not mix in the pile — the cheapest quality control there is.",
     icon: "materials",
     image: "excavator-adt-loading-coal",
-    gallery: ["excavator-coal-bench-fleet", "adt-lowbed-quarry-delivery"],
+    gallery: [
+      "coal-slab-in-hand",
+      "coal-sample-on-bucket-tooth",
+      "coal-sample-at-the-face",
+      "excavator-coal-bench-fleet",
+      "adt-lowbed-quarry-delivery",
+    ],
+    videos: [
+      {
+        src: "/media/video/hauler-loaded-on-coal.mp4",
+        poster: "/media/video/hauler-loaded-on-coal-poster.webp",
+        title: "Load-out from the coal floor",
+        caption: "Product loaded off the floor for despatch, with the grade kept separate from the point it is dug.",
+      },
+    ],
     benefits: [
       {
         title: "Rehandle designed out",
@@ -387,7 +454,7 @@ export const services: Service[] = [
       "Site establishment sets the cost of everything that follows. Clearing, grubbing and terracing done to the right levels means the civils contractor is not correcting your work before starting their own.\n\nOn the other end of the life cycle, rehabilitation earthworks return the profile to the closure plan: voids shaped, slopes battered to a stable angle, topsoil replaced from the stockpiles lifted at the start.\n\nBoth ends of that cycle need the same discipline — survey control, documented levels, and a handover pack that stands up when the regulator or the next contractor asks what was done.",
     icon: "excavation",
     image: "dozer-lowbed-loadout-pit",
-    gallery: ["dozer-d9t-dusk", "excavator-coal-bench-fleet"],
+    gallery: ["pit-panorama-waterline", "site-inspection-pit-floor", "dozer-d9t-dusk", "excavator-coal-bench-fleet"],
     benefits: [
       {
         title: "Platforms to survey level",
@@ -478,10 +545,14 @@ export const services: Service[] = [
     image: "engine-flywheel-housing",
     gallery: [
       "diesel-engine-workshop-strip",
+      "cylinder-block-bores-finished",
       "engine-block-machined",
       "timing-gear-train-assembly",
+      "long-block-built-up",
+      "long-block-front-elevation",
       "reconditioned-block-lifted",
       "powertrain-assembly-bench",
+      "engine-stripped-on-site",
     ],
     benefits: [
       {
@@ -585,7 +656,18 @@ export const services: Service[] = [
       "Powertrain work is unforgiving of shortcuts. A clutch pack set outside tolerance or a pre-load taken by feel rather than by gauge will come back, usually at the worst moment.\n\nWe strip transmissions, differentials and final drives completely, measure every wear surface, and rebuild to the OEM clearance and pre-load figures. Bearings are set with the specified pre-load, backlash is dialled and recorded, and shift pressures are checked on the bench where the unit allows it.\n\nUnits are painted, sealed, tagged and palletised for transport, and they go out with the same documentation set as an engine rebuild.",
     icon: "engine",
     image: "adt-transmission-assembly",
-    gallery: ["transmission-housing-overhaul", "final-drive-rebuild-complete", "engine-block-machined"],
+    gallery: [
+      "transmission-on-rebuild-stand",
+      "differential-housing-rebuilt",
+      "final-drive-slung-for-fitment",
+      "drive-axle-assembly-complete",
+      "axle-universal-joint-detail",
+      "driveline-yoke-detail",
+      "transmission-housing-overhaul",
+      "final-drive-rebuild-complete",
+      "final-drive-wrapped-dispatch",
+      "workshop-adt-on-stands",
+    ],
     benefits: [
       {
         title: "Clearances measured, not judged",
@@ -656,10 +738,156 @@ export const services: Service[] = [
       "Press work carried out behind guarding with the correct support fixtures",
       "Waste oil and friction material disposed of through licensed channels",
     ],
-    relatedSlugs: ["engine-overhauls", "hydraulic-services", "preventive-maintenance"],
+    relatedSlugs: ["engine-overhauls", "line-boring", "hydraulic-services", "preventive-maintenance"],
     availability: "Workshop programme with agreed turnaround",
     featured: true,
     order: 7,
+  },
+  {
+    id: "svc-line-boring",
+    slug: "line-boring",
+    division: "mechanical",
+    title: "Line Boring & Bore Welding",
+    summary:
+      "Worn pin bores welded up and machined back to size in place, on the boom, the chassis or the bucket.",
+    overview:
+      "Every pin joint on an excavator, loader or dozer wears. The bore goes oval, the pin knocks, the bush spins, and the slop works its way through the whole linkage until the machine loses accuracy and the parent casting starts to crack.\n\nThe repair is to put the metal back and cut it true. The bore is welded up to restore material, then a portable boring bar is clamped to the structure itself, aligned to the original centre line and used to machine the bore back to the drawing size. Because the equipment travels to the machine, the boom or chassis does not have to be cut out and freighted to a machine shop.\n\nWork is carried out in our workshop where the component can come in, and on site where it cannot. Paired lugs are bored on one setup so the two bores stay concentric, and new bushes are pressed and measured before the joint is pinned back up.",
+    icon: "fabrication",
+    image: "line-borer-rigged-on-boom",
+    gallery: [
+      "bore-weld-build-up",
+      "bore-weld-ready-to-machine",
+      "boring-bar-through-bore",
+      "boom-eye-bored-to-size",
+      "twin-lug-bores-restored",
+      "bush-pressed-into-bore",
+    ],
+    videos: [
+      {
+        src: "/media/video/line-boring-rig-running.mp4",
+        poster: "/media/video/line-boring-rig-running-poster.webp",
+        title: "The rig, set up and running",
+        caption: "The boring unit clamped to the boom, aligned and cutting. Nothing was removed from the machine to get here.",
+      },
+      {
+        src: "/media/video/bore-welding-arc.mp4",
+        poster: "/media/video/bore-welding-arc-poster.webp",
+        title: "Bore welding, first passes",
+        caption: "Weld metal laid into the worn bore under a controlled pass sequence, building the wall back past finished size.",
+      },
+      {
+        src: "/media/video/bore-welding-pool.mp4",
+        poster: "/media/video/bore-welding-pool-poster.webp",
+        title: "Looking down the bore",
+        caption: "The same weld seen from the open end, running an even bead around the full circumference.",
+      },
+      {
+        src: "/media/video/bore-welding-pass.mp4",
+        poster: "/media/video/bore-welding-pass-poster.webp",
+        title: "Welding head on the boom",
+        caption: "The welding head driven by the same unit that will later carry the cutting tool, so the two share one alignment.",
+      },
+      {
+        src: "/media/video/boring-bar-set.mp4",
+        poster: "/media/video/boring-bar-set-poster.webp",
+        title: "Boring bar set to the centre line",
+        caption: "The bar mounted through the joint and trued to the original bore centre before a cut is taken.",
+      },
+      {
+        src: "/media/video/boring-cut-swarf.mp4",
+        poster: "/media/video/boring-cut-swarf-poster.webp",
+        title: "Taking the cut",
+        caption: "Swarf coming off a continuous cut. A clean, unbroken chip is what a correctly fed bore looks like.",
+      },
+      {
+        src: "/media/video/boring-head-running.mp4",
+        poster: "/media/video/boring-head-running-poster.webp",
+        title: "Machining back to size",
+        caption: "The head working through the joint, with the cuttings collecting below the repair.",
+      },
+    ],
+    benefits: [
+      {
+        title: "The machine does not leave site",
+        description:
+          "The boring equipment is portable and clamps to the structure being repaired, so a worn boom is fixed where it stands instead of being cut out and carted to a machine shop.",
+      },
+      {
+        title: "Metal replaced, not packed out",
+        description:
+          "The bore is welded back up and cut to size. Oversize bushes and weld-and-hope shims move the problem along a few hundred hours; restoring the bore ends it.",
+      },
+      {
+        title: "Paired lugs bored on one setup",
+        description:
+          "Both sides of a joint are machined from the same alignment, which is what keeps the bores concentric and stops the new pin binding.",
+      },
+      {
+        title: "Cracking headed off",
+        description:
+          "Slop in a pin joint loads the parent casting in a way it was never designed for. Catching the bore early is cheaper than a structural repair later.",
+      },
+    ],
+    industries: ["mining", "construction", "quarrying", "industrial"],
+    process: [
+      {
+        id: "lb-1",
+        step: 1,
+        title: "Measure and assess",
+        description:
+          "Pin and bore measured, wear pattern recorded and the joint checked for cracking before anything is committed to.",
+        duration: "Same day",
+      },
+      {
+        id: "lb-2",
+        step: 2,
+        title: "Strip and prepare",
+        description:
+          "Pin and bush removed, the bore cleaned back to sound metal and the structure supported so nothing moves during the repair.",
+        duration: "Per scope",
+      },
+      {
+        id: "lb-3",
+        step: 3,
+        title: "Bore welding",
+        description:
+          "Material deposited back into the bore under a controlled pass sequence, building the wall up past finished size.",
+        duration: "Per scope",
+      },
+      {
+        id: "lb-4",
+        step: 4,
+        title: "Line boring",
+        description:
+          "Boring bar clamped and aligned to the original centre line, then the bore machined back to the drawing dimension and finish.",
+        duration: "Per scope",
+      },
+      {
+        id: "lb-5",
+        step: 5,
+        title: "Bush, pin and hand back",
+        description:
+          "New bush pressed, bore and pin measured against specification, joint reassembled and the recorded sizes handed over.",
+        duration: "Same day",
+      },
+    ],
+    equipment: [
+      { name: "Portable line boring unit", detail: "Clamps to the structure, aligned to the original bore centre line" },
+      { name: "Bore welding head", detail: "Rotating deposit of weld metal to rebuild a worn bore" },
+      { name: "Mobile power and welding plant", detail: "Carried to site so the repair runs where the machine stands" },
+      { name: "Measuring equipment", detail: "Bore gauges and micrometers, with sizes recorded before and after" },
+      { name: "Press and bush tooling", detail: "Fitting bushes without distorting the restored bore" },
+    ],
+    safety: [
+      "Structures supported and cribbed before any pin is driven out",
+      "Hot work permits, gas testing and fire watch before welding on site",
+      "Machine isolated and locked out, with hydraulics depressurised",
+      "Fume extraction in the workshop and respiratory protection in the field",
+    ],
+    relatedSlugs: ["fabrication-repair", "powertrain-rebuilds", "breakdown-response"],
+    availability: "Workshop and on site",
+    featured: true,
+    order: 8,
   },
   {
     id: "svc-hydraulic-services",
@@ -672,7 +900,7 @@ export const services: Service[] = [
       "Most hydraulic call-outs are not a failed pump. They are a hose that chafed through, a seal that let go, or contamination that has been circulating for weeks. Fault-finding starts with pressure and flow readings, not with a parts order.\n\nCylinders are stripped, honed and re-lined where the bore allows, with new seal kits and rechromed or replaced rods. Pumps, motors and valve banks are overhauled and set to the correct standby and relief pressures.\n\nHose assemblies are crimped to SAE and EN specification, either at the workshop or from the mobile units on site, so a burst hose is measured, made and fitted in one visit rather than three.",
     icon: "hydraulics",
     image: "hydraulic-hose-replacement",
-    gallery: ["hydraulic-valve-bank-inspection", "field-service-excavator-repair"],
+    gallery: ["hydraulic-valve-bank-inspection", "cooling-pack-turbo-exposed", "field-service-excavator-repair"],
     benefits: [
       {
         title: "Diagnosis before parts",
@@ -746,7 +974,7 @@ export const services: Service[] = [
     relatedSlugs: ["breakdown-response", "engine-overhauls", "preventive-maintenance"],
     availability: "Workshop and 24-hour mobile",
     featured: true,
-    order: 8,
+    order: 9,
   },
   {
     id: "svc-preventive-maintenance",
@@ -759,7 +987,14 @@ export const services: Service[] = [
       "Unplanned failure costs several times what the same repair costs when it is planned. A planned maintenance contract puts servicing on the hour meter and inspection on a schedule, so components are changed on evidence rather than after they let go.\n\nOil sampling is the backbone. Wear metals, silicon and viscosity are trended per component, and a rising trend triggers an inspection long before a bearing surfaces in a filter. Undercarriage and wear-plate measurements are logged the same way, which turns replacement into a budgeted item.\n\nEach contract carries a service matrix per machine, agreed intervals, an escalation path and a monthly report your maintenance planner can put straight into their own system.",
     icon: "preventive",
     image: "diesel-engine-workshop-strip",
-    gallery: ["engine-flywheel-housing", "adt-transmission-assembly", "hydraulic-valve-bank-inspection"],
+    gallery: [
+      "workshop-bay-plant-stripped",
+      "workshop-bays-in-use",
+      "workshop-component-racking",
+      "engine-flywheel-housing",
+      "adt-transmission-assembly",
+      "hydraulic-valve-bank-inspection",
+    ],
     benefits: [
       {
         title: "Failures caught on trend",
@@ -841,7 +1076,7 @@ export const services: Service[] = [
     relatedSlugs: ["engine-overhauls", "breakdown-response", "plant-hire"],
     availability: "Contract, aligned to your production calendar",
     featured: true,
-    order: 9,
+    order: 10,
   },
   {
     id: "svc-fabrication-repair",
@@ -854,7 +1089,13 @@ export const services: Service[] = [
       "Structures on mining plant crack. Booms, chassis, bins and buckets carry cyclic loads their whole life, and the repair matters as much as the weld. Cracks are ground out, prepared, welded to a documented procedure and, where the load path warrants it, reinforced rather than simply filled.\n\nWear management is the other half: liner and wear-plate renewal on buckets, bins and chutes, with the plate specified to the abrasion actually seen rather than to whatever is in stock.\n\nThe fabrication bay also builds to drawing — diesel bowsers, service bodies, skids, stands and site equipment — with materials certified and welds carried out by coded welders.",
     icon: "fabrication",
     image: "fabrication-team-bowser",
-    gallery: ["parts-dispatch-pallet", "final-drive-rebuild-complete"],
+    gallery: [
+      "on-site-cutting-and-welding",
+      "bore-weld-build-up",
+      "crane-truck-component-recovery",
+      "parts-dispatch-pallet",
+      "final-drive-rebuild-complete",
+    ],
     benefits: [
       {
         title: "Repairs to a written procedure",
@@ -925,10 +1166,10 @@ export const services: Service[] = [
       "Structures supported and cribbed before load-bearing members are cut",
       "Confined-space controls where work is inside a bin, tank or body",
     ],
-    relatedSlugs: ["powertrain-rebuilds", "preventive-maintenance", "parts-supply"],
+    relatedSlugs: ["line-boring", "powertrain-rebuilds", "preventive-maintenance", "parts-supply"],
     availability: "Workshop and on site",
     featured: false,
-    order: 10,
+    order: 11,
   },
 
   /* --- SUPPLY -------------------------------------------------------------- */
@@ -943,7 +1184,14 @@ export const services: Service[] = [
       "The supply division exists because the yard sits inside one of the densest heavy-engineering corridors in Mpumalanga. OEM dealers, electrical wholesalers, machining houses and spares retailers are all within a short drive of July Street, which turns a two-day parts wait into a same-day collection.\n\nWe supply filtration, lubricants and greases, hydraulic hose and fittings, undercarriage, ground-engaging tools, bearings, seals, fasteners and workshop consumables. Where an OEM part is specified, an OEM part is supplied; where an approved equivalent is appropriate, it is offered as an alternative with the difference stated.\n\nStanding orders can be held against your fleet list so that the consumables your machines actually use are on the shelf before you ask for them.",
     icon: "supply",
     image: "parts-dispatch-pallet",
-    gallery: ["fabrication-team-bowser", "diesel-engine-workshop-strip"],
+    gallery: [
+      "hub-wrapped-for-transport",
+      "final-drive-wrapped-dispatch",
+      "component-returned-to-machine",
+      "workshop-component-racking",
+      "fabrication-team-bowser",
+      "diesel-engine-workshop-strip",
+    ],
     benefits: [
       {
         title: "Inside the OEM corridor",
@@ -1012,10 +1260,10 @@ export const services: Service[] = [
       "Loads secured and labelled to the transport regulations before despatch",
       "Hazardous items segregated in storage and transport",
     ],
-    relatedSlugs: ["preventive-maintenance", "hydraulic-services", "fabrication-repair"],
+    relatedSlugs: ["preventive-maintenance", "hydraulic-services", "fabrication-repair", "line-boring"],
     availability: "Mon–Fri 07:00–17:00, Sat 07:00–13:00",
     featured: true,
-    order: 11,
+    order: 12,
   },
 
   /* --- EMERGENCY ----------------------------------------------------------- */
@@ -1030,7 +1278,16 @@ export const services: Service[] = [
       "Machines do not fail during office hours. The breakdown line is answered around the clock, every day of the year, and a call is logged with the machine, the fault, the site and the access requirements before the unit rolls.\n\nField service vehicles carry diagnostic laptops, welding plant, a hose crimper with hose and fitting stock, fluid transfer and the consumables that resolve the majority of call-outs on the first visit. Where a component has to come off, transport is arranged from the same call rather than as a separate exercise the next morning.\n\nYou get a written fault report after every call-out — what failed, why, what was done, and what should be watched. That report is what stops the same failure recurring next month.",
     icon: "field-service",
     image: "field-service-excavator-repair",
-    gallery: ["leikah-response-vehicle", "hydraulic-hose-replacement", "hydraulic-valve-bank-inspection"],
+    gallery: [
+      "field-crew-under-machine",
+      "powertrain-lifted-by-crane",
+      "powertrain-removal-in-field",
+      "service-vehicle-rigged-on-site",
+      "cooling-pack-turbo-exposed",
+      "live-mine-service-call",
+      "leikah-response-vehicle",
+      "hydraulic-hose-replacement",
+    ],
     benefits: [
       {
         title: "Answered around the clock",
@@ -1113,7 +1370,7 @@ export const services: Service[] = [
     relatedSlugs: ["hydraulic-services", "preventive-maintenance", "plant-hire"],
     availability: "24 hours, 365 days",
     featured: true,
-    order: 12,
+    order: 13,
   },
   {
     id: "svc-site-services",
@@ -1126,7 +1383,7 @@ export const services: Service[] = [
       "Water in the pit stops production and undermines the highwall. Dust on the haul road is a visibility hazard and, on most operations, a licence condition.\n\nWe install and run dewatering sets — pump, prime mover, lay-flat and discharge — sized to the inflow and the lift, with the discharge routed to the point your water management plan specifies. Sets are monitored and refuelled on a circuit, not left to run until someone notices they have stopped.\n\nDust suppression runs on a water bowser circuit with application rates set to the road, so surfaces stay bound without becoming slippery on gradient.",
     icon: "site-services",
     image: "pit-dewatering-pump-set",
-    gallery: ["water-bowser-dust-suppression", "excavator-coal-bench-fleet"],
+    gallery: ["pit-panorama-waterline", "opencast-pit-overview", "water-bowser-dust-suppression", "excavator-coal-bench-fleet"],
     benefits: [
       {
         title: "Sets sized to the actual inflow",
@@ -1199,6 +1456,6 @@ export const services: Service[] = [
     relatedSlugs: ["haul-road-construction", "plant-hire", "breakdown-response"],
     availability: "Continuous, with monitored circuits",
     featured: false,
-    order: 13,
+    order: 14,
   },
 ];

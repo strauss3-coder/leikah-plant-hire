@@ -132,7 +132,7 @@ export const divisions: Division[] = [
     strapline: "Machines, operators and production on the bench",
     description:
       "Dozers, excavators, haulers and graders supplied wet or dry, with operators who have worked a coal face before. Bulk cut, overburden, haul roads, rehabilitation and stockpile handling.",
-    image: "dozer-d10t-refurbished",
+    image: "coal-bench-excavator-working",
     href: "/services?division=earthmoving",
     order: 1,
   },

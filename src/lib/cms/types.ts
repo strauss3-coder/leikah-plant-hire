@@ -197,6 +197,15 @@ export interface Division {
   order: number;
 }
 
+/** A short silent clip of a service being carried out. Paths are public-dir
+ *  paths under /media/video, produced alongside the image renditions. */
+export interface ServiceVideo {
+  src: string;
+  poster: string;
+  title: string;
+  caption: string;
+}
+
 export interface Service {
   id: string;
   slug: string;
@@ -209,6 +218,8 @@ export interface Service {
   icon: ServiceIcon;
   image: MediaRef;
   gallery: MediaRef[];
+  /** Optional process footage, shown after the method timeline. */
+  videos?: ServiceVideo[];
   benefits: { title: string; description: string }[];
   /** Slugs into `industries`. */
   industries: string[];
@@ -421,6 +432,16 @@ export interface HeroPartner {
  * business lives in the section below it, which is why there is no headline,
  * body copy or call to action here.
  */
+/**
+ * One frame of the home hero. A frame is either a photograph from the media
+ * manifest or a short silent clip under /media/video. Clips are 16:9 crops cut
+ * from the 4K originals rather than the portrait renditions used elsewhere,
+ * because the hero is full bleed.
+ */
+export type HeroFrame =
+  | { kind: "image"; media: MediaRef }
+  | { kind: "video"; src: string; poster: string; alt: string };
+
 export interface HeroContent {
   brandName: string;
   /** Set under the wordmark, tracked out. */
@@ -430,7 +451,10 @@ export interface HeroContent {
   /** A single row of credentials — five items at most before it wraps badly. */
   trustIndicators: string[];
   partner?: HeroPartner;
+  /** Photography only. Kept as the fallback when `frames` is not set. */
   media: MediaRef[];
+  /** Mixed stills and footage, in the order they play. Wins over `media`. */
+  frames?: HeroFrame[];
 }
 
 export interface WalkStageContent {

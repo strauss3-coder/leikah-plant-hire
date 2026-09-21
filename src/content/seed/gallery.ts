@@ -204,4 +204,292 @@ export const gallery: GalleryItem[] = [
     "Supply",
     26,
   ),
+  /* --- Precision machining ---------------------------------------------------
+     The line boring set, kept in the order the repair actually runs so the
+     category reads as a sequence rather than a pile of close-ups. The worn
+     bore and the finished bore are declared as a before/after pair.
+     ------------------------------------------------------------------------ */
+  item(
+    "line-borer-rigged-on-boom",
+    "The boring bar clamped to the boom itself. The machine stays where it is and the machine shop comes to it.",
+    "Precision Machining",
+    27,
+    { featured: true },
+  ),
+  item(
+    "bore-weld-build-up",
+    "A worn pin bore welded back up. Metal goes in before anything is cut, which is what separates a repair from a patch.",
+    "Precision Machining",
+    28,
+    { pairedWith: "boom-eye-bored-to-size", pairRole: "before" },
+  ),
+  item(
+    "boom-eye-bored-to-size",
+    "The same joint cut back to the drawing size, concentric to the original centre line.",
+    "Precision Machining",
+    29,
+    { pairedWith: "bore-weld-build-up", pairRole: "after", featured: true },
+  ),
+  item(
+    "bore-weld-ready-to-machine",
+    "Weld deposit standing proud of finished size, waiting on the boring bar.",
+    "Precision Machining",
+    30,
+  ),
+  item(
+    "boring-bar-through-bore",
+    "Boring bar set through the joint with the cutting head mounted mid span.",
+    "Precision Machining",
+    31,
+  ),
+  item(
+    "twin-lug-bores-restored",
+    "Paired lugs bored from one setup. Two separate setups is how a new pin ends up binding.",
+    "Precision Machining",
+    32,
+  ),
+  item(
+    "link-bore-finished",
+    "Finished bore running the full depth of the boss, with an even tool finish.",
+    "Precision Machining",
+    33,
+  ),
+  item(
+    "bush-pressed-into-bore",
+    "New bush pressed into the restored bore and measured before the joint is pinned back up.",
+    "Precision Machining",
+    34,
+  ),
+  item(
+    "bore-repair-job-carded",
+    "Bore repair carried out under the machine, with the job card taped to the boom above the work.",
+    "Precision Machining",
+    35,
+  ),
+
+  /* --- Workshop, from our own bays ------------------------------------------- */
+  item(
+    "workshop-bay-plant-stripped",
+    "A wheel loader stripped down in the bay. Machines come in whole and go out whole.",
+    "Workshop",
+    36,
+    { featured: true },
+  ),
+  item(
+    "workshop-adt-on-stands",
+    "Hauler lifted for a driveline repair, with the bay height to get underneath it properly.",
+    "Workshop",
+    37,
+  ),
+  item(
+    "workshop-bays-in-use",
+    "Both bays under load. Workshop capacity is what keeps a turnaround honest.",
+    "Workshop",
+    38,
+  ),
+  item(
+    "workshop-component-racking",
+    "Rebuilt components racked alongside the bays, logged to the machine they belong to.",
+    "Workshop",
+    39,
+  ),
+  item(
+    "transmission-on-rebuild-stand",
+    "Transmission on the rebuild stand, stripped, measured and built back up.",
+    "Workshop",
+    40,
+  ),
+  item(
+    "differential-housing-rebuilt",
+    "Differential housing rebuilt and repainted, ready to go back under the machine.",
+    "Workshop",
+    41,
+  ),
+  item(
+    "drive-axle-assembly-complete",
+    "Complete drive axle assembled and laid out for a final check before fitment.",
+    "Workshop",
+    42,
+  ),
+  item(
+    "long-block-built-up",
+    "Long block built up on the bench, ready to be run and load-tested before release.",
+    "Workshop",
+    43,
+  ),
+  item(
+    "cylinder-block-bores-finished",
+    "Cylinder block finished and laid out, bores measured and recorded against specification.",
+    "Workshop",
+    44,
+  ),
+  item(
+    "final-drive-slung-for-fitment",
+    "Final drive slung and ready for fitment, out of the bay and into the daylight.",
+    "Workshop",
+    45,
+  ),
+
+  /* --- Field service --------------------------------------------------------- */
+  item(
+    "field-crew-under-machine",
+    "A crew working a repair on the ground where the machine stopped. Most breakdowns are not polite enough to happen near a workshop.",
+    "Field Service",
+    46,
+    { featured: true },
+  ),
+  item(
+    "powertrain-lifted-by-crane",
+    "Engine and transmission lifted clear on site, with the crane brought in rather than the machine dragged out.",
+    "Field Service",
+    47,
+  ),
+  item(
+    "powertrain-removal-in-field",
+    "Powertrain guided down onto stands in the field, which is where the strip actually begins.",
+    "Field Service",
+    48,
+  ),
+  item(
+    "service-vehicle-rigged-on-site",
+    "Service vehicle rigged alongside the machine, carrying its own welding plant.",
+    "Field Service",
+    49,
+  ),
+  item(
+    "on-site-cutting-and-welding",
+    "Cutting and welding brought to the bucket instead of the bucket brought to the bay.",
+    "Field Service",
+    50,
+  ),
+  item(
+    "cooling-pack-turbo-exposed",
+    "Cooling pack and turbocharger opened up for inspection before anything is quoted.",
+    "Field Service",
+    51,
+  ),
+  item(
+    "engine-stripped-on-site",
+    "Engine stripped where it stands, with components laid out and logged as they come off.",
+    "Field Service",
+    52,
+  ),
+  item(
+    "live-mine-service-call",
+    "A service call on a live operation, coned off and worked around the traffic still running.",
+    "Field Service",
+    53,
+  ),
+
+  /* --- Logistics & supply ---------------------------------------------------- */
+  item(
+    "crane-truck-component-recovery",
+    "Crane truck recovering components for return to the workshop.",
+    "Logistics",
+    54,
+  ),
+  item(
+    "hub-wrapped-for-transport",
+    "Wheel end wrapped and sealed before it travels. Contamination in transit undoes the rebuild.",
+    "Supply",
+    55,
+  ),
+  item(
+    "final-drive-wrapped-dispatch",
+    "Rebuilt final drive sealed for dispatch, logged out against the machine it is going to.",
+    "Supply",
+    56,
+  ),
+  item(
+    "component-returned-to-machine",
+    "Rebuilt component back on site, in front of the machine it came off.",
+    "Supply",
+    57,
+  ),
+  /* --- Coal & materials -------------------------------------------------------
+     The product rather than the plant. These are the only photographs in the
+     library that show what is actually being sold.
+     ------------------------------------------------------------------------ */
+  item(
+    "coal-slab-in-hand",
+    "Coal off the face, still showing the bedding it was laid down in.",
+    "Coal & Materials",
+    58,
+    { featured: true },
+  ),
+  item(
+    "coal-sample-on-bucket-tooth",
+    "A sample set on the bucket lip. Quality gets checked where it is dug, not at the weighbridge.",
+    "Coal & Materials",
+    59,
+    { featured: true },
+  ),
+  item(
+    "coal-sample-at-the-face",
+    "Product held up against the cut it came out of.",
+    "Coal & Materials",
+    60,
+  ),
+  item(
+    "coal-seam-exposed",
+    "The seam uncovered and clean, with the overburden stood back off the edge.",
+    "Coal & Materials",
+    61,
+  ),
+
+  /* --- Earthmoving, from the pit ---------------------------------------------- */
+  item(
+    "coal-bench-excavator-working",
+    "An excavator down on the coal at the foot of the red overburden face.",
+    "Earthmoving",
+    62,
+    { featured: true },
+  ),
+  item(
+    "opencast-pit-overview",
+    "The cut seen from above the highwall, which is the only place the sequence makes sense.",
+    "Earthmoving",
+    63,
+  ),
+  item(
+    "pit-panorama-waterline",
+    "Working down to the waterline. Standing water sets the limit of the cut until it is pumped.",
+    "Earthmoving",
+    64,
+  ),
+
+  /* --- Plant & fleet ----------------------------------------------------------- */
+  item(
+    "liebherr-excavator-low-angle",
+    "Excavator between passes, photographed from the floor it is standing on.",
+    "Plant & Fleet",
+    65,
+    { featured: true },
+  ),
+  item(
+    "excavator-with-lighting-tower",
+    "Lighting plant set up beside the machine. The pit does not stop when the light goes.",
+    "Plant & Fleet",
+    66,
+  ),
+  item(
+    "excavator-and-site-vehicles",
+    "Machine and vehicles sharing the pit road, which is where most of the risk on a site actually sits.",
+    "Plant & Fleet",
+    67,
+  ),
+  item(
+    "excavator-undercarriage-detail",
+    "Undercarriage at close range. Track wear is the single biggest running cost on a machine this size.",
+    "Plant & Fleet",
+    68,
+  ),
+
+  /* --- Field service ------------------------------------------------------------ */
+  item(
+    "site-inspection-pit-floor",
+    "Walking the pit floor. Most of what goes into a quote is decided on a visit like this one.",
+    "Field Service",
+    69,
+  ),
 ];

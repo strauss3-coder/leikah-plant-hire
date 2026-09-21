@@ -8,7 +8,7 @@ import { Media } from "@/components/ui/Media";
 import { BrandReveal } from "@/components/brand/BrandReveal";
 import { SurveyGrid, DustField, GoldBloom } from "@/components/graphics/Atmosphere";
 import { assetPath } from "@/lib/cms/media";
-import type { HeroContent } from "@/lib/cms/types";
+import type { HeroContent, HeroFrame } from "@/lib/cms/types";
 import { getMedia } from "@/lib/cms/media";
 
 /* ============================================================================
@@ -34,9 +34,32 @@ import { getMedia } from "@/lib/cms/media";
 const FRAME_MS = 8500;
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+/** A stable key per frame, since two frames could point at the same asset. */
+const frameKey = (frame: HeroFrame, i: number) =>
+  `${i}-${frame.kind === "image" ? frame.media : frame.src}`;
+
+/**
+ * Resolves the frames to play.
+ *
+ * Reduced motion drops the footage rather than freezing it on a poster: the
+ * stills alone still carry the pit, and a paused video is a worse still than a
+ * photograph chosen to be one. The rotation is stopped separately below, so
+ * that setting leaves a single photograph on screen.
+ */
+function resolveFrames(hero: HeroContent, reduced: boolean): HeroFrame[] {
+  const declared: HeroFrame[] =
+    hero.frames?.length
+      ? hero.frames
+      : hero.media.map((media) => ({ kind: "image", media }) as const);
+
+  return declared.filter((frame) =>
+    frame.kind === "image" ? Boolean(getMedia(frame.media).src) : !reduced,
+  );
+}
+
 export function HomeHero({ hero }: { hero: HeroContent }) {
   const reduced = useReducedMotion();
-  const frames = hero.media.filter((slug) => getMedia(slug).src);
+  const frames = resolveFrames(hero, Boolean(reduced));
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -51,7 +74,7 @@ export function HomeHero({ hero }: { hero: HeroContent }) {
       <div className="absolute inset-0 -z-20">
         <AnimatePresence initial={false}>
           <motion.div
-            key={frames[index]}
+            key={frameKey(frames[index], index)}
             className="absolute inset-0"
             initial={{ opacity: 0, scale: 1.06 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -61,16 +84,34 @@ export function HomeHero({ hero }: { hero: HeroContent }) {
               scale: { duration: FRAME_MS / 1000 + 3, ease: "linear" },
             }}
           >
-            <Media
-              media={frames[index]}
-              alt=""
-              priority={index === 0}
-              sizes="100vw"
-              quality={82}
-              className="size-full"
-              imageClassName="object-cover"
-              ratio="auto"
-            />
+            {frames[index].kind === "image" ? (
+              <Media
+                media={frames[index].media}
+                alt=""
+                priority={index === 0}
+                sizes="100vw"
+                quality={82}
+                className="size-full"
+                imageClassName="object-cover"
+                ratio="auto"
+              />
+            ) : (
+              /* Only the active frame is mounted, so a clip is not fetched
+                 until it is its turn. That keeps the first paint to one
+                 photograph and leaves the footage off the critical path. */
+              <video
+                key={frames[index].src}
+                className="size-full object-cover"
+                src={assetPath(frames[index].src)}
+                poster={assetPath(frames[index].poster)}
+                aria-hidden="true"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="none"
+              />
+            )}
           </motion.div>
         </AnimatePresence>
 
@@ -175,13 +216,13 @@ export function HomeHero({ hero }: { hero: HeroContent }) {
             role="tablist"
             aria-label="Hero image"
           >
-            {frames.map((slug, i) => (
+            {frames.map((frame, i) => (
               <button
-                key={slug}
+                key={frameKey(frame, i)}
                 type="button"
                 role="tab"
                 aria-selected={i === index}
-                aria-label={`Show image ${i + 1} of ${frames.length}`}
+                aria-label={`Show ${frame.kind === "video" ? "clip" : "image"} ${i + 1} of ${frames.length}`}
                 onClick={() => setIndex(i)}
                 className="group py-2"
               >

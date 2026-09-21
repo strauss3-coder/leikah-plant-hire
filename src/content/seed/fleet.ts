@@ -47,8 +47,8 @@ export const fleet: FleetItem[] = [
     strapline: "The production unit — everything else cycles around it",
     description:
       "The loading tool sets the pace of the whole operation. Excavator class is matched to bench height and hauler size so the fleet cycles cleanly rather than one machine waiting on another. Bucket or hammer, with quick-couplers where the work changes through the shift.",
-    image: "excavator-coal-bench-fleet",
-    secondaryImage: "liebherr-excavator-standby",
+    image: "liebherr-excavator-low-angle",
+    secondaryImage: "coal-bench-excavator-working",
     specs: [
       { label: "Class", value: "20 t – 75 t" },
       { label: "Typical duty", value: "Bench loading, bulk cut, trenching" },

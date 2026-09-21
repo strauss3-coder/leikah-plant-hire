@@ -16,7 +16,7 @@ export const industries: Industry[] = [
       "Coal and hard-rock operations across the Mpumalanga fields, where a stopped machine is a stopped shift.",
     overview:
       "Open-cast mining is the core of the business. The yard sits in the middle of the Mpumalanga coalfields, and the work is what those operations need every day — advancing the cut, building and holding haul roads, handling product, and keeping a heavy fleet in production.\n\nThe difference on a mine is that everything is measured. Volumes are reconciled to survey, availability is reported per machine, and safety performance is audited by the client rather than self-declared. We work inside that discipline because our contracts depend on it.\n\nDispatch runs around the clock for a reason. A hauler down at two in the morning on a continuous operation is production lost that the month never recovers.",
-    image: "excavator-coal-bench-fleet",
+    image: "coal-bench-excavator-working",
     challenges: [
       {
         title: "Unplanned downtime is measured in shifts",
@@ -126,6 +126,7 @@ export const industries: Industry[] = [
     serviceSlugs: [
       "engine-overhauls",
       "powertrain-rebuilds",
+      "line-boring",
       "hydraulic-services",
       "fabrication-repair",
       "preventive-maintenance",
