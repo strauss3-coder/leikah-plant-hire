@@ -91,8 +91,13 @@ export function PageHeader({
             imageClassName="object-cover"
             ratio="auto"
           />
-          <div className="absolute inset-0 bg-ink-950/80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/70 to-ink-950/45" />
+          {/* A flat 80% wash plus a gradient left the photograph at about a
+              fifth of itself, which is why every page header read as a dark
+              panel with a texture behind it. The flat layer is lighter and the
+              gradient clears at the top, so the picture is visible where no
+              type sits over it and stays dense under the headline and lead. */}
+          <div className="absolute inset-0 bg-ink-950/58" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/58 to-ink-950/15" />
         </div>
       )}
       <SurveyGrid opacity={0.65} className="-z-10" />

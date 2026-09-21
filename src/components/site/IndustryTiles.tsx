@@ -49,10 +49,10 @@ export function IndustryTiles({
                 alt=""
                 sizes={wide ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
                 className="absolute inset-0 size-full"
-                imageClassName="object-cover grayscale-[0.85] brightness-[0.55] transition-all duration-[1.1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:grayscale-0 group-hover:brightness-75 group-hover:scale-105"
+                imageClassName="object-cover grayscale-[0.45] brightness-[0.78] transition-all duration-[1.1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:grayscale-0 group-hover:brightness-90 group-hover:scale-105"
                 ratio="auto"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/15" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
 
               {/* Sector index, top-left, like a plan reference */}
               <span className="eyebrow absolute left-6 top-5 z-10 text-gold-500 tabular">
@@ -70,8 +70,8 @@ export function IndustryTiles({
                 </h3>
                 <p
                   className={cn(
-                    "text-sm leading-relaxed text-steel-300",
-                    wide ? "max-w-md" : "line-clamp-3",
+                    "line-clamp-2 text-sm leading-relaxed text-steel-300",
+                    wide && "max-w-md",
                   )}
                 >
                   {industry.summary}

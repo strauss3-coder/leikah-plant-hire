@@ -44,20 +44,24 @@ export function ServiceEditorial({
             imageClassName="object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/lead:scale-[1.06]"
             ratio="auto"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/62 to-ink-950/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/42 to-transparent" />
           <CornerMarks />
 
-          <div className="relative z-10 flex flex-col gap-5 p-8 lg:p-10">
-            <span className="chamfer-sm inline-flex size-16 items-center justify-center border border-gold-500/40 bg-ink-950/60 text-gold-400 backdrop-blur-sm">
-              <EquipmentIcon name={resolveIcon(lead.icon, lead.slug)} className="size-9" />
+          <div className="relative z-10 flex flex-col gap-4 p-7 sm:gap-5 sm:p-8 lg:p-10">
+            <span className="chamfer-sm inline-flex size-12 items-center justify-center border border-gold-500/40 bg-ink-950/60 text-gold-400 backdrop-blur-sm sm:size-16">
+              <EquipmentIcon name={resolveIcon(lead.icon, lead.slug)} className="size-7 sm:size-9" />
             </span>
 
             <h3 className="text-display-3 text-paper-50">{lead.title}</h3>
-            <p className="max-w-md text-sm leading-relaxed text-steel-200 sm:text-base">
+            {/* The summary is repeated at the top of the service page itself.
+                On a phone it was the difference between a photograph and a
+                dark panel, so here it starts at the first size that has room
+                for it. */}
+            <p className="hidden max-w-md text-sm leading-relaxed text-steel-200 sm:block sm:text-base">
               {lead.summary}
             </p>
 
-            <div className="mt-2 flex items-center justify-between gap-4 border-t border-steel-100/15 pt-5">
+            <div className="mt-1 flex items-center justify-between gap-4 border-t border-steel-100/15 pt-4 sm:mt-2 sm:pt-5">
               <span className="eyebrow text-gold-500/90">{lead.availability}</span>
               <span className="inline-flex items-center gap-2 text-sm font-medium text-paper-50">
                 Detail

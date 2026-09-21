@@ -82,7 +82,7 @@ export function DivisionShowcase({ divisions }: { divisions: Division[] }) {
                       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <p className="mt-2 text-sm font-medium text-gold-400">{division.strapline}</p>
-                      <p className="mt-4 max-w-md text-sm leading-relaxed text-steel-300">
+                      <p className="mt-4 line-clamp-3 max-w-md text-sm leading-relaxed text-steel-300">
                         {division.description}
                       </p>
                       <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-paper-50">
@@ -122,14 +122,16 @@ export function DivisionShowcase({ divisions }: { divisions: Division[] }) {
               imageClassName="object-cover"
               ratio="auto"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/72 to-ink-950/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/45 to-transparent" />
             <span className="absolute left-5 top-5 eyebrow text-gold-500 tabular">
               {String(i + 1).padStart(2, "0")}
             </span>
+            {/* Name and strapline only. The full description is the first thing
+                on the division's own page, one tap away, and printing it here
+                buried the photograph it is printed on. */}
             <div className="relative p-6">
               <h3 className="text-xl text-paper-50">{division.name}</h3>
               <p className="mt-1.5 text-sm font-medium text-gold-400">{division.strapline}</p>
-              <p className="mt-3 text-sm leading-relaxed text-steel-300">{division.description}</p>
             </div>
           </Link>
         ))}

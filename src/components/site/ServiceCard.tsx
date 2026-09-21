@@ -80,7 +80,7 @@ export function ServiceCard({
             imageClassName="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-105"
             ratio="auto"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/70 to-ink-950/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/45 to-transparent" />
         </div>
 
         <div className="relative flex flex-col gap-4 p-7 lg:p-9">
@@ -96,7 +96,7 @@ export function ServiceCard({
           </div>
 
           <Heading className="text-display-4 text-paper-50">{service.title}</Heading>
-          <p className="max-w-md text-sm leading-relaxed text-steel-300">{service.summary}</p>
+          <p className="line-clamp-2 max-w-md text-sm leading-relaxed text-steel-300">{service.summary}</p>
 
           <span className="mt-1 inline-flex items-center gap-2 text-sm font-medium text-gold-400">
             <span className="relative">

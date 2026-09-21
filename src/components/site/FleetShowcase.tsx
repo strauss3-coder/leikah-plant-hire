@@ -20,6 +20,12 @@ import { cn } from "@/lib/utils";
    Two things make it feel like the client's own fleet rather than stock:
    the photography is theirs, and the specifications are the figures a planner
    asks for on a first call.
+
+   Only the name and the strapline sit on the photograph. The description, the
+   applications and the link used to sit there too, and on a phone that stacked
+   roughly fifteen lines of type over the machine until the picture was doing
+   nothing but darkening behind them. They now run on a solid band underneath,
+   which is where a data sheet would put them anyway.
    ========================================================================= */
 
 export function FleetShowcase({
@@ -126,8 +132,9 @@ export function FleetShowcase({
             </motion.div>
           </AnimatePresence>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/72 to-ink-950/25" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink-950/80 to-transparent" />
+          {/* Enough to carry a name and a line under it, and no more. */}
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink-950/55 via-transparent to-transparent" />
           <SurveyGrid opacity={0.5} size={64} />
           <DustField density={26} />
 
@@ -154,36 +161,51 @@ export function FleetShowcase({
               <p className="mt-3 max-w-lg text-sm font-medium text-gold-400 sm:text-base">
                 {current.strapline}
               </p>
-              <p className="mt-5 max-w-xl text-sm leading-relaxed text-steel-300">
-                {current.description}
-              </p>
-
-              {/* Applications, as a compact tag row */}
-              <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
-                {current.applications.slice(0, 4).map((a) => (
-                  <li key={a} className="flex items-center gap-2 text-xs text-steel-400">
-                    <span aria-hidden="true" className="size-1 rotate-45 bg-gold-500" />
-                    {a}
-                  </li>
-                ))}
-              </ul>
-
-              {current.serviceSlug && (
-                <Link
-                  href={`/services/${current.serviceSlug}`}
-                  className="group/link mt-7 inline-flex w-fit items-center gap-2 text-sm font-medium text-paper-50"
-                >
-                  <span className="relative">
-                    See how we run it
-                    <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gold-400 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/link:w-full" />
-                  </span>
-                  <ArrowUpRight className="size-4 text-gold-400 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-                </Link>
-              )}
             </motion.div>
           </AnimatePresence>
         </div>
       </div>
+
+      {/* --- What the machine is for ------------------------------------------
+          Off the photograph and onto a solid surface, so both are legible. */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`${current.id}-detail`}
+          initial={reduced ? { opacity: 0 } : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className="border-t border-steel-600/25 bg-ink-900 px-6 py-7 sm:px-8 lg:px-10"
+        >
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
+            <p className="max-w-2xl text-sm leading-relaxed text-steel-300">
+              {current.description}
+            </p>
+
+            <ul className="flex flex-col gap-2 lg:w-80 lg:shrink-0">
+              {current.applications.slice(0, 4).map((a) => (
+                <li key={a} className="flex items-start gap-2.5 text-xs text-steel-400">
+                  <span aria-hidden="true" className="mt-1.5 size-1 shrink-0 rotate-45 bg-gold-500" />
+                  {a}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {current.serviceSlug && (
+            <Link
+              href={`/services/${current.serviceSlug}`}
+              className="group/link mt-7 inline-flex w-fit items-center gap-2 text-sm font-medium text-paper-50"
+            >
+              <span className="relative">
+                See how we run it
+                <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gold-400 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/link:w-full" />
+              </span>
+              <ArrowUpRight className="size-4 text-gold-400 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+            </Link>
+          )}
+        </motion.div>
+      </AnimatePresence>
 
       {/* --- Specification strip ----------------------------------------------
           The registration marks sit outside the <dl>: a description list may
