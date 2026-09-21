@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowDown } from "lucide-react";
@@ -39,27 +39,66 @@ const frameKey = (frame: HeroFrame, i: number) =>
   `${i}-${frame.kind === "image" ? frame.media : frame.src}`;
 
 /**
+ * True where the viewport is taller than it is wide, which is every phone held
+ * upright. Read through `useSyncExternalStore` rather than an effect so the
+ * first render already has the answer and the wrong cut is never mounted.
+ * Server and first client render agree on `false`, the landscape cut.
+ */
+const PORTRAIT_QUERY = "(max-aspect-ratio: 1/1)";
+const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
+
+/**
+ * A media query read that survives hydration.
+ *
+ * `useSyncExternalStore` uses the server snapshot for the first client render
+ * as well as for the server one, so the two always agree and React re-renders
+ * with the real value immediately afterwards. Reading the query in an effect,
+ * or through a hook that returns the live value on the first client render,
+ * makes the markup disagree with the server and throws a hydration error the
+ * moment the query decides which element to render at all.
+ */
+function useMediaQuery(query: string) {
+  return useSyncExternalStore(
+    (onChange) => {
+      const mq = window.matchMedia(query);
+      mq.addEventListener("change", onChange);
+      return () => mq.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(query).matches,
+    () => false,
+  );
+}
+
+/**
  * Resolves the frames to play.
  *
- * Reduced motion drops the footage rather than freezing it on a poster: the
- * stills alone still carry the pit, and a paused video is a worse still than a
- * photograph chosen to be one. The rotation is stopped separately below, so
- * that setting leaves a single photograph on screen.
+ * Reduced motion drops the footage rather than freezing it on a poster: a
+ * paused video is a worse still than a photograph chosen to be one. If that
+ * leaves nothing at all, which it does whenever the hero is a single clip, the
+ * photography in `media` stands in.
  */
 function resolveFrames(hero: HeroContent, reduced: boolean): HeroFrame[] {
-  const declared: HeroFrame[] =
-    hero.frames?.length
-      ? hero.frames
-      : hero.media.map((media) => ({ kind: "image", media }) as const);
+  const stills: HeroFrame[] = hero.media
+    .filter((media) => getMedia(media).src)
+    .map((media) => ({ kind: "image", media }) as const);
 
-  return declared.filter((frame) =>
+  if (!hero.frames?.length) return stills;
+
+  const playable = hero.frames.filter((frame) =>
     frame.kind === "image" ? Boolean(getMedia(frame.media).src) : !reduced,
   );
+
+  return playable.length ? playable : stills;
 }
 
 export function HomeHero({ hero }: { hero: HeroContent }) {
   const reduced = useReducedMotion();
-  const frames = resolveFrames(hero, Boolean(reduced));
+  const portrait = useMediaQuery(PORTRAIT_QUERY);
+  /* Separate from `reduced` above: that one only tunes animation values, which
+     can differ between server and client harmlessly. This one decides whether
+     a <video> or an <img> is rendered at all, so it has to hydrate cleanly. */
+  const prefersReduced = useMediaQuery(REDUCED_QUERY);
+  const frames = resolveFrames(hero, prefersReduced);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -76,7 +115,10 @@ export function HomeHero({ hero }: { hero: HeroContent }) {
           <motion.div
             key={frameKey(frames[index], index)}
             className="absolute inset-0"
-            initial={{ opacity: 0, scale: 1.06 }}
+            /* The slow push-in is what gives a still frame life. Footage has
+               its own movement, and the extra scale only crops it further, so
+               a clip is held at its true size. */
+            initial={{ opacity: 0, scale: frames[index].kind === "video" ? 1 : 1.06 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{
@@ -96,14 +138,32 @@ export function HomeHero({ hero }: { hero: HeroContent }) {
                 ratio="auto"
               />
             ) : (
-              /* Only the active frame is mounted, so a clip is not fetched
-                 until it is its turn. That keeps the first paint to one
-                 photograph and leaves the footage off the critical path. */
+              /* Only the active frame is mounted, so in a rotation a clip is
+                 not fetched until its turn. A portrait viewport gets the
+                 portrait cut: covering a phone screen with the landscape one
+                 would show a narrow strip through the middle and lose the
+                 crew standing at the face.
+
+                 Nothing is preloaded: `autoPlay` already makes the browser
+                 fetch the clip, and an eager hint measured no faster to the
+                 first playing frame, about 1.1s either way on 4G with the CPU
+                 at a quarter speed.
+
+                 The poster is the largest contentful paint, not the clip. A
+                 hero built on footage therefore lands a little later than one
+                 built on a photograph, because the poster is a plain file
+                 rather than something next/image can preload. Still well
+                 inside the threshold, and the cost of the client asking for
+                 the pit in motion. */
               <video
-                key={frames[index].src}
+                key={portrait ? frames[index].srcNarrow : frames[index].src}
                 className="size-full object-cover"
-                src={assetPath(frames[index].src)}
-                poster={assetPath(frames[index].poster)}
+                src={assetPath(
+                  (portrait && frames[index].srcNarrow) || frames[index].src,
+                )}
+                poster={assetPath(
+                  (portrait && frames[index].posterNarrow) || frames[index].poster,
+                )}
                 aria-hidden="true"
                 autoPlay
                 muted

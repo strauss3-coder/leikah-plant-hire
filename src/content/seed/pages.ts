@@ -61,44 +61,27 @@ export const home: HomeContent = {
       name: "ISM Supply and Maintenance",
       logo: "/brand/partner-ism.png",
     },
-    /* Fallback list, used only if `frames` is ever emptied. */
-    media: [
-      "opencast-pit-overview",
-      "coal-seam-exposed",
-      "excavator-with-lighting-tower",
-      "pit-panorama-waterline",
-    ],
-    /* The hero runs on the opencast coal photography and footage, alternating
-       a still with a clip. The first frame is deliberately a photograph: it is
-       the largest contentful paint, and a video cannot be one.
+    /* Shown instead of the clip when the visitor has asked for reduced
+       motion. The same face, the same machine, the same worker in red, so
+       the hero still reads as one scene rather than a substitute. */
+    media: ["coal-seam-exposed"],
+    /* One clip, looping: two of the crew standing at the foot of the cut with
+       the excavator alongside them. The people are the point. They are the
+       only thing in the library that gives the highwall a scale, and scale is
+       what the rest of the photography cannot show.
 
-       Two mining stills are left out on purpose. `excavator-and-site-vehicles`
-       and `liebherr-excavator-low-angle` are strong pictures but their subject
-       sits off centre, so a full-bleed crop lands on a vehicle tailgate and a
-       bucket respectively. Both are used elsewhere at their own aspect. */
+       Two cuts of the same six seconds. The landscape one is a 16:9 band taken
+       low in the 4K frame so the crew keep headroom and the coal stays in the
+       corner; phones get the untouched portrait framing instead. */
     frames: [
-      { kind: "image", media: "opencast-pit-overview" },
       {
         kind: "video",
-        src: "/media/video/hero-excavator-coal.mp4",
-        poster: "/media/video/hero-excavator-coal-poster.webp",
-        alt: "An excavator digging coal at the foot of a red highwall",
+        src: "/media/video/hero-crew-at-face.mp4",
+        poster: "/media/video/hero-crew-at-face-poster.webp",
+        srcNarrow: "/media/video/hero-crew-at-face-portrait.mp4",
+        posterNarrow: "/media/video/hero-crew-at-face-portrait-poster.webp",
+        alt: "Two of the crew standing at the foot of a coal cut beside a working excavator",
       },
-      { kind: "image", media: "coal-seam-exposed" },
-      {
-        kind: "video",
-        src: "/media/video/hero-loading-hauler.mp4",
-        poster: "/media/video/hero-loading-hauler-poster.webp",
-        alt: "An excavator loading an articulated hauler on the pit floor",
-      },
-      { kind: "image", media: "excavator-with-lighting-tower" },
-      {
-        kind: "video",
-        src: "/media/video/hero-hauler-tipping.mp4",
-        poster: "/media/video/hero-hauler-tipping-poster.webp",
-        alt: "An articulated hauler tipping overburden on the waste dump",
-      },
-      { kind: "image", media: "pit-panorama-waterline" },
     ],
   },
   trustLine: "Working across the Mpumalanga coalfields, quarries and industrial corridor",

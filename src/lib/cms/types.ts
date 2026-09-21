@@ -440,7 +440,15 @@ export interface HeroPartner {
  */
 export type HeroFrame =
   | { kind: "image"; media: MediaRef }
-  | { kind: "video"; src: string; poster: string; alt: string };
+  | {
+      kind: "video";
+      src: string;
+      poster: string;
+      alt: string;
+      /** Portrait cut, used where the viewport is taller than it is wide. */
+      srcNarrow?: string;
+      posterNarrow?: string;
+    };
 
 export interface HeroContent {
   brandName: string;
