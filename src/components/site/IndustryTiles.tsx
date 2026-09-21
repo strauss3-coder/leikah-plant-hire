@@ -68,15 +68,10 @@ export function IndustryTiles({
                 >
                   {industry.name}
                 </h3>
-                <p
-                  className={cn(
-                    "line-clamp-2 text-sm leading-relaxed text-steel-300",
-                    wide && "max-w-md",
-                  )}
-                >
-                  {industry.summary}
-                </p>
-                <span className="mt-2 inline-flex items-center gap-2 text-xs font-medium text-gold-400">
+                {/* The sector name and the link, nothing between them. The
+                    summary reads on the sector's own page, where it is not
+                    printed across the photograph. */}
+                <span className="inline-flex items-center gap-2 text-xs font-medium text-gold-400">
                   <span className="relative">
                     Sector detail
                     <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gold-400 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
