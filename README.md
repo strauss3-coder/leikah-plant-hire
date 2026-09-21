@@ -86,7 +86,7 @@ all generated from that registry.
 3. **Set the environment variables.** Copy `.env.example` to `.env.local`:
 
    ```
-   NEXT_PUBLIC_SITE_URL=https://leikahplanthire.co.za
+   NEXT_PUBLIC_SITE_URL=https://leikahgroup.co.za
    NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
    SUPABASE_SERVICE_ROLE_KEY=eyJ...
@@ -100,7 +100,7 @@ all generated from that registry.
 
    ```sql
    insert into portal_users (id, email, full_name, role)
-   values ('<auth-user-uuid>', 'you@leikahplanthire.co.za', 'Your Name', 'owner');
+   values ('<auth-user-uuid>', 'you@leikahgroup.co.za', 'Your Name', 'owner');
    ```
 
    Access is granted by that row, not by having an auth account. Revoking
@@ -239,7 +239,7 @@ itself as the gaps are filled. At handover:
 
 1. Company registration number, VAT number and B-BBEE level
    (`/portal/pages/business`)
-2. Branded mailboxes — the site lists `info@` and `quotes@leikahplanthire.co.za`;
+2. Branded mailboxes — the five mailboxes on `leikahgroup.co.za` are still to be created;
    create them, or change them to addresses that work
 3. Real client testimonials — the section stays hidden until one is published
 4. Safety certifications and compliance documents for the vendor pack

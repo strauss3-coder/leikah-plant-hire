@@ -29,6 +29,10 @@ const mono = JetBrains_Mono({
   weight: ["400", "500", "600"],
 });
 
+/** One short description for the meta tag and both share cards. 152 characters. */
+const SHARE_DESCRIPTION =
+  "Plant hire, earthmoving and heavy mechanical contracting across the Mpumalanga coalfields. Dozers, excavators and haulers, wet or dry, from Middelburg.";
+
 export async function generateMetadata(): Promise<Metadata> {
   const [business, home] = await Promise.all([getBusiness(), getHome()]);
 
@@ -51,10 +55,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: `${business.tradingName} — Plant Hire, Earthmoving & Heavy Mechanical | Middelburg`,
+      default: `Plant Hire & Earthmoving, Middelburg | ${business.tradingName}`,
       template: `%s — ${business.tradingName}`,
     },
-    description: business.summary,
+    // Deliberately not business.summary: that is 318 characters, written to
+    // be read on the About page. A meta description is truncated by Google at
+    // roughly 160, so this is a purpose-written one at 152.
+    description: SHARE_DESCRIPTION,
     applicationName: business.tradingName,
     authors: [{ name: business.tradingName }],
     keywords: [
@@ -77,13 +84,15 @@ export async function generateMetadata(): Promise<Metadata> {
       // defines no metadata of its own, so without this it shipped no og:url.
       url: SITE_URL,
       title: `${business.tradingName} — Plant Hire, Earthmoving & Heavy Mechanical`,
-      description: business.summary,
+      // Share cards truncate around 200 characters, so they take the short
+      // description rather than the 318-character page copy.
+      description: SHARE_DESCRIPTION,
       images: ogImage,
     },
     twitter: {
       card: "summary_large_image",
       title: `${business.tradingName} — Plant Hire, Earthmoving & Heavy Mechanical`,
-      description: business.summary,
+      description: SHARE_DESCRIPTION,
       images: ogImage,
     },
     robots: {

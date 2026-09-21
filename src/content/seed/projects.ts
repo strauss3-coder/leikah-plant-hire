@@ -13,6 +13,7 @@ export const projects: Project[] = [
   {
     id: "prj-haul-road-rebuild",
     slug: "haul-road-rebuild-coal-operation",
+    seo: { title: "Haul route rebuilt on a coal operation" },
     title: "Main haul route rebuilt and placed under standing maintenance",
     client: "Coal producer, Mpumalanga",
     clientNamed: false,
@@ -72,6 +73,7 @@ export const projects: Project[] = [
   {
     id: "prj-excavator-field-repair",
     slug: "mining-excavator-field-repair",
+    seo: { title: "Mining excavator repaired on the bench" },
     title: "Mining excavator returned to production without leaving the bench",
     client: "Coal producer, Mpumalanga",
     clientNamed: false,
@@ -138,6 +140,7 @@ export const projects: Project[] = [
   {
     id: "prj-adt-powertrain-programme",
     slug: "adt-powertrain-rebuild-programme",
+    seo: { title: "Hauler powertrain rebuild programme" },
     title: "Rolling powertrain rebuild programme across a hauler fleet",
     client: "Contract miner, Mpumalanga",
     clientNamed: false,
@@ -204,6 +207,7 @@ export const projects: Project[] = [
   {
     id: "prj-engine-overhaul-turnaround",
     slug: "engine-overhaul-shutdown-turnaround",
+    seo: { title: "Engine overhaul in a shutdown window" },
     title: "Engine overhaul delivered inside a fixed shutdown window",
     client: "Industrial operation, Mpumalanga",
     clientNamed: false,
@@ -276,6 +280,7 @@ export const projects: Project[] = [
   {
     id: "prj-quarry-mobilisation",
     slug: "quarry-plant-mobilisation",
+    seo: { title: "Plant mobilised into a quarry" },
     title: "Plant mobilised into a working hard-rock quarry",
     client: "Aggregate producer",
     clientNamed: false,
@@ -335,6 +340,7 @@ export const projects: Project[] = [
   {
     id: "prj-fuel-infrastructure",
     slug: "site-fuel-infrastructure-fabrication",
+    seo: { title: "Site fuel storage fabricated" },
     title: "Site fuel storage fabricated and commissioned",
     client: "Contract miner, Mpumalanga",
     clientNamed: false,

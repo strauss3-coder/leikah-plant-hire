@@ -125,6 +125,69 @@ export function organisationSchema(business: BusinessInfo) {
       latitude: address.lat,
       longitude: address.lng,
     },
+    // The mark, as an absolute URL. Google reads `logo` for the knowledge
+    // panel and will not resolve a relative path from JSON-LD.
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl("/brand/icon-512.png"),
+      width: 512,
+      height: 512,
+    },
+    image: [absoluteUrl("/brand/icon-512.png")],
+    /**
+     * Separate reachable lines rather than one number repeated. The breakdown
+     * line is declared as its own contact point with 24/7 hours, which is what
+     * lets Google surface "open now" against an emergency query at 02:00.
+     *
+     * WhatsApp is published as a contact point rather than a `telephone`,
+     * because the second line is calls only and conflating the two would
+     * advertise messaging on a number that does not take it.
+     */
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        telephone: business.phone,
+        areaServed: "ZA",
+        availableLanguage: ["en", "af"],
+      },
+      ...(business.emergencyPhone
+        ? [
+            {
+              "@type": "ContactPoint",
+              contactType: "emergency",
+              telephone: business.emergencyPhone,
+              areaServed: "ZA",
+              availableLanguage: ["en", "af"],
+              hoursAvailable: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "https://schema.org/Monday",
+                  "https://schema.org/Tuesday",
+                  "https://schema.org/Wednesday",
+                  "https://schema.org/Thursday",
+                  "https://schema.org/Friday",
+                  "https://schema.org/Saturday",
+                  "https://schema.org/Sunday",
+                ],
+                opens: "00:00",
+                closes: "23:59",
+              },
+            },
+          ]
+        : []),
+      ...(business.whatsapp
+        ? [
+            {
+              "@type": "ContactPoint",
+              contactType: "sales",
+              telephone: business.whatsapp,
+              areaServed: "ZA",
+              availableLanguage: ["en", "af"],
+            },
+          ]
+        : []),
+    ],
     areaServed: business.serviceAreas.map((name) => ({
       "@type": "City",
       name,

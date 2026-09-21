@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: PageProps<"/news/[slug]">): P
     description: post.excerpt,
     path: `/news/${post.slug}`,
     image: post.image,
+    seo: post.seo,
     type: "article",
   });
 }
@@ -54,8 +55,14 @@ export default async function NewsArticlePage({ params }: PageProps<"/news/[slug
           headline: post.title,
           description: post.excerpt,
           datePublished: post.publishedAt,
-          author: { "@type": "Organization", name: post.author },
+          // Every post is written under the company's name, so author and
+          // publisher are the same entity. Both point at the organisation node
+          // the layout already emits on this page, which carries the name,
+          // logo, address and telephone that an Article rich result wants.
+          // A bare {name} with no url was an incomplete Organization.
+          author: { "@type": "Organization", name: post.author, url: SITE_URL },
           publisher: { "@id": `${SITE_URL}#organisation` },
+          dateModified: post.publishedAt,
           ...(image.src ? { image: absoluteUrl(image.src) } : {}),
           mainEntityOfPage: absoluteUrl(`/news/${post.slug}`),
         }}

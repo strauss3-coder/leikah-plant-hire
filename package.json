@@ -16,7 +16,10 @@
     "qa:audit": "node scripts/qa/audit.mjs",
     "qa:csp": "node scripts/qa/csp.mjs",
     "qa:interact": "node scripts/qa/interact.mjs",
-    "qa:vitals": "node scripts/qa/vitals.mjs"
+    "qa:vitals": "node scripts/qa/vitals.mjs",
+    "seo:audit": "node scripts/seo/audit.mjs",
+    "seo:validate": "node scripts/seo/validate.mjs",
+    "seo:vitals": "node scripts/seo/vitals-desktop.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.5",

@@ -341,6 +341,8 @@ const CATALOGUE = [
 
 const WIDTHS = [640, 1080, 1600, 2200];
 
+const QUALITY_FOR = (w) => (w >= 2200 ? 60 : w >= 1600 ? 64 : w >= 1080 ? 74 : 82);
+
 async function run() {
   if (!existsSync(RAW)) throw new Error(`Raw asset directory not found: ${RAW}`);
   await mkdir(OUT, { recursive: true });
@@ -373,7 +375,17 @@ async function run() {
     for (const w of widths) {
       await sharp(buf)
         .resize({ width: w, withoutEnlargement: true })
-        .webp({ quality: w > 1600 ? 78 : 82, effort: 5 })
+        /**
+         * Quality falls as the rendition grows. A 2200px file is only ever
+         * served to a viewport wide enough to scale it down, so detail that
+         * costs a megabyte there is never seen; at 640 the image is close to
+         * its display size and needs the quality.
+         *
+         * The 12 megapixel pit photography made this worth doing: at a flat
+         * 78 the largest renditions reached 1.27 MB each, and those are the
+         * largest contentful paint on a desktop page header.
+         */
+        .webp({ quality: QUALITY_FOR(w), effort: 6 })
         .toFile(path.join(OUT, `${item.slug}-${w}.webp`));
     }
 

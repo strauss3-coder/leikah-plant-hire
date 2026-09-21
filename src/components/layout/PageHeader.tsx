@@ -84,7 +84,18 @@ export function PageHeader({
           <Media
             media={image}
             alt=""
-            sizes="100vw"
+            /**
+             * Capped at 1600 rather than 100vw.
+             *
+             * The header photograph is a background: cropped to a band, sat
+             * under a 58% wash and a gradient, with the headline over it. At
+             * 100vw a 1920 screen pulled the 2200px rendition, which for the
+             * 12 megapixel pit photography is about a megabyte, and since
+             * this image is `priority` it was the largest contentful paint.
+             * Measured against the real static export that put /about at
+             * 3.9s. The 1600 rendition is indistinguishable behind the scrim.
+             */
+            sizes="(min-width: 1600px) 1600px, 100vw"
             priority
             quality={70}
             className="size-full"

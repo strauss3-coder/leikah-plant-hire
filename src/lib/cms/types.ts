@@ -375,6 +375,9 @@ export interface NewsPost {
   image: MediaRef;
   featured: boolean;
   status: "draft" | "published";
+  /** An editorial headline is written to be read, not to fit a search result.
+   *  This is the short form used in the <title>. */
+  seo?: SeoFields;
 }
 
 export interface CareerPosting {

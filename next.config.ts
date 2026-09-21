@@ -87,8 +87,16 @@ const nextConfig: NextConfig = {
   env: { NEXT_PUBLIC_BASE_PATH: basePath },
 
   images: {
-    // The export target has no Image Optimization API behind it.
-    unoptimized: isStatic,
+    /**
+     * The export target has no Image Optimization API, but it does have the
+     * renditions the media pipeline already wrote. A custom loader points
+     * next/image at them so the export still emits a real srcset; with
+     * `unoptimized` it emitted a bare src and every device downloaded the
+     * largest file. See src/lib/image-loader.ts.
+     */
+    ...(isStatic
+      ? { loader: "custom" as const, loaderFile: "./src/lib/image-loader.ts" }
+      : {}),
     // Source renditions are already WebP; AVIF is offered first because it
     // typically lands 20–30% smaller again on this kind of photography.
     formats: ["image/avif", "image/webp"],

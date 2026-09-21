@@ -244,6 +244,7 @@ export const news: NewsPost[] = [
   {
     id: "news-haul-roads",
     slug: "haul-road-maintenance-cheapest-productivity-gain",
+    seo: { title: "The cheapest productivity gain on site" },
     title: "The haul road is the cheapest productivity gain on most sites",
     excerpt:
       "Rolling resistance is paid on every cycle of every shift. Very few interventions return as much for as little as holding a road to its profile.",
@@ -259,6 +260,7 @@ export const news: NewsPost[] = [
   {
     id: "news-strip-report",
     slug: "what-an-honest-strip-report-contains",
+    seo: { title: "What an honest strip report contains" },
     title: "What an honest strip report should contain — and why you should insist on one",
     excerpt:
       "A rebuild quoted before the unit is stripped is a guess. Here is what the report you approve should actually show you.",
@@ -274,6 +276,7 @@ export const news: NewsPost[] = [
   {
     id: "news-oil-analysis",
     slug: "planning-component-changes-on-oil-analysis",
+    seo: { title: "Planning component changes on evidence" },
     title: "Planning component changes on evidence instead of on failure",
     excerpt:
       "Oil analysis moves component replacement from an emergency into a budget line. The mechanism is simpler than it sounds.",

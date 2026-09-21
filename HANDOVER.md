@@ -214,7 +214,7 @@ Two seeded values are best guesses and are flagged on the dashboard:
 
 - **`foundedYear: 2016`** drives the "Years on the coalfields" counter. One
   field in `/portal/pages/business` corrects the counter everywhere.
-- **`info@` and `quotes@leikahplanthire.co.za`** are brand-consistent addresses
+- **The five mailboxes on `leikahgroup.co.za`** are the agreed addresses
   that may not exist yet. The verified inbox on record is a Gmail address
   carrying the old ISM name, which would contradict the naming instruction, so
   it was not used. Create the mailboxes or change the fields.

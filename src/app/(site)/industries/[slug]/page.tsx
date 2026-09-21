@@ -30,7 +30,10 @@ export async function generateMetadata({
   if (!industry) return {};
 
   return buildMetadata({
-    title: `${industry.name} — Plant Hire & Maintenance`,
+    // The title template already appends "— Leikah Plant Hire", so a middle
+    // segment reading "Plant Hire & Maintenance" said it twice and pushed
+    // every sector title past the point Google truncates.
+    title: industry.name,
     description: industry.summary,
     path: `/industries/${industry.slug}`,
     image: industry.image,

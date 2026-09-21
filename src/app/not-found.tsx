@@ -1,6 +1,24 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { LeikahMark } from "@/components/brand/Logo";
 import { SurveyGrid, GoldBloom } from "@/components/graphics/Atmosphere";
+
+/**
+ * Without this the 404 inherited the root layout's title and description, so
+ * the static export shipped three files (/404, /404/, /_not-found/) carrying
+ * the home page's exact title and its 318-character description. That reads to
+ * a crawler as four pages competing for the same terms.
+ *
+ * `noindex` is the substantive part: a 404 has nothing to rank for, and Google
+ * treats a soft 404 that returns 200 as a quality problem. GitHub Pages serves
+ * 404.html with a real 404 status, and this makes the intent explicit either
+ * way.
+ */
+export const metadata: Metadata = {
+  title: "Page not found",
+  description: "That page is not on this site. Everything the site holds is reachable from the homepage, the services index or the contact page.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

@@ -291,6 +291,10 @@ export const pages: Record<string, PageMeta> = {
     headline: "The pressure is different in every sector. The discipline is not.",
     lead: "Mining, quarrying, civils, industrial and public-sector operations each carry their own constraints. What follows is what those constraints actually are, and which of our services answer them.",
     image: "dozer-lowbed-loadout-pit",
+    seo: {
+      description:
+        "Plant hire and heavy mechanical support for mining, quarrying, construction, industrial and public-sector operations across Mpumalanga.",
+    },
   },
   projects: {
     key: "projects",
@@ -306,6 +310,10 @@ export const pages: Record<string, PageMeta> = {
     eyebrow: "Mechanical division",
     headline: "Keeping a heavy fleet in production, on evidence rather than on failure",
     lead: "Planned maintenance, component rebuilds and condition monitoring from a workshop that also runs its own fleet — so the schedule is written by people who know what downtime costs.",
+    seo: {
+      description:
+        "Planned maintenance, engine and powertrain rebuilds and condition monitoring for heavy fleets, from a Middelburg workshop that runs its own.",
+    },
     image: "engine-flywheel-housing",
   },
   supply: {
