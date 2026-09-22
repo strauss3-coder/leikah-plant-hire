@@ -28,6 +28,10 @@ export interface ActionResult {
   errors?: Record<string, string>;
   /** True when the enquiry was accepted but not persisted. */
   degraded?: boolean;
+  /** Overrides the panel heading. The server build sends nothing and keeps
+   *  the default; the static build says the mail app has opened, because
+   *  nothing has been sent or received at that point. */
+  heading?: string;
 }
 
 /* --- Rate limiting ---------------------------------------------------------

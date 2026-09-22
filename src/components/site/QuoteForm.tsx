@@ -507,7 +507,7 @@ function Success({ result, phone }: { result: ActionResult; phone: string }) {
         <Check className="size-8" strokeWidth={2.5} />
       </span>
 
-      <h2 className="mt-7 text-display-4 text-paper-50">Request received</h2>
+      <h2 className="mt-7 text-display-4 text-paper-50">{result.heading ?? "Request received"}</h2>
 
       {result.reference && (
         <p className="mt-4 font-mono text-sm text-gold-400">

@@ -69,7 +69,7 @@ export function ApplicationForm({
         <span className="chamfer-sm inline-flex size-14 items-center justify-center border border-gold-500/45 text-gold-400">
           <Check className="size-7" strokeWidth={2.5} />
         </span>
-        <h2 className="text-display-4 text-paper-50">Application received</h2>
+        <h2 className="text-display-4 text-paper-50">{result.heading ?? "Application received"}</h2>
         {result.reference && (
           <p className="font-mono text-sm text-gold-400">Reference {result.reference}</p>
         )}
