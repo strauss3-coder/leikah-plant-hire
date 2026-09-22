@@ -17,8 +17,19 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page.title,
     description: page.lead,
     path: "/testimonials",
+    /**
+     * Unlinked and out of the sitemap until there are testimonials to show.
+     * The page still answers, so anyone holding the URL is not sent to a 404,
+     * but nothing promotes it and nothing indexes it. A page inviting buyers
+     * to read client feedback, with no client feedback on it, argues against
+     * the business.
+     *
+     * To bring it back: add entries to the testimonials collection, delete
+     * this `seo` block, and restore the three lines in lib/navigation.ts.
+     */
     image: page.image,
-    seo: page.seo,
+    // Merged rather than replaced, so anything set in the CMS still applies.
+    seo: { ...page.seo, noIndex: true },
   });
 }
 

@@ -36,7 +36,6 @@ export const primaryNav: NavItem[] = [
       { label: "Health & safety", href: "/health-safety", description: "HSEQ standards, procedures and controls" },
       { label: "Gallery", href: "/gallery", description: "Site and workshop photography" },
       { label: "News & insight", href: "/news", description: "Notes from the yard" },
-      { label: "Testimonials", href: "/testimonials", description: "What our clients say" },
       { label: "Careers", href: "/careers", description: "Operators, technicians and fitters" },
       { label: "FAQ", href: "/faq", description: "Straight answers to the usual questions" },
     ],
@@ -70,7 +69,6 @@ export const footerNav: { title: string; links: NavChild[] }[] = [
     title: "Resources",
     links: [
       { label: "Gallery", href: "/gallery" },
-      { label: "Testimonials", href: "/testimonials" },
       { label: "Frequently asked questions", href: "/faq" },
       { label: "Request a quotation", href: "/quote" },
       { label: "Contact", href: "/contact" },
@@ -93,7 +91,6 @@ export const staticRoutes = [
   "/gallery",
   "/careers",
   "/news",
-  "/testimonials",
   "/faq",
   "/contact",
   "/quote",
