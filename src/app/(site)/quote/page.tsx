@@ -109,6 +109,17 @@ export default async function QuotePage() {
                 >
                   Or send it on WhatsApp
                 </a>
+                {/* The quotations mailbox. It was in the business record and on
+                    the CMS form but had no consumer anywhere in the UI, so the
+                    address existed and nobody could ever see it. */}
+                {business.quotesEmail && (
+                  <a
+                    href={`mailto:${business.quotesEmail}?subject=Quotation%20request`}
+                    className="mt-2 block text-center text-xs text-steel-400 underline underline-offset-4 transition-colors hover:text-gold-400"
+                  >
+                    Or email {business.quotesEmail}
+                  </a>
+                )}
               </div>
             </Reveal>
 

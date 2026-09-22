@@ -37,9 +37,13 @@ export const business: BusinessInfo = {
   secondaryPhone: "+27 82 435 7961",
   emergencyPhone: "+27 60 976 3429",
   whatsapp: "+27 60 976 3429",
-  // Filled in once the Microsoft 365 mailboxes exist on leikahgroup.co.za.
-  email: "",
-  quotesEmail: "",
+  /**
+   * Live on Microsoft 365 since 22 September 2026. `info@` and `sales@` are
+   * shared mailboxes, so they are read by whoever is a member rather than by
+   * one named person, which is what makes them safe to publish.
+   */
+  email: "info@leikahgroup.co.za",
+  quotesEmail: "sales@leikahgroup.co.za",
   hours: [
     { day: 1, label: "Monday", opens: 420, closes: 1020 },
     { day: 2, label: "Tuesday", opens: 420, closes: 1020 },
@@ -80,7 +84,7 @@ export const departments: Department[] = [
     id: "dep-dispatch",
     name: "Breakdown Dispatch",
     role: "Emergency call-outs, mobile field service, standby crews",
-    email: "",
+    email: "info@leikahgroup.co.za",
     phone: "+27 60 976 3429",
     hours: "24 hours, 365 days",
     order: 1,
@@ -89,7 +93,7 @@ export const departments: Department[] = [
     id: "dep-hire",
     name: "Plant Hire Desk",
     role: "Machine availability, rates, wet and dry hire, mobilisation",
-    email: "",
+    email: "sales@leikahgroup.co.za",
     phone: "+27 60 976 3429",
     hours: "Mon–Fri 07:00–17:00, Sat 07:00–13:00",
     order: 2,
@@ -98,7 +102,7 @@ export const departments: Department[] = [
     id: "dep-workshop",
     name: "Workshop & Component Rebuild",
     role: "Engine, transmission, final drive and hydraulic overhauls",
-    email: "",
+    email: "info@leikahgroup.co.za",
     phone: "+27 60 976 3429",
     hours: "Mon–Fri 07:00–17:00",
     order: 3,
@@ -107,7 +111,7 @@ export const departments: Department[] = [
     id: "dep-supply",
     name: "Supply & Procurement",
     role: "Parts, filtration, lubricants, hydraulic hose, consumables",
-    email: "",
+    email: "admin@leikahgroup.co.za",
     phone: "+27 60 976 3429",
     hours: "Mon–Fri 07:00–17:00",
     order: 4,
@@ -116,7 +120,7 @@ export const departments: Department[] = [
     id: "dep-accounts",
     name: "Accounts & Vendor Onboarding",
     role: "Purchase orders, invoicing, vendor packs, compliance documents",
-    email: "",
+    email: "accounts@leikahgroup.co.za",
     phone: "+27 60 976 3429",
     hours: "Mon–Fri 08:00–16:00",
     order: 5,
