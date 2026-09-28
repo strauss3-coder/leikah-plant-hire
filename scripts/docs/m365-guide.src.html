@@ -112,26 +112,13 @@ h3.sub{ font-size:13pt; font-weight:700; letter-spacing:-.015em; margin:6.5mm 0 
 .body-copy{ display:flex; flex-direction:column; gap:3.5mm; max-width:64ch }
 .body-copy p{ color:var(--ink-700) }
 
-/* --- App icon tiles ------------------------------------------------------
-   Geometric tiles in each product's own colour rather than redrawn Microsoft
-   marks: consistent at print size, and honest about not being their artwork.
-   The label beside each one does the identifying. */
-.ico{
-  display:grid; place-items:center; flex:none;
-  border-radius:9px; color:#fff;
-  font-family:var(--display); font-weight:800; line-height:1;
-  box-shadow:0 2px 6px rgba(0,0,0,.18);
-}
-.ico.lg{ width:20mm; height:20mm; font-size:22pt; border-radius:12px }
-.ico.sm{ width:11mm; height:11mm; font-size:12pt }
-.ico.xs{ width:8mm; height:8mm; font-size:9pt; border-radius:6px }
-
-.c-outlook{background:#0f6cbd}   .c-onedrive{background:#0364b8}
-.c-word{background:#2b7cd3}      .c-excel{background:#107c41}
-.c-ppt{background:#c43e1c}       .c-teams{background:#5059c9}
-.c-sharepoint{background:#038387} .c-onenote{background:#7719aa}
-.c-bookings{background:#00807c}  .c-copilot{background:linear-gradient(135deg,#2b7cd3,#7719aa 55%,#c43e1c)}
-.c-viva{background:#1e63a8}      .c-admin{background:#3b4657}
+/* --- App icons -----------------------------------------------------------
+   Microsoft's own marks, drawn as SVG in the sprite at the top of the body
+   and pulled in here with <use>. They carry their own colour and silhouette,
+   so the element holds no background, radius or shadow of its own. */
+.ico{ display:block; flex:none }
+.ico.lg{ width:17mm; height:17mm }
+.ico.sm{ width:11mm; height:11mm }
 
 /* --- App page header ----------------------------------------------------- */
 .app-head{ display:flex; align-items:center; gap:7mm; margin-bottom:6mm }
@@ -205,6 +192,108 @@ ol.steps strong{ color:var(--ink-900) }
 </style>
 
 <div class="deck">
+
+<!-- Microsoft product icons, drawn inline.
+     Authored once here as a sprite and pulled in with <use>, so the launcher
+     grid and the section headers share one definition of each mark. Inline
+     SVG rather than downloaded artwork because this document is printed: it
+     stays sharp at any size, makes no network request, and survives being
+     saved to a PDF. The trademark notice on the back page covers their use. -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <linearGradient id="g-copilot" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#2AA0EE"/><stop offset=".38" stop-color="#7A5BE0"/>
+      <stop offset=".72" stop-color="#E0508C"/><stop offset="1" stop-color="#F5A623"/>
+    </linearGradient>
+
+    <!-- Word, Excel, PowerPoint and OneNote share one silhouette in the real
+         icon set: a page with a folded corner, and a darker tile across its
+         lower left carrying the letter. Same geometry, four palettes. -->
+    <symbol id="i-word" viewBox="0 0 32 32">
+      <path d="M9 3h11l9 9v15a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="#41A5EE"/>
+      <path d="M20 3l9 9h-7a2 2 0 0 1-2-2z" fill="#2B7CD3"/>
+      <rect x="2" y="10" width="16" height="16" rx="2" fill="#185ABD"/>
+      <text x="10" y="22.4" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">W</text>
+    </symbol>
+    <symbol id="i-excel" viewBox="0 0 32 32">
+      <path d="M9 3h11l9 9v15a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="#33C481"/>
+      <path d="M20 3l9 9h-7a2 2 0 0 1-2-2z" fill="#21A366"/>
+      <rect x="2" y="10" width="16" height="16" rx="2" fill="#107C41"/>
+      <text x="10" y="22.4" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">X</text>
+    </symbol>
+    <symbol id="i-ppt" viewBox="0 0 32 32">
+      <path d="M9 3h11l9 9v15a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="#FF8F6B"/>
+      <path d="M20 3l9 9h-7a2 2 0 0 1-2-2z" fill="#ED6C47"/>
+      <rect x="2" y="10" width="16" height="16" rx="2" fill="#C43E1C"/>
+      <text x="10" y="22.4" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">P</text>
+    </symbol>
+    <symbol id="i-onenote" viewBox="0 0 32 32">
+      <path d="M9 3h11l9 9v15a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="#CA64EA"/>
+      <path d="M20 3l9 9h-7a2 2 0 0 1-2-2z" fill="#A33EA1"/>
+      <rect x="2" y="10" width="16" height="16" rx="2" fill="#7719AA"/>
+      <text x="10" y="22.4" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">N</text>
+    </symbol>
+
+    <!-- Outlook: the envelope, with the O mark over its left edge. -->
+    <symbol id="i-outlook" viewBox="0 0 32 32">
+      <path d="M13 8h16.5a1.5 1.5 0 0 1 1.5 1.5v13a1.5 1.5 0 0 1-1.5 1.5H13z" fill="#0F6CBD"/>
+      <path d="M13 8h18v2.1l-9 6.6-9-6.6z" fill="#1490DF"/>
+      <rect x="1" y="5" width="18.5" height="22" rx="2.2" fill="#0364B8"/>
+      <ellipse cx="10.2" cy="16" rx="4.9" ry="5.9" fill="none" stroke="#fff" stroke-width="2.7"/>
+    </symbol>
+
+    <!-- OneDrive: the two-tone cloud. -->
+    <symbol id="i-onedrive" viewBox="0 0 32 32">
+      <path d="M8.6 24.5a5.3 5.3 0 0 1-.7-10.5 7.7 7.7 0 0 1 14.4-2.3A5.7 5.7 0 0 1 30 17.2a5.6 5.6 0 0 1-5.5 7.3z" fill="#0364B8"/>
+      <path d="M11.6 24.5a5.3 5.3 0 0 1 1.9-9.8 7.2 7.2 0 0 1 12.8 1.8 4.7 4.7 0 0 1-1.4 8z" fill="#28A8EA"/>
+    </symbol>
+
+    <!-- Teams: the tile, with the two figures alongside it. -->
+    <symbol id="i-teams" viewBox="0 0 32 32">
+      <circle cx="25.6" cy="8.2" r="3.3" fill="#7B83EB"/>
+      <circle cx="18.6" cy="7" r="4.3" fill="#5059C9"/>
+      <path d="M22.5 13.5h6.6a1.6 1.6 0 0 1 1.6 1.6v5.6a5.3 5.3 0 0 1-10.6 0v-5.6a1.6 1.6 0 0 1 1.6-1.6z" fill="#7B83EB"/>
+      <path d="M13.5 13.5h7v8.3a5 5 0 0 1-7 4.6z" fill="#5059C9"/>
+      <rect x="1.5" y="7.5" width="17" height="17" rx="2.2" fill="#4B53BC"/>
+      <text x="10" y="20.4" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">T</text>
+    </symbol>
+
+    <!-- SharePoint: the three overlapping circles. -->
+    <symbol id="i-sharepoint" viewBox="0 0 32 32">
+      <circle cx="17.5" cy="9.5" r="7.5" fill="#036C70"/>
+      <circle cx="24" cy="17.5" r="6.4" fill="#1A9BA1"/>
+      <circle cx="17" cy="24" r="5.4" fill="#37C6D0"/>
+      <rect x="1.5" y="10" width="16" height="16" rx="2" fill="#03787C"/>
+      <text x="9.5" y="22.4" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">S</text>
+    </symbol>
+
+    <!-- Bookings: the two-tone panel. -->
+    <symbol id="i-bookings" viewBox="0 0 32 32">
+      <rect x="12" y="5.5" width="18" height="21" rx="2.2" fill="#2AA0A4"/>
+      <rect x="2" y="5.5" width="17" height="21" rx="2.2" fill="#036C70"/>
+      <text x="10.5" y="20.6" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">B</text>
+    </symbol>
+
+    <!-- Viva: the figure under its arc. -->
+    <symbol id="i-viva" viewBox="0 0 32 32">
+      <path d="M4 9c0 8.5 5.4 15 12 15S28 17.5 28 9c-2.6 3.4-6.8 5.6-12 5.6S6.6 12.4 4 9z" fill="#2E8BC9"/>
+      <circle cx="16" cy="7.5" r="4.6" fill="#1E63A8"/>
+    </symbol>
+
+    <!-- Copilot: the four-point mark. -->
+    <symbol id="i-copilot" viewBox="0 0 32 32">
+      <path d="M16 2c0 7.7 6.3 14 14 14-7.7 0-14 6.3-14 14 0-7.7-6.3-14-14-14 7.7 0 14-6.3 14-14z" fill="url(#g-copilot)"/>
+    </symbol>
+
+    <!-- More apps. -->
+    <symbol id="i-more" viewBox="0 0 32 32">
+      <rect x="3.5" y="3.5" width="11" height="11" rx="2.4" fill="#5b6472"/>
+      <rect x="17.5" y="3.5" width="11" height="11" rx="2.4" fill="#7c8593"/>
+      <rect x="3.5" y="17.5" width="11" height="11" rx="2.4" fill="#7c8593"/>
+      <rect x="17.5" y="17.5" width="11" height="11" rx="2.4" fill="#5b6472"/>
+    </symbol>
+  </defs>
+</svg>
 
 <!-- ======================= 01 COVER ======================= -->
 <section class="page dark" style="padding:0; display:flex; flex-direction:column">
@@ -374,18 +463,18 @@ ol.steps strong{ color:var(--ink-900) }
     </div>
 
     <div style="padding:6mm 5mm; display:grid; grid-template-columns:repeat(5,1fr); gap:5mm 3mm">
-      <div class="tile"><div class="ico sm c-copilot">C</div><span>Copilot</span></div>
-      <div class="tile"><div class="ico sm c-outlook">O</div><span>Outlook</span></div>
-      <div class="tile"><div class="ico sm c-onedrive">&#9729;</div><span>OneDrive</span></div>
-      <div class="tile"><div class="ico sm c-word">W</div><span>Word</span></div>
-      <div class="tile"><div class="ico sm c-excel">X</div><span>Excel</span></div>
-      <div class="tile"><div class="ico sm c-ppt">P</div><span>PowerPoint</span></div>
-      <div class="tile"><div class="ico sm c-onenote">N</div><span>OneNote</span></div>
-      <div class="tile"><div class="ico sm c-sharepoint">S</div><span>SharePoint</span></div>
-      <div class="tile"><div class="ico sm c-teams">T</div><span>Teams</span></div>
-      <div class="tile"><div class="ico sm c-viva">V</div><span>Viva</span></div>
-      <div class="tile"><div class="ico sm c-bookings">B</div><span>Bookings</span></div>
-      <div class="tile"><div class="ico sm c-admin">&#9776;</div><span>More apps</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-copilot"/></svg><span>Copilot</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-outlook"/></svg><span>Outlook</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-onedrive"/></svg><span>OneDrive</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-word"/></svg><span>Word</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-excel"/></svg><span>Excel</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-ppt"/></svg><span>PowerPoint</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-onenote"/></svg><span>OneNote</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-sharepoint"/></svg><span>SharePoint</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-teams"/></svg><span>Teams</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-viva"/></svg><span>Viva</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-bookings"/></svg><span>Bookings</span></div>
+      <div class="tile"><svg class="ico sm" viewBox="0 0 32 32"><use href="#i-more"/></svg><span>More apps</span></div>
     </div>
   </div>
   <style>
@@ -414,7 +503,7 @@ ol.steps strong{ color:var(--ink-900) }
 <section class="page">
   <div class="runner"><span>Email</span><span class="n">05</span></div>
   <div class="app-head">
-    <div class="ico lg c-outlook">O</div>
+    <svg class="ico lg" viewBox="0 0 32 32"><use href="#i-outlook"/></svg>
     <div>
       <h2>Outlook</h2>
       <div class="role">Business email, calendar and contacts</div>
@@ -509,7 +598,7 @@ ol.steps strong{ color:var(--ink-900) }
   <div class="runner"><span>Email</span><span class="n">07</span></div>
   <div class="eyebrow">Access</div>
   <h2 class="title">Who can see what</h2>
-  <p class="lede">Access was set deliberately, not by default. Financial mail is separated from general enquiry mail so that front desk staff can be helpful without seeing your figures.</p>
+  <p class="lede">Access was set deliberately, not by default. Each person sees the mailboxes their work needs and nothing beyond them, which cuts both ways: front desk staff can be helpful without seeing your figures, and the finance desk is not distracted by general enquiries.</p>
 
   <div class="tbl-wrap">
     <table>
@@ -519,10 +608,16 @@ ol.steps strong{ color:var(--ink-900) }
       <tr><td>Director</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
       <tr><td>Management</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
       <tr><td>Reception</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">No</td></tr>
+      <tr><td>Finance</td><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
     </table>
   </div>
 
-  <div class="cols" style="margin-top:8mm">
+  <div class="callout" style="margin-top:4mm">
+    <span class="tag">Note</span>
+    <p>Reception and finance are deliberate opposites. Reception handles everything except money; finance handles money and nothing else. Between them every message reaches somebody, and no single junior account can see the whole business.</p>
+  </div>
+
+  <div class="cols" style="margin-top:6mm">
     <div class="block">
       <h4>What reception can do</h4>
       <ul>
@@ -559,7 +654,7 @@ ol.steps strong{ color:var(--ink-900) }
 <section class="page">
   <div class="runner"><span>Your applications</span><span class="n">08</span></div>
   <div class="app-head">
-    <div class="ico lg c-onedrive">&#9729;</div>
+    <svg class="ico lg" viewBox="0 0 32 32"><use href="#i-onedrive"/></svg>
     <div>
       <h2>OneDrive</h2>
       <div class="role">Cloud storage and backup</div>
@@ -609,7 +704,7 @@ ol.steps strong{ color:var(--ink-900) }
 <section class="page">
   <div class="runner"><span>Your applications</span><span class="n">09</span></div>
   <div class="app-head">
-    <div class="ico lg c-word">W</div>
+    <svg class="ico lg" viewBox="0 0 32 32"><use href="#i-word"/></svg>
     <div>
       <h2>Word</h2>
       <div class="role">Documents and written correspondence</div>
@@ -655,7 +750,7 @@ ol.steps strong{ color:var(--ink-900) }
 <section class="page">
   <div class="runner"><span>Your applications</span><span class="n">10</span></div>
   <div class="app-head">
-    <div class="ico lg c-excel">X</div>
+    <svg class="ico lg" viewBox="0 0 32 32"><use href="#i-excel"/></svg>
     <div>
       <h2>Excel</h2>
       <div class="role">Numbers, schedules and tracking</div>
@@ -700,7 +795,7 @@ ol.steps strong{ color:var(--ink-900) }
 <section class="page">
   <div class="runner"><span>Your applications</span><span class="n">11</span></div>
   <div class="app-head">
-    <div class="ico lg c-ppt">P</div>
+    <svg class="ico lg" viewBox="0 0 32 32"><use href="#i-ppt"/></svg>
     <div>
       <h2>PowerPoint</h2>
       <div class="role">Presentations and proposals</div>
@@ -745,7 +840,7 @@ ol.steps strong{ color:var(--ink-900) }
 <section class="page">
   <div class="runner"><span>Your applications</span><span class="n">12</span></div>
   <div class="app-head">
-    <div class="ico lg c-teams">T</div>
+    <svg class="ico lg" viewBox="0 0 32 32"><use href="#i-teams"/></svg>
     <div>
       <h2>Teams</h2>
       <div class="role">Internal chat and video meetings</div>
@@ -790,7 +885,7 @@ ol.steps strong{ color:var(--ink-900) }
 <section class="page">
   <div class="runner"><span>Your applications</span><span class="n">13</span></div>
   <div class="app-head">
-    <div class="ico lg c-sharepoint">S</div>
+    <svg class="ico lg" viewBox="0 0 32 32"><use href="#i-sharepoint"/></svg>
     <div>
       <h2>SharePoint</h2>
       <div class="role">Company document library</div>
@@ -841,7 +936,7 @@ ol.steps strong{ color:var(--ink-900) }
   <div class="runner"><span>Your applications</span><span class="n">14</span></div>
 
   <div class="app-head">
-    <div class="ico lg c-onenote">N</div>
+    <svg class="ico lg" viewBox="0 0 32 32"><use href="#i-onenote"/></svg>
     <div>
       <h2>OneNote</h2>
       <div class="role">Notes that do not get lost</div>
@@ -873,7 +968,7 @@ ol.steps strong{ color:var(--ink-900) }
   <div style="height:1px; background:var(--paper-300); margin:9mm 0"></div>
 
   <div class="app-head">
-    <div class="ico lg c-bookings">B</div>
+    <svg class="ico lg" viewBox="0 0 32 32"><use href="#i-bookings"/></svg>
     <div>
       <h2>Bookings</h2>
       <div class="role">Appointment scheduling</div>
@@ -906,7 +1001,7 @@ ol.steps strong{ color:var(--ink-900) }
 <section class="page">
   <div class="runner"><span>Your applications</span><span class="n">15</span></div>
   <div class="app-head">
-    <div class="ico lg c-copilot">C</div>
+    <svg class="ico lg" viewBox="0 0 32 32"><use href="#i-copilot"/></svg>
     <div>
       <h2>Copilot</h2>
       <div class="role">Microsoft's AI assistant</div>
