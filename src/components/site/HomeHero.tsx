@@ -10,6 +10,7 @@ import { SurveyGrid, DustField, GoldBloom } from "@/components/graphics/Atmosphe
 import { assetPath } from "@/lib/cms/media";
 import type { HeroContent, HeroFrame } from "@/lib/cms/types";
 import { getMedia } from "@/lib/cms/media";
+import { PanelHero } from "./PanelHero";
 
 /* ============================================================================
    HOME HERO
@@ -91,7 +92,12 @@ function resolveFrames(hero: HeroContent, reduced: boolean): HeroFrame[] {
   return playable.length ? playable : stills;
 }
 
+/** Composed photographs when the content provides them, otherwise frames. */
 export function HomeHero({ hero }: { hero: HeroContent }) {
+  return hero.panels?.length ? <PanelHero hero={hero} /> : <FrameHero hero={hero} />;
+}
+
+function FrameHero({ hero }: { hero: HeroContent }) {
   const reduced = useReducedMotion();
   const portrait = useMediaQuery(PORTRAIT_QUERY);
   /* Separate from `reduced` above: that one only tunes animation values, which
@@ -127,8 +133,14 @@ export function HomeHero({ hero }: { hero: HeroContent }) {
             }}
           >
             {frames[index].kind === "image" ? (
+              /* A portrait viewport gets the portrait cut, the same way a
+                 clip does. Covering a phone screen with the 16:9 crop leaves
+                 a narrow band through its middle and throws away both the
+                 boom and the bucket, which are the photograph. */
               <Media
-                media={frames[index].media}
+                media={
+                  (portrait && frames[index].mediaNarrow) || frames[index].media
+                }
                 alt=""
                 priority={index === 0}
                 sizes="100vw"

@@ -61,28 +61,25 @@ export const home: HomeContent = {
       name: "ISM Supply and Maintenance",
       logo: "/brand/partner-ism.png",
     },
-    /* Shown instead of the clip when the visitor has asked for reduced
-       motion. The same face, the same machine, the same worker in red, so
-       the hero still reads as one scene rather than a substitute. */
-    media: ["coal-seam-exposed"],
-    /* One clip, looping: two of the crew standing at the foot of the cut with
-       the excavator alongside them. The people are the point. They are the
-       only thing in the library that gives the highwall a scale, and scale is
-       what the rest of the photography cannot show.
-
-       Two cuts of the same six seconds. The landscape one is a 16:9 band taken
-       low in the 4K frame so the crew keep headroom and the coal stays in the
-       corner; phones get the untouched portrait framing instead. */
-    frames: [
-      {
-        kind: "video",
-        src: "/media/video/hero-crew-at-face.mp4",
-        poster: "/media/video/hero-crew-at-face-poster.webp",
-        srcNarrow: "/media/video/hero-crew-at-face-portrait.mp4",
-        posterNarrow: "/media/video/hero-crew-at-face-portrait-poster.webp",
-        alt: "Two of the crew standing at the foot of a coal cut beside a working excavator",
-      },
+    /**
+     * The seam, the cut and the machine: what comes out of the ground, where
+     * it comes out, and what gets it out.
+     *
+     * The hero used to be a loop of two of the crew at the foot of the cut.
+     * It was pulled because neither man wears a hard hat or hi-vis, and PPE
+     * is one of the first things a colliery audits a vendor on. Nobody stands
+     * in any of these three frames; the hands holding the coal are the only
+     * person in the hero.
+     */
+    panels: [
+      { media: "coal-slab-in-hand", label: "The seam", focus: "50% 62%" },
+      { media: "coal-bench-excavator-working", label: "The cut", focus: "62% 58%" },
+      { media: "liebherr-excavator-low-angle", label: "The machine", focus: "40% 46%" },
     ],
+    /* Fallback if `panels` is ever emptied. Not `coal-seam-exposed`: the man
+       in red in that photograph is beside the bucket with no hard hat and no
+       hi-vis. */
+    media: ["coal-slab-in-hand"],
   },
   trustLine: "Working across the Mpumalanga coalfields, quarries and industrial corridor",
   brandStatement:

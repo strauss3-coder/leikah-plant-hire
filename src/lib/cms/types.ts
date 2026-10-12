@@ -442,7 +442,19 @@ export interface HeroPartner {
  * because the hero is full bleed.
  */
 export type HeroFrame =
-  | { kind: "image"; media: MediaRef }
+  | {
+      kind: "image";
+      media: MediaRef;
+      /**
+       * Portrait cut, used where the viewport is taller than it is wide.
+       * The video frame has always carried one; the image frame did not,
+       * which was fine while the hero was footage. A 16:9 still covering a
+       * phone screen is reduced to a narrow horizontal strip through its
+       * middle, so a hero photograph needs the same treatment a hero clip
+       * already gets.
+       */
+      mediaNarrow?: MediaRef;
+    }
   | {
       kind: "video";
       src: string;
@@ -466,6 +478,20 @@ export interface HeroContent {
   media: MediaRef[];
   /** Mixed stills and footage, in the order they play. Wins over `media`. */
   frames?: HeroFrame[];
+  /**
+   * Photographs composed side by side instead of played in turn. The first
+   * is the lead: the large panel on a desktop and the full-bleed backdrop on
+   * a phone. Wins over `frames`.
+   */
+  panels?: HeroPanel[];
+}
+
+export interface HeroPanel {
+  media: MediaRef;
+  /** A word or two, set in mono beside the panel's number. */
+  label: string;
+  /** CSS object-position, for keeping the subject inside a tall crop. */
+  focus?: string;
 }
 
 export interface WalkStageContent {
