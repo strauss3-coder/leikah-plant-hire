@@ -479,19 +479,51 @@ export interface HeroContent {
   /** Mixed stills and footage, in the order they play. Wins over `media`. */
   frames?: HeroFrame[];
   /**
-   * Photographs composed side by side instead of played in turn. The first
-   * is the lead: the large panel on a desktop and the full-bleed backdrop on
-   * a phone. Wins over `frames`.
+   * The cinematic hero: one loop of the pit behind a large headline, then
+   * cards and figures under it. Wins over `frames`.
    */
-  panels?: HeroPanel[];
+  cinematic?: CinematicHeroContent;
 }
 
-export interface HeroPanel {
+export interface CinematicHeroContent {
+  /** Each entry is set on its own line; the last is picked out in gold. */
+  headline: string[];
+  /** One sentence. */
+  subtitle: string;
+  video: {
+    src: string;
+    poster: string;
+    /** Portrait cut for viewports taller than they are wide. */
+    srcNarrow: string;
+    posterNarrow: string;
+  };
+  actions: { label: string; href: string; variant: "primary" | "secondary" | "ghost"; icon?: "phone" }[];
+  /** The breakdown line, shown as a live readout in the corner. */
+  hotline: { label: string; display: string; href: string };
+  cardsEyebrow: string;
+  cardsHeadline: string[];
+  cards: HeroCard[];
+  figures: HeroFigure[];
+}
+
+export interface HeroCard {
+  title: string;
+  body: string;
   media: MediaRef;
-  /** A word or two, set in mono beside the panel's number. */
+  /** Key into the equipment icon family. */
+  icon: string;
+  href: string;
+  figure: HeroFigure;
+  /** A short secondary line beside the figure, such as availability. */
+  note?: string;
+}
+
+/** A counted number, or a word where the fact is not a number. */
+export interface HeroFigure {
+  value?: number;
+  suffix?: string;
+  text?: string;
   label: string;
-  /** CSS object-position, for keeping the subject inside a tall crop. */
-  focus?: string;
 }
 
 export interface WalkStageContent {

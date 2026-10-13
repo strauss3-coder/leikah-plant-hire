@@ -23,12 +23,9 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 export function BrandReveal({
   descriptor = "PLANT HIRE",
   className,
-  delay = 0,
 }: {
   descriptor?: string;
   className?: string;
-  /** Seconds to hold the whole sequence, for a hero whose photographs lead. */
-  delay?: number;
 }) {
   const reduced = useReducedMotion();
 
@@ -38,7 +35,7 @@ export function BrandReveal({
       <motion.div
         initial={reduced ? { opacity: 0 } : { opacity: 0, y: 18, scale: 0.94 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: reduced ? 0.3 : 1.1, delay: reduced ? 0 : delay, ease: EASE }}
+        transition={{ duration: reduced ? 0.3 : 1.1, ease: EASE }}
       >
         <LeikahMark className="h-16 w-16 sm:h-20 sm:w-20 lg:h-[5.5rem] lg:w-[5.5rem]" />
       </motion.div>
@@ -63,7 +60,7 @@ export function BrandReveal({
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: reduced ? 0.3 : 0.9,
-                delay: reduced ? 0 : delay + 0.34 + i * 0.055,
+                delay: reduced ? 0 : 0.34 + i * 0.055,
                 ease: EASE,
               }}
             />
@@ -75,7 +72,7 @@ export function BrandReveal({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: reduced ? 0.3 : 0.9, delay: reduced ? 0 : delay + 0.78 }}
+        transition={{ duration: reduced ? 0.3 : 0.9, delay: reduced ? 0 : 0.78 }}
         className="mt-5 flex items-center gap-4 sm:mt-6 sm:gap-5"
       >
         <span className="h-px w-8 bg-gold-500/60 sm:w-12" />

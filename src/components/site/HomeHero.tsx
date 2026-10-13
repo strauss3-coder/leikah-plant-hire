@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowDown } from "lucide-react";
@@ -10,7 +10,8 @@ import { SurveyGrid, DustField, GoldBloom } from "@/components/graphics/Atmosphe
 import { assetPath } from "@/lib/cms/media";
 import type { HeroContent, HeroFrame } from "@/lib/cms/types";
 import { getMedia } from "@/lib/cms/media";
-import { PanelHero } from "./PanelHero";
+import { CinematicHero } from "./CinematicHero";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 
 /* ============================================================================
    HOME HERO
@@ -49,28 +50,6 @@ const PORTRAIT_QUERY = "(max-aspect-ratio: 1/1)";
 const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
 
 /**
- * A media query read that survives hydration.
- *
- * `useSyncExternalStore` uses the server snapshot for the first client render
- * as well as for the server one, so the two always agree and React re-renders
- * with the real value immediately afterwards. Reading the query in an effect,
- * or through a hook that returns the live value on the first client render,
- * makes the markup disagree with the server and throws a hydration error the
- * moment the query decides which element to render at all.
- */
-function useMediaQuery(query: string) {
-  return useSyncExternalStore(
-    (onChange) => {
-      const mq = window.matchMedia(query);
-      mq.addEventListener("change", onChange);
-      return () => mq.removeEventListener("change", onChange);
-    },
-    () => window.matchMedia(query).matches,
-    () => false,
-  );
-}
-
-/**
  * Resolves the frames to play.
  *
  * Reduced motion drops the footage rather than freezing it on a poster: a
@@ -92,9 +71,10 @@ function resolveFrames(hero: HeroContent, reduced: boolean): HeroFrame[] {
   return playable.length ? playable : stills;
 }
 
-/** Composed photographs when the content provides them, otherwise frames. */
+/** The cinematic hero when the content provides it, otherwise frames. */
 export function HomeHero({ hero }: { hero: HeroContent }) {
-  return hero.panels?.length ? <PanelHero hero={hero} /> : <FrameHero hero={hero} />;
+  if (hero.cinematic) return <CinematicHero hero={hero} content={hero.cinematic} />;
+  return <FrameHero hero={hero} />;
 }
 
 function FrameHero({ hero }: { hero: HeroContent }) {

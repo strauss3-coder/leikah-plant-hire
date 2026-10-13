@@ -1,5 +1,6 @@
 import type { HomeContent, AboutContent, PageMeta, Stat } from "@/lib/cms/types";
 import { business } from "./business";
+import { services } from "./services";
 
 /* ============================================================================
    PAGE CONTENT
@@ -8,6 +9,9 @@ import { business } from "./business";
    Counter values are either structural (they count something in this file) or
    derived from a single business field, so nothing drifts out of step.
    ========================================================================= */
+
+const servicesIn = (division: string) => services.filter((s) => s.division === division).length;
+const tel = (phone: string) => `tel:${phone.replace(/\s+/g, "")}`;
 
 const yearsOperating = new Date().getFullYear() - business.foundedYear;
 
@@ -62,21 +66,75 @@ export const home: HomeContent = {
       logo: "/brand/partner-ism.png",
     },
     /**
-     * The seam, the cut and the machine: what comes out of the ground, where
-     * it comes out, and what gets it out.
+     * The cinematic hero. The loop is a CAT digging the coal bench, with the
+     * machine on the right so the type has the left. Cut from the 4K original
+     * (IMG_0804) and crossfaded at the seam so it never visibly restarts.
+     * Nobody stands in the pit; the operator is inside a closed cab.
      *
-     * The hero used to be a loop of two of the crew at the foot of the cut.
-     * It was pulled because neither man wears a hard hat or hi-vis, and PPE
-     * is one of the first things a colliery audits a vendor on. Nobody stands
-     * in any of these three frames; the hands holding the coal are the only
-     * person in the hero.
+     * The hero was once a loop of two of the crew at the foot of the cut. It
+     * was pulled because neither man wears a hard hat or hi-vis, and PPE is
+     * one of the first things a colliery audits a vendor on.
+     *
+     * Every figure is counted from this repository or the business record,
+     * never typed in, so the hero cannot claim more than the site does. No
+     * project count and no safety percentage: neither is on record.
      */
-    panels: [
-      { media: "coal-slab-in-hand", label: "The seam", focus: "50% 62%" },
-      { media: "coal-bench-excavator-working", label: "The cut", focus: "62% 58%" },
-      { media: "liebherr-excavator-low-angle", label: "The machine", focus: "40% 46%" },
-    ],
-    /* Fallback if `panels` is ever emptied. Not `coal-seam-exposed`: the man
+    cinematic: {
+      headline: ["Where mining", "never stops."],
+      subtitle: "Heavy plant, earthmoving and mechanical support across the Mpumalanga coalfields.",
+      video: {
+        src: "/media/video/hero-pit-digging.mp4",
+        poster: "/media/video/hero-pit-digging-poster.webp",
+        srcNarrow: "/media/video/hero-pit-digging-portrait.mp4",
+        posterNarrow: "/media/video/hero-pit-digging-portrait-poster.webp",
+      },
+      actions: [
+        { label: "Request a quote", href: "/quote", variant: "primary" },
+        { label: "Our fleet", href: "/fleet", variant: "secondary" },
+        { label: "Call now", href: tel(business.phone), variant: "ghost", icon: "phone" },
+      ],
+      hotline: {
+        label: "Breakdown line, answered 24/7",
+        display: business.emergencyPhone,
+        href: tel(business.emergencyPhone),
+      },
+      cardsEyebrow: "What we do",
+      cardsHeadline: ["Built for the pit.", "Backed by the workshop."],
+      cards: [
+        {
+          title: "Earthmoving",
+          body: "Bulk excavation, overburden stripping, haul roads and materials handling, worked to the mine plan.",
+          media: "excavator-adt-loading-coal",
+          icon: "excavator",
+          href: "/services/bulk-earthworks",
+          figure: { value: servicesIn("earthmoving"), label: "Earthmoving services" },
+        },
+        {
+          title: "Mechanical support",
+          body: "Engine, powertrain and hydraulic rebuilds in the workshop, and line boring done in the field.",
+          media: "final-drive-rebuild-complete",
+          icon: "engine",
+          href: "/services/engine-overhauls",
+          figure: { value: servicesIn("mechanical"), label: "Mechanical services" },
+        },
+        {
+          title: "Plant hire",
+          body: "Excavators, dozers and haulers for the pit, on wet or dry hire.",
+          media: "liebherr-excavator-low-angle",
+          icon: "dozer",
+          href: "/services/plant-hire",
+          figure: { value: 24, suffix: "/7", label: "Dispatch" },
+          note: "Wet or dry hire",
+        },
+      ],
+      figures: [
+        { value: 24, suffix: "/7", label: "Breakdown dispatch" },
+        { value: services.length, label: "Services under one roof" },
+        { value: business.serviceAreas.length, label: "Towns covered" },
+        { text: "Coalfields", label: "Specialists, Middelburg based" },
+      ],
+    },
+    /* Shown if `cinematic` is ever removed. Not `coal-seam-exposed`: the man
        in red in that photograph is beside the bucket with no hard hat and no
        hi-vis. */
     media: ["coal-slab-in-hand"],
